@@ -1,0 +1,68 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'maven'
+
+sourceCompatibility = 1.6
+
+archivesBaseName='mozu-api'
+version = '1.0-SNAPSHOT'
+group='com.mozu.api'
+
+jar {
+    manifest {
+        attributes 'Implementation-Title': 'Mozu Java API', 'Implementation-Version': version
+    }
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '1.8'
+}
+
+repositories {
+    maven {
+          url "http://aus02ndweb002.dev.volusion.com:8182/nexus-2.6.4/content/groups/public"
+    }
+}
+
+dependencies {
+	ext {
+		jacksonVersion='2.2.3'
+	}
+	compile "org.apache.httpcomponents:fluent-hc:4.2.5"
+	compile "com.fasterxml.jackson.core:jackson-databind:$jacksonVersion" 
+	compile ("jcs:jcs:1.3") {
+		exclude group: 'mysql'
+	}
+	compile "joda-time:joda-time:2.3"
+	
+    testCompile group: 'junit', name: 'junit', version: '4.+'
+}
+
+test {
+    systemProperties 'property': 'value'
+}
+
+task sourcesJar(type: Jar) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+task javadocJar(type: Jar) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+
+artifacts {
+    archives sourcesJar
+    archives javadocJar
+}
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: "http://aus02ndweb002.dev.volusion.com:8182/nexus-2.6.4/content/repositories/snapshots") {
+                authentication(userName: "deployment", password: "deployment123")
+             }
+       }
+    }
+}
