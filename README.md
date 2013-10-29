@@ -1,7 +1,7 @@
 
 java-mozu-api
 =============
-<b>Usage</b><br/>
+<b>How to use the Mozu Java SDK</b><br/>
 
 1. Authenticating an application<br/>
 	- com.mozu.api.security.Authentication.initialize(<ApplicationID>,<SharedSecret>,<Mozu Reverse Proxy Url>);
