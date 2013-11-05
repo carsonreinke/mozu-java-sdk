@@ -19,6 +19,7 @@ import com.mozu.api.security.Authentication;
 import com.mozu.api.utils.ConfigProperties;
 
 public class ApiTest {
+    static public int TEST_TENANT_ID = 63;
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -39,7 +40,7 @@ public class ApiTest {
 
 	@Test
 	public void testBadLoginApi() throws Exception {
-		String url = "http://mozu-si.com";
+		String url = "http://sandbox.mozu.com";
 		String appId = "NON_EXISTANT";
 		String sharedSecret = "BAD_SHARED_SECRET";
 		
@@ -57,9 +58,9 @@ public class ApiTest {
 
 	@Test
 	public void testLoginApi() throws Exception {
-		String url = "http://mozu-si.com";
-		String appId = "ffe0ea180c8a45fa8d3da231009187d5";
-		String sharedSecret = "5d0023246ec842d391d8a231009187d5";
+		String url = "http://sandbox.mozu.com";
+		String appId = "0d7f8d3481ff45628e97a26900c6786a";
+		String sharedSecret = "2523eebcc72a4b45a87ba26900c6786a";
 
 		String proxyHost = ConfigProperties.getStringProperty(ConfigProperties.PROXY_HOST);
 		HttpHost httpHost = null;
@@ -73,7 +74,7 @@ public class ApiTest {
 		ApiContext context = new ApiContext(url);
 
 		TenantResource tenantsApi = new TenantResource(context);
-		Tenant tenant = tenantsApi.getTenant(5812);
+		Tenant tenant = tenantsApi.getTenant(TEST_TENANT_ID);
 		assertNotNull(tenant);
 
 	}
@@ -85,7 +86,7 @@ public class ApiTest {
 		ApiContext context = new ApiContext(ConfigProperties.getStringProperty(ConfigProperties.MOZU_BASE_URL));
 
 		TenantResource tenantsApi = new TenantResource(context);
-		Tenant tenant = tenantsApi.getTenant(5812);
+		Tenant tenant = tenantsApi.getTenant(TEST_TENANT_ID);
 		assertNotNull(tenant);
 
 	}
