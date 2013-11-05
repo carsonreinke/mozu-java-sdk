@@ -19,9 +19,7 @@ task wrapper(type: Wrapper) {
 }
 
 repositories {
-    maven {
-          url "http://aus02ndweb002.dev.volusion.com:8182/nexus-2.6.4/content/groups/public"
-    }
+    mavenCentral()
 }
 
 dependencies {
@@ -57,12 +55,3 @@ artifacts {
     archives javadocJar
 }
 
-uploadArchives {
-    repositories {
-        mavenDeployer {
-            repository(url: "http://aus02ndweb002.dev.volusion.com:8182/nexus-2.6.4/content/repositories/snapshots") {
-                authentication(userName: "deployment", password: "deployment123")
-             }
-       }
-    }
-}
