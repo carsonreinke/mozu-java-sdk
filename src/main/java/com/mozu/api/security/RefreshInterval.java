@@ -38,4 +38,13 @@ public class RefreshInterval {
 	public void setRefreshTokenExpiration(DateTime refreshTokenExpiration) {
 		this.refreshTokenExpiration = refreshTokenExpiration;
 	}
+	
+    public void updateExpirationDates(boolean updateRefreshTokenInterval)
+    {
+       setAccessTokenExpiration(new DateTime().plus(getAccessTokenExpirationInterval()));
+
+       if (updateRefreshTokenInterval) {
+           setRefreshTokenExpiration(new DateTime().plus(getRefreshTokenExpirationInterval()));
+       }
+    }
 }

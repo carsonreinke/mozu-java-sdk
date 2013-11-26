@@ -5,7 +5,7 @@ apply plugin: 'maven'
 sourceCompatibility = 1.6
 
 archivesBaseName='mozu-api'
-version = '1.0-SNAPSHOT'
+version = '1.1.1'
 group='com.mozu.api'
 
 jar {
@@ -19,7 +19,7 @@ task wrapper(type: Wrapper) {
 }
 
 repositories {
-    mavenCentral()
+	mavenCentral()
 }
 
 dependencies {
@@ -32,6 +32,8 @@ dependencies {
 		exclude group: 'mysql'
 	}
 	compile "joda-time:joda-time:2.3"
+	compile "commons-io:commons-io:2.4"
+	compile "org.slf4j:slf4j-api:1.7.5"
 	
     testCompile group: 'junit', name: 'junit', version: '4.+'
 }

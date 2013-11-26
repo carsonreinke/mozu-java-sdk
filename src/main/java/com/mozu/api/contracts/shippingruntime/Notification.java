@@ -9,15 +9,20 @@ package com.mozu.api.contracts.shippingruntime;
 
 import java.io.Serializable;
 import java.util.Date;
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 
+
+/**
+*	Properties of a success failure notification message associated with a shipping label request.
+*/
 public class Notification implements Serializable
 {
 	/** Default Serial Version UID  */
 	private static final long serialVersionUID = 1L;
 
-	@JsonProperty("Code")
+	/**
+	*Error code associated with the notification.
+	*/
 	protected String code;
 
 	public String getCode() {
@@ -28,7 +33,9 @@ public class Notification implements Serializable
 		this.code = code;
 	}
 
-	@JsonProperty("Message")
+	/**
+	*Text content of the success/failure notification message.
+	*/
 	protected String message;
 
 	public String getMessage() {
@@ -39,7 +46,9 @@ public class Notification implements Serializable
 		this.message = message;
 	}
 
-	@JsonProperty("Source")
+	/**
+	*The source entity associated with the success failure, such as an order or package.
+	*/
 	protected String source;
 
 	public String getSource() {

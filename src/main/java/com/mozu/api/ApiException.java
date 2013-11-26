@@ -1,6 +1,6 @@
 package com.mozu.api;
 
-public class ApiException extends Exception {
+public class ApiException extends RuntimeException {
 	/** Default Serial Version UID  */
 	private static final long serialVersionUID = 1L;
 	protected ApiError apiError = null;

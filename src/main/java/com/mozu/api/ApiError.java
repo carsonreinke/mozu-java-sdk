@@ -2,42 +2,29 @@ package com.mozu.api;
 
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 public class ApiError {
 	
-	@JsonProperty("ApplicationName")
 	protected String applicationName;
 
-	@JsonProperty("AdditionalErrorData")
-    public List<AdditionalErrorData> additionalErrors;
+    protected List<AdditionalErrorData> additionalErrorData;
 	
-	@JsonProperty("ErrorCode")
 	protected String errorCode;
 	
-	@JsonProperty("Message")
 	protected String message;
 	
-	@JsonProperty ("ExceptionDetail")
 	protected ExceptionDetail exceptionDetail;
 	
-	@JsonProperty ("Items")
 	protected List<Item> items; 
 	
 	static public class ExceptionDetail {
-		@JsonProperty("Message")
 		protected String message;
 		
-		@JsonProperty("Source")
 		protected String source;
 		
-		@JsonProperty("StackTrace")
 		protected String stackTrace;
 		
-		@JsonProperty ("TargetSite")
 		protected String targetSite;
 		
-		@JsonProperty ("Type")
 		protected String type;
 		
 		public String getMessage() {
@@ -76,9 +63,7 @@ public class ApiError {
 	
     static public class AdditionalErrorData
     {
-    	@JsonProperty ("Name")
     	public String name;
-    	@JsonProperty ("Value")
         public String value;
     	
     	public AdditionalErrorData () {
@@ -102,17 +87,45 @@ public class ApiError {
 
     static public class Item
     {
-    	@JsonProperty("ApplicationErrorData")
-        public List<AdditionalErrorData> ApplicationErrors;
+        private List<AdditionalErrorData> additionalErrorData;
     	
-    	@JsonProperty("ApplicationName")
-        public String applicationName;
+        private String applicationName;
     	
-    	@JsonProperty("ErrorCode")
-        public String errorCode;
+        private String errorCode;
     	
-    	@JsonProperty("Message")
-        public String message;
+        private String message;
+
+        public List<AdditionalErrorData> getAdditionalErrorData() {
+            return additionalErrorData;
+        }
+
+        public void setApplicationErrors(List<AdditionalErrorData> applicationErrors) {
+            this.additionalErrorData = applicationErrors;
+        }
+
+        public String getApplicationName() {
+            return applicationName;
+        }
+
+        public void setApplicationName(String applicationName) {
+            this.applicationName = applicationName;
+        }
+
+        public String getErrorCode() {
+            return errorCode;
+        }
+
+        public void setErrorCode(String errorCode) {
+            this.errorCode = errorCode;
+        }
+
+        public String getMessage() {
+            return message;
+        }
+
+        public void setMessage(String message) {
+            this.message = message;
+        }
     }
 
 	public ApiError() {
@@ -158,7 +171,14 @@ public class ApiError {
 	public void setItems(List<Item> items) {
 		this.items = items;
 	}
-	
+
+    public List<AdditionalErrorData> getAdditionalErrorData() {
+        return additionalErrorData;
+    }
+
+    public void setAdditionalErrorData(List<AdditionalErrorData> additionalErrorData) {
+        this.additionalErrorData = additionalErrorData;
+    }
 	
 }
 

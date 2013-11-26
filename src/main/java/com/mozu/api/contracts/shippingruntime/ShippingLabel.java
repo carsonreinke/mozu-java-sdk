@@ -7,27 +7,28 @@
 */
 package com.mozu.api.contracts.shippingruntime;
 
-import java.util.ArrayList;
+import java.util.List;
 import java.io.Serializable;
 import java.util.Date;
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 
+
+/**
+*	Properties of a shipping label to generate for a shipment.
+*/
 public class ShippingLabel implements Serializable
 {
 	/** Default Serial Version UID  */
 	private static final long serialVersionUID = 1L;
 
-	@JsonProperty("ImageData")
-	protected ArrayList<Byte> imageData;
-	public ArrayList<Byte> getImageData() {
+	protected List<Byte> imageData;
+	public List<Byte> getImageData() {
 		return this.imageData;
 	}
-	public void setImageData(ArrayList<Byte> imageData) {
+	public void setImageData(List<Byte> imageData) {
 		this.imageData = imageData;
 	}
 
-	@JsonProperty("ImageFormat")
 	protected String imageFormat;
 
 	public String getImageFormat() {

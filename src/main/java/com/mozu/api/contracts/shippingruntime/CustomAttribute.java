@@ -7,10 +7,10 @@
 */
 package com.mozu.api.contracts.shippingruntime;
 
-import java.util.ArrayList;
+import java.util.List;
 import java.io.Serializable;
 import java.util.Date;
-import com.fasterxml.jackson.annotation.JsonProperty;
+
 import com.mozu.api.contracts.shippingruntime.CustomAttribute;
 
 
@@ -19,7 +19,6 @@ public class CustomAttribute implements Serializable
 	/** Default Serial Version UID  */
 	private static final long serialVersionUID = 1L;
 
-	@JsonProperty("Key")
 	protected String key;
 
 	public String getKey() {
@@ -30,7 +29,6 @@ public class CustomAttribute implements Serializable
 		this.key = key;
 	}
 
-	@JsonProperty("Value")
 	protected String value;
 
 	public String getValue() {
@@ -41,12 +39,11 @@ public class CustomAttribute implements Serializable
 		this.value = value;
 	}
 
-	@JsonProperty("ChildAttributes")
-	protected ArrayList<CustomAttribute> childAttributes;
-	public ArrayList<CustomAttribute> getChildAttributes() {
+	protected List<CustomAttribute> childAttributes;
+	public List<CustomAttribute> getChildAttributes() {
 		return this.childAttributes;
 	}
-	public void setChildAttributes(ArrayList<CustomAttribute> childAttributes) {
+	public void setChildAttributes(List<CustomAttribute> childAttributes) {
 		this.childAttributes = childAttributes;
 	}
 

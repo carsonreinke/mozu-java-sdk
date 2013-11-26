@@ -7,10 +7,10 @@
 */
 package com.mozu.api.contracts.shippingruntime;
 
-import java.util.ArrayList;
+import java.util.List;
 import java.io.Serializable;
 import java.util.Date;
-import com.fasterxml.jackson.annotation.JsonProperty;
+
 import com.mozu.api.contracts.shippingruntime.CustomAttribute;
 import com.mozu.api.contracts.core.Contact;
 import com.mozu.api.contracts.shippingruntime.Package;
@@ -21,7 +21,16 @@ public class Shipment implements Serializable
 	/** Default Serial Version UID  */
 	private static final long serialVersionUID = 1L;
 
-	@JsonProperty("OrderTotal")
+	protected Date estimatedShipmentDate;
+
+	public Date getEstimatedShipmentDate() {
+		return this.estimatedShipmentDate;
+	}
+
+	public void setEstimatedShipmentDate(Date estimatedShipmentDate) {
+		this.estimatedShipmentDate = estimatedShipmentDate;
+	}
+
 	protected Double orderTotal;
 
 	public Double getOrderTotal() {
@@ -32,25 +41,22 @@ public class Shipment implements Serializable
 		this.orderTotal = orderTotal;
 	}
 
-	@JsonProperty("ShippingMethodCodes")
-	protected ArrayList<String> shippingMethodCodes;
-	public ArrayList<String> getShippingMethodCodes() {
+	protected List<String> shippingMethodCodes;
+	public List<String> getShippingMethodCodes() {
 		return this.shippingMethodCodes;
 	}
-	public void setShippingMethodCodes(ArrayList<String> shippingMethodCodes) {
+	public void setShippingMethodCodes(List<String> shippingMethodCodes) {
 		this.shippingMethodCodes = shippingMethodCodes;
 	}
 
-	@JsonProperty("CustomAttributes")
-	protected ArrayList<CustomAttribute> customAttributes;
-	public ArrayList<CustomAttribute> getCustomAttributes() {
+	protected List<CustomAttribute> customAttributes;
+	public List<CustomAttribute> getCustomAttributes() {
 		return this.customAttributes;
 	}
-	public void setCustomAttributes(ArrayList<CustomAttribute> customAttributes) {
+	public void setCustomAttributes(List<CustomAttribute> customAttributes) {
 		this.customAttributes = customAttributes;
 	}
 
-	@JsonProperty("Destination")
 	protected Contact destination;
 
 	public Contact getDestination() {
@@ -61,7 +67,6 @@ public class Shipment implements Serializable
 		this.destination = destination;
 	}
 
-	@JsonProperty("Origin")
 	protected Contact origin;
 
 	public Contact getOrigin() {
@@ -72,12 +77,11 @@ public class Shipment implements Serializable
 		this.origin = origin;
 	}
 
-	@JsonProperty("Packages")
-	protected ArrayList<Package> packages;
-	public ArrayList<Package> getPackages() {
+	protected List<Package> packages;
+	public List<Package> getPackages() {
 		return this.packages;
 	}
-	public void setPackages(ArrayList<Package> packages) {
+	public void setPackages(List<Package> packages) {
 		this.packages = packages;
 	}
 

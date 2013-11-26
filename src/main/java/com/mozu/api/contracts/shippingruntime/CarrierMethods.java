@@ -7,18 +7,23 @@
 */
 package com.mozu.api.contracts.shippingruntime;
 
-import java.util.ArrayList;
+import java.util.List;
 import java.io.Serializable;
 import java.util.Date;
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 
+
+/**
+*	Properties of the shipping method service types associated with a specified carrier.
+*/
 public class CarrierMethods implements Serializable
 {
 	/** Default Serial Version UID  */
 	private static final long serialVersionUID = 1L;
 
-	@JsonProperty("CarrierId")
+	/**
+	*Unique identifier of the shipping carrier.
+	*/
 	protected String carrierId;
 
 	public String getCarrierId() {
@@ -29,12 +34,14 @@ public class CarrierMethods implements Serializable
 		this.carrierId = carrierId;
 	}
 
-	@JsonProperty("ShippingMethods")
-	protected ArrayList<String> shippingMethods;
-	public ArrayList<String> getShippingMethods() {
+	/**
+	*Arrayed list of shipping method service types selected for the carrier.
+	*/
+	protected List<String> shippingMethods;
+	public List<String> getShippingMethods() {
 		return this.shippingMethods;
 	}
-	public void setShippingMethods(ArrayList<String> shippingMethods) {
+	public void setShippingMethods(List<String> shippingMethods) {
 		this.shippingMethods = shippingMethods;
 	}
 

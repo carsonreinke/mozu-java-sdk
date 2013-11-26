@@ -9,15 +9,17 @@ package com.mozu.api.contracts.shippingruntime;
 
 import java.io.Serializable;
 import java.util.Date;
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 
+
+/**
+*	The name of the shipping rate in the language specified by the defined locale code.
+*/
 public class ShippingRateLocalizedContent implements Serializable
 {
 	/** Default Serial Version UID  */
 	private static final long serialVersionUID = 1L;
 
-	@JsonProperty("LocaleCode")
 	protected String localeCode;
 
 	public String getLocaleCode() {
@@ -28,7 +30,9 @@ public class ShippingRateLocalizedContent implements Serializable
 		this.localeCode = localeCode;
 	}
 
-	@JsonProperty("Name")
+	/**
+	*The name of the shipping rate in the language specified by the defined locale code.
+	*/
 	protected String name;
 
 	public String getName() {
