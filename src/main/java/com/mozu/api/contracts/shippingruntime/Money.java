@@ -9,15 +9,17 @@ package com.mozu.api.contracts.shippingruntime;
 
 import java.io.Serializable;
 import java.util.Date;
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 
+
+/**
+*	Calculated properties of a shipping total based on the supplied amount and currency code.
+*/
 public class Money implements Serializable
 {
 	/** Default Serial Version UID  */
 	private static final long serialVersionUID = 1L;
 
-	@JsonProperty("CurrencyCode")
 	protected String currencyCode;
 
 	public String getCurrencyCode() {
@@ -28,7 +30,9 @@ public class Money implements Serializable
 		this.currencyCode = currencyCode;
 	}
 
-	@JsonProperty("Value")
+	/**
+	*Amount value of the calculated shipping total.
+	*/
 	protected Double value;
 
 	public Double getValue() {

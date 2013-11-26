@@ -7,10 +7,10 @@
 */
 package com.mozu.api.contracts.shippingruntime;
 
-import java.util.ArrayList;
+import java.util.List;
 import java.io.Serializable;
 import java.util.Date;
-import com.fasterxml.jackson.annotation.JsonProperty;
+
 import com.mozu.api.contracts.shippingruntime.CustomAttribute;
 import com.mozu.api.contracts.shippingruntime.PackageMeasurements;
 
@@ -20,7 +20,6 @@ public class Package implements Serializable
 	/** Default Serial Version UID  */
 	private static final long serialVersionUID = 1L;
 
-	@JsonProperty("ContentsValue")
 	protected Double contentsValue;
 
 	public Double getContentsValue() {
@@ -31,7 +30,6 @@ public class Package implements Serializable
 		this.contentsValue = contentsValue;
 	}
 
-	@JsonProperty("Id")
 	protected String id;
 
 	public String getId() {
@@ -42,7 +40,6 @@ public class Package implements Serializable
 		this.id = id;
 	}
 
-	@JsonProperty("IsGift")
 	protected Boolean isGift;
 
 	public Boolean getIsGift() {
@@ -53,7 +50,6 @@ public class Package implements Serializable
 		this.isGift = isGift;
 	}
 
-	@JsonProperty("PackagingType")
 	protected String packagingType;
 
 	public String getPackagingType() {
@@ -64,7 +60,6 @@ public class Package implements Serializable
 		this.packagingType = packagingType;
 	}
 
-	@JsonProperty("RequiresSignature")
 	protected Boolean requiresSignature;
 
 	public Boolean getRequiresSignature() {
@@ -75,16 +70,14 @@ public class Package implements Serializable
 		this.requiresSignature = requiresSignature;
 	}
 
-	@JsonProperty("CustomAttributes")
-	protected ArrayList<CustomAttribute> customAttributes;
-	public ArrayList<CustomAttribute> getCustomAttributes() {
+	protected List<CustomAttribute> customAttributes;
+	public List<CustomAttribute> getCustomAttributes() {
 		return this.customAttributes;
 	}
-	public void setCustomAttributes(ArrayList<CustomAttribute> customAttributes) {
+	public void setCustomAttributes(List<CustomAttribute> customAttributes) {
 		this.customAttributes = customAttributes;
 	}
 
-	@JsonProperty("Measurements")
 	protected PackageMeasurements measurements;
 
 	public PackageMeasurements getMeasurements() {

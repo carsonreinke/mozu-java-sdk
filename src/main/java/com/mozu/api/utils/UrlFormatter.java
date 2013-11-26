@@ -1,5 +1,10 @@
 package com.mozu.api.utils;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+
+import com.mozu.api.ApiException;
+
 public class UrlFormatter {
 	public String resourceUrl;
 	
@@ -25,8 +30,14 @@ public class UrlFormatter {
 	
 	public void formatUrl(String paramName, Object value)
     {
-		resourceUrl = resourceUrl.replace("{"+paramName+"}", value == null ? "" : String.valueOf(value));
-		resourceUrl = resourceUrl.replace("{*"+paramName+"}", value == null ? "" : String.valueOf(value));
+	    String encodedValue = null;
+        try {
+            encodedValue = URLEncoder.encode(String.valueOf(value), "UTF-8");
+        } catch (UnsupportedEncodingException uee) {
+            throw new ApiException("Bad encoding of URL" + uee.getMessage());
+        }
+		resourceUrl = resourceUrl.replace("{"+paramName+"}", value == null ? "" : encodedValue);
+		resourceUrl = resourceUrl.replace("{*"+paramName+"}", value == null ? "" : encodedValue);
         String removeString = "&" + paramName + "=";
         if (value == null && resourceUrl.contains(removeString)) 
         	resourceUrl= resourceUrl.replace(removeString,"");

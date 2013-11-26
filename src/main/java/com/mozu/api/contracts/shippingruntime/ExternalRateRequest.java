@@ -7,21 +7,37 @@
 */
 package com.mozu.api.contracts.shippingruntime;
 
-import java.util.ArrayList;
+import java.util.List;
 import java.io.Serializable;
 import java.util.Date;
-import com.fasterxml.jackson.annotation.JsonProperty;
+
 import com.mozu.api.contracts.shippingruntime.CarrierMethods;
+import com.mozu.api.contracts.shippingruntime.CustomAttribute;
 import com.mozu.api.contracts.core.Address;
 import com.mozu.api.contracts.shippingruntime.RateRequestItem;
 
 
+/**
+*	Properties of a shipping rate calculation request to retrieve from an external application, including carrier and address information.
+*/
 public class ExternalRateRequest implements Serializable
 {
 	/** Default Serial Version UID  */
 	private static final long serialVersionUID = 1L;
 
-	@JsonProperty("IsDestinationAddressCommercial")
+	protected Date estimatedShipmentDate;
+
+	public Date getEstimatedShipmentDate() {
+		return this.estimatedShipmentDate;
+	}
+
+	public void setEstimatedShipmentDate(Date estimatedShipmentDate) {
+		this.estimatedShipmentDate = estimatedShipmentDate;
+	}
+
+	/**
+	*If true, the destination shipping address is a commercial address.
+	*/
 	protected Boolean isDestinationAddressCommercial;
 
 	public Boolean getIsDestinationAddressCommercial() {
@@ -32,7 +48,6 @@ public class ExternalRateRequest implements Serializable
 		this.isDestinationAddressCommercial = isDestinationAddressCommercial;
 	}
 
-	@JsonProperty("ISOCurrencyCode")
 	protected String iSOCurrencyCode;
 
 	public String getISOCurrencyCode() {
@@ -43,7 +58,9 @@ public class ExternalRateRequest implements Serializable
 		this.iSOCurrencyCode = iSOCurrencyCode;
 	}
 
-	@JsonProperty("OrderTotal")
+	/**
+	*The total amount of the order associated with this shipping rate request.
+	*/
 	protected Double orderTotal;
 
 	public Double getOrderTotal() {
@@ -54,16 +71,28 @@ public class ExternalRateRequest implements Serializable
 		this.orderTotal = orderTotal;
 	}
 
-	@JsonProperty("CarrierRates")
-	protected ArrayList<CarrierMethods> carrierRates;
-	public ArrayList<CarrierMethods> getCarrierRates() {
+	/**
+	*Array list of shipping carriers and the rate to calculate for each request.
+	*/
+	protected List<CarrierMethods> carrierRates;
+	public List<CarrierMethods> getCarrierRates() {
 		return this.carrierRates;
 	}
-	public void setCarrierRates(ArrayList<CarrierMethods> carrierRates) {
+	public void setCarrierRates(List<CarrierMethods> carrierRates) {
 		this.carrierRates = carrierRates;
 	}
 
-	@JsonProperty("DestinationAddress")
+	protected List<CustomAttribute> customAttributes;
+	public List<CustomAttribute> getCustomAttributes() {
+		return this.customAttributes;
+	}
+	public void setCustomAttributes(List<CustomAttribute> customAttributes) {
+		this.customAttributes = customAttributes;
+	}
+
+	/**
+	*The final destination address to which the package will ship.
+	*/
 	protected Address destinationAddress;
 
 	public Address getDestinationAddress() {
@@ -74,16 +103,17 @@ public class ExternalRateRequest implements Serializable
 		this.destinationAddress = destinationAddress;
 	}
 
-	@JsonProperty("Items")
-	protected ArrayList<RateRequestItem> items;
-	public ArrayList<RateRequestItem> getItems() {
+	protected List<RateRequestItem> items;
+	public List<RateRequestItem> getItems() {
 		return this.items;
 	}
-	public void setItems(ArrayList<RateRequestItem> items) {
+	public void setItems(List<RateRequestItem> items) {
 		this.items = items;
 	}
 
-	@JsonProperty("OriginAddress")
+	/**
+	*The origin address from which packages will ship.
+	*/
 	protected Address originAddress;
 
 	public Address getOriginAddress() {

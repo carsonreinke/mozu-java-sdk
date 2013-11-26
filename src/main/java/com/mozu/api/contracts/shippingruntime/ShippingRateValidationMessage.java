@@ -9,15 +9,20 @@ package com.mozu.api.contracts.shippingruntime;
 
 import java.io.Serializable;
 import java.util.Date;
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 
+
+/**
+*	Properties of a success/failure message notification associated with validating a shipping rate.
+*/
 public class ShippingRateValidationMessage implements Serializable
 {
 	/** Default Serial Version UID  */
 	private static final long serialVersionUID = 1L;
 
-	@JsonProperty("HelpLink")
+	/**
+	*URL displayed with the shipping validation message that links to help information.
+	*/
 	protected String helpLink;
 
 	public String getHelpLink() {
@@ -28,7 +33,9 @@ public class ShippingRateValidationMessage implements Serializable
 		this.helpLink = helpLink;
 	}
 
-	@JsonProperty("Message")
+	/**
+	*Content of the shipping rate validation message.
+	*/
 	protected String message;
 
 	public String getMessage() {
@@ -39,7 +46,9 @@ public class ShippingRateValidationMessage implements Serializable
 		this.message = message;
 	}
 
-	@JsonProperty("Severity")
+	/**
+	*Severity level of the shipping rate validation failure.
+	*/
 	protected String severity;
 
 	public String getSeverity() {

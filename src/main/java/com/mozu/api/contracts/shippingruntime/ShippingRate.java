@@ -7,22 +7,27 @@
 */
 package com.mozu.api.contracts.shippingruntime;
 
-import java.util.ArrayList;
+import java.util.List;
 import java.io.Serializable;
 import java.util.Date;
-import com.fasterxml.jackson.annotation.JsonProperty;
+
 import com.mozu.api.contracts.shippingruntime.ShippingRateLocalizedContent;
 import com.mozu.api.contracts.shippingruntime.CustomAttribute;
 import com.mozu.api.contracts.shippingruntime.ShippingRateValidationMessage;
 import com.mozu.api.contracts.shippingruntime.ShippingItemRate;
 
 
+/**
+*	Properties of a shipping rate calculated for a specified carrier.
+*/
 public class ShippingRate implements Serializable
 {
 	/** Default Serial Version UID  */
 	private static final long serialVersionUID = 1L;
 
-	@JsonProperty("Amount")
+	/**
+	*The total calculated shipping amount requested for the package or shipment.
+	*/
 	protected Double amount;
 
 	public Double getAmount() {
@@ -33,7 +38,9 @@ public class ShippingRate implements Serializable
 		this.amount = amount;
 	}
 
-	@JsonProperty("Code")
+	/**
+	*The carrier-defined alphanumeric code associated with this shipping rate.
+	*/
 	protected String code;
 
 	public String getCode() {
@@ -44,7 +51,19 @@ public class ShippingRate implements Serializable
 		this.code = code;
 	}
 
-	@JsonProperty("Content")
+	protected Date estimatedDeliveryDate;
+
+	public Date getEstimatedDeliveryDate() {
+		return this.estimatedDeliveryDate;
+	}
+
+	public void setEstimatedDeliveryDate(Date estimatedDeliveryDate) {
+		this.estimatedDeliveryDate = estimatedDeliveryDate;
+	}
+
+	/**
+	*Localized content for a shipping rate based on the defined locale code.
+	*/
 	protected ShippingRateLocalizedContent content;
 
 	public ShippingRateLocalizedContent getContent() {
@@ -55,30 +74,36 @@ public class ShippingRate implements Serializable
 		this.content = content;
 	}
 
-	@JsonProperty("CustomAttributes")
-	protected ArrayList<CustomAttribute> customAttributes;
-	public ArrayList<CustomAttribute> getCustomAttributes() {
+	/**
+	*Collection of carrier-specific key-value attribute pairs required to retrieve a shipping rate request.
+	*/
+	protected List<CustomAttribute> customAttributes;
+	public List<CustomAttribute> getCustomAttributes() {
 		return this.customAttributes;
 	}
-	public void setCustomAttributes(ArrayList<CustomAttribute> customAttributes) {
+	public void setCustomAttributes(List<CustomAttribute> customAttributes) {
 		this.customAttributes = customAttributes;
 	}
 
-	@JsonProperty("Messages")
-	protected ArrayList<ShippingRateValidationMessage> messages;
-	public ArrayList<ShippingRateValidationMessage> getMessages() {
+	/**
+	*Array list of success/failure messages associated with the shipping rate validation.
+	*/
+	protected List<ShippingRateValidationMessage> messages;
+	public List<ShippingRateValidationMessage> getMessages() {
 		return this.messages;
 	}
-	public void setMessages(ArrayList<ShippingRateValidationMessage> messages) {
+	public void setMessages(List<ShippingRateValidationMessage> messages) {
 		this.messages = messages;
 	}
 
-	@JsonProperty("ShippingItemRates")
-	protected ArrayList<ShippingItemRate> shippingItemRates;
-	public ArrayList<ShippingItemRate> getShippingItemRates() {
+	/**
+	*Properties of a calculated shipping rate for individual line items in a shipment.
+	*/
+	protected List<ShippingItemRate> shippingItemRates;
+	public List<ShippingItemRate> getShippingItemRates() {
 		return this.shippingItemRates;
 	}
-	public void setShippingItemRates(ArrayList<ShippingItemRate> shippingItemRates) {
+	public void setShippingItemRates(List<ShippingItemRate> shippingItemRates) {
 		this.shippingItemRates = shippingItemRates;
 	}
 

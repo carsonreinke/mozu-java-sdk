@@ -9,16 +9,21 @@ package com.mozu.api.contracts.shippingruntime;
 
 import java.io.Serializable;
 import java.util.Date;
-import com.fasterxml.jackson.annotation.JsonProperty;
+
 import com.mozu.api.contracts.shippingruntime.ItemMeasurements;
 
 
+/**
+*	Properties of an item for which to calculate a shipping rate.
+*/
 public class RateRequestItem implements Serializable
 {
 	/** Default Serial Version UID  */
 	private static final long serialVersionUID = 1L;
 
-	@JsonProperty("ItemId")
+	/**
+	*Unique identifier of the item to ship, for which to calculate a shipping rate.
+	*/
 	protected String itemId;
 
 	public String getItemId() {
@@ -29,7 +34,9 @@ public class RateRequestItem implements Serializable
 		this.itemId = itemId;
 	}
 
-	@JsonProperty("Quantity")
+	/**
+	*Quantity of the item for which to calculate the shipping rate.
+	*/
 	protected Integer quantity;
 
 	public Integer getQuantity() {
@@ -40,7 +47,9 @@ public class RateRequestItem implements Serializable
 		this.quantity = quantity;
 	}
 
-	@JsonProperty("ShipsByItself")
+	/**
+	*If true, this item must ship separately from other items in a shipment.
+	*/
 	protected Boolean shipsByItself;
 
 	public Boolean getShipsByItself() {
@@ -51,7 +60,9 @@ public class RateRequestItem implements Serializable
 		this.shipsByItself = shipsByItself;
 	}
 
-	@JsonProperty("UnitMeasurements")
+	/**
+	*The measured weight and dimensions of the item to ship.
+	*/
 	protected ItemMeasurements unitMeasurements;
 
 	public ItemMeasurements getUnitMeasurements() {

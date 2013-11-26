@@ -7,20 +7,25 @@
 */
 package com.mozu.api.contracts.shippingruntime;
 
-import java.util.ArrayList;
+import java.util.List;
 import java.io.Serializable;
 import java.util.Date;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.mozu.api.contracts.shippingruntime.ShippingRate;
+
 import com.mozu.api.contracts.shippingruntime.CustomAttribute;
+import com.mozu.api.contracts.shippingruntime.ShippingRate;
 
 
+/**
+*	Arrayed list of calculated shipping rates for the specified carrier.
+*/
 public class CarrierRatesResponse implements Serializable
 {
 	/** Default Serial Version UID  */
 	private static final long serialVersionUID = 1L;
 
-	@JsonProperty("CarrierId")
+	/**
+	*Unique identifier of the shipping carrier.
+	*/
 	protected String carrierId;
 
 	public String getCarrierId() {
@@ -31,22 +36,26 @@ public class CarrierRatesResponse implements Serializable
 		this.carrierId = carrierId;
 	}
 
-	@JsonProperty("ShippingRates")
-	protected ArrayList<ShippingRate> shippingRates;
-	public ArrayList<ShippingRate> getShippingRates() {
-		return this.shippingRates;
-	}
-	public void setShippingRates(ArrayList<ShippingRate> shippingRates) {
-		this.shippingRates = shippingRates;
-	}
-
-	@JsonProperty("CustomAttributes")
-	protected ArrayList<CustomAttribute> customAttributes;
-	public ArrayList<CustomAttribute> getCustomAttributes() {
+	/**
+	*Collection of carrier-specific key-value attribute pairs required to retrieve a shipping rate request.
+	*/
+	protected List<CustomAttribute> customAttributes;
+	public List<CustomAttribute> getCustomAttributes() {
 		return this.customAttributes;
 	}
-	public void setCustomAttributes(ArrayList<CustomAttribute> customAttributes) {
+	public void setCustomAttributes(List<CustomAttribute> customAttributes) {
 		this.customAttributes = customAttributes;
+	}
+
+	/**
+	*Array list of calculated shipping rates for the specified carrier.
+	*/
+	protected List<ShippingRate> shippingRates;
+	public List<ShippingRate> getShippingRates() {
+		return this.shippingRates;
+	}
+	public void setShippingRates(List<ShippingRate> shippingRates) {
+		this.shippingRates = shippingRates;
 	}
 
 }

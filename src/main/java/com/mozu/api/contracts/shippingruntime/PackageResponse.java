@@ -7,20 +7,22 @@
 */
 package com.mozu.api.contracts.shippingruntime;
 
-import java.util.ArrayList;
+import java.util.List;
 import java.io.Serializable;
 import java.util.Date;
-import com.fasterxml.jackson.annotation.JsonProperty;
+
 import com.mozu.api.contracts.shippingruntime.CustomAttribute;
 import com.mozu.api.contracts.shippingruntime.ShippingLabel;
 
 
+/**
+*	Properties of a package shipping label response, including the label image and tracking number.
+*/
 public class PackageResponse implements Serializable
 {
 	/** Default Serial Version UID  */
 	private static final long serialVersionUID = 1L;
 
-	@JsonProperty("Id")
 	protected String id;
 
 	public String getId() {
@@ -31,7 +33,6 @@ public class PackageResponse implements Serializable
 		this.id = id;
 	}
 
-	@JsonProperty("TrackingNumber")
 	protected String trackingNumber;
 
 	public String getTrackingNumber() {
@@ -42,16 +43,14 @@ public class PackageResponse implements Serializable
 		this.trackingNumber = trackingNumber;
 	}
 
-	@JsonProperty("CustomAttributes")
-	protected ArrayList<CustomAttribute> customAttributes;
-	public ArrayList<CustomAttribute> getCustomAttributes() {
+	protected List<CustomAttribute> customAttributes;
+	public List<CustomAttribute> getCustomAttributes() {
 		return this.customAttributes;
 	}
-	public void setCustomAttributes(ArrayList<CustomAttribute> customAttributes) {
+	public void setCustomAttributes(List<CustomAttribute> customAttributes) {
 		this.customAttributes = customAttributes;
 	}
 
-	@JsonProperty("Label")
 	protected ShippingLabel label;
 
 	public ShippingLabel getLabel() {

@@ -7,20 +7,25 @@
 */
 package com.mozu.api.contracts.shippingruntime;
 
-import java.util.ArrayList;
+import java.util.List;
 import java.io.Serializable;
 import java.util.Date;
-import com.fasterxml.jackson.annotation.JsonProperty;
+
 import com.mozu.api.contracts.shippingruntime.CustomAttribute;
 import com.mozu.api.contracts.shippingruntime.Shipment;
 
 
+/**
+*	Properties of a shipment required to generate a shipping label.
+*/
 public class ShipmentRequest implements Serializable
 {
 	/** Default Serial Version UID  */
 	private static final long serialVersionUID = 1L;
 
-	@JsonProperty("CarrierId")
+	/**
+	*Identifier of the shipping carrier associated with the shipment, such as UPS or FedEx.
+	*/
 	protected String carrierId;
 
 	public String getCarrierId() {
@@ -31,7 +36,6 @@ public class ShipmentRequest implements Serializable
 		this.carrierId = carrierId;
 	}
 
-	@JsonProperty("ISOCurrencyCode")
 	protected String iSOCurrencyCode;
 
 	public String getISOCurrencyCode() {
@@ -42,7 +46,9 @@ public class ShipmentRequest implements Serializable
 		this.iSOCurrencyCode = iSOCurrencyCode;
 	}
 
-	@JsonProperty("RequiresSignature")
+	/**
+	*If true, a signature is required to deliver this shipment.
+	*/
 	protected Boolean requiresSignature;
 
 	public Boolean getRequiresSignature() {
@@ -53,7 +59,9 @@ public class ShipmentRequest implements Serializable
 		this.requiresSignature = requiresSignature;
 	}
 
-	@JsonProperty("ShipmentRequestType")
+	/**
+	*The type of shipment request selected for this shipment.
+	*/
 	protected String shipmentRequestType;
 
 	public String getShipmentRequestType() {
@@ -64,7 +72,9 @@ public class ShipmentRequest implements Serializable
 		this.shipmentRequestType = shipmentRequestType;
 	}
 
-	@JsonProperty("ShippingServiceType")
+	/**
+	*The code of the shipping method service type associated with the shipment, such as UPS Ground.
+	*/
 	protected String shippingServiceType;
 
 	public String getShippingServiceType() {
@@ -75,16 +85,20 @@ public class ShipmentRequest implements Serializable
 		this.shippingServiceType = shippingServiceType;
 	}
 
-	@JsonProperty("CustomAttributes")
-	protected ArrayList<CustomAttribute> customAttributes;
-	public ArrayList<CustomAttribute> getCustomAttributes() {
+	/**
+	*Collection of carrier-specific key-value attribute pairs required to generate a shipping label for this shipment.
+	*/
+	protected List<CustomAttribute> customAttributes;
+	public List<CustomAttribute> getCustomAttributes() {
 		return this.customAttributes;
 	}
-	public void setCustomAttributes(ArrayList<CustomAttribute> customAttributes) {
+	public void setCustomAttributes(List<CustomAttribute> customAttributes) {
 		this.customAttributes = customAttributes;
 	}
 
-	@JsonProperty("Shipment")
+	/**
+	*Properties of the shipment for which to generate a label.
+	*/
 	protected Shipment shipment;
 
 	public Shipment getShipment() {
