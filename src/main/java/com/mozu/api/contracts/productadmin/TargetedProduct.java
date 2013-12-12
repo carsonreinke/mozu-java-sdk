@@ -7,31 +7,26 @@
 package com.mozu.api.contracts.productadmin;
 
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 
+/**
+ *	Product definition targeted for a defined discount.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class TargetedProduct implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
-	protected String code;
+	protected String productCode;
 
-	public String getCode() {
-		return this.code;
+	public String getProductCode() {
+		return this.productCode;
 	}
 
-	public void setCode(String code) {
-		this.code = code;
-	}
-
-	protected String name;
-
-	public String getName() {
-		return this.name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
+	public void setProductCode(String productCode) {
+		this.productCode = productCode;
 	}
 
 }

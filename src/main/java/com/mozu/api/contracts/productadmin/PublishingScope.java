@@ -8,13 +8,21 @@ package com.mozu.api.contracts.productadmin;
 
 import java.util.List;
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 
+/**
+ *	Describes the scope of the product publishing update, which can include individual product codes or all pending changes.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class PublishingScope implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * If true, publish or discard all pending product changes in the master catalog.
+	 */
 	protected Boolean allPending;
 
 	public Boolean getAllPending() {
@@ -25,6 +33,9 @@ public class PublishingScope implements Serializable
 		this.allPending = allPending;
 	}
 
+	/**
+	 * Array list of product codes for each pending product change you want to publish or delete.
+	 */
 	protected List<String> productCodes;
 	public List<String> getProductCodes() {
 		return this.productCodes;

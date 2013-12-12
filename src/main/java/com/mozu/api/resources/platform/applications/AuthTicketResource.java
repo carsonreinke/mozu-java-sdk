@@ -15,18 +15,18 @@ import com.mozu.api.Headers;
 import com.mozu.api.security.AuthTicket;
 
 /** <summary>
- * 
+ * Use this resource to manage authentication tickets for your applications.
  * </summary>
  */
 public class AuthTicketResource {
 	
 	/**
-	 * 
+	 * Generate an authentication ticket for an application.
 	 * <p><pre><code>
 	 *	AuthTicket authticket = new AuthTicket();
 	 *	AuthTicket authTicket = authticket.AuthenticateApp( appAuthInfo);
 	 * </code></pre></p>
-	 * @param appAuthInfo 
+	 * @param appAuthInfo Authentication information required to generate an authentication ticket includes the application id and the shared secret.
 	 * @return com.mozu.api.contracts.appdev.AuthTicket
 	 * @see com.mozu.api.contracts.appdev.AuthTicket
 	 * @see com.mozu.api.contracts.appdev.AppAuthInfo
@@ -40,12 +40,12 @@ public class AuthTicketResource {
 	}
 
 	/**
-	 * 
+	 * Refreshes the application's authentication ticket and generates a new access token by providing the refresh token string.
 	 * <p><pre><code>
 	 *	AuthTicket authticket = new AuthTicket();
 	 *	AuthTicket authTicket = authticket.RefreshAppAuthTicket( authTicketRequest);
 	 * </code></pre></p>
-	 * @param authTicketRequest 
+	 * @param authTicketRequest The refresh token string required to update the application authentication ticket.
 	 * @return com.mozu.api.contracts.appdev.AuthTicket
 	 * @see com.mozu.api.contracts.appdev.AuthTicket
 	 * @see com.mozu.api.contracts.appdev.AuthTicketRequest
@@ -59,12 +59,12 @@ public class AuthTicketResource {
 	}
 
 	/**
-	 * 
+	 * Deletes an authentication for an application based on the specified refresh token.
 	 * <p><pre><code>
 	 *	AuthTicket authticket = new AuthTicket();
 	 *	authticket.DeleteAppAuthTicket( refreshToken);
 	 * </code></pre></p>
-	 * @param refreshToken 
+	 * @param refreshToken The refresh token string from the application's authentication ticket.
 	 * @return 
 	 */
 	public void deleteAppAuthTicket(String refreshToken) throws Exception

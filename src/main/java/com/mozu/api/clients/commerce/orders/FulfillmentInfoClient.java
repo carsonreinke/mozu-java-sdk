@@ -14,20 +14,20 @@ import com.mozu.api.Headers;
 import com.mozu.api.security.AuthTicket;
 
 /** <summary>
- * 
+ * Use the Fulfillment Information resource to manage shipping or pickup information for orders.
  * </summary>
  */
 public class FulfillmentInfoClient {
 	
 	/**
-	 * 
+	 * Retrieves a list of the fulfillment information for the specified order.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.commerceruntime.fulfillment.FulfillmentInfo> mozuClient=GetFulfillmentInfoClient( orderId);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * FulfillmentInfo fulfillmentInfo = client.Result();
 	 * </code></pre></p>
-	 * @param orderId 
+	 * @param orderId Unique identifier of the order.
 	 * @param authTicket User Auth Ticket
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.commerceruntime.fulfillment.FulfillmentInfo>
 	 * @see com.mozu.api.contracts.commerceruntime.fulfillment.FulfillmentInfo
@@ -38,15 +38,15 @@ public class FulfillmentInfoClient {
 	}
 
 	/**
-	 * 
+	 * Retrieves a list of the fulfillment information for the specified order.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.commerceruntime.fulfillment.FulfillmentInfo> mozuClient=GetFulfillmentInfoClient( orderId,  draft, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * FulfillmentInfo fulfillmentInfo = client.Result();
 	 * </code></pre></p>
-	 * @param draft 
-	 * @param orderId 
+	 * @param draft If true, retrieve the draft version of the order's fulfillment information, which might include uncommitted changes.
+	 * @param orderId Unique identifier of the order.
 	 * @param authTicket User Auth Ticket
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.commerceruntime.fulfillment.FulfillmentInfo>
 	 * @see com.mozu.api.contracts.commerceruntime.fulfillment.FulfillmentInfo
@@ -66,16 +66,16 @@ public class FulfillmentInfoClient {
 	}
 
 	/**
-	 * 
+	 * Updates one or more properties of fulfillment information for the specified order.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.commerceruntime.fulfillment.FulfillmentInfo> mozuClient=SetFulFillmentInfoClient( fulfillmentInfo,  orderId);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * FulfillmentInfo fulfillmentInfo = client.Result();
 	 * </code></pre></p>
-	 * @param orderId 
+	 * @param orderId Unique identifier of the order.
 	 * @param authTicket User Auth Ticket
-	 * @param fulfillmentInfo 
+	 * @param fulfillmentInfo Array list of fulfillment information associated with an order.
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.commerceruntime.fulfillment.FulfillmentInfo>
 	 * @see com.mozu.api.contracts.commerceruntime.fulfillment.FulfillmentInfo
 	 * @see com.mozu.api.contracts.commerceruntime.fulfillment.FulfillmentInfo
@@ -86,18 +86,18 @@ public class FulfillmentInfoClient {
 	}
 
 	/**
-	 * 
+	 * Updates one or more properties of fulfillment information for the specified order.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.commerceruntime.fulfillment.FulfillmentInfo> mozuClient=SetFulFillmentInfoClient( fulfillmentInfo,  orderId,  updateMode,  version, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * FulfillmentInfo fulfillmentInfo = client.Result();
 	 * </code></pre></p>
-	 * @param orderId 
-	 * @param updateMode 
-	 * @param version 
+	 * @param orderId Unique identifier of the order.
+	 * @param updateMode Specifies whether to set the fulfillment information by updating the original order, updating the order in draft mode, or updating the order in draft mode and then committing the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
+	 * @param version System-supplied integer that represents the current version of the order, which prevents users from unintentionally overriding changes to the order. When a user performs an operation for a defined order, the system validates that the version of the updated order matches the version of the order on the server. After the operation completes successfully, the system increments the version number by one.
 	 * @param authTicket User Auth Ticket
-	 * @param fulfillmentInfo 
+	 * @param fulfillmentInfo Array list of fulfillment information associated with an order.
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.commerceruntime.fulfillment.FulfillmentInfo>
 	 * @see com.mozu.api.contracts.commerceruntime.fulfillment.FulfillmentInfo
 	 * @see com.mozu.api.contracts.commerceruntime.fulfillment.FulfillmentInfo

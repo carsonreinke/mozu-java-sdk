@@ -3,13 +3,13 @@ package com.mozu.api.security;
 import java.util.List;
 
 import com.mozu.api.contracts.core.UserProfile;
+import com.mozu.api.contracts.customer.CustomerAccount;
 
 public class AuthenticationProfile {
     private AuthTicket authTicket;
     private List<Scope> authorizedScopes;
     private Scope activeScope;
     private UserProfile userProfile;
-    
     
     public AuthenticationProfile () {
         

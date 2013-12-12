@@ -14,20 +14,20 @@ import com.mozu.api.Headers;
 import com.mozu.api.security.AuthTicket;
 
 /** <summary>
- * 
+ * Use the Order Attributes resource to define how an order attribute definition applies to a specific order.
  * </summary>
  */
 public class OrderAttributeClient {
 	
 	/**
-	 * 
+	 * Retrieves a list of the attributes defined for the order specified in the request.
 	 * <p><pre><code>
 	 * MozuClient<List<com.mozu.api.contracts.commerceruntime.orders.OrderAttribute>> mozuClient=GetOrderAttributesClient( orderId, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * OrderAttribute orderAttribute = client.Result();
 	 * </code></pre></p>
-	 * @param orderId 
+	 * @param orderId Unique identifier of the order for which to retrieve a list of defined attributes.
 	 * @param authTicket User Auth Ticket
 	 * @return Mozu.Api.MozuClient <List<com.mozu.api.contracts.commerceruntime.orders.OrderAttribute>>
 	 * @see com.mozu.api.contracts.commerceruntime.orders.OrderAttribute
@@ -47,16 +47,16 @@ public class OrderAttributeClient {
 	}
 
 	/**
-	 * 
+	 * Applies a list of attributes to the order specified in the request and defines a value for each attribute in the request body.
 	 * <p><pre><code>
 	 * MozuClient<List<com.mozu.api.contracts.commerceruntime.orders.OrderAttribute>> mozuClient=CreateOrderAttributesClient( orderAttributes,  orderId, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * OrderAttribute orderAttribute = client.Result();
 	 * </code></pre></p>
-	 * @param orderId 
+	 * @param orderId Unique identifier of the order for which to assign the attributes.
 	 * @param authTicket User Auth Ticket
-	 * @param orderAttributes 
+	 * @param orderAttributes The list of attributes to associate with the order, and the properties of each attribute to define for the order.
 	 * @return Mozu.Api.MozuClient <List<com.mozu.api.contracts.commerceruntime.orders.OrderAttribute>>
 	 * @see com.mozu.api.contracts.commerceruntime.orders.OrderAttribute
 	 * @see com.mozu.api.contracts.commerceruntime.orders.OrderAttribute
@@ -77,16 +77,16 @@ public class OrderAttributeClient {
 	}
 
 	/**
-	 * 
+	 * Updates one or more properties of an attribute defined for the order specified in the request.
 	 * <p><pre><code>
 	 * MozuClient<List<com.mozu.api.contracts.commerceruntime.orders.OrderAttribute>> mozuClient=UpdateOrderAttributesClient( orderAttributes,  orderId);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * OrderAttribute orderAttribute = client.Result();
 	 * </code></pre></p>
-	 * @param orderId 
+	 * @param orderId Identifier of the order for which to update attributes.
 	 * @param authTicket User Auth Ticket
-	 * @param orderAttributes 
+	 * @param orderAttributes List of order attributes to update, including the properties of each defined attribute in the list.
 	 * @return Mozu.Api.MozuClient <List<com.mozu.api.contracts.commerceruntime.orders.OrderAttribute>>
 	 * @see com.mozu.api.contracts.commerceruntime.orders.OrderAttribute
 	 * @see com.mozu.api.contracts.commerceruntime.orders.OrderAttribute
@@ -97,17 +97,17 @@ public class OrderAttributeClient {
 	}
 
 	/**
-	 * 
+	 * Updates one or more properties of an attribute defined for the order specified in the request.
 	 * <p><pre><code>
 	 * MozuClient<List<com.mozu.api.contracts.commerceruntime.orders.OrderAttribute>> mozuClient=UpdateOrderAttributesClient( orderAttributes,  orderId,  removeMissing, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * OrderAttribute orderAttribute = client.Result();
 	 * </code></pre></p>
-	 * @param orderId 
-	 * @param removeMissing 
+	 * @param orderId Identifier of the order for which to update attributes.
+	 * @param removeMissing If true, the operation removes missing properties so that the updated order attributes will not show properties with a null value.
 	 * @param authTicket User Auth Ticket
-	 * @param orderAttributes 
+	 * @param orderAttributes List of order attributes to update, including the properties of each defined attribute in the list.
 	 * @return Mozu.Api.MozuClient <List<com.mozu.api.contracts.commerceruntime.orders.OrderAttribute>>
 	 * @see com.mozu.api.contracts.commerceruntime.orders.OrderAttribute
 	 * @see com.mozu.api.contracts.commerceruntime.orders.OrderAttribute

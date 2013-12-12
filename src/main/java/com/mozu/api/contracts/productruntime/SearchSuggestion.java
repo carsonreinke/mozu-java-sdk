@@ -8,13 +8,21 @@ package com.mozu.api.contracts.productruntime;
 
 import java.util.List;
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 
+/**
+ *	Suggest product search terms to a customer based on defined queries.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class SearchSuggestion implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * The query term entered by the shopper.
+	 */
 	protected String query;
 
 	public String getQuery() {
@@ -25,6 +33,9 @@ public class SearchSuggestion implements Serializable
 		this.query = query;
 	}
 
+	/**
+	 * The term suggestions to return based on the specified query value.
+	 */
 	protected List<String> suggestions;
 	public List<String> getSuggestions() {
 		return this.suggestions;

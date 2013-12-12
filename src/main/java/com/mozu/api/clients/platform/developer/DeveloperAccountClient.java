@@ -14,13 +14,13 @@ import com.mozu.api.Headers;
 import com.mozu.api.security.AuthTicket;
 
 /** <summary>
- * 
+ * Use the Developer Accounts resource to retrieve details about the developer account a company uses to test applications and themes.
  * </summary>
  */
 public class DeveloperAccountClient {
 	
 	/**
-	 * 
+	 * Retrieves the details of the developer account specified in the request.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.appdev.DeveloperAccount> mozuClient=GetDeveloperAccountClient();
 	 * client.setBaseAddress(url);
@@ -37,14 +37,14 @@ public class DeveloperAccountClient {
 	}
 
 	/**
-	 * 
+	 * Retrieves the details of the developer account specified in the request.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.appdev.DeveloperAccount> mozuClient=GetDeveloperAccountClient( accountId, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * DeveloperAccount developerAccount = client.Result();
 	 * </code></pre></p>
-	 * @param accountId 
+	 * @param accountId Unique identifier of the developer account to retrieve.
 	 * @param authTicket User Auth Ticket
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.appdev.DeveloperAccount>
 	 * @see com.mozu.api.contracts.appdev.DeveloperAccount

@@ -7,13 +7,21 @@
 package com.mozu.api.contracts.commerceruntime.payments;
 
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 
+/**
+ *	Properties of an interaction with the payment gateway.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class PaymentGatewayInteraction implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * If required by the payment gateway, the authorization code of the transaction.
+	 */
 	protected String gatewayAuthCode;
 
 	public String getGatewayAuthCode() {
@@ -24,6 +32,9 @@ public class PaymentGatewayInteraction implements Serializable
 		this.gatewayAuthCode = gatewayAuthCode;
 	}
 
+	/**
+	 * AVS codes supplied by the payment gateway.
+	 */
 	protected String gatewayAVSCodes;
 
 	public String getGatewayAVSCodes() {
@@ -34,6 +45,9 @@ public class PaymentGatewayInteraction implements Serializable
 		this.gatewayAVSCodes = gatewayAVSCodes;
 	}
 
+	/**
+	 * CVV2 codes supplied by the payment gateway.
+	 */
 	protected String gatewayCVV2Codes;
 
 	public String getGatewayCVV2Codes() {
@@ -44,6 +58,9 @@ public class PaymentGatewayInteraction implements Serializable
 		this.gatewayCVV2Codes = gatewayCVV2Codes;
 	}
 
+	/**
+	 * Unique identifier of the payment interaction from the payment gateway.
+	 */
 	protected Integer gatewayInteractionId;
 
 	public Integer getGatewayInteractionId() {
@@ -54,6 +71,9 @@ public class PaymentGatewayInteraction implements Serializable
 		this.gatewayInteractionId = gatewayInteractionId;
 	}
 
+	/**
+	 * Response code from the gateway associated with the payment interaction. For example, if the gateway returns "Not Authorized," an interaction for voiding the payment transaction would result.
+	 */
 	protected String gatewayResponseCode;
 
 	public String getGatewayResponseCode() {
@@ -64,6 +84,9 @@ public class PaymentGatewayInteraction implements Serializable
 		this.gatewayResponseCode = gatewayResponseCode;
 	}
 
+	/**
+	 * Unique identifier of the gateway transaction associated with the payment interaction.
+	 */
 	protected String gatewayTransactionId;
 
 	public String getGatewayTransactionId() {

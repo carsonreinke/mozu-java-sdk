@@ -15,7 +15,7 @@ public class TransactionUrl
 
 	/**
 	 * Get Resource Url for GetTransactions
-	 * @param accountId 
+	 * @param accountId Unique identifier of the customer account for which to retrieve transactions.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl getTransactionsUrl(Integer accountId)
@@ -27,7 +27,7 @@ public class TransactionUrl
 
 	/**
 	 * Get Resource Url for AddTransaction
-	 * @param accountId 
+	 * @param accountId Unique identifier of the customer account.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl addTransactionUrl(Integer accountId)
@@ -39,8 +39,8 @@ public class TransactionUrl
 
 	/**
 	 * Get Resource Url for RemoveTransaction
-	 * @param accountId 
-	 * @param transactionId 
+	 * @param accountId Unique identifier of the customer account from which to delete the transaction.
+	 * @param transactionId Unique identifier of the transaction to delete.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl removeTransactionUrl(Integer accountId, String transactionId)

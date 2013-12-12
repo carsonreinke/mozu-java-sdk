@@ -14,28 +14,28 @@ import com.mozu.api.Headers;
 import com.mozu.api.security.AuthTicket;
 
 /** <summary>
- * 
+ * Use the Attributes subresource to manage the attributes used to uniquely identify shopper accounts, such as gender or age.
  * </summary>
  */
 public class CustomerAttributeClient {
 	
 	/**
-	 * 
+	 * Retrieves the contents of an attribute associated with the specified customer account.
 	 * <p><pre><code>
-	 * MozuClient<com.mozu.api.contracts.customer.CustomerAttribute> mozuClient=GetAccountAttributeByFqnClient( accountId,  attributeFQN, authTicket);
+	 * MozuClient<com.mozu.api.contracts.customer.CustomerAttribute> mozuClient=GetAccountAttributeClient( accountId,  attributeFQN, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * CustomerAttribute customerAttribute = client.Result();
 	 * </code></pre></p>
-	 * @param accountId 
+	 * @param accountId Identifier of the customer account associated with the attribute to retrieve.
 	 * @param attributeFQN 
 	 * @param authTicket User Auth Ticket
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.customer.CustomerAttribute>
 	 * @see com.mozu.api.contracts.customer.CustomerAttribute
 	 */
-	public static MozuClient<com.mozu.api.contracts.customer.CustomerAttribute> getAccountAttributeByFqnClient(Integer accountId, String attributeFQN, AuthTicket authTicket) throws Exception
+	public static MozuClient<com.mozu.api.contracts.customer.CustomerAttribute> getAccountAttributeClient(Integer accountId, String attributeFQN, AuthTicket authTicket) throws Exception
 	{
-		MozuUrl url = com.mozu.api.urls.commerce.customer.accounts.CustomerAttributeUrl.getAccountAttributeByFqnUrl(accountId, attributeFQN);
+		MozuUrl url = com.mozu.api.urls.commerce.customer.accounts.CustomerAttributeUrl.getAccountAttributeUrl(accountId, attributeFQN);
 		String verb = "GET";
 		Class<?> clz = com.mozu.api.contracts.customer.CustomerAttribute.class;
 		MozuClient<com.mozu.api.contracts.customer.CustomerAttribute> mozuClient = new MozuClient(clz);
@@ -48,42 +48,14 @@ public class CustomerAttributeClient {
 	}
 
 	/**
-	 * 
-	 * <p><pre><code>
-	 * MozuClient<com.mozu.api.contracts.customer.CustomerAttribute> mozuClient=GetAccountAttributeClient( accountId,  attributeId, authTicket);
-	 * client.setBaseAddress(url);
-	 * client.executeRequest();
-	 * CustomerAttribute customerAttribute = client.Result();
-	 * </code></pre></p>
-	 * @param accountId 
-	 * @param attributeId 
-	 * @param authTicket User Auth Ticket
-	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.customer.CustomerAttribute>
-	 * @see com.mozu.api.contracts.customer.CustomerAttribute
-	 */
-	public static MozuClient<com.mozu.api.contracts.customer.CustomerAttribute> getAccountAttributeClient(Integer accountId, Integer attributeId, AuthTicket authTicket) throws Exception
-	{
-		MozuUrl url = com.mozu.api.urls.commerce.customer.accounts.CustomerAttributeUrl.getAccountAttributeUrl(accountId, attributeId);
-		String verb = "GET";
-		Class<?> clz = com.mozu.api.contracts.customer.CustomerAttribute.class;
-		MozuClient<com.mozu.api.contracts.customer.CustomerAttribute> mozuClient = new MozuClient(clz);
-		mozuClient.setVerb(verb);
-		mozuClient.setResourceUrl(url);
-		if (authTicket != null)
-			mozuClient.setUserAuth(authTicket);
-		return mozuClient;
-
-	}
-
-	/**
-	 * 
+	 * Retrieves the list of customer account attributes.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.customer.CustomerAttributeCollection> mozuClient=GetAccountAttributesClient( accountId);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * CustomerAttributeCollection customerAttributeCollection = client.Result();
 	 * </code></pre></p>
-	 * @param accountId 
+	 * @param accountId Identifier of the customer account associated with the attributes to retrieve.
 	 * @param authTicket User Auth Ticket
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.customer.CustomerAttributeCollection>
 	 * @see com.mozu.api.contracts.customer.CustomerAttributeCollection
@@ -94,14 +66,14 @@ public class CustomerAttributeClient {
 	}
 
 	/**
-	 * 
+	 * Retrieves the list of customer account attributes.
 	 * <p><pre><code>
-	 * MozuClient<com.mozu.api.contracts.customer.CustomerAttributeCollection> mozuClient=GetAccountAttributesClient( accountId,  filter,  pageSize,  sortBy,  startIndex, authTicket);
+	 * MozuClient<com.mozu.api.contracts.customer.CustomerAttributeCollection> mozuClient=GetAccountAttributesClient( accountId,  startIndex,  pageSize,  sortBy,  filter, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * CustomerAttributeCollection customerAttributeCollection = client.Result();
 	 * </code></pre></p>
-	 * @param accountId 
+	 * @param accountId Identifier of the customer account associated with the attributes to retrieve.
 	 * @param filter 
 	 * @param pageSize 
 	 * @param sortBy 
@@ -110,7 +82,7 @@ public class CustomerAttributeClient {
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.customer.CustomerAttributeCollection>
 	 * @see com.mozu.api.contracts.customer.CustomerAttributeCollection
 	 */
-	public static MozuClient<com.mozu.api.contracts.customer.CustomerAttributeCollection> getAccountAttributesClient(Integer accountId, String filter, Integer pageSize, String sortBy, Integer startIndex, AuthTicket authTicket) throws Exception
+	public static MozuClient<com.mozu.api.contracts.customer.CustomerAttributeCollection> getAccountAttributesClient(Integer accountId, Integer startIndex, Integer pageSize, String sortBy, String filter, AuthTicket authTicket) throws Exception
 	{
 		MozuUrl url = com.mozu.api.urls.commerce.customer.accounts.CustomerAttributeUrl.getAccountAttributesUrl(accountId, filter, pageSize, sortBy, startIndex);
 		String verb = "GET";
@@ -125,16 +97,16 @@ public class CustomerAttributeClient {
 	}
 
 	/**
-	 * 
+	 * Applies a defined attribute to the customer account specified in the request and assigns a value to the customer attribute.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.customer.CustomerAttribute> mozuClient=AddAccountAttributeClient( customerAccountAttribute,  accountId, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * CustomerAttribute customerAttribute = client.Result();
 	 * </code></pre></p>
-	 * @param accountId 
+	 * @param accountId Unique identifier of the customer account.
 	 * @param authTicket User Auth Ticket
-	 * @param customerAccountAttribute 
+	 * @param customerAccountAttribute Properties of the customer account attribute to create.
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.customer.CustomerAttribute>
 	 * @see com.mozu.api.contracts.customer.CustomerAttribute
 	 * @see com.mozu.api.contracts.customer.CustomerAttribute
@@ -155,23 +127,44 @@ public class CustomerAttributeClient {
 	}
 
 	/**
-	 * 
+	 * Updates one or more details of a customer account attribute.
 	 * <p><pre><code>
-	 * MozuClient<com.mozu.api.contracts.customer.CustomerAttribute> mozuClient=UpdateAccountAttributeClient( customerAccountAttribute,  accountId, authTicket);
+	 * MozuClient<com.mozu.api.contracts.customer.CustomerAttribute> mozuClient=UpdateAccountAttributeClient( customerAccountAttribute,  accountId);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * CustomerAttribute customerAttribute = client.Result();
 	 * </code></pre></p>
-	 * @param accountId 
+	 * @param accountId Identifier of the customer account associated with the attribute.
 	 * @param authTicket User Auth Ticket
-	 * @param customerAccountAttribute 
+	 * @param customerAccountAttribute The properties of the customer account attribute to update.
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.customer.CustomerAttribute>
 	 * @see com.mozu.api.contracts.customer.CustomerAttribute
 	 * @see com.mozu.api.contracts.customer.CustomerAttribute
 	 */
-	public static MozuClient<com.mozu.api.contracts.customer.CustomerAttribute> updateAccountAttributeClient(com.mozu.api.contracts.customer.CustomerAttribute customerAccountAttribute, Integer accountId, AuthTicket authTicket) throws Exception
+	public static MozuClient<com.mozu.api.contracts.customer.CustomerAttribute> updateAccountAttributeClient(com.mozu.api.contracts.customer.CustomerAttribute customerAccountAttribute, Integer accountId) throws Exception
 	{
-		MozuUrl url = com.mozu.api.urls.commerce.customer.accounts.CustomerAttributeUrl.updateAccountAttributeUrl(accountId);
+		return updateAccountAttributeClient( customerAccountAttribute,  accountId,  false, null);
+	}
+
+	/**
+	 * Updates one or more details of a customer account attribute.
+	 * <p><pre><code>
+	 * MozuClient<com.mozu.api.contracts.customer.CustomerAttribute> mozuClient=UpdateAccountAttributeClient( customerAccountAttribute,  accountId,  removeMissing, authTicket);
+	 * client.setBaseAddress(url);
+	 * client.executeRequest();
+	 * CustomerAttribute customerAttribute = client.Result();
+	 * </code></pre></p>
+	 * @param accountId Identifier of the customer account associated with the attribute.
+	 * @param removeMissing If true, remove the items missing from the collection.
+	 * @param authTicket User Auth Ticket
+	 * @param customerAccountAttribute The properties of the customer account attribute to update.
+	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.customer.CustomerAttribute>
+	 * @see com.mozu.api.contracts.customer.CustomerAttribute
+	 * @see com.mozu.api.contracts.customer.CustomerAttribute
+	 */
+	public static MozuClient<com.mozu.api.contracts.customer.CustomerAttribute> updateAccountAttributeClient(com.mozu.api.contracts.customer.CustomerAttribute customerAccountAttribute, Integer accountId, Boolean removeMissing, AuthTicket authTicket) throws Exception
+	{
+		MozuUrl url = com.mozu.api.urls.commerce.customer.accounts.CustomerAttributeUrl.updateAccountAttributeUrl(accountId, removeMissing);
 		String verb = "PUT";
 		Class<?> clz = com.mozu.api.contracts.customer.CustomerAttribute.class;
 		MozuClient<com.mozu.api.contracts.customer.CustomerAttribute> mozuClient = new MozuClient(clz);

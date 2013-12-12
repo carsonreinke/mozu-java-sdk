@@ -14,15 +14,15 @@ import com.mozu.api.Headers;
 import com.mozu.api.security.AuthTicket;
 
 /** <summary>
- * 
+ * Use the property types subresource to manage content properties.
  * </summary>
  */
 public class PropertyTypeClient {
 	
 	/**
-	 * 
+	 * Retrieves a list of the content property types.
 	 * <p><pre><code>
-	 * MozuClient<com.mozu.api.contracts.content.PropertyTypeCollection> mozuClient=GetListClient();
+	 * MozuClient<com.mozu.api.contracts.content.PropertyTypeCollection> mozuClient=GetListClient(dataViewMode);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * PropertyTypeCollection propertyTypeCollection = client.Result();
@@ -31,26 +31,26 @@ public class PropertyTypeClient {
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.content.PropertyTypeCollection>
 	 * @see com.mozu.api.contracts.content.PropertyTypeCollection
 	 */
-	public static MozuClient<com.mozu.api.contracts.content.PropertyTypeCollection> getListClient() throws Exception
+	public static MozuClient<com.mozu.api.contracts.content.PropertyTypeCollection> getListClient(com.mozu.api.DataViewMode dataViewMode) throws Exception
 	{
-		return getListClient( null,  null, null);
+		return getListClient(dataViewMode,  null,  null, null);
 	}
 
 	/**
-	 * 
+	 * Retrieves a list of the content property types.
 	 * <p><pre><code>
-	 * MozuClient<com.mozu.api.contracts.content.PropertyTypeCollection> mozuClient=GetListClient( pageSize,  startIndex, authTicket);
+	 * MozuClient<com.mozu.api.contracts.content.PropertyTypeCollection> mozuClient=GetListClient(dataViewMode,  pageSize,  startIndex, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * PropertyTypeCollection propertyTypeCollection = client.Result();
 	 * </code></pre></p>
-	 * @param pageSize 
+	 * @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
 	 * @param startIndex 
 	 * @param authTicket User Auth Ticket
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.content.PropertyTypeCollection>
 	 * @see com.mozu.api.contracts.content.PropertyTypeCollection
 	 */
-	public static MozuClient<com.mozu.api.contracts.content.PropertyTypeCollection> getListClient(Integer pageSize, Integer startIndex, AuthTicket authTicket) throws Exception
+	public static MozuClient<com.mozu.api.contracts.content.PropertyTypeCollection> getListClient(com.mozu.api.DataViewMode dataViewMode, Integer pageSize, Integer startIndex, AuthTicket authTicket) throws Exception
 	{
 		MozuUrl url = com.mozu.api.urls.content.PropertyTypeUrl.getListUrl(pageSize, startIndex);
 		String verb = "GET";
@@ -58,6 +58,7 @@ public class PropertyTypeClient {
 		MozuClient<com.mozu.api.contracts.content.PropertyTypeCollection> mozuClient = new MozuClient(clz);
 		mozuClient.setVerb(verb);
 		mozuClient.setResourceUrl(url);
+		mozuClient.addHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.toString());
 		if (authTicket != null)
 			mozuClient.setUserAuth(authTicket);
 		return mozuClient;
@@ -65,19 +66,19 @@ public class PropertyTypeClient {
 	}
 
 	/**
-	 * 
+	 * Retrieves the details of the content property type.
 	 * <p><pre><code>
-	 * MozuClient<com.mozu.api.contracts.content.PropertyType> mozuClient=GetClient( propertyTypeName, authTicket);
+	 * MozuClient<com.mozu.api.contracts.content.PropertyType> mozuClient=GetClient(dataViewMode,  propertyTypeName, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * PropertyType propertyType = client.Result();
 	 * </code></pre></p>
-	 * @param propertyTypeName 
+	 * @param propertyTypeName The name of the content property type.
 	 * @param authTicket User Auth Ticket
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.content.PropertyType>
 	 * @see com.mozu.api.contracts.content.PropertyType
 	 */
-	public static MozuClient<com.mozu.api.contracts.content.PropertyType> getClient(String propertyTypeName, AuthTicket authTicket) throws Exception
+	public static MozuClient<com.mozu.api.contracts.content.PropertyType> getClient(com.mozu.api.DataViewMode dataViewMode, String propertyTypeName, AuthTicket authTicket) throws Exception
 	{
 		MozuUrl url = com.mozu.api.urls.content.PropertyTypeUrl.getUrl(propertyTypeName);
 		String verb = "GET";
@@ -85,6 +86,7 @@ public class PropertyTypeClient {
 		MozuClient<com.mozu.api.contracts.content.PropertyType> mozuClient = new MozuClient(clz);
 		mozuClient.setVerb(verb);
 		mozuClient.setResourceUrl(url);
+		mozuClient.addHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.toString());
 		if (authTicket != null)
 			mozuClient.setUserAuth(authTicket);
 		return mozuClient;
@@ -92,9 +94,9 @@ public class PropertyTypeClient {
 	}
 
 	/**
-	 * 
+	 * Retrieves the value types associated with a content property.
 	 * <p><pre><code>
-	 * MozuClient<List<com.mozu.api.contracts.content.PropertyValueType>> mozuClient=PropertyValueTypesClient(authTicket);
+	 * MozuClient<List<com.mozu.api.contracts.content.PropertyValueType>> mozuClient=PropertyValueTypesClient(dataViewMode, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * PropertyValueType propertyValueType = client.Result();
@@ -103,7 +105,7 @@ public class PropertyTypeClient {
 	 * @return Mozu.Api.MozuClient <List<com.mozu.api.contracts.content.PropertyValueType>>
 	 * @see com.mozu.api.contracts.content.PropertyValueType
 	 */
-	public static MozuClient<List<com.mozu.api.contracts.content.PropertyValueType>> propertyValueTypesClient(AuthTicket authTicket) throws Exception
+	public static MozuClient<List<com.mozu.api.contracts.content.PropertyValueType>> propertyValueTypesClient(com.mozu.api.DataViewMode dataViewMode, AuthTicket authTicket) throws Exception
 	{
 		MozuUrl url = com.mozu.api.urls.content.PropertyTypeUrl.propertyValueTypesUrl();
 		String verb = "GET";
@@ -111,6 +113,7 @@ public class PropertyTypeClient {
 		MozuClient<List<com.mozu.api.contracts.content.PropertyValueType>> mozuClient = new MozuClient(clz);
 		mozuClient.setVerb(verb);
 		mozuClient.setResourceUrl(url);
+		mozuClient.addHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.toString());
 		if (authTicket != null)
 			mozuClient.setUserAuth(authTicket);
 		return mozuClient;

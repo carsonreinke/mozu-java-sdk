@@ -14,21 +14,21 @@ import com.mozu.api.Headers;
 import com.mozu.api.security.AuthTicket;
 
 /** <summary>
- * 
+ * Use the Pickups resource to organize items submitted in an order into pickups that enable the shopper to fulfill the order items using the in-store pickup method.
  * </summary>
  */
 public class PickupClient {
 	
 	/**
-	 * 
+	 * Retrieves the details of the in-store pickup specified in the request.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.commerceruntime.fulfillment.Pickup> mozuClient=GetPickupClient( orderId,  pickupId, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * Pickup pickup = client.Result();
 	 * </code></pre></p>
-	 * @param orderId 
-	 * @param pickupId 
+	 * @param orderId Unique identifier of the order associated with the pickup.
+	 * @param pickupId Unique identifier of the pickup to retrieve.
 	 * @param authTicket User Auth Ticket
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.commerceruntime.fulfillment.Pickup>
 	 * @see com.mozu.api.contracts.commerceruntime.fulfillment.Pickup
@@ -48,15 +48,15 @@ public class PickupClient {
 	}
 
 	/**
-	 * 
+	 * Retrieves a list of the actions available to perform for the pickup specified in the request.
 	 * <p><pre><code>
 	 * MozuClient<List<String>> mozuClient=GetAvailablePickupFulfillmentActionsClient( orderId,  pickupId, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * string string = client.Result();
 	 * </code></pre></p>
-	 * @param orderId 
-	 * @param pickupId 
+	 * @param orderId Unique identifier of the order associated with the pickup.
+	 * @param pickupId Unique identifier of the pickup for which to retrieve available actions.
 	 * @param authTicket User Auth Ticket
 	 * @return Mozu.Api.MozuClient <List<string>>
 	 * @see string
@@ -76,16 +76,16 @@ public class PickupClient {
 	}
 
 	/**
-	 * 
+	 * Create a new pickup for the order specified in the request for in-store fufillment.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.commerceruntime.fulfillment.Pickup> mozuClient=CreatePickupClient( pickup,  orderId, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * Pickup pickup = client.Result();
 	 * </code></pre></p>
-	 * @param orderId 
+	 * @param orderId Unique identifier of the order.
 	 * @param authTicket User Auth Ticket
-	 * @param pickup 
+	 * @param pickup Properties of the in-store pickup to create.
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.commerceruntime.fulfillment.Pickup>
 	 * @see com.mozu.api.contracts.commerceruntime.fulfillment.Pickup
 	 * @see com.mozu.api.contracts.commerceruntime.fulfillment.Pickup
@@ -106,17 +106,17 @@ public class PickupClient {
 	}
 
 	/**
-	 * 
+	 * Updates one or more details of a defined in-store pickup.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.commerceruntime.fulfillment.Pickup> mozuClient=UpdatePickupClient( pickup,  orderId,  pickupId, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * Pickup pickup = client.Result();
 	 * </code></pre></p>
-	 * @param orderId 
-	 * @param pickupId 
+	 * @param orderId Unique identifier of the order associated with the in-store pickup.
+	 * @param pickupId Unique identifier of the pickup to update.
 	 * @param authTicket User Auth Ticket
-	 * @param pickup 
+	 * @param pickup Properties of the in-store pickup to update.
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.commerceruntime.fulfillment.Pickup>
 	 * @see com.mozu.api.contracts.commerceruntime.fulfillment.Pickup
 	 * @see com.mozu.api.contracts.commerceruntime.fulfillment.Pickup
@@ -137,14 +137,14 @@ public class PickupClient {
 	}
 
 	/**
-	 * 
+	 * Removes a pickup previously defined for order item in-store pickup fulfillment.
 	 * <p><pre><code>
 	 * MozuClient mozuClient=DeletePickupClient( orderId,  pickupId, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * </code></pre></p>
-	 * @param orderId 
-	 * @param pickupId 
+	 * @param orderId Unique identifier of the order associated with the pickup.
+	 * @param pickupId Unique identifier of the pickup to remove.
 	 * @param authTicket User Auth Ticket
 	 * @return Mozu.Api.MozuClient 
 	 */

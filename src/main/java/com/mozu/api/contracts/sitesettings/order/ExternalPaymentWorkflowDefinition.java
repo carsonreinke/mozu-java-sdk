@@ -8,14 +8,22 @@ package com.mozu.api.contracts.sitesettings.order;
 
 import java.util.List;
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 import com.mozu.api.contracts.sitesettings.order.ThirdPartyCredentialField;
 
+/**
+ *	Properties of an external payment processing workflow defined for the site. At this time, only PayPal Express is supported.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class ExternalPaymentWorkflowDefinition implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * If true, the associated external payment workflow definition is enabled for the site.
+	 */
 	protected Boolean isEnabled;
 
 	public Boolean getIsEnabled() {
@@ -26,6 +34,9 @@ public class ExternalPaymentWorkflowDefinition implements Serializable
 		this.isEnabled = isEnabled;
 	}
 
+	/**
+	 * The name of the external payment workflow definition.
+	 */
 	protected String name;
 
 	public String getName() {
@@ -36,6 +47,9 @@ public class ExternalPaymentWorkflowDefinition implements Serializable
 		this.name = name;
 	}
 
+	/**
+	 * The credential fields required to communicate with the external payment processor.
+	 */
 	protected List<ThirdPartyCredentialField> credentials;
 	public List<ThirdPartyCredentialField> getCredentials() {
 		return this.credentials;

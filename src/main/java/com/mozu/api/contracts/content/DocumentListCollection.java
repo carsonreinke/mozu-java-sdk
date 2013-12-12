@@ -8,14 +8,22 @@ package com.mozu.api.contracts.content;
 
 import java.util.List;
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 import com.mozu.api.contracts.content.DocumentList;
 
+/**
+ *	Collection of document lists used to organize content.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class DocumentListCollection implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * The number of pages returned based on the startIndex and pageSize values specified. This value is system-supplied and read-only.
+	 */
 	protected Long pageCount;
 
 	public Long getPageCount() {
@@ -26,6 +34,9 @@ public class DocumentListCollection implements Serializable
 		this.pageCount = pageCount;
 	}
 
+	/**
+	 * The number of results to display on each page when creating paged results from a query. The maximum value is 200.
+	 */
 	protected Integer pageSize;
 
 	public Integer getPageSize() {
@@ -36,6 +47,9 @@ public class DocumentListCollection implements Serializable
 		this.pageSize = pageSize;
 	}
 
+	/**
+	 * When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
+	 */
 	protected Integer startIndex;
 
 	public Integer getStartIndex() {
@@ -46,6 +60,9 @@ public class DocumentListCollection implements Serializable
 		this.startIndex = startIndex;
 	}
 
+	/**
+	 * The number of results listed in the query collection, represented by a signed 64-bit (8-byte) integer. This value is system-supplied and read-only.
+	 */
 	protected Long totalCount;
 
 	public Long getTotalCount() {
@@ -56,6 +73,9 @@ public class DocumentListCollection implements Serializable
 		this.totalCount = totalCount;
 	}
 
+	/**
+	 * An array list of objects in the returned collection.
+	 */
 	protected List<DocumentList> items;
 	public List<DocumentList> getItems() {
 		return this.items;

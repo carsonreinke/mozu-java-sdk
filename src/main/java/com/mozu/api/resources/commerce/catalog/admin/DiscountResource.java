@@ -15,7 +15,7 @@ import com.mozu.api.Headers;
 import com.mozu.api.security.AuthTicket;
 
 /** <summary>
- * 
+ * Define and manage discounts to apply to products, product categories, or orders. The discounts can be a specified amount off the price, percentage off the price, or for free shipping. Create a coupon code that shoppers can use to redeem the discount.
  * </summary>
  */
 public class DiscountResource {
@@ -29,7 +29,7 @@ public class DiscountResource {
 	}
 	
 	/**
-	 * 
+	 * Retrieves a list of discounts according to any specified filter criteria and sort options.
 	 * <p><pre><code>
 	 *	Discount discount = new Discount();
 	 *	DiscountCollection discountCollection = discount.GetDiscounts(dataViewMode);
@@ -44,22 +44,22 @@ public class DiscountResource {
 	}
 
 	/**
-	 * 
+	 * Retrieves a list of discounts according to any specified filter criteria and sort options.
 	 * <p><pre><code>
 	 *	Discount discount = new Discount();
-	 *	DiscountCollection discountCollection = discount.GetDiscounts(dataViewMode,  filter,  pageSize,  sortBy,  startIndex, authTicket);
+	 *	DiscountCollection discountCollection = discount.GetDiscounts(dataViewMode,  startIndex,  pageSize,  sortBy,  filter, authTicket);
 	 * </code></pre></p>
-	 * @param filter 
-	 * @param pageSize 
+	 * @param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
+	 * @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
 	 * @param sortBy 
 	 * @param startIndex 
 	 * @param authTicket User Auth Ticket
 	 * @return com.mozu.api.contracts.productadmin.DiscountCollection
 	 * @see com.mozu.api.contracts.productadmin.DiscountCollection
 	 */
-	public com.mozu.api.contracts.productadmin.DiscountCollection getDiscounts(com.mozu.api.DataViewMode dataViewMode, String filter, Integer pageSize, String sortBy, Integer startIndex, AuthTicket authTicket) throws Exception
+	public com.mozu.api.contracts.productadmin.DiscountCollection getDiscounts(com.mozu.api.DataViewMode dataViewMode, Integer startIndex, Integer pageSize, String sortBy, String filter, AuthTicket authTicket) throws Exception
 	{
-		MozuClient<com.mozu.api.contracts.productadmin.DiscountCollection> client = com.mozu.api.clients.commerce.catalog.admin.DiscountClient.getDiscountsClient(dataViewMode,  filter,  pageSize,  sortBy,  startIndex, authTicket);
+		MozuClient<com.mozu.api.contracts.productadmin.DiscountCollection> client = com.mozu.api.clients.commerce.catalog.admin.DiscountClient.getDiscountsClient(dataViewMode,  startIndex,  pageSize,  sortBy,  filter, authTicket);
 		client.setContext(_apiContext);
 		client.executeRequest();
 		return client.getResult();
@@ -67,12 +67,12 @@ public class DiscountResource {
 	}
 
 	/**
-	 * 
+	 * Retrieves the details of a single discount.
 	 * <p><pre><code>
 	 *	Discount discount = new Discount();
 	 *	Discount discount = discount.GetDiscount(dataViewMode,  discountId, authTicket);
 	 * </code></pre></p>
-	 * @param discountId 
+	 * @param discountId Unique identifier of the discount. System-supplied and read-only.
 	 * @param authTicket User Auth Ticket
 	 * @return com.mozu.api.contracts.productadmin.Discount
 	 * @see com.mozu.api.contracts.productadmin.Discount
@@ -87,12 +87,12 @@ public class DiscountResource {
 	}
 
 	/**
-	 * 
+	 * Retrieves the localized content specified for the specified discount.
 	 * <p><pre><code>
 	 *	Discount discount = new Discount();
 	 *	DiscountLocalizedContent discountLocalizedContent = discount.GetDiscountContent(dataViewMode,  discountId, authTicket);
 	 * </code></pre></p>
-	 * @param discountId 
+	 * @param discountId Unique identifier of the discount. System-supplied and read-only.
 	 * @param authTicket User Auth Ticket
 	 * @return com.mozu.api.contracts.productadmin.DiscountLocalizedContent
 	 * @see com.mozu.api.contracts.productadmin.DiscountLocalizedContent
@@ -107,7 +107,7 @@ public class DiscountResource {
 	}
 
 	/**
-	 * 
+	 * Generates a random code for a coupon.
 	 * <p><pre><code>
 	 *	Discount discount = new Discount();
 	 *	string string = discount.GenerateRandomCoupon(dataViewMode, authTicket);
@@ -126,13 +126,13 @@ public class DiscountResource {
 	}
 
 	/**
-	 * 
+	 * Creates a discount.
 	 * <p><pre><code>
 	 *	Discount discount = new Discount();
 	 *	Discount discount = discount.CreateDiscount(dataViewMode,  discount, authTicket);
 	 * </code></pre></p>
 	 * @param authTicket User Auth Ticket
-	 * @param discount 
+	 * @param discount Properties of the discount to create. Required properties: Content.Name, AmountType, StartDate, and Target.Type.
 	 * @return com.mozu.api.contracts.productadmin.Discount
 	 * @see com.mozu.api.contracts.productadmin.Discount
 	 * @see com.mozu.api.contracts.productadmin.Discount
@@ -147,13 +147,13 @@ public class DiscountResource {
 	}
 
 	/**
-	 * 
+	 * Redeems a discount configured in the product admin.
 	 * <p><pre><code>
 	 *	Discount discount = new Discount();
 	 *	Redemption redemption = discount.RedeemDiscount(dataViewMode,  redemption, authTicket);
 	 * </code></pre></p>
 	 * @param authTicket User Auth Ticket
-	 * @param redemption 
+	 * @param redemption Properties of the product discount redemption.
 	 * @return com.mozu.api.contracts.productadmin.discounts.Redemption
 	 * @see com.mozu.api.contracts.productadmin.discounts.Redemption
 	 * @see com.mozu.api.contracts.productadmin.discounts.Redemption
@@ -168,14 +168,14 @@ public class DiscountResource {
 	}
 
 	/**
-	 * 
+	 * Modifies a discount.
 	 * <p><pre><code>
 	 *	Discount discount = new Discount();
 	 *	Discount discount = discount.UpdateDiscount(dataViewMode,  discount,  discountId, authTicket);
 	 * </code></pre></p>
-	 * @param discountId 
+	 * @param discountId Unique identifier of the discount. System-supplied and read-only.
 	 * @param authTicket User Auth Ticket
-	 * @param discount 
+	 * @param discount Properties of the discount to update. Required properties: Content.Name, AmountType, StartDate, and Target.Type. Any unspecified properties are set to null and boolean variables are set to false.
 	 * @return com.mozu.api.contracts.productadmin.Discount
 	 * @see com.mozu.api.contracts.productadmin.Discount
 	 * @see com.mozu.api.contracts.productadmin.Discount
@@ -190,14 +190,14 @@ public class DiscountResource {
 	}
 
 	/**
-	 * 
+	 * Modifies the localized content for the specified discount. Rename the discount without modifying any other discount properties.
 	 * <p><pre><code>
 	 *	Discount discount = new Discount();
 	 *	DiscountLocalizedContent discountLocalizedContent = discount.UpdateDiscountContent(dataViewMode,  content,  discountId, authTicket);
 	 * </code></pre></p>
-	 * @param discountId 
+	 * @param discountId Unique identifier of the discount. System-supplied and read-only.
 	 * @param authTicket User Auth Ticket
-	 * @param content 
+	 * @param content New Name and/or LocaleCode. Properties of the content to update. Required property: Name.
 	 * @return com.mozu.api.contracts.productadmin.DiscountLocalizedContent
 	 * @see com.mozu.api.contracts.productadmin.DiscountLocalizedContent
 	 * @see com.mozu.api.contracts.productadmin.DiscountLocalizedContent
@@ -212,12 +212,12 @@ public class DiscountResource {
 	}
 
 	/**
-	 * 
+	 * Deletes a discount specified by its discount ID.
 	 * <p><pre><code>
 	 *	Discount discount = new Discount();
 	 *	discount.DeleteDiscount(dataViewMode,  discountId, authTicket);
 	 * </code></pre></p>
-	 * @param discountId 
+	 * @param discountId Unique identifier of the discount. System-supplied and read-only.
 	 * @param authTicket User Auth Ticket
 	 * @return 
 	 */
@@ -230,7 +230,7 @@ public class DiscountResource {
 	}
 
 	/**
-	 * 
+	 * Deletes a previous discount redemption from an order.
 	 * <p><pre><code>
 	 *	Discount discount = new Discount();
 	 *	discount.UnRedeemDiscount(dataViewMode);
@@ -244,13 +244,13 @@ public class DiscountResource {
 	}
 
 	/**
-	 * 
+	 * Deletes a previous discount redemption from an order.
 	 * <p><pre><code>
 	 *	Discount discount = new Discount();
 	 *	discount.UnRedeemDiscount(dataViewMode,  discountId,  orderNumber, authTicket);
 	 * </code></pre></p>
-	 * @param discountId 
-	 * @param orderNumber 
+	 * @param discountId Unique identifier of the previously redeemed discount. System-supplied and read only.
+	 * @param orderNumber The number of the order associated with the redeemed product discount.
 	 * @param authTicket User Auth Ticket
 	 * @return 
 	 */

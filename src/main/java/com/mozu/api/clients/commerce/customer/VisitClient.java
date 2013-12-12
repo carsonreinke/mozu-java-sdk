@@ -14,13 +14,13 @@ import com.mozu.api.Headers;
 import com.mozu.api.security.AuthTicket;
 
 /** <summary>
- * 
+ * Use the Visits resource to manage all visits a customer makes to a tenant's sites and measure the level of transactions a customer performs during a unique visit for customer account analytics. Companies can track customer visits by site (including online and in-person interactions), the transactions a customer performs during the visit, and the device type associated with the visit, if any.
  * </summary>
  */
 public class VisitClient {
 	
 	/**
-	 * 
+	 * Retrieves a list of customer visits according to any filter or sort criteria specified in the request.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.customer.VisitCollection> mozuClient=GetVisitsClient();
 	 * client.setBaseAddress(url);
@@ -37,22 +37,22 @@ public class VisitClient {
 	}
 
 	/**
-	 * 
+	 * Retrieves a list of customer visits according to any filter or sort criteria specified in the request.
 	 * <p><pre><code>
-	 * MozuClient<com.mozu.api.contracts.customer.VisitCollection> mozuClient=GetVisitsClient( filter,  pageSize,  sortBy,  startIndex, authTicket);
+	 * MozuClient<com.mozu.api.contracts.customer.VisitCollection> mozuClient=GetVisitsClient( startIndex,  pageSize,  sortBy,  filter, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * VisitCollection visitCollection = client.Result();
 	 * </code></pre></p>
-	 * @param filter 
-	 * @param pageSize 
-	 * @param sortBy 
-	 * @param startIndex 
+	 * @param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
+	 * @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
+	 * @param sortBy The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"
+	 * @param startIndex When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
 	 * @param authTicket User Auth Ticket
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.customer.VisitCollection>
 	 * @see com.mozu.api.contracts.customer.VisitCollection
 	 */
-	public static MozuClient<com.mozu.api.contracts.customer.VisitCollection> getVisitsClient(String filter, Integer pageSize, String sortBy, Integer startIndex, AuthTicket authTicket) throws Exception
+	public static MozuClient<com.mozu.api.contracts.customer.VisitCollection> getVisitsClient(Integer startIndex, Integer pageSize, String sortBy, String filter, AuthTicket authTicket) throws Exception
 	{
 		MozuUrl url = com.mozu.api.urls.commerce.customer.VisitUrl.getVisitsUrl(filter, pageSize, sortBy, startIndex);
 		String verb = "GET";
@@ -67,14 +67,14 @@ public class VisitClient {
 	}
 
 	/**
-	 * 
+	 * Retrieves the details of the customer visit specified in the request.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.customer.Visit> mozuClient=GetVisitClient( visitId, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * Visit visit = client.Result();
 	 * </code></pre></p>
-	 * @param visitId 
+	 * @param visitId Unique identifier of the customer visit to retrieve.
 	 * @param authTicket User Auth Ticket
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.customer.Visit>
 	 * @see com.mozu.api.contracts.customer.Visit
@@ -94,7 +94,7 @@ public class VisitClient {
 	}
 
 	/**
-	 * 
+	 * Creates a new visit for the customer account specified in the request.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.customer.Visit> mozuClient=AddVisitClient( visit, authTicket);
 	 * client.setBaseAddress(url);
@@ -102,7 +102,7 @@ public class VisitClient {
 	 * Visit visit = client.Result();
 	 * </code></pre></p>
 	 * @param authTicket User Auth Ticket
-	 * @param visit 
+	 * @param visit Properties of the visit to add to the customer account.
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.customer.Visit>
 	 * @see com.mozu.api.contracts.customer.Visit
 	 * @see com.mozu.api.contracts.customer.Visit
@@ -123,16 +123,16 @@ public class VisitClient {
 	}
 
 	/**
-	 * 
+	 * Updates one or more properties of a defined customer visit.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.customer.Visit> mozuClient=UpdateVisitClient( visit,  visitId, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * Visit visit = client.Result();
 	 * </code></pre></p>
-	 * @param visitId 
+	 * @param visitId Unique identifier of the customer visit to update.
 	 * @param authTicket User Auth Ticket
-	 * @param visit 
+	 * @param visit Properties of the customer visit to update.
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.customer.Visit>
 	 * @see com.mozu.api.contracts.customer.Visit
 	 * @see com.mozu.api.contracts.customer.Visit

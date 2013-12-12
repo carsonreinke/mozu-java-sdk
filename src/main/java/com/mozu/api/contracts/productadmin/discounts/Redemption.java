@@ -7,13 +7,21 @@
 package com.mozu.api.contracts.productadmin.discounts;
 
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 
+/**
+ *	Properties of a discount redemption.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Redemption implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Unique identifier of the discount associated with the redemption.
+	 */
 	protected Integer discountId;
 
 	public Integer getDiscountId() {
@@ -24,6 +32,9 @@ public class Redemption implements Serializable
 		this.discountId = discountId;
 	}
 
+	/**
+	 * Number of the order associated with the discount redemption.
+	 */
 	protected Integer orderNumber;
 
 	public Integer getOrderNumber() {
@@ -34,6 +45,9 @@ public class Redemption implements Serializable
 		this.orderNumber = orderNumber;
 	}
 
+	/**
+	 * The date and time on which the discount was redeemed.
+	 */
 	protected Date redeemedOn;
 
 	public Date getRedeemedOn() {
@@ -44,6 +58,9 @@ public class Redemption implements Serializable
 		this.redeemedOn = redeemedOn;
 	}
 
+	/**
+	 * Unique identifier of the user who redeemed the discount.
+	 */
 	protected String userId;
 
 	public String getUserId() {

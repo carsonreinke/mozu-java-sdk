@@ -15,8 +15,8 @@ public class ShipmentUrl
 
 	/**
 	 * Get Resource Url for GetShipment
-	 * @param returnId 
-	 * @param shipmentId 
+	 * @param returnId Unique identifier of the return associated with the replacement shipment to retrieve.
+	 * @param shipmentId Unique identifier of the return replacement shipment to retrieve.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl getShipmentUrl(String returnId, String shipmentId)
@@ -29,7 +29,7 @@ public class ShipmentUrl
 
 	/**
 	 * Get Resource Url for CreatePackageShipments
-	 * @param returnId 
+	 * @param returnId Unique identifier of the return for which to create replacement package shipments.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl createPackageShipmentsUrl(String returnId)
@@ -41,8 +41,8 @@ public class ShipmentUrl
 
 	/**
 	 * Get Resource Url for DeleteShipment
-	 * @param returnId 
-	 * @param shipmentId 
+	 * @param returnId Unique identifier of the return associated with the replacement shipment to delete.
+	 * @param shipmentId Unique identifier of the return replacement shipment to delete.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl deleteShipmentUrl(String returnId, String shipmentId)

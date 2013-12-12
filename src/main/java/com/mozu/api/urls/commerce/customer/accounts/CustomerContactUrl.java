@@ -15,8 +15,8 @@ public class CustomerContactUrl
 
 	/**
 	 * Get Resource Url for GetAccountContact
-	 * @param accountId 
-	 * @param contactId 
+	 * @param accountId Unique identifier of the customer account whose contact information is being retrieved.
+	 * @param contactId Unique identifier of the customer account contact to retrieve.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl getAccountContactUrl(Integer accountId, Integer contactId)
@@ -29,9 +29,9 @@ public class CustomerContactUrl
 
 	/**
 	 * Get Resource Url for GetAccountContacts
-	 * @param accountId 
-	 * @param filter 
-	 * @param pageSize 
+	 * @param accountId Unique identifier of the customer account associated with the contact information to retrieve.
+	 * @param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
+	 * @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
 	 * @param sortBy 
 	 * @param startIndex 
 	 * @return   String Resource Url
@@ -49,7 +49,7 @@ public class CustomerContactUrl
 
 	/**
 	 * Get Resource Url for AddAccountContact
-	 * @param accountId 
+	 * @param accountId Unique identifier of the customer account containing the new contact.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl addAccountContactUrl(Integer accountId)
@@ -61,8 +61,8 @@ public class CustomerContactUrl
 
 	/**
 	 * Get Resource Url for UpdateAccountContact
-	 * @param accountId 
-	 * @param contactId 
+	 * @param accountId Unique identifier of the customer account whose contact information is being updated.
+	 * @param contactId Unique identifer of the customer account contact being updated.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl updateAccountContactUrl(Integer accountId, Integer contactId)
@@ -75,8 +75,8 @@ public class CustomerContactUrl
 
 	/**
 	 * Get Resource Url for DeleteAccountContact
-	 * @param accountId 
-	 * @param contactId 
+	 * @param accountId Unique identifier of the customer account.
+	 * @param contactId Unique identifier of the customer account contact to delete.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl deleteAccountContactUrl(Integer accountId, Integer contactId)

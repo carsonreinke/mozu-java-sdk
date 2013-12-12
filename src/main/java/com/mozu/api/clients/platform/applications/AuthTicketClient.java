@@ -14,20 +14,20 @@ import com.mozu.api.Headers;
 import com.mozu.api.security.AuthTicket;
 
 /** <summary>
- * 
+ * Use this resource to manage authentication tickets for your applications.
  * </summary>
  */
 public class AuthTicketClient {
 	
 	/**
-	 * 
+	 * Generate an authentication ticket for an application.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.appdev.AuthTicket> mozuClient=AuthenticateAppClient( appAuthInfo);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * AuthTicket authTicket = client.Result();
 	 * </code></pre></p>
-	 * @param appAuthInfo 
+	 * @param appAuthInfo Authentication information required to generate an authentication ticket includes the application id and the shared secret.
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.appdev.AuthTicket>
 	 * @see com.mozu.api.contracts.appdev.AuthTicket
 	 * @see com.mozu.api.contracts.appdev.AppAuthInfo
@@ -46,14 +46,14 @@ public class AuthTicketClient {
 	}
 
 	/**
-	 * 
+	 * Refreshes the application's authentication ticket and generates a new access token by providing the refresh token string.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.appdev.AuthTicket> mozuClient=RefreshAppAuthTicketClient( authTicketRequest);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * AuthTicket authTicket = client.Result();
 	 * </code></pre></p>
-	 * @param authTicketRequest 
+	 * @param authTicketRequest The refresh token string required to update the application authentication ticket.
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.appdev.AuthTicket>
 	 * @see com.mozu.api.contracts.appdev.AuthTicket
 	 * @see com.mozu.api.contracts.appdev.AuthTicketRequest
@@ -72,13 +72,13 @@ public class AuthTicketClient {
 	}
 
 	/**
-	 * 
+	 * Deletes an authentication for an application based on the specified refresh token.
 	 * <p><pre><code>
 	 * MozuClient mozuClient=DeleteAppAuthTicketClient( refreshToken);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * </code></pre></p>
-	 * @param refreshToken 
+	 * @param refreshToken The refresh token string from the application's authentication ticket.
 	 * @return Mozu.Api.MozuClient 
 	 */
 	public static MozuClient deleteAppAuthTicketClient(String refreshToken) throws Exception

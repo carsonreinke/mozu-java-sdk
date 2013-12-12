@@ -7,13 +7,21 @@
 package com.mozu.api.contracts.productadmin;
 
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 
+/**
+ *	Item used to define additional key-value pairs of data associated with a product attribute.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class AttributeMetadataItem implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * User-defined key for attribute metadata.
+	 */
 	protected String key;
 
 	public String getKey() {
@@ -24,6 +32,9 @@ public class AttributeMetadataItem implements Serializable
 		this.key = key;
 	}
 
+	/**
+	 * Value for the user-defined key.
+	 */
 	protected String value;
 
 	public String getValue() {

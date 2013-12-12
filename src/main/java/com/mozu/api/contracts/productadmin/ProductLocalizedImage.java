@@ -7,13 +7,21 @@
 package com.mozu.api.contracts.productadmin;
 
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 
+/**
+ *	The localized product image in the language specified by the LocaleCode.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class ProductLocalizedImage implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Descriptive text associated with the image or video that appears on the storefront.
+	 */
 	protected String altText;
 
 	public String getAltText() {
@@ -24,6 +32,19 @@ public class ProductLocalizedImage implements Serializable
 		this.altText = altText;
 	}
 
+	protected String cmsId;
+
+	public String getCmsId() {
+		return this.cmsId;
+	}
+
+	public void setCmsId(String cmsId) {
+		this.cmsId = cmsId;
+	}
+
+	/**
+	 * Identifier of the localized product image.
+	 */
 	protected Integer id;
 
 	public Integer getId() {
@@ -34,6 +55,9 @@ public class ProductLocalizedImage implements Serializable
 		this.id = id;
 	}
 
+	/**
+	 * Image title that appears on the storefront set to the language specified by the site's LocaleCode.
+	 */
 	protected String imageLabel;
 
 	public String getImageLabel() {
@@ -44,16 +68,9 @@ public class ProductLocalizedImage implements Serializable
 		this.imageLabel = imageLabel;
 	}
 
-	protected String imagePath;
-
-	public String getImagePath() {
-		return this.imagePath;
-	}
-
-	public void setImagePath(String imagePath) {
-		this.imagePath = imagePath;
-	}
-
+	/**
+	 * URL of the image.
+	 */
 	protected String imageUrl;
 
 	public String getImageUrl() {
@@ -64,6 +81,9 @@ public class ProductLocalizedImage implements Serializable
 		this.imageUrl = imageUrl;
 	}
 
+	/**
+	 * Language used for the entity. Currently, only "en-US" is supported.
+	 */
 	protected String localeCode;
 
 	public String getLocaleCode() {
@@ -74,6 +94,9 @@ public class ProductLocalizedImage implements Serializable
 		this.localeCode = localeCode;
 	}
 
+	/**
+	 * Type of media specification required to successfully render the image, video, or other content for the product.
+	 */
 	protected String mediaType;
 
 	public String getMediaType() {
@@ -84,6 +107,9 @@ public class ProductLocalizedImage implements Serializable
 		this.mediaType = mediaType;
 	}
 
+	/**
+	 * Integer that represents the order of the localized product image in the sequence.
+	 */
 	protected Integer sequence;
 
 	public Integer getSequence() {
@@ -94,6 +120,9 @@ public class ProductLocalizedImage implements Serializable
 		this.sequence = sequence;
 	}
 
+	/**
+	 * The physical link or URL of the product video. The physical path name is set in the language specified by the LocaleCode.
+	 */
 	protected String videoUrl;
 
 	public String getVideoUrl() {

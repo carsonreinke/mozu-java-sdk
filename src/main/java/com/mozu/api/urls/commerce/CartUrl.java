@@ -15,7 +15,7 @@ public class CartUrl
 
 	/**
 	 * Get Resource Url for GetCart
-	 * @param cartId 
+	 * @param cartId Identifier of the cart to retrieve.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl getCartUrl(String cartId)
@@ -47,7 +47,7 @@ public class CartUrl
 
 	/**
 	 * Get Resource Url for GetUserCart
-	 * @param userId 
+	 * @param userId Unique identifier of the user whose cart you want to retrieve.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl getUserCartUrl(String userId)
@@ -59,7 +59,7 @@ public class CartUrl
 
 	/**
 	 * Get Resource Url for GetUserCartSummary
-	 * @param userId 
+	 * @param userId Unique identifier of the user whose cart details you want to retrieve.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl getUserCartSummaryUrl(String userId)
@@ -81,7 +81,7 @@ public class CartUrl
 
 	/**
 	 * Get Resource Url for DeleteCart
-	 * @param cartId 
+	 * @param cartId Identifier of the cart to delete.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl deleteCartUrl(String cartId)

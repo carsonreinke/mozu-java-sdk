@@ -15,8 +15,8 @@ public class ProductTypeUrl
 
 	/**
 	 * Get Resource Url for GetProductTypes
-	 * @param filter 
-	 * @param pageSize 
+	 * @param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. You can filter product type search results by any of its properties. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=Name+cont+shoes"
+	 * @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
 	 * @param sortBy 
 	 * @param startIndex 
 	 * @return   String Resource Url
@@ -33,7 +33,7 @@ public class ProductTypeUrl
 
 	/**
 	 * Get Resource Url for GetProductType
-	 * @param productTypeId 
+	 * @param productTypeId Identifier of the product type to retrieve.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl getProductTypeUrl(Integer productTypeId)
@@ -55,7 +55,7 @@ public class ProductTypeUrl
 
 	/**
 	 * Get Resource Url for UpdateProductType
-	 * @param productTypeId 
+	 * @param productTypeId Identifier of the product type to update.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl updateProductTypeUrl(Integer productTypeId)
@@ -67,7 +67,7 @@ public class ProductTypeUrl
 
 	/**
 	 * Get Resource Url for DeleteProductType
-	 * @param productTypeId 
+	 * @param productTypeId Identifier of the product type to delete.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl deleteProductTypeUrl(Integer productTypeId)

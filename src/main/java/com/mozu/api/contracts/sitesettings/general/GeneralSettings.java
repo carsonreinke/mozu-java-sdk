@@ -8,15 +8,23 @@ package com.mozu.api.contracts.sitesettings.general;
 
 import java.util.List;
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 import com.mozu.api.contracts.core.AuditInfo;
 import com.mozu.api.contracts.sitesettings.general.TaxableTerritory;
 
+/**
+ *	General settings used on the storefront site.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class GeneralSettings implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * If true, the site allows entry of addresses not verified by an address validation service.
+	 */
 	protected Boolean allowInvalidAddresses;
 
 	public Boolean getAllowInvalidAddresses() {
@@ -27,6 +35,9 @@ public class GeneralSettings implements Serializable
 		this.allowInvalidAddresses = allowInvalidAddresses;
 	}
 
+	/**
+	 * The physical directory path or URL where the mobile favicon image file is stored. The favicon icon is generally 57x57 pixels. The icon appears on a mobile website or on the mobile device's OS Home.
+	 */
 	protected String favIconMobilePath;
 
 	public String getFavIconMobilePath() {
@@ -37,6 +48,9 @@ public class GeneralSettings implements Serializable
 		this.favIconMobilePath = favIconMobilePath;
 	}
 
+	/**
+	 * The physical directory path or URL where the mobile favicon image file is stored. The favicon icon is generally 16x16 pixels. The icon appears on a a browser tab as the website's mini logo or on a browser address bar, or next to the page name in a list of bookmarks.
+	 */
 	protected String favIconPath;
 
 	public String getFavIconPath() {
@@ -47,6 +61,9 @@ public class GeneralSettings implements Serializable
 		this.favIconPath = favIconPath;
 	}
 
+	/**
+	 * The Google Analytics code associated with a particular store. This could be the web tracking code.
+	 */
 	protected String googleAnalyticsCode;
 
 	public String getGoogleAnalyticsCode() {
@@ -57,6 +74,9 @@ public class GeneralSettings implements Serializable
 		this.googleAnalyticsCode = googleAnalyticsCode;
 	}
 
+	/**
+	 * If true, a service to verify addresses as valid is enabled for the site.
+	 */
 	protected Boolean isAddressValidationEnabled;
 
 	public Boolean getIsAddressValidationEnabled() {
@@ -67,6 +87,9 @@ public class GeneralSettings implements Serializable
 		this.isAddressValidationEnabled = isAddressValidationEnabled;
 	}
 
+	/**
+	 * If true, the Google analytics for eCommerce is enabled for this site. If false, the analytics are not enabled.
+	 */
 	protected Boolean isGoogleAnalyticsEcommerceEnabled;
 
 	public Boolean getIsGoogleAnalyticsEcommerceEnabled() {
@@ -77,6 +100,9 @@ public class GeneralSettings implements Serializable
 		this.isGoogleAnalyticsEcommerceEnabled = isGoogleAnalyticsEcommerceEnabled;
 	}
 
+	/**
+	 * If true, enable Google analytics for this site. If false, analytics are not enabled.
+	 */
 	protected Boolean isGoogleAnalyticsEnabled;
 
 	public Boolean getIsGoogleAnalyticsEnabled() {
@@ -87,6 +113,9 @@ public class GeneralSettings implements Serializable
 		this.isGoogleAnalyticsEnabled = isGoogleAnalyticsEnabled;
 	}
 
+	/**
+	 * If true, this site represents a Mozu-hosted web storefront.
+	 */
 	protected Boolean isMozuWebSite;
 
 	public Boolean getIsMozuWebSite() {
@@ -97,6 +126,9 @@ public class GeneralSettings implements Serializable
 		this.isMozuWebSite = isMozuWebSite;
 	}
 
+	/**
+	 * If true, shoppers on this site can create customer wish lists.
+	 */
 	protected Boolean isWishlistCreationEnabled;
 
 	public Boolean getIsWishlistCreationEnabled() {
@@ -107,6 +139,9 @@ public class GeneralSettings implements Serializable
 		this.isWishlistCreationEnabled = isWishlistCreationEnabled;
 	}
 
+	/**
+	 * The physical directory path or URL where the website logo is stored.
+	 */
 	protected String logoPath;
 
 	public String getLogoPath() {
@@ -117,6 +152,9 @@ public class GeneralSettings implements Serializable
 		this.logoPath = logoPath;
 	}
 
+	/**
+	 * The tagline or text that appears when hovering over the site logo.
+	 */
 	protected String logoText;
 
 	public String getLogoText() {
@@ -127,6 +165,9 @@ public class GeneralSettings implements Serializable
 		this.logoText = logoText;
 	}
 
+	/**
+	 * The mobile theme is the storefront name for the theme.
+	 */
 	protected String mobileTheme;
 
 	public String getMobileTheme() {
@@ -137,6 +178,9 @@ public class GeneralSettings implements Serializable
 		this.mobileTheme = mobileTheme;
 	}
 
+	/**
+	 * Email address to display on email messages sent from the site.
+	 */
 	protected String replyToEmailAddress;
 
 	public String getReplyToEmailAddress() {
@@ -147,6 +191,9 @@ public class GeneralSettings implements Serializable
 		this.replyToEmailAddress = replyToEmailAddress;
 	}
 
+	/**
+	 * Email address to set up so that shoppers and users browsing the site can use to contact the merchant.
+	 */
 	protected String senderEmailAddress;
 
 	public String getSenderEmailAddress() {
@@ -157,6 +204,9 @@ public class GeneralSettings implements Serializable
 		this.senderEmailAddress = senderEmailAddress;
 	}
 
+	/**
+	 * Choose a format to use on the site: 12-hour (hh:mm:ss tt) or 24-hour format (HH:mm:ss).
+	 */
 	protected String siteTimeFormat;
 
 	public String getSiteTimeFormat() {
@@ -167,6 +217,9 @@ public class GeneralSettings implements Serializable
 		this.siteTimeFormat = siteTimeFormat;
 	}
 
+	/**
+	 * Choose the time zone to use for the site.
+	 */
 	protected String siteTimeZone;
 
 	public String getSiteTimeZone() {
@@ -177,6 +230,9 @@ public class GeneralSettings implements Serializable
 		this.siteTimeZone = siteTimeZone;
 	}
 
+	/**
+	 * Unique identifier of the tenant site that site uses to render content for the shopper. For example, if this site represents a third-party sales channel such as Amazon but the company wants to send shopper emails, this value represents the Mozu-hosted web storefront site that maintains this content.
+	 */
 	protected Integer templateSiteId;
 
 	public Integer getTemplateSiteId() {
@@ -187,6 +243,9 @@ public class GeneralSettings implements Serializable
 		this.templateSiteId = templateSiteId;
 	}
 
+	/**
+	 * The name of the theme used on the storefront.
+	 */
 	protected String theme;
 
 	public String getTheme() {
@@ -197,6 +256,9 @@ public class GeneralSettings implements Serializable
 		this.theme = theme;
 	}
 
+	/**
+	 * The name of the website to display on the storefront with no spaces.
+	 */
 	protected String websiteName;
 
 	public String getWebsiteName() {
@@ -207,6 +269,9 @@ public class GeneralSettings implements Serializable
 		this.websiteName = websiteName;
 	}
 
+	/**
+	 * Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
+	 */
 	protected AuditInfo auditInfo;
 
 	public AuditInfo getAuditInfo() {
@@ -217,6 +282,9 @@ public class GeneralSettings implements Serializable
 		this.auditInfo = auditInfo;
 	}
 
+	/**
+	 * The territories configured for the site that are subject to sales tax.
+	 */
 	protected List<TaxableTerritory> taxableTerritories;
 	public List<TaxableTerritory> getTaxableTerritories() {
 		return this.taxableTerritories;

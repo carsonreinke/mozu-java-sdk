@@ -8,13 +8,21 @@ package com.mozu.api.contracts.commerceruntime.discounts;
 
 import java.util.List;
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 
+/**
+ *	Properties of a discount defined for a product or order in a storefront.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Discount implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * The date and time at which the discount can no longer be applied to a product or order.
+	 */
 	protected Date expirationDate;
 
 	public Date getExpirationDate() {
@@ -25,6 +33,9 @@ public class Discount implements Serializable
 		this.expirationDate = expirationDate;
 	}
 
+	/**
+	 * Unique identifier of the discount.
+	 */
 	protected Integer id;
 
 	public Integer getId() {
@@ -35,6 +46,9 @@ public class Discount implements Serializable
 		this.id = id;
 	}
 
+	/**
+	 * List of cart or order items to which the discount applies, if applicable.
+	 */
 	protected List<String> itemIds;
 	public List<String> getItemIds() {
 		return this.itemIds;
@@ -43,6 +57,9 @@ public class Discount implements Serializable
 		this.itemIds = itemIds;
 	}
 
+	/**
+	 * The name of the discount, in the language specified by the LocaleCode of the storefront.
+	 */
 	protected String name;
 
 	public String getName() {

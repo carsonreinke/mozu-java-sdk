@@ -110,8 +110,18 @@ public class MozuClient<TResult> {
         return stringContent();
     }
 
+    @SuppressWarnings("unchecked")
     public TResult getResult() throws Exception {
-        return deserialize(getStringResult(), responseType);
+        TResult tResult = null;
+        if (responseType != null) {
+            String className = responseType.getName();
+            if (className.equals(java.io.InputStream.class.getName())) {
+                tResult = (TResult) httpResponseMessage.getEntity().getContent();
+            } else {
+                tResult = deserialize(getStringResult(), responseType);
+            }
+        }
+        return tResult;
     }
 
     public HttpResponse getResponse() {
@@ -133,7 +143,7 @@ public class MozuClient<TResult> {
 
                 if (tenant == null)
                     throw new ApiException("Tenant " + apiContext.getTenantId() + " Not found");
-                baseAddress = apiContext.getUrl(tenant.getDomain());
+                baseAddress = HttpHelper.getUrl(tenant.getDomain());
             } else {
                 baseAddress = apiContext.getTenantUrl();
             }
@@ -187,7 +197,7 @@ public class MozuClient<TResult> {
         if (verb.equals("POST") || verb.equals("PUT")) {
             if (StringUtils.isNotBlank(httpContent)) {
                 request.bodyString(httpContent, ContentType.APPLICATION_JSON);
-            } else {
+            } else if (this.streamContent != null) {
                 request.bodyStream(this.streamContent);
             }
         }

@@ -8,6 +8,7 @@ package com.mozu.api.contracts.productadmin;
 
 import java.util.List;
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 import com.mozu.api.contracts.productadmin.AttributeMetadataItem;
 import com.mozu.api.contracts.core.AuditInfo;
@@ -15,11 +16,18 @@ import com.mozu.api.contracts.productadmin.AttributeLocalizedContent;
 import com.mozu.api.contracts.productadmin.AttributeValidation;
 import com.mozu.api.contracts.productadmin.AttributeVocabularyValue;
 
+/**
+ *	Details of an attribute used to describe individual aspects of a product.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Attribute implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * The administrative name of the product attribute as it appears in Mozu Admin.
+	 */
 	protected String adminName;
 
 	public String getAdminName() {
@@ -30,6 +38,9 @@ public class Attribute implements Serializable
 		this.adminName = adminName;
 	}
 
+	/**
+	 * Merchant-defined identifier of the product attribute used to generate the attribute's fully qualified name.
+	 */
 	protected String attributeCode;
 
 	public String getAttributeCode() {
@@ -40,6 +51,9 @@ public class Attribute implements Serializable
 		this.attributeCode = attributeCode;
 	}
 
+	/**
+	 * Generated sequence that increments for each attribute and data type combination created. This value is system-supplied and read-only.
+	 */
 	protected Integer attributeDataTypeSequence;
 
 	public Integer getAttributeDataTypeSequence() {
@@ -50,6 +64,9 @@ public class Attribute implements Serializable
 		this.attributeDataTypeSequence = attributeDataTypeSequence;
 	}
 
+	/**
+	 * The fully qualified name of the attribute, which is a user defined attribute identifier.
+	 */
 	protected String attributeFQN;
 
 	public String getAttributeFQN() {
@@ -60,6 +77,9 @@ public class Attribute implements Serializable
 		this.attributeFQN = attributeFQN;
 	}
 
+	/**
+	 * Generated sequence that increments for each product attribute created. This value is system-supplied and read-only.
+	 */
 	protected Integer attributeSequence;
 
 	public Integer getAttributeSequence() {
@@ -70,6 +90,9 @@ public class Attribute implements Serializable
 		this.attributeSequence = attributeSequence;
 	}
 
+	/**
+	 * The data type of the product attribute, which is a Bool, DateTime, Number, or String. The attribute's data type cannot be changed.
+	 */
 	protected String dataType;
 
 	public String getDataType() {
@@ -80,6 +103,9 @@ public class Attribute implements Serializable
 		this.dataType = dataType;
 	}
 
+	/**
+	 * The storefront interface input type for the product attribute, which is a Date, DateTime, List, TextArea, TextBox, or YesNo. The attribute's input type cannot be changed.
+	 */
 	protected String inputType;
 
 	public String getInputType() {
@@ -90,6 +116,9 @@ public class Attribute implements Serializable
 		this.inputType = inputType;
 	}
 
+	/**
+	 * If true, the product attribute is an add-on configuration made by the shopper that does not represent a product variation, such as a monogram.
+	 */
 	protected Boolean isExtra;
 
 	public Boolean getIsExtra() {
@@ -100,6 +129,9 @@ public class Attribute implements Serializable
 		this.isExtra = isExtra;
 	}
 
+	/**
+	 * If true, the product attribute is a merchant- or shopper-configurable option, such as size or color, that represents a product variation.
+	 */
 	protected Boolean isOption;
 
 	public Boolean getIsOption() {
@@ -110,6 +142,9 @@ public class Attribute implements Serializable
 		this.isOption = isOption;
 	}
 
+	/**
+	 * If true, the product attribute describes aspects of the product that do not represent an option configurable by the shopper, such as screen resolution or brand.
+	 */
 	protected Boolean isProperty;
 
 	public Boolean getIsProperty() {
@@ -130,6 +165,9 @@ public class Attribute implements Serializable
 		this.masterCatalogId = masterCatalogId;
 	}
 
+	/**
+	 * If applicable, the registered namespace associated with the product attribute, used to generate the fully qualified name. If no namespace is defined, the namespace associated with the tenant is automatically assigned.
+	 */
 	protected String namespace;
 
 	public String getNamespace() {
@@ -140,6 +178,9 @@ public class Attribute implements Serializable
 		this.namespace = namespace;
 	}
 
+	/**
+	 * The type of value associated with the product attribute, which is ShopperEntered (the shopper selects or enters an attribute value during checkout), Predefined (the merchant sets the attribute value from a list during product attribute definition), or AdminEntered (the merchant selects or enters a value during product definition). The attribute value type cannot be changed.
+	 */
 	protected String valueType;
 
 	public String getValueType() {
@@ -150,6 +191,9 @@ public class Attribute implements Serializable
 		this.valueType = valueType;
 	}
 
+	/**
+	 * List of key-value pairs that store metadata associated with the product attribute.
+	 */
 	protected List<AttributeMetadataItem> attributeMetadata;
 	public List<AttributeMetadataItem> getAttributeMetadata() {
 		return this.attributeMetadata;
@@ -158,6 +202,9 @@ public class Attribute implements Serializable
 		this.attributeMetadata = attributeMetadata;
 	}
 
+	/**
+	 * Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
+	 */
 	protected AuditInfo auditInfo;
 
 	public AuditInfo getAuditInfo() {
@@ -168,6 +215,9 @@ public class Attribute implements Serializable
 		this.auditInfo = auditInfo;
 	}
 
+	/**
+	 * Complex type that contains content for a language specified by LocaleCode.
+	 */
 	protected AttributeLocalizedContent content;
 
 	public AttributeLocalizedContent getContent() {
@@ -178,6 +228,9 @@ public class Attribute implements Serializable
 		this.content = content;
 	}
 
+	/**
+	 * Properties of the validation of a product attribute, which contains rules that dictate what values are valid entries for product attributes.
+	 */
 	protected AttributeValidation validation;
 
 	public AttributeValidation getValidation() {
@@ -188,6 +241,9 @@ public class Attribute implements Serializable
 		this.validation = validation;
 	}
 
+	/**
+	 * Array list of the defined vocabulary values for the specified product attribute. For example, for a Color attribute, vocabulary values might include black, white, and purple.
+	 */
 	protected List<AttributeVocabularyValue> vocabularyValues;
 	public List<AttributeVocabularyValue> getVocabularyValues() {
 		return this.vocabularyValues;

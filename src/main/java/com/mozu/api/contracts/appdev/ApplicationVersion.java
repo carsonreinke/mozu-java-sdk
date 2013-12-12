@@ -8,15 +8,23 @@ package com.mozu.api.contracts.appdev;
 
 import java.util.List;
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 import com.mozu.api.contracts.core.AuditInfo;
 import com.mozu.api.contracts.appdev.Package;
 
+/**
+ *	Properties of a specific version of an application.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class ApplicationVersion implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Unique identifier of the application version.
+	 */
 	protected Integer id;
 
 	public Integer getId() {
@@ -27,6 +35,9 @@ public class ApplicationVersion implements Serializable
 		this.id = id;
 	}
 
+	/**
+	 * The name of the application version.
+	 */
 	protected String name;
 
 	public String getName() {
@@ -37,6 +48,9 @@ public class ApplicationVersion implements Serializable
 		this.name = name;
 	}
 
+	/**
+	 * Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
+	 */
 	protected AuditInfo auditInfo;
 
 	public AuditInfo getAuditInfo() {
@@ -47,6 +61,9 @@ public class ApplicationVersion implements Serializable
 		this.auditInfo = auditInfo;
 	}
 
+	/**
+	 * Properties of a development package of files for an application version.
+	 */
 	protected List<Package> devPackages;
 	public List<Package> getDevPackages() {
 		return this.devPackages;
@@ -55,6 +72,9 @@ public class ApplicationVersion implements Serializable
 		this.devPackages = devPackages;
 	}
 
+	/**
+	 * Properties of a releasable package of files for an application version.
+	 */
 	protected Package releasePackage;
 
 	public Package getReleasePackage() {

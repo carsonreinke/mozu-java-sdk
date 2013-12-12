@@ -8,15 +8,23 @@ package com.mozu.api.contracts.content;
 
 import java.util.List;
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 import com.mozu.api.contracts.content.LocalizedString;
 import com.mozu.api.contracts.content.PropertyValueType;
 
+/**
+ *	Property type available for content. Property types are like templates that can be reused.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class PropertyType implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Description of the content property type.
+	 */
 	protected String description;
 
 	public String getDescription() {
@@ -27,6 +35,9 @@ public class PropertyType implements Serializable
 		this.description = description;
 	}
 
+	/**
+	 * The display name of the content property type.
+	 */
 	protected String displayName;
 
 	public String getDisplayName() {
@@ -37,6 +48,9 @@ public class PropertyType implements Serializable
 		this.displayName = displayName;
 	}
 
+	/**
+	 * The template display details of the property type.
+	 */
 	protected String displayTemplate;
 
 	public String getDisplayTemplate() {
@@ -47,6 +61,9 @@ public class PropertyType implements Serializable
 		this.displayTemplate = displayTemplate;
 	}
 
+	/**
+	 * The template edit details of the property type.
+	 */
 	protected String editTemplate;
 
 	public String getEditTemplate() {
@@ -57,6 +74,9 @@ public class PropertyType implements Serializable
 		this.editTemplate = editTemplate;
 	}
 
+	/**
+	 * If true, this entity can be grouped.
+	 */
 	protected Boolean isAggregatable;
 
 	public Boolean getIsAggregatable() {
@@ -67,6 +87,9 @@ public class PropertyType implements Serializable
 		this.isAggregatable = isAggregatable;
 	}
 
+	/**
+	 * If true, the property type has several values. If false, the property type can only have one value.
+	 */
 	protected Boolean isMultiValued;
 
 	public Boolean getIsMultiValued() {
@@ -77,6 +100,9 @@ public class PropertyType implements Serializable
 		this.isMultiValued = isMultiValued;
 	}
 
+	/**
+	 * If true, the entity can be searched. If false, the entity cannot be searched.
+	 */
 	protected Boolean isQueryable;
 
 	public Boolean getIsQueryable() {
@@ -87,6 +113,9 @@ public class PropertyType implements Serializable
 		this.isQueryable = isQueryable;
 	}
 
+	/**
+	 * If true, the entity is required for the request to return a valid response.
+	 */
 	protected Boolean isRequired;
 
 	public Boolean getIsRequired() {
@@ -97,6 +126,9 @@ public class PropertyType implements Serializable
 		this.isRequired = isRequired;
 	}
 
+	/**
+	 * If true, the property type results are sortable. If false, the property type results cannot be sorted by any options.
+	 */
 	protected Boolean isSortable;
 
 	public Boolean getIsSortable() {
@@ -107,6 +139,9 @@ public class PropertyType implements Serializable
 		this.isSortable = isSortable;
 	}
 
+	/**
+	 * The name of the content property type.
+	 */
 	protected String name;
 
 	public String getName() {
@@ -117,6 +152,9 @@ public class PropertyType implements Serializable
 		this.name = name;
 	}
 
+	/**
+	 * Regular expression used for data validation.
+	 */
 	protected String regex;
 
 	public String getRegex() {
@@ -127,6 +165,9 @@ public class PropertyType implements Serializable
 		this.regex = regex;
 	}
 
+	/**
+	 * List of content entity descriptions localized to the site or site group's default language.
+	 */
 	protected List<LocalizedString> localizedDescriptions;
 	public List<LocalizedString> getLocalizedDescriptions() {
 		return this.localizedDescriptions;
@@ -135,6 +176,9 @@ public class PropertyType implements Serializable
 		this.localizedDescriptions = localizedDescriptions;
 	}
 
+	/**
+	 * List of content entity display names localized to the site or site group's default language.
+	 */
 	protected List<LocalizedString> localizedDisplayNames;
 	public List<LocalizedString> getLocalizedDisplayNames() {
 		return this.localizedDisplayNames;
@@ -143,6 +187,9 @@ public class PropertyType implements Serializable
 		this.localizedDisplayNames = localizedDisplayNames;
 	}
 
+	/**
+	 * Wrapper for property value type.
+	 */
 	protected PropertyValueType propertyValueType;
 
 	public PropertyValueType getPropertyValueType() {

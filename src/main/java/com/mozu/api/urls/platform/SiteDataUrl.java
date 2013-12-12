@@ -15,7 +15,7 @@ public class SiteDataUrl
 
 	/**
 	 * Get Resource Url for GetDBValue
-	 * @param dbEntryQuery 
+	 * @param dbEntryQuery The database entry query string used to retrieve the record information.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl getDBValueUrl(String dbEntryQuery)
@@ -27,7 +27,7 @@ public class SiteDataUrl
 
 	/**
 	 * Get Resource Url for CreateDBValue
-	 * @param dbEntryQuery 
+	 * @param dbEntryQuery The database entry string to create.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl createDBValueUrl(String dbEntryQuery)
@@ -39,7 +39,7 @@ public class SiteDataUrl
 
 	/**
 	 * Get Resource Url for UpdateDBValue
-	 * @param dbEntryQuery 
+	 * @param dbEntryQuery The database entry query string used to update the record information.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl updateDBValueUrl(String dbEntryQuery)
@@ -51,7 +51,7 @@ public class SiteDataUrl
 
 	/**
 	 * Get Resource Url for DeleteDBValue
-	 * @param dbEntryQuery 
+	 * @param dbEntryQuery The database entry string to delete.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl deleteDBValueUrl(String dbEntryQuery)

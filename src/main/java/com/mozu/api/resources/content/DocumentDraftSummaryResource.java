@@ -15,7 +15,7 @@ import com.mozu.api.Headers;
 import com.mozu.api.security.AuthTicket;
 
 /** <summary>
- * 
+ * Use the document publishing subresource to manage and publish document drafts in the Content service.
  * </summary>
  */
 public class DocumentDraftSummaryResource {
@@ -29,36 +29,36 @@ public class DocumentDraftSummaryResource {
 	}
 	
 	/**
-	 * 
+	 * Retrieves a list of the documents currently in draft state, according to any defined filter and sort criteria.
 	 * <p><pre><code>
 	 *	DocumentDraftSummary documentdraftsummary = new DocumentDraftSummary();
-	 *	DocumentDraftSummaryPagedCollection documentDraftSummaryPagedCollection = documentdraftsummary.ListDocumentDraftSummaries();
+	 *	DocumentDraftSummaryPagedCollection documentDraftSummaryPagedCollection = documentdraftsummary.ListDocumentDraftSummaries(dataViewMode);
 	 * </code></pre></p>
 	 * @param authTicket User Auth Ticket
 	 * @return com.mozu.api.contracts.content.DocumentDraftSummaryPagedCollection
 	 * @see com.mozu.api.contracts.content.DocumentDraftSummaryPagedCollection
 	 */
-	public com.mozu.api.contracts.content.DocumentDraftSummaryPagedCollection listDocumentDraftSummaries() throws Exception
+	public com.mozu.api.contracts.content.DocumentDraftSummaryPagedCollection listDocumentDraftSummaries(com.mozu.api.DataViewMode dataViewMode) throws Exception
 	{
-		return listDocumentDraftSummaries( null,  null,  null, null);
+		return listDocumentDraftSummaries(dataViewMode,  null,  null,  null, null);
 	}
 
 	/**
-	 * 
+	 * Retrieves a list of the documents currently in draft state, according to any defined filter and sort criteria.
 	 * <p><pre><code>
 	 *	DocumentDraftSummary documentdraftsummary = new DocumentDraftSummary();
-	 *	DocumentDraftSummaryPagedCollection documentDraftSummaryPagedCollection = documentdraftsummary.ListDocumentDraftSummaries( documentLists,  pageSize,  startIndex, authTicket);
+	 *	DocumentDraftSummaryPagedCollection documentDraftSummaryPagedCollection = documentdraftsummary.ListDocumentDraftSummaries(dataViewMode,  pageSize,  startIndex,  documentLists, authTicket);
 	 * </code></pre></p>
-	 * @param documentLists 
-	 * @param pageSize 
-	 * @param startIndex 
+	 * @param documentLists Lists that contain the document drafts.
+	 * @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
+	 * @param startIndex When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
 	 * @param authTicket User Auth Ticket
 	 * @return com.mozu.api.contracts.content.DocumentDraftSummaryPagedCollection
 	 * @see com.mozu.api.contracts.content.DocumentDraftSummaryPagedCollection
 	 */
-	public com.mozu.api.contracts.content.DocumentDraftSummaryPagedCollection listDocumentDraftSummaries(String documentLists, Integer pageSize, Integer startIndex, AuthTicket authTicket) throws Exception
+	public com.mozu.api.contracts.content.DocumentDraftSummaryPagedCollection listDocumentDraftSummaries(com.mozu.api.DataViewMode dataViewMode, Integer pageSize, Integer startIndex, String documentLists, AuthTicket authTicket) throws Exception
 	{
-		MozuClient<com.mozu.api.contracts.content.DocumentDraftSummaryPagedCollection> client = com.mozu.api.clients.content.DocumentDraftSummaryClient.listDocumentDraftSummariesClient( documentLists,  pageSize,  startIndex, authTicket);
+		MozuClient<com.mozu.api.contracts.content.DocumentDraftSummaryPagedCollection> client = com.mozu.api.clients.content.DocumentDraftSummaryClient.listDocumentDraftSummariesClient(dataViewMode,  pageSize,  startIndex,  documentLists, authTicket);
 		client.setContext(_apiContext);
 		client.executeRequest();
 		return client.getResult();
@@ -66,70 +66,70 @@ public class DocumentDraftSummaryResource {
 	}
 
 	/**
-	 * 
+	 * Publish one or more document drafts to live content on the site.
 	 * <p><pre><code>
 	 *	DocumentDraftSummary documentdraftsummary = new DocumentDraftSummary();
-	 *	documentdraftsummary.PublishDocuments( documentIds);
+	 *	documentdraftsummary.PublishDocuments(dataViewMode,  documentIds);
 	 * </code></pre></p>
 	 * @param authTicket User Auth Ticket
-	 * @param documentIds 
+	 * @param documentIds List of unique identifiers of the document drafts to publish.
 	 * @return 
 	 * @see string
 	 */
-	public void publishDocuments(List<String> documentIds) throws Exception
+	public void publishDocuments(com.mozu.api.DataViewMode dataViewMode, List<String> documentIds) throws Exception
 	{
-		publishDocuments( documentIds,  null, null);
+		publishDocuments(dataViewMode,  documentIds,  null, null);
 	}
 
 	/**
-	 * 
+	 * Publish one or more document drafts to live content on the site.
 	 * <p><pre><code>
 	 *	DocumentDraftSummary documentdraftsummary = new DocumentDraftSummary();
-	 *	documentdraftsummary.PublishDocuments( documentIds,  documentLists, authTicket);
+	 *	documentdraftsummary.PublishDocuments(dataViewMode,  documentIds,  documentLists, authTicket);
 	 * </code></pre></p>
-	 * @param documentLists 
+	 * @param documentLists List of document lists that contain documents to publish.
 	 * @param authTicket User Auth Ticket
-	 * @param documentIds 
+	 * @param documentIds List of unique identifiers of the document drafts to publish.
 	 * @return 
 	 * @see string
 	 */
-	public void publishDocuments(List<String> documentIds, String documentLists, AuthTicket authTicket) throws Exception
+	public void publishDocuments(com.mozu.api.DataViewMode dataViewMode, List<String> documentIds, String documentLists, AuthTicket authTicket) throws Exception
 	{
-		MozuClient client = com.mozu.api.clients.content.DocumentDraftSummaryClient.publishDocumentsClient( documentIds,  documentLists, authTicket);
+		MozuClient client = com.mozu.api.clients.content.DocumentDraftSummaryClient.publishDocumentsClient(dataViewMode,  documentIds,  documentLists, authTicket);
 		client.setContext(_apiContext);
 		client.executeRequest();
 
 	}
 
 	/**
-	 * 
+	 * Deletes the drafts of the specified documents. Published documents cannot be deleted.
 	 * <p><pre><code>
 	 *	DocumentDraftSummary documentdraftsummary = new DocumentDraftSummary();
-	 *	documentdraftsummary.DeleteDocumentDrafts( documentIds);
+	 *	documentdraftsummary.DeleteDocumentDrafts(dataViewMode,  documentIds);
 	 * </code></pre></p>
-	 * @param documentIds 
+	 * @param documentIds Unique identifiers of the documents to delete.
 	 * @param authTicket User Auth Ticket
 	 * @return 
 	 */
-	public void deleteDocumentDrafts(String documentIds) throws Exception
+	public void deleteDocumentDrafts(com.mozu.api.DataViewMode dataViewMode, String documentIds) throws Exception
 	{
-		deleteDocumentDrafts( documentIds,  null, null);
+		deleteDocumentDrafts(dataViewMode,  documentIds,  null, null);
 	}
 
 	/**
-	 * 
+	 * Deletes the drafts of the specified documents. Published documents cannot be deleted.
 	 * <p><pre><code>
 	 *	DocumentDraftSummary documentdraftsummary = new DocumentDraftSummary();
-	 *	documentdraftsummary.DeleteDocumentDrafts( documentIds,  documentLists, authTicket);
+	 *	documentdraftsummary.DeleteDocumentDrafts(dataViewMode,  documentIds,  documentLists, authTicket);
 	 * </code></pre></p>
-	 * @param documentIds 
-	 * @param documentLists 
+	 * @param documentIds Unique identifiers of the documents to delete.
+	 * @param documentLists List of document lists that contain documents to delete.
 	 * @param authTicket User Auth Ticket
 	 * @return 
 	 */
-	public void deleteDocumentDrafts(String documentIds, String documentLists, AuthTicket authTicket) throws Exception
+	public void deleteDocumentDrafts(com.mozu.api.DataViewMode dataViewMode, String documentIds, String documentLists, AuthTicket authTicket) throws Exception
 	{
-		MozuClient client = com.mozu.api.clients.content.DocumentDraftSummaryClient.deleteDocumentDraftsClient( documentIds,  documentLists, authTicket);
+		MozuClient client = com.mozu.api.clients.content.DocumentDraftSummaryClient.deleteDocumentDraftsClient(dataViewMode,  documentIds,  documentLists, authTicket);
 		client.setContext(_apiContext);
 		client.executeRequest();
 

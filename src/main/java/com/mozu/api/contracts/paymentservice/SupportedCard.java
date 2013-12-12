@@ -7,13 +7,21 @@
 package com.mozu.api.contracts.paymentservice;
 
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 
+/**
+ *	Properties of a supported credit card for the site's payment gateway.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class SupportedCard implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Company-defined friendly name that identifies the supported card.
+	 */
 	protected String friendlyName;
 
 	public String getFriendlyName() {
@@ -24,6 +32,9 @@ public class SupportedCard implements Serializable
 		this.friendlyName = friendlyName;
 	}
 
+	/**
+	 * The card type of the supported payment card, such as Visa or Amex.
+	 */
 	protected String type;
 
 	public String getType() {

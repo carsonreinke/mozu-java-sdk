@@ -15,7 +15,7 @@ public class AdminUserUrl
 
 	/**
 	 * Get Resource Url for GetUser
-	 * @param userId 
+	 * @param userId Unique identifier of the administrator account to retrieve.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl getUserUrl(String userId)
@@ -27,7 +27,7 @@ public class AdminUserUrl
 
 	/**
 	 * Get Resource Url for GetTenantScopesForUser
-	 * @param userId 
+	 * @param userId Unique identifier of the user whose tenant scopes you want to retrieve.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl getTenantScopesForUserUrl(String userId)

@@ -7,13 +7,21 @@
 package com.mozu.api.contracts.productruntime;
 
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 
+/**
+ *	Properties of a defined product discount.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Discount implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Unique identifier of the discount. System-supplied and read only.
+	 */
 	protected Integer discountId;
 
 	public Integer getDiscountId() {
@@ -24,6 +32,9 @@ public class Discount implements Serializable
 		this.discountId = discountId;
 	}
 
+	/**
+	 * The date and time when the product discount will no longer be active. Date in UTC Date/Time. System-supplied and read-only.
+	 */
 	protected Date expirationDate;
 
 	public Date getExpirationDate() {
@@ -34,6 +45,9 @@ public class Discount implements Serializable
 		this.expirationDate = expirationDate;
 	}
 
+	/**
+	 * The name assigned for the product discount.
+	 */
 	protected String name;
 
 	public String getName() {

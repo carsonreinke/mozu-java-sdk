@@ -8,15 +8,23 @@ package com.mozu.api.contracts.appdev;
 
 import java.util.List;
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 import com.mozu.api.contracts.appdev.FileMetadata;
 import com.mozu.api.contracts.appdev.FolderMetadata;
 
+/**
+ *	Metadata associated with a folder in a package of files for an application version.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class FolderMetadata implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * The directory of the file location of the folder in the package.
+	 */
 	protected String fullPath;
 
 	public String getFullPath() {
@@ -27,6 +35,9 @@ public class FolderMetadata implements Serializable
 		this.fullPath = fullPath;
 	}
 
+	/**
+	 * The name of the folder.
+	 */
 	protected String name;
 
 	public String getName() {
@@ -37,6 +48,9 @@ public class FolderMetadata implements Serializable
 		this.name = name;
 	}
 
+	/**
+	 * Array list of files in the folder.
+	 */
 	protected List<FileMetadata> files;
 	public List<FileMetadata> getFiles() {
 		return this.files;
@@ -45,6 +59,9 @@ public class FolderMetadata implements Serializable
 		this.files = files;
 	}
 
+	/**
+	 * Array list of subfolders stored in this folder.
+	 */
 	protected List<FolderMetadata> subFolders;
 	public List<FolderMetadata> getSubFolders() {
 		return this.subFolders;

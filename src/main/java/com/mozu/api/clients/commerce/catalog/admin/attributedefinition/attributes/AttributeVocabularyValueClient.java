@@ -14,20 +14,20 @@ import com.mozu.api.Headers;
 import com.mozu.api.security.AuthTicket;
 
 /** <summary>
- * 
+ * Vocabulary values are predefined for an attribute.
  * </summary>
  */
 public class AttributeVocabularyValueClient {
 	
 	/**
-	 * 
+	 * Retrieves a list of attribute vocabulary values. To target a query, use one or several valid optional response groups.
 	 * <p><pre><code>
 	 * MozuClient<List<com.mozu.api.contracts.productadmin.AttributeVocabularyValue>> mozuClient=GetAttributeVocabularyValuesClient(dataViewMode,  attributeFQN, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * AttributeVocabularyValue attributeVocabularyValue = client.Result();
 	 * </code></pre></p>
-	 * @param attributeFQN 
+	 * @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 	 * @param dataViewMode DataViewMode
 	 * @param authTicket User Auth Ticket
 	 * @return Mozu.Api.MozuClient <List<com.mozu.api.contracts.productadmin.AttributeVocabularyValue>>
@@ -49,15 +49,15 @@ public class AttributeVocabularyValueClient {
 	}
 
 	/**
-	 * 
+	 * Retrieves an attribute vocabulary value by providing the attribute FQN and value.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.productadmin.AttributeVocabularyValue> mozuClient=GetAttributeVocabularyValueClient(dataViewMode,  attributeFQN,  value, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * AttributeVocabularyValue attributeVocabularyValue = client.Result();
 	 * </code></pre></p>
-	 * @param attributeFQN 
-	 * @param value 
+	 * @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
+	 * @param value The actual unique value of the attribute vocabulary to retrieve. A single attribute must have a unique value and match the attribute's data type. If a string value returns null, the system will generate a value. The actual string content displayed shoud be stored as "Content" and actual content is required for string values.
 	 * @param dataViewMode DataViewMode
 	 * @param authTicket User Auth Ticket
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.productadmin.AttributeVocabularyValue>
@@ -79,17 +79,17 @@ public class AttributeVocabularyValueClient {
 	}
 
 	/**
-	 * 
+	 * Adds a new attribute vocabulary value.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.productadmin.AttributeVocabularyValue> mozuClient=AddAttributeVocabularyValueClient(dataViewMode,  attributeVocabularyValue,  attributeFQN, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * AttributeVocabularyValue attributeVocabularyValue = client.Result();
 	 * </code></pre></p>
-	 * @param attributeFQN 
+	 * @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 	 * @param dataViewMode DataViewMode
 	 * @param authTicket User Auth Ticket
-	 * @param attributeVocabularyValue 
+	 * @param attributeVocabularyValue The predefined vocabulary value to add to the attribute content.
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.productadmin.AttributeVocabularyValue>
 	 * @see com.mozu.api.contracts.productadmin.AttributeVocabularyValue
 	 * @see com.mozu.api.contracts.productadmin.AttributeVocabularyValue
@@ -111,17 +111,17 @@ public class AttributeVocabularyValueClient {
 	}
 
 	/**
-	 * 
+	 * Update existing vocabulary values for an attribute.
 	 * <p><pre><code>
 	 * MozuClient<List<com.mozu.api.contracts.productadmin.AttributeVocabularyValue>> mozuClient=UpdateAttributeVocabularyValuesClient(dataViewMode,  vocabularyValues,  attributeFQN, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * AttributeVocabularyValue attributeVocabularyValue = client.Result();
 	 * </code></pre></p>
-	 * @param attributeFQN 
+	 * @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 	 * @param dataViewMode DataViewMode
 	 * @param authTicket User Auth Ticket
-	 * @param vocabularyValues 
+	 * @param vocabularyValues The actual vocabulary values for the attribute being updated.
 	 * @return Mozu.Api.MozuClient <List<com.mozu.api.contracts.productadmin.AttributeVocabularyValue>>
 	 * @see com.mozu.api.contracts.productadmin.AttributeVocabularyValue
 	 * @see com.mozu.api.contracts.productadmin.AttributeVocabularyValue
@@ -143,18 +143,18 @@ public class AttributeVocabularyValueClient {
 	}
 
 	/**
-	 * 
+	 * Updates existing attribute vocabulary values.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.productadmin.AttributeVocabularyValue> mozuClient=UpdateAttributeVocabularyValueClient(dataViewMode,  attributeVocabularyValue,  attributeFQN,  value, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * AttributeVocabularyValue attributeVocabularyValue = client.Result();
 	 * </code></pre></p>
-	 * @param attributeFQN 
-	 * @param value 
+	 * @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
+	 * @param value The actual unique value of the attribute vocabulary value to update. A single attribute must have a unique value and match the attribute's data type. If a string value returns null, the system will generate a value. The actual string content displayed shoud be stored as "Content" and actual content is required for string values.
 	 * @param dataViewMode DataViewMode
 	 * @param authTicket User Auth Ticket
-	 * @param attributeVocabularyValue 
+	 * @param attributeVocabularyValue The predefined vocabulary value to add to the attribute content to update.
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.productadmin.AttributeVocabularyValue>
 	 * @see com.mozu.api.contracts.productadmin.AttributeVocabularyValue
 	 * @see com.mozu.api.contracts.productadmin.AttributeVocabularyValue
@@ -176,14 +176,14 @@ public class AttributeVocabularyValueClient {
 	}
 
 	/**
-	 * 
+	 * Deletes an attribute's vocabulary value.
 	 * <p><pre><code>
 	 * MozuClient mozuClient=DeleteAttributeVocabularyValueClient(dataViewMode,  attributeFQN,  value, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * </code></pre></p>
-	 * @param attributeFQN 
-	 * @param value 
+	 * @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
+	 * @param value The actual unique value of the attribute vocabulary to delete. A single attribute must have a unique value and match the attribute's data type. If a string value returns null, the system will generate a value. The actual string content displayed shoud be stored as "Content" and actual content is required for string values.
 	 * @param dataViewMode DataViewMode
 	 * @param authTicket User Auth Ticket
 	 * @return Mozu.Api.MozuClient 

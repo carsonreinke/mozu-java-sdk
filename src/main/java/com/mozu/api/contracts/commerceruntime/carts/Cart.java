@@ -8,6 +8,7 @@ package com.mozu.api.contracts.commerceruntime.carts;
 
 import java.util.List;
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 import com.mozu.api.contracts.core.AuditInfo;
 import com.mozu.api.contracts.commerceruntime.commerce.ChangeMessage;
@@ -15,11 +16,18 @@ import com.mozu.api.contracts.commerceruntime.fulfillment.FulfillmentInfo;
 import com.mozu.api.contracts.commerceruntime.carts.CartItem;
 import com.mozu.api.contracts.commerceruntime.discounts.AppliedDiscount;
 
+/**
+ *	Properties of a shopping cart.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Cart implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Code that identifies the channel associated with the site where the shopping cart was created.
+	 */
 	protected String channelCode;
 
 	public String getChannelCode() {
@@ -40,6 +48,9 @@ public class Cart implements Serializable
 		this.currencyCode = currencyCode;
 	}
 
+	/**
+	 * The type of customer interaction used to create this shopping cart. Possible values are Website, Call, Store, or Unknown.
+	 */
 	protected String customerInteractionType;
 
 	public String getCustomerInteractionType() {
@@ -50,6 +61,9 @@ public class Cart implements Serializable
 		this.customerInteractionType = customerInteractionType;
 	}
 
+	/**
+	 * The aggregate total for all items in the cart, including costs associated with shopper-defined options or extras and any applied discounts.
+	 */
 	protected Double discountedSubtotal;
 
 	public Double getDiscountedSubtotal() {
@@ -60,6 +74,9 @@ public class Cart implements Serializable
 		this.discountedSubtotal = discountedSubtotal;
 	}
 
+	/**
+	 * The subtotal of the cart including any applied discount calculations.
+	 */
 	protected Double discountedTotal;
 
 	public Double getDiscountedTotal() {
@@ -70,6 +87,9 @@ public class Cart implements Serializable
 		this.discountedTotal = discountedTotal;
 	}
 
+	/**
+	 * Estimated amount of discounts applied to all items in the cart, which is system-supplied and read-only.
+	 */
 	protected Double discountTotal;
 
 	public Double getDiscountTotal() {
@@ -80,6 +100,9 @@ public class Cart implements Serializable
 		this.discountTotal = discountTotal;
 	}
 
+	/**
+	 * Date in UTC Date/Time when the cart becomes inactive based on a system-calculated interval. For example, if an anonymous shopper has 14 days of inactivity, the cart is considered abandoned after that period of inactivity. System-supplied and read-only.
+	 */
 	protected Date expirationDate;
 
 	public Date getExpirationDate() {
@@ -90,6 +113,9 @@ public class Cart implements Serializable
 		this.expirationDate = expirationDate;
 	}
 
+	/**
+	 * The monetary sum of all fees incurred in the cart.
+	 */
 	protected Double feeTotal;
 
 	public Double getFeeTotal() {
@@ -100,6 +126,9 @@ public class Cart implements Serializable
 		this.feeTotal = feeTotal;
 	}
 
+	/**
+	 * If the handling fee for the cart is subject to sales tax, the total tax amount.
+	 */
 	protected Double handlingTaxTotal;
 
 	public Double getHandlingTaxTotal() {
@@ -110,6 +139,9 @@ public class Cart implements Serializable
 		this.handlingTaxTotal = handlingTaxTotal;
 	}
 
+	/**
+	 * Unique identifier of the shopping cart.
+	 */
 	protected String id;
 
 	public String getId() {
@@ -120,6 +152,9 @@ public class Cart implements Serializable
 		this.id = id;
 	}
 
+	/**
+	 * The total amount of tax for items in the cart.
+	 */
 	protected Double itemTaxTotal;
 
 	public Double getItemTaxTotal() {
@@ -130,6 +165,9 @@ public class Cart implements Serializable
 		this.itemTaxTotal = itemTaxTotal;
 	}
 
+	/**
+	 * The date in UTC Date/Time when the items in the cart were last validated against the site's product catalog. System-supplied and read-only.
+	 */
 	protected Date lastValidationDate;
 
 	public Date getLastValidationDate() {
@@ -140,6 +178,9 @@ public class Cart implements Serializable
 		this.lastValidationDate = lastValidationDate;
 	}
 
+	/**
+	 * The shipping subtotal amount calculated without any applied discounts.
+	 */
 	protected Double shippingSubTotal;
 
 	public Double getShippingSubTotal() {
@@ -150,6 +191,9 @@ public class Cart implements Serializable
 		this.shippingSubTotal = shippingSubTotal;
 	}
 
+	/**
+	 * The total amount of tax incurred on the shipping charges in the cart.
+	 */
 	protected Double shippingTaxTotal;
 
 	public Double getShippingTaxTotal() {
@@ -160,6 +204,9 @@ public class Cart implements Serializable
 		this.shippingTaxTotal = shippingTaxTotal;
 	}
 
+	/**
+	 * The total shipping amount estimated for the cart, including tax.
+	 */
 	protected Double shippingTotal;
 
 	public Double getShippingTotal() {
@@ -170,6 +217,9 @@ public class Cart implements Serializable
 		this.shippingTotal = shippingTotal;
 	}
 
+	/**
+	 * Unique identifier of the site.
+	 */
 	protected Integer siteId;
 
 	public Integer getSiteId() {
@@ -180,6 +230,9 @@ public class Cart implements Serializable
 		this.siteId = siteId;
 	}
 
+	/**
+	 * Estimated amount of the cart without sales tax, shipping costs, and other fees.
+	 */
 	protected Double subtotal;
 
 	public Double getSubtotal() {
@@ -190,6 +243,9 @@ public class Cart implements Serializable
 		this.subtotal = subtotal;
 	}
 
+	/**
+	 * The total sum of sales tax estimated for a cart.
+	 */
 	protected Double taxTotal;
 
 	public Double getTaxTotal() {
@@ -200,6 +256,9 @@ public class Cart implements Serializable
 		this.taxTotal = taxTotal;
 	}
 
+	/**
+	 * Unique identifier of the Mozu tenant.
+	 */
 	protected Integer tenantId;
 
 	public Integer getTenantId() {
@@ -210,6 +269,9 @@ public class Cart implements Serializable
 		this.tenantId = tenantId;
 	}
 
+	/**
+	 * Estimated total amount of the cart, including items, sales tax, shipping costs, and other fees.
+	 */
 	protected Double total;
 
 	public Double getTotal() {
@@ -220,6 +282,9 @@ public class Cart implements Serializable
 		this.total = total;
 	}
 
+	/**
+	 * Unique identifier of the user associated with the shopping cart.
+	 */
 	protected String userId;
 
 	public String getUserId() {
@@ -230,6 +295,9 @@ public class Cart implements Serializable
 		this.userId = userId;
 	}
 
+	/**
+	 * Unique identifier of the customer visit in which the cart was created or last modified.
+	 */
 	protected String visitId;
 
 	public String getVisitId() {
@@ -240,6 +308,9 @@ public class Cart implements Serializable
 		this.visitId = visitId;
 	}
 
+	/**
+	 * Unique identifier of the web session in which the cart was created or last modified.
+	 */
 	protected String webSessionId;
 
 	public String getWebSessionId() {
@@ -250,6 +321,9 @@ public class Cart implements Serializable
 		this.webSessionId = webSessionId;
 	}
 
+	/**
+	 * Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
+	 */
 	protected AuditInfo auditInfo;
 
 	public AuditInfo getAuditInfo() {
@@ -260,6 +334,9 @@ public class Cart implements Serializable
 		this.auditInfo = auditInfo;
 	}
 
+	/**
+	 * Messages logged or created each time the cart was modified.
+	 */
 	protected List<ChangeMessage> changeMessages;
 	public List<ChangeMessage> getChangeMessages() {
 		return this.changeMessages;
@@ -268,6 +345,9 @@ public class Cart implements Serializable
 		this.changeMessages = changeMessages;
 	}
 
+	/**
+	 * Properties of the information required to fulfill this cart.
+	 */
 	protected FulfillmentInfo fulfillmentInfo;
 
 	public FulfillmentInfo getFulfillmentInfo() {
@@ -278,6 +358,9 @@ public class Cart implements Serializable
 		this.fulfillmentInfo = fulfillmentInfo;
 	}
 
+	/**
+	 * An array list of objects in the returned collection.
+	 */
 	protected List<CartItem> items;
 	public List<CartItem> getItems() {
 		return this.items;
@@ -286,6 +369,9 @@ public class Cart implements Serializable
 		this.items = items;
 	}
 
+	/**
+	 * List of order-level discounts projected to apply to the cart at checkout.
+	 */
 	protected List<AppliedDiscount> orderDiscounts;
 	public List<AppliedDiscount> getOrderDiscounts() {
 		return this.orderDiscounts;

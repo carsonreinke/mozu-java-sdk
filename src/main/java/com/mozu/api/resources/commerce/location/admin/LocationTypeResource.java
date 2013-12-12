@@ -15,7 +15,7 @@ import com.mozu.api.Headers;
 import com.mozu.api.security.AuthTicket;
 
 /** <summary>
- * 
+ * Use the Location Types resource to manage the types of locations your tenant maintains, such as warehouses, physical storefronts, and kiosks.
  * </summary>
  */
 public class LocationTypeResource {
@@ -29,7 +29,7 @@ public class LocationTypeResource {
 	}
 	
 	/**
-	 * 
+	 * Retrieve a list of all location types defined for the tenant.
 	 * <p><pre><code>
 	 *	LocationType locationtype = new LocationType();
 	 *	LocationType locationType = locationtype.GetLocationTypes(authTicket);
@@ -48,12 +48,12 @@ public class LocationTypeResource {
 	}
 
 	/**
-	 * 
+	 * Retrieves the details of the location type specified in the request.
 	 * <p><pre><code>
 	 *	LocationType locationtype = new LocationType();
 	 *	LocationType locationType = locationtype.GetLocationType( locationTypeCode, authTicket);
 	 * </code></pre></p>
-	 * @param locationTypeCode 
+	 * @param locationTypeCode The user-defined code that identifies the location type.
 	 * @param authTicket User Auth Ticket
 	 * @return com.mozu.api.contracts.location.LocationType
 	 * @see com.mozu.api.contracts.location.LocationType
@@ -68,13 +68,13 @@ public class LocationTypeResource {
 	}
 
 	/**
-	 * 
+	 * Creates a new location type based on the information specified in the request.
 	 * <p><pre><code>
 	 *	LocationType locationtype = new LocationType();
 	 *	LocationType locationType = locationtype.AddLocationType( locationType, authTicket);
 	 * </code></pre></p>
 	 * @param authTicket User Auth Ticket
-	 * @param locationType 
+	 * @param locationType Properties of the location type to create.
 	 * @return com.mozu.api.contracts.location.LocationType
 	 * @see com.mozu.api.contracts.location.LocationType
 	 * @see com.mozu.api.contracts.location.LocationType
@@ -89,14 +89,14 @@ public class LocationTypeResource {
 	}
 
 	/**
-	 * 
+	 * Updates the name of a defined location type.
 	 * <p><pre><code>
 	 *	LocationType locationtype = new LocationType();
 	 *	LocationType locationType = locationtype.UpdateLocationType( locationType,  locationTypeCode, authTicket);
 	 * </code></pre></p>
-	 * @param locationTypeCode 
+	 * @param locationTypeCode The user-defined code that identifies the location type.
 	 * @param authTicket User Auth Ticket
-	 * @param locationType 
+	 * @param locationType Properties of the location type to update.
 	 * @return com.mozu.api.contracts.location.LocationType
 	 * @see com.mozu.api.contracts.location.LocationType
 	 * @see com.mozu.api.contracts.location.LocationType
@@ -111,12 +111,12 @@ public class LocationTypeResource {
 	}
 
 	/**
-	 * 
+	 * Deletes the location type specified in the request.
 	 * <p><pre><code>
 	 *	LocationType locationtype = new LocationType();
 	 *	locationtype.DeleteLocationType( locationTypeCode, authTicket);
 	 * </code></pre></p>
-	 * @param locationTypeCode 
+	 * @param locationTypeCode User-defined code used to identify the location type.
 	 * @param authTicket User Auth Ticket
 	 * @return 
 	 */

@@ -15,7 +15,7 @@ import com.mozu.api.Headers;
 import com.mozu.api.security.AuthTicket;
 
 /** <summary>
- * 
+ * Use the Fulfillment resource to manage shipments or pickups of collections of packages for an order.
  * </summary>
  */
 public class FulfillmentActionResource {
@@ -29,14 +29,14 @@ public class FulfillmentActionResource {
 	}
 	
 	/**
-	 * 
+	 * Sets the fulfillment action to "Ship" or "PickUp". To ship an order or prepare it for in-store pickup, the order must have a customer name, the "Open" or "OpenAndProcessing" status. To ship the order, it must also have the full shipping address and shipping method. Shipping all packages or picking up all pickups for an order will complete a paid order.
 	 * <p><pre><code>
 	 *	FulfillmentAction fulfillmentaction = new FulfillmentAction();
 	 *	Order order = fulfillmentaction.PerformFulfillmentAction( action,  orderId, authTicket);
 	 * </code></pre></p>
-	 * @param orderId 
+	 * @param orderId Unique identifier of the order for which to perform the fulfillment action.
 	 * @param authTicket User Auth Ticket
-	 * @param action 
+	 * @param action The action to perform for the order fulfillment.
 	 * @return com.mozu.api.contracts.commerceruntime.orders.Order
 	 * @see com.mozu.api.contracts.commerceruntime.orders.Order
 	 * @see com.mozu.api.contracts.commerceruntime.fulfillment.FulfillmentAction

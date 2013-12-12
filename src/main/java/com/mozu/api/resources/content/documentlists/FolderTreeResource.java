@@ -15,7 +15,7 @@ import com.mozu.api.Headers;
 import com.mozu.api.security.AuthTicket;
 
 /** <summary>
- * 
+ * Use the folder tree subresource to view individual folders in the document hierarchy.
  * </summary>
  */
 public class FolderTreeResource {
@@ -29,38 +29,38 @@ public class FolderTreeResource {
 	}
 	
 	/**
-	 * 
+	 * Retrieves the folder hierarchy used to organize documents in lists.
 	 * <p><pre><code>
 	 *	FolderTree foldertree = new FolderTree();
-	 *	FolderTree folderTree = foldertree.GetFolderTree( documentListName);
+	 *	FolderTree folderTree = foldertree.GetFolderTree(dataViewMode,  documentListName);
 	 * </code></pre></p>
-	 * @param documentListName 
+	 * @param documentListName The name of the document list that contains this folder hierarchy.
 	 * @param authTicket User Auth Ticket
 	 * @return com.mozu.api.contracts.content.FolderTree
 	 * @see com.mozu.api.contracts.content.FolderTree
 	 */
-	public com.mozu.api.contracts.content.FolderTree getFolderTree(String documentListName) throws Exception
+	public com.mozu.api.contracts.content.FolderTree getFolderTree(com.mozu.api.DataViewMode dataViewMode, String documentListName) throws Exception
 	{
-		return getFolderTree( documentListName,  null,  null,  null, null);
+		return getFolderTree(dataViewMode,  documentListName,  null,  null,  null, null);
 	}
 
 	/**
-	 * 
+	 * Retrieves the folder hierarchy used to organize documents in lists.
 	 * <p><pre><code>
 	 *	FolderTree foldertree = new FolderTree();
-	 *	FolderTree folderTree = foldertree.GetFolderTree( documentListName,  levels,  rootFolderId,  rootFolderPath, authTicket);
+	 *	FolderTree folderTree = foldertree.GetFolderTree(dataViewMode,  documentListName,  levels,  rootFolderId,  rootFolderPath, authTicket);
 	 * </code></pre></p>
-	 * @param documentListName 
-	 * @param levels 
-	 * @param rootFolderId 
-	 * @param rootFolderPath 
+	 * @param documentListName The name of the document list that contains this folder hierarchy.
+	 * @param levels The number of levels in the folder hierarchy to return.
+	 * @param rootFolderId The unique identifier of the top-level folder in the document list.
+	 * @param rootFolderPath The location in the document hierarchy of the top-level folder in the document list.
 	 * @param authTicket User Auth Ticket
 	 * @return com.mozu.api.contracts.content.FolderTree
 	 * @see com.mozu.api.contracts.content.FolderTree
 	 */
-	public com.mozu.api.contracts.content.FolderTree getFolderTree(String documentListName, Integer levels, String rootFolderId, String rootFolderPath, AuthTicket authTicket) throws Exception
+	public com.mozu.api.contracts.content.FolderTree getFolderTree(com.mozu.api.DataViewMode dataViewMode, String documentListName, Integer levels, String rootFolderId, String rootFolderPath, AuthTicket authTicket) throws Exception
 	{
-		MozuClient<com.mozu.api.contracts.content.FolderTree> client = com.mozu.api.clients.content.documentlists.FolderTreeClient.getFolderTreeClient( documentListName,  levels,  rootFolderId,  rootFolderPath, authTicket);
+		MozuClient<com.mozu.api.contracts.content.FolderTree> client = com.mozu.api.clients.content.documentlists.FolderTreeClient.getFolderTreeClient(dataViewMode,  documentListName,  levels,  rootFolderId,  rootFolderPath, authTicket);
 		client.setContext(_apiContext);
 		client.executeRequest();
 		return client.getResult();

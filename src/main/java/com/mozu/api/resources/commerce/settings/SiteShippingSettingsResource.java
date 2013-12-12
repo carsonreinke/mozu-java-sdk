@@ -15,7 +15,7 @@ import com.mozu.api.Headers;
 import com.mozu.api.security.AuthTicket;
 
 /** <summary>
- * 
+ * Use the shipping subresource to manage settings for the site shipping information, such as origin address information, carrier shipping methods, shipping rate providers, and regions available for shipping.
  * </summary>
  */
 public class SiteShippingSettingsResource {
@@ -29,7 +29,7 @@ public class SiteShippingSettingsResource {
 	}
 	
 	/**
-	 * 
+	 * Retrieves a list of the shipping settings configured for a site.
 	 * <p><pre><code>
 	 *	SiteShippingSettings siteshippingsettings = new SiteShippingSettings();
 	 *	SiteShippingSettings siteShippingSettings = siteshippingsettings.GetSiteShippingSettings(authTicket);

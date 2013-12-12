@@ -8,15 +8,23 @@ package com.mozu.api.contracts.content;
 
 import java.util.List;
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 import com.mozu.api.contracts.content.Folder;
 import com.mozu.api.contracts.content.FolderTree;
 
+/**
+ *	The hierarchical structure of the folders in a document list including root folder, parent folder, and subfolders.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class FolderTree implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * The name of the folder.
+	 */
 	protected Folder folder;
 
 	public Folder getFolder() {
@@ -27,6 +35,9 @@ public class FolderTree implements Serializable
 		this.folder = folder;
 	}
 
+	/**
+	 * The subfolders contained within a folder.
+	 */
 	protected List<FolderTree> children;
 	public List<FolderTree> getChildren() {
 		return this.children;

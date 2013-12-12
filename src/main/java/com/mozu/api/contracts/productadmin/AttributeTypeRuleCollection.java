@@ -8,14 +8,22 @@ package com.mozu.api.contracts.productadmin;
 
 import java.util.List;
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 import com.mozu.api.contracts.productadmin.AttributeTypeRule;
 
+/**
+ *	Collection of attribute type rules.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class AttributeTypeRuleCollection implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * The number of pages returned based on the startIndex and pageSize values specified. This value is system-supplied and read-only.
+	 */
 	protected Long pageCount;
 
 	public Long getPageCount() {
@@ -26,6 +34,9 @@ public class AttributeTypeRuleCollection implements Serializable
 		this.pageCount = pageCount;
 	}
 
+	/**
+	 * The number of results to display on each page when creating paged results from a query. The maximum value is 200.
+	 */
 	protected Integer pageSize;
 
 	public Integer getPageSize() {
@@ -46,6 +57,9 @@ public class AttributeTypeRuleCollection implements Serializable
 		this.startIndex = startIndex;
 	}
 
+	/**
+	 * The number of results listed in the query collection, represented by a signed 64-bit (8-byte) integer. This value is system-supplied and read-only.
+	 */
 	protected Long totalCount;
 
 	public Long getTotalCount() {
@@ -56,6 +70,9 @@ public class AttributeTypeRuleCollection implements Serializable
 		this.totalCount = totalCount;
 	}
 
+	/**
+	 * An array list of objects in the returned collection.
+	 */
 	protected List<AttributeTypeRule> items;
 	public List<AttributeTypeRule> getItems() {
 		return this.items;

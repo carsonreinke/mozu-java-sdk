@@ -5,7 +5,7 @@ apply plugin: 'maven'
 sourceCompatibility = 1.6
 
 archivesBaseName='mozu-api'
-version = '1.1.1'
+version = '1.2.2'
 group='com.mozu.api'
 
 jar {
@@ -56,4 +56,3 @@ artifacts {
     archives sourcesJar
     archives javadocJar
 }
-

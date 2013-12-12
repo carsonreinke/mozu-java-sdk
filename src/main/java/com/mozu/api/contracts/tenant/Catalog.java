@@ -7,8 +7,13 @@
 package com.mozu.api.contracts.tenant;
 
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 
+/**
+ *	Properties of an individual product catalog.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Catalog implements Serializable
 {
 	// Default Serial Version UID
@@ -24,6 +29,9 @@ public class Catalog implements Serializable
 		this.createDate = createDate;
 	}
 
+	/**
+	 * The default currency code for the product catalog. Currently, only "USD" is supported.
+	 */
 	protected String defaultCurrencyCode;
 
 	public String getDefaultCurrencyCode() {
@@ -34,6 +42,9 @@ public class Catalog implements Serializable
 		this.defaultCurrencyCode = defaultCurrencyCode;
 	}
 
+	/**
+	 * The default locale code for the product catalog. Currently, only "en-US" is supported.
+	 */
 	protected String defaultLocaleCode;
 
 	public String getDefaultLocaleCode() {
@@ -44,6 +55,9 @@ public class Catalog implements Serializable
 		this.defaultLocaleCode = defaultLocaleCode;
 	}
 
+	/**
+	 * The date and time the catalog was deleted.
+	 */
 	protected Date deleteDate;
 
 	public Date getDeleteDate() {
@@ -64,6 +78,9 @@ public class Catalog implements Serializable
 		this.id = id;
 	}
 
+	/**
+	 * If true, the catalog has been deleted.
+	 */
 	protected Boolean isDeleted;
 
 	public Boolean getIsDeleted() {
@@ -84,6 +101,9 @@ public class Catalog implements Serializable
 		this.masterCatalogId = masterCatalogId;
 	}
 
+	/**
+	 * The user-defined name of the product catalog.
+	 */
 	protected String name;
 
 	public String getName() {

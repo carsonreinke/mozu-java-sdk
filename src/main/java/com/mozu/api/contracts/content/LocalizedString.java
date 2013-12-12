@@ -7,13 +7,21 @@
 package com.mozu.api.contracts.content;
 
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 
+/**
+ *	List of content entity display names localized to the site or site group's default language.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class LocalizedString implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Language used for the entity. Currently, only "en-US" is supported.
+	 */
 	protected String locale;
 
 	public String getLocale() {
@@ -24,6 +32,9 @@ public class LocalizedString implements Serializable
 		this.locale = locale;
 	}
 
+	/**
+	 * Value for the localized string.
+	 */
 	protected String value;
 
 	public String getValue() {

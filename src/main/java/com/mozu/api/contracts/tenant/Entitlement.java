@@ -7,12 +7,30 @@
 package com.mozu.api.contracts.tenant;
 
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 
+/**
+ *	***Always private and should not be published.***
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Entitlement implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
+
+	/**
+	 * Date and time when the entity was last updated, represented in UTC Date/Time.
+	 */
+	protected Date updateDate;
+
+	public Date getUpdateDate() {
+		return this.updateDate;
+	}
+
+	public void setUpdateDate(Date updateDate) {
+		this.updateDate = updateDate;
+	}
 
 	protected String appConfigUrl;
 
@@ -74,6 +92,9 @@ public class Entitlement implements Serializable
 		this.applicationVersion = applicationVersion;
 	}
 
+	/**
+	 * ***Always private and should not be published.***
+	 */
 	protected Integer applicationVersionId;
 
 	public Integer getApplicationVersionId() {
@@ -84,6 +105,9 @@ public class Entitlement implements Serializable
 		this.applicationVersionId = applicationVersionId;
 	}
 
+	/**
+	 * Date and time when the entity was created, represented in UTC Date/Time.
+	 */
 	protected Date createDate;
 
 	public Date getCreateDate() {
@@ -134,6 +158,9 @@ public class Entitlement implements Serializable
 		this.heroImage = heroImage;
 	}
 
+	/**
+	 * Identifier of the entity.
+	 */
 	protected Integer id;
 
 	public Integer getId() {
@@ -154,6 +181,9 @@ public class Entitlement implements Serializable
 		this.licenseType = licenseType;
 	}
 
+	/**
+	 * When the document was published. System-supplied and read-only.
+	 */
 	protected Date publishedDate;
 
 	public Date getPublishedDate() {
@@ -184,6 +214,9 @@ public class Entitlement implements Serializable
 		this.status = status;
 	}
 
+	/**
+	 * Unique identifier of the Mozu tenant.
+	 */
 	protected Integer tenantId;
 
 	public Integer getTenantId() {
@@ -192,16 +225,6 @@ public class Entitlement implements Serializable
 
 	public void setTenantId(Integer tenantId) {
 		this.tenantId = tenantId;
-	}
-
-	protected Date updateDate;
-
-	public Date getUpdateDate() {
-		return this.updateDate;
-	}
-
-	public void setUpdateDate(Date updateDate) {
-		this.updateDate = updateDate;
 	}
 
 }

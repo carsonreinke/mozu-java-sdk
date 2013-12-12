@@ -7,16 +7,24 @@
 package com.mozu.api.contracts.sitesettings.shipping;
 
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 import com.mozu.api.contracts.core.AuditInfo;
 import com.mozu.api.contracts.sitesettings.shipping.SiteShippingHandlingFee;
 import com.mozu.api.contracts.sitesettings.shipping.SiteShippingSignatureRequirement;
 
+/**
+ *	Properties of the shipping settings configured for an individual site.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class SiteShippingSettings implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
+	 */
 	protected AuditInfo auditInfo;
 
 	public AuditInfo getAuditInfo() {
@@ -27,6 +35,9 @@ public class SiteShippingSettings implements Serializable
 		this.auditInfo = auditInfo;
 	}
 
+	/**
+	 * The combined price for all items in the order, including all selected options but excluding any discounts.
+	 */
 	protected SiteShippingHandlingFee orderHandlingFee;
 
 	public SiteShippingHandlingFee getOrderHandlingFee() {
@@ -37,6 +48,9 @@ public class SiteShippingSettings implements Serializable
 		this.orderHandlingFee = orderHandlingFee;
 	}
 
+	/**
+	 * Properties of the package signature requirements for the site.
+	 */
 	protected SiteShippingSignatureRequirement signatureRequirement;
 
 	public SiteShippingSignatureRequirement getSignatureRequirement() {

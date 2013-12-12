@@ -8,14 +8,22 @@ package com.mozu.api.contracts.commerceruntime.channels;
 
 import java.util.List;
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 import com.mozu.api.contracts.core.AuditInfo;
 
+/**
+ *	Properties of a channel used to divide a company into logical business divisions, such as "US Retail," "US Online," or "Amazon." All sites and orders are associated with a channel.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Channel implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * User-defined code that uniquely identifies the channel.
+	 */
 	protected String code;
 
 	public String getCode() {
@@ -36,6 +44,9 @@ public class Channel implements Serializable
 		this.countryCode = countryCode;
 	}
 
+	/**
+	 * User-defined code that identifies the channel group.
+	 */
 	protected String groupCode;
 
 	public String getGroupCode() {
@@ -46,6 +57,9 @@ public class Channel implements Serializable
 		this.groupCode = groupCode;
 	}
 
+	/**
+	 * User-defined name of the channel.
+	 */
 	protected String name;
 
 	public String getName() {
@@ -56,6 +70,9 @@ public class Channel implements Serializable
 		this.name = name;
 	}
 
+	/**
+	 * The geographical region associated with this channel. This region could represent any geographical entity from a state to a continent.
+	 */
 	protected String region;
 
 	public String getRegion() {
@@ -66,6 +83,9 @@ public class Channel implements Serializable
 		this.region = region;
 	}
 
+	/**
+	 * Array list of site identifiers associated with this channel. Each tenant site must have a channel association.
+	 */
 	protected List<Integer> siteIds;
 	public List<Integer> getSiteIds() {
 		return this.siteIds;
@@ -74,6 +94,9 @@ public class Channel implements Serializable
 		this.siteIds = siteIds;
 	}
 
+	/**
+	 * Unique identifier of the Mozu tenant.
+	 */
 	protected Integer tenantId;
 
 	public Integer getTenantId() {
@@ -84,6 +107,9 @@ public class Channel implements Serializable
 		this.tenantId = tenantId;
 	}
 
+	/**
+	 * Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
+	 */
 	protected AuditInfo auditInfo;
 
 	public AuditInfo getAuditInfo() {

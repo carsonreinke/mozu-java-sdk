@@ -15,7 +15,7 @@ import com.mozu.api.Headers;
 import com.mozu.api.security.AuthTicket;
 
 /** <summary>
- * 
+ * Retrieves and modifies the products, categories, and shipping methods eligible for discounts in the form of a fixed dollar amount, percentage off a product price, or free shipping.
  * </summary>
  */
 public class DiscountTargetResource {
@@ -29,12 +29,12 @@ public class DiscountTargetResource {
 	}
 	
 	/**
-	 * 
+	 * Retrieves the discount target, that is which products, categories, or shipping methods are eligible for the discount.
 	 * <p><pre><code>
 	 *	DiscountTarget discounttarget = new DiscountTarget();
 	 *	DiscountTarget discountTarget = discounttarget.GetDiscountTarget(dataViewMode,  discountId, authTicket);
 	 * </code></pre></p>
-	 * @param discountId 
+	 * @param discountId Unique identifier of the discount. System-supplied and read only.
 	 * @param authTicket User Auth Ticket
 	 * @return com.mozu.api.contracts.productadmin.DiscountTarget
 	 * @see com.mozu.api.contracts.productadmin.DiscountTarget
@@ -49,14 +49,14 @@ public class DiscountTargetResource {
 	}
 
 	/**
-	 * 
+	 * Modifies properties of the discount target, for example, the dollar amount, or precentage off the price.
 	 * <p><pre><code>
 	 *	DiscountTarget discounttarget = new DiscountTarget();
 	 *	DiscountTarget discountTarget = discounttarget.UpdateDiscountTarget(dataViewMode,  discountTarget,  discountId, authTicket);
 	 * </code></pre></p>
-	 * @param discountId 
+	 * @param discountId Unique identifier of the discount. System-supplied and read-only.
 	 * @param authTicket User Auth Ticket
-	 * @param discountTarget 
+	 * @param discountTarget Properties of the discount target to modify. Required properties: Target.Type. Any unspecified properties are set to null and boolean variables to false.
 	 * @return com.mozu.api.contracts.productadmin.DiscountTarget
 	 * @see com.mozu.api.contracts.productadmin.DiscountTarget
 	 * @see com.mozu.api.contracts.productadmin.DiscountTarget

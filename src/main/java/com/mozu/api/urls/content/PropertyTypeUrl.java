@@ -15,7 +15,7 @@ public class PropertyTypeUrl
 
 	/**
 	 * Get Resource Url for GetList
-	 * @param pageSize 
+	 * @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
 	 * @param startIndex 
 	 * @return   String Resource Url
 	 */
@@ -29,7 +29,7 @@ public class PropertyTypeUrl
 
 	/**
 	 * Get Resource Url for Get
-	 * @param propertyTypeName 
+	 * @param propertyTypeName The name of the content property type.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl getUrl(String propertyTypeName)

@@ -7,13 +7,21 @@
 package com.mozu.api.contracts.paymentservice;
 
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 
+/**
+ *	Field value information for the payment gateway.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class GatewayCredentialFieldValue implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * The name of the payment gateway field.
+	 */
 	protected String name;
 
 	public String getName() {
@@ -24,6 +32,9 @@ public class GatewayCredentialFieldValue implements Serializable
 		this.name = name;
 	}
 
+	/**
+	 * The value of the payment gateway field.
+	 */
 	protected String value;
 
 	public String getValue() {

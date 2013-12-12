@@ -7,13 +7,21 @@
 package com.mozu.api.contracts.productadmin;
 
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 
+/**
+ *	Properties of an adjustment to the active product inventory of a specific location.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class LocationInventoryAdjustment implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * User-defined code that identifies the location.
+	 */
 	protected String locationCode;
 
 	public String getLocationCode() {
@@ -24,6 +32,9 @@ public class LocationInventoryAdjustment implements Serializable
 		this.locationCode = locationCode;
 	}
 
+	/**
+	 * Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
+	 */
 	protected String productCode;
 
 	public String getProductCode() {
@@ -34,6 +45,9 @@ public class LocationInventoryAdjustment implements Serializable
 		this.productCode = productCode;
 	}
 
+	/**
+	 * The type of inventory adjustment to perform, which is "Absolute" or "Delta". If adjusting by an absolute value, enter the integer in the Value parameter. If adjusting by a delta value, enter the delta in the Value parameter.
+	 */
 	protected String type;
 
 	public String getType() {
@@ -44,6 +58,9 @@ public class LocationInventoryAdjustment implements Serializable
 		this.type = type;
 	}
 
+	/**
+	 * Value of the location inventory adjustment, which is an absolute integer or delta. For example, to decrease the current inventory level by 2, set the Type parameter to "Delta" and the Value parameter to "-2". To adjust the inventory to a current level of 12, set the Type parameter to "Absolute" and the Value parameter to "12".
+	 */
 	protected Integer value;
 
 	public Integer getValue() {

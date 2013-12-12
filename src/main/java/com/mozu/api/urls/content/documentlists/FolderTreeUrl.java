@@ -15,10 +15,10 @@ public class FolderTreeUrl
 
 	/**
 	 * Get Resource Url for GetFolderTree
-	 * @param documentListName 
-	 * @param levels 
-	 * @param rootFolderId 
-	 * @param rootFolderPath 
+	 * @param documentListName The name of the document list that contains this folder hierarchy.
+	 * @param levels The number of levels in the folder hierarchy to return.
+	 * @param rootFolderId The unique identifier of the top-level folder in the document list.
+	 * @param rootFolderPath The location in the document hierarchy of the top-level folder in the document list.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl getFolderTreeUrl(String documentListName, Integer levels, String rootFolderId, String rootFolderPath)

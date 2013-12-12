@@ -7,15 +7,23 @@
 package com.mozu.api.contracts.commerceruntime.fulfillment;
 
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 import com.mozu.api.contracts.core.AuditInfo;
 import com.mozu.api.contracts.core.Contact;
 
+/**
+ *	Properties of the information needed to fulfill an order, whether via in-store pickup or direct shipping.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class FulfillmentInfo implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * If true, the shipping destination for a shipment is a commercial address.
+	 */
 	protected Boolean isDestinationCommercial;
 
 	public Boolean getIsDestinationCommercial() {
@@ -26,6 +34,9 @@ public class FulfillmentInfo implements Serializable
 		this.isDestinationCommercial = isDestinationCommercial;
 	}
 
+	/**
+	 * The code associated with the carrier's shipping method service type. Service type codes include a prefix that indicates the carrier. For example: FEDEX_INTERNATIONAL_STANDARD
+	 */
 	protected String shippingMethodCode;
 
 	public String getShippingMethodCode() {
@@ -36,6 +47,9 @@ public class FulfillmentInfo implements Serializable
 		this.shippingMethodCode = shippingMethodCode;
 	}
 
+	/**
+	 * The carrier-supplied name for the shipping service type, such as "UPS Ground" or "2nd Day Air".
+	 */
 	protected String shippingMethodName;
 
 	public String getShippingMethodName() {
@@ -46,6 +60,9 @@ public class FulfillmentInfo implements Serializable
 		this.shippingMethodName = shippingMethodName;
 	}
 
+	/**
+	 * Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
+	 */
 	protected AuditInfo auditInfo;
 
 	public AuditInfo getAuditInfo() {
@@ -56,6 +73,9 @@ public class FulfillmentInfo implements Serializable
 		this.auditInfo = auditInfo;
 	}
 
+	/**
+	 * The contact information of the person receiving the shipment or performing the pickup.
+	 */
 	protected Contact fulfillmentContact;
 
 	public Contact getFulfillmentContact() {

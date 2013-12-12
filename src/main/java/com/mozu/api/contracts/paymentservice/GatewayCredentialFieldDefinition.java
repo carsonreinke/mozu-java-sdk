@@ -7,13 +7,21 @@
 package com.mozu.api.contracts.paymentservice;
 
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 
+/**
+ *	Properties of the credential fields associated with the payment gateway.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class GatewayCredentialFieldDefinition implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * The sequential display order of the gateway in Mozu Admin.
+	 */
 	protected Integer adminDisplayOrder;
 
 	public Integer getAdminDisplayOrder() {
@@ -24,6 +32,9 @@ public class GatewayCredentialFieldDefinition implements Serializable
 		this.adminDisplayOrder = adminDisplayOrder;
 	}
 
+	/**
+	 * The name that displays for the payment gateway.
+	 */
 	protected String displayName;
 
 	public String getDisplayName() {
@@ -34,6 +45,9 @@ public class GatewayCredentialFieldDefinition implements Serializable
 		this.displayName = displayName;
 	}
 
+	/**
+	 * The localizable name of the payment gateway.
+	 */
 	protected String name;
 
 	public String getName() {

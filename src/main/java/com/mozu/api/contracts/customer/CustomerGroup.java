@@ -7,14 +7,22 @@
 package com.mozu.api.contracts.customer;
 
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 import com.mozu.api.contracts.core.AuditInfo;
 
+/**
+ *	A set of customers.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class CustomerGroup implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Identifier of the entity.
+	 */
 	protected Integer id;
 
 	public Integer getId() {
@@ -25,6 +33,9 @@ public class CustomerGroup implements Serializable
 		this.id = id;
 	}
 
+	/**
+	 * Name of the customer group.
+	 */
 	protected String name;
 
 	public String getName() {
@@ -35,6 +46,9 @@ public class CustomerGroup implements Serializable
 		this.name = name;
 	}
 
+	/**
+	 * Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
+	 */
 	protected AuditInfo auditInfo;
 
 	public AuditInfo getAuditInfo() {

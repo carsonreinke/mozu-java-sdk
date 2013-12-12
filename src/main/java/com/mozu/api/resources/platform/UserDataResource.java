@@ -15,7 +15,7 @@ import com.mozu.api.Headers;
 import com.mozu.api.security.AuthTicket;
 
 /** <summary>
- * 
+ * Use the user data subresource to store user-level data required for a third-party application in the Mozu database.
  * </summary>
  */
 public class UserDataResource {
@@ -29,12 +29,12 @@ public class UserDataResource {
 	}
 	
 	/**
-	 * 
+	 * Retrieves the value of a record in the Mozu database.
 	 * <p><pre><code>
 	 *	UserData userdata = new UserData();
 	 *	string string = userdata.GetDBValue( dbEntryQuery, authTicket);
 	 * </code></pre></p>
-	 * @param dbEntryQuery 
+	 * @param dbEntryQuery The database entry query string used to retrieve the record information.
 	 * @param authTicket User Auth Ticket
 	 * @return string
 	 * @see string
@@ -49,14 +49,14 @@ public class UserDataResource {
 	}
 
 	/**
-	 * 
+	 * Creates a new record in the Mozu database based on the information supplied in the request.
 	 * <p><pre><code>
 	 *	UserData userdata = new UserData();
 	 *	userdata.CreateDBValue( value,  dbEntryQuery, authTicket);
 	 * </code></pre></p>
-	 * @param dbEntryQuery 
+	 * @param dbEntryQuery The database entry string to create.
 	 * @param authTicket User Auth Ticket
-	 * @param value 
+	 * @param value The value string to create.
 	 * @return 
 	 * @see string
 	 */
@@ -69,14 +69,14 @@ public class UserDataResource {
 	}
 
 	/**
-	 * 
+	 * Updates a record in the Mozu database based on the information supplied in the request.
 	 * <p><pre><code>
 	 *	UserData userdata = new UserData();
 	 *	userdata.UpdateDBValue( value,  dbEntryQuery, authTicket);
 	 * </code></pre></p>
-	 * @param dbEntryQuery 
+	 * @param dbEntryQuery The database entry query string used to update the record information.
 	 * @param authTicket User Auth Ticket
-	 * @param value 
+	 * @param value The database value to update.
 	 * @return 
 	 * @see string
 	 */
@@ -89,12 +89,12 @@ public class UserDataResource {
 	}
 
 	/**
-	 * 
+	 * Removes a previously defined record in the Mozu database.
 	 * <p><pre><code>
 	 *	UserData userdata = new UserData();
 	 *	userdata.DeleteDBValue( dbEntryQuery, authTicket);
 	 * </code></pre></p>
-	 * @param dbEntryQuery 
+	 * @param dbEntryQuery The database entry string to delete.
 	 * @param authTicket User Auth Ticket
 	 * @return 
 	 */

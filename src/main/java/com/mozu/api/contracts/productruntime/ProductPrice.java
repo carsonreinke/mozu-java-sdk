@@ -7,14 +7,22 @@
 package com.mozu.api.contracts.productruntime;
 
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 import com.mozu.api.contracts.productruntime.AppliedDiscount;
 
+/**
+ *	The price of the product in the specified currency code (USD). This price can either be the sale price or the price for which the merchant intends to sell the product.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class ProductPrice implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * The price the merchant intends to charge for the product.
+	 */
 	protected Double price;
 
 	public Double getPrice() {
@@ -25,6 +33,9 @@ public class ProductPrice implements Serializable
 		this.price = price;
 	}
 
+	/**
+	 * The sale price defined for the product.
+	 */
 	protected Double salePrice;
 
 	public Double getSalePrice() {
@@ -35,6 +46,9 @@ public class ProductPrice implements Serializable
 		this.salePrice = salePrice;
 	}
 
+	/**
+	 * The discount applied to the product price.
+	 */
 	protected AppliedDiscount discount;
 
 	public AppliedDiscount getDiscount() {

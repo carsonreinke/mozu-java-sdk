@@ -15,7 +15,7 @@ import com.mozu.api.Headers;
 import com.mozu.api.security.AuthTicket;
 
 /** <summary>
- * 
+ * Use the Channel Groups resource to manage groups of channels with common information.
  * </summary>
  */
 public class ChannelGroupResource {
@@ -29,7 +29,7 @@ public class ChannelGroupResource {
 	}
 	
 	/**
-	 * 
+	 * Retrieves a list of defined channel groups according to any filter and sort criteria specified in the request.
 	 * <p><pre><code>
 	 *	ChannelGroup channelgroup = new ChannelGroup();
 	 *	ChannelGroupCollection channelGroupCollection = channelgroup.GetChannelGroups();
@@ -44,22 +44,22 @@ public class ChannelGroupResource {
 	}
 
 	/**
-	 * 
+	 * Retrieves a list of defined channel groups according to any filter and sort criteria specified in the request.
 	 * <p><pre><code>
 	 *	ChannelGroup channelgroup = new ChannelGroup();
-	 *	ChannelGroupCollection channelGroupCollection = channelgroup.GetChannelGroups( filter,  pageSize,  sortBy,  startIndex, authTicket);
+	 *	ChannelGroupCollection channelGroupCollection = channelgroup.GetChannelGroups( startIndex,  pageSize,  sortBy,  filter, authTicket);
 	 * </code></pre></p>
-	 * @param filter 
-	 * @param pageSize 
-	 * @param sortBy 
-	 * @param startIndex 
+	 * @param filter FilterSetAll
+	 * @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
+	 * @param sortBy The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"
+	 * @param startIndex When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
 	 * @param authTicket User Auth Ticket
 	 * @return com.mozu.api.contracts.commerceruntime.channels.ChannelGroupCollection
 	 * @see com.mozu.api.contracts.commerceruntime.channels.ChannelGroupCollection
 	 */
-	public com.mozu.api.contracts.commerceruntime.channels.ChannelGroupCollection getChannelGroups(String filter, Integer pageSize, String sortBy, Integer startIndex, AuthTicket authTicket) throws Exception
+	public com.mozu.api.contracts.commerceruntime.channels.ChannelGroupCollection getChannelGroups(Integer startIndex, Integer pageSize, String sortBy, String filter, AuthTicket authTicket) throws Exception
 	{
-		MozuClient<com.mozu.api.contracts.commerceruntime.channels.ChannelGroupCollection> client = com.mozu.api.clients.commerce.ChannelGroupClient.getChannelGroupsClient( filter,  pageSize,  sortBy,  startIndex, authTicket);
+		MozuClient<com.mozu.api.contracts.commerceruntime.channels.ChannelGroupCollection> client = com.mozu.api.clients.commerce.ChannelGroupClient.getChannelGroupsClient( startIndex,  pageSize,  sortBy,  filter, authTicket);
 		client.setContext(_apiContext);
 		client.executeRequest();
 		return client.getResult();
@@ -67,12 +67,12 @@ public class ChannelGroupResource {
 	}
 
 	/**
-	 * 
+	 * Retrieves the details of a defined channel group.
 	 * <p><pre><code>
 	 *	ChannelGroup channelgroup = new ChannelGroup();
 	 *	ChannelGroup channelGroup = channelgroup.GetChannelGroup( code, authTicket);
 	 * </code></pre></p>
-	 * @param code 
+	 * @param code The code that uniquely identifies the channel group.
 	 * @param authTicket User Auth Ticket
 	 * @return com.mozu.api.contracts.commerceruntime.channels.ChannelGroup
 	 * @see com.mozu.api.contracts.commerceruntime.channels.ChannelGroup
@@ -87,13 +87,13 @@ public class ChannelGroupResource {
 	}
 
 	/**
-	 * 
+	 * Creates a new group of channels with common information.
 	 * <p><pre><code>
 	 *	ChannelGroup channelgroup = new ChannelGroup();
 	 *	ChannelGroup channelGroup = channelgroup.CreateChannelGroup( channelGroup, authTicket);
 	 * </code></pre></p>
 	 * @param authTicket User Auth Ticket
-	 * @param channelGroup 
+	 * @param channelGroup Properties of the channel group to create.
 	 * @return com.mozu.api.contracts.commerceruntime.channels.ChannelGroup
 	 * @see com.mozu.api.contracts.commerceruntime.channels.ChannelGroup
 	 * @see com.mozu.api.contracts.commerceruntime.channels.ChannelGroup
@@ -108,14 +108,14 @@ public class ChannelGroupResource {
 	}
 
 	/**
-	 * 
+	 * Updates one or more properties of a defined channel group.
 	 * <p><pre><code>
 	 *	ChannelGroup channelgroup = new ChannelGroup();
 	 *	ChannelGroup channelGroup = channelgroup.UpdateChannelGroup( channelGroup,  code, authTicket);
 	 * </code></pre></p>
-	 * @param code 
+	 * @param code Code that identifies the channel group.
 	 * @param authTicket User Auth Ticket
-	 * @param channelGroup 
+	 * @param channelGroup Properties of the channel group to update.
 	 * @return com.mozu.api.contracts.commerceruntime.channels.ChannelGroup
 	 * @see com.mozu.api.contracts.commerceruntime.channels.ChannelGroup
 	 * @see com.mozu.api.contracts.commerceruntime.channels.ChannelGroup
@@ -130,12 +130,12 @@ public class ChannelGroupResource {
 	}
 
 	/**
-	 * 
+	 * Deletes a defined group of channels, which removes the group association with each channel in the group but does not delete the channel definitions themselves.
 	 * <p><pre><code>
 	 *	ChannelGroup channelgroup = new ChannelGroup();
 	 *	channelgroup.DeleteChannelGroup( code, authTicket);
 	 * </code></pre></p>
-	 * @param code 
+	 * @param code User-defined code that uniqely identifies the channel group.
 	 * @param authTicket User Auth Ticket
 	 * @return 
 	 */

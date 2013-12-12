@@ -10,25 +10,25 @@ import org.apache.http.HttpResponse;
 import org.apache.http.client.fluent.Request;
 import org.apache.http.entity.ContentType;
 import org.joda.time.DateTime;
-import org.joda.time.DateTimeZone;
 
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mozu.api.ApiException;
+import com.mozu.api.Headers;
 import com.mozu.api.contracts.adminuser.DeveloperAccount;
 import com.mozu.api.contracts.adminuser.DeveloperAdminUserAuthTicket;
 import com.mozu.api.contracts.adminuser.TenantAdminUserAuthTicket;
 import com.mozu.api.contracts.core.UserAuthInfo;
-import com.mozu.api.contracts.core.UserAuthTicket;
 import com.mozu.api.contracts.tenant.Tenant;
 import com.mozu.api.urls.platform.adminuser.TenantAdminUserAuthTicketUrl;
 import com.mozu.api.urls.platform.developer.DeveloperAdminUserAuthTicketUrl;
-import com.mozu.api.urls.platform.user.UserAuthTicketUrl;
 import com.mozu.api.utils.HttpHelper;
 
 public class UserAuthenticator {
     private static ObjectMapper mapper = new ObjectMapper();
+
     private static HttpHost proxyHttpHost = HttpHelper.getProxyHost();
 
     public static AuthenticationProfile setActiveScope(AuthTicket authTicket, Scope scope) {
@@ -36,8 +36,8 @@ public class UserAuthenticator {
     }
 
     public static AuthenticationProfile ensureAuthTicket(AuthTicket authTicket) {
-        DateTime accessTokenDateTime = new DateTime(authTicket.getAccessTokenExpiration()); 
-        if (accessTokenDateTime.isBefore(DateTime.now(DateTimeZone.UTC).plus(180000)))
+        DateTime accessTokenDateTime = new DateTime(authTicket.getAccessTokenExpiration()).minus(180000);
+        if (accessTokenDateTime.isBeforeNow())
             return refreshUserAuthTicket(authTicket);
 
         return null;
@@ -76,20 +76,28 @@ public class UserAuthenticator {
 
         HttpHelper.ensureSuccess(response, mapper);
 
-        AuthenticationProfile userInfo = setUserAuth(response, authTicket.getScope());
+        AuthenticationProfile userInfo = setUserAuth(response, authTicket.getScope(), null);
 
         return userInfo;
     }
-    public static AuthenticationProfile authenticate(UserAuthInfo userAuthInfo, UserScope scope) {
+    public static AuthenticationProfile authenticate(UserAuthInfo userAuthInfo, AuthenticationScope scope) {
         return authenticate(userAuthInfo, scope, null);
     }
 
-    public static AuthenticationProfile authenticate(UserAuthInfo userAuthInfo, UserScope scope, Integer id) {
-        String resourceUrl = AppAuthenticator.getInstance().getBaseUrl()
+    public static AuthenticationProfile authenticate(UserAuthInfo userAuthInfo, AuthenticationScope scope, Integer id) {
+        return authenticate(userAuthInfo, scope, id, null);
+    }
+    
+    public static AuthenticationProfile authenticate(UserAuthInfo userAuthInfo, AuthenticationScope scope, Integer id, Integer siteId) {
+       String resourceUrl = AppAuthenticator.getInstance().getBaseUrl()
                 + getResourceUrl(scope, id); // AuthTicketUrl.AuthenticateAppUrl();
 
         Request client = Request.Post(resourceUrl);
-
+        
+        if (siteId != null) {
+            client.addHeader(Headers.X_VOL_SITE, siteId.toString());
+        }
+        
         try {
             client.bodyString(mapper.writeValueAsString(userAuthInfo), ContentType.APPLICATION_JSON);
         } catch (JsonProcessingException jpe) {
@@ -112,10 +120,30 @@ public class UserAuthenticator {
 
         HttpHelper.ensureSuccess(response, mapper);
 
-        return setUserAuth(response, scope);
+        return setUserAuth(response, scope, siteId);
+    }
+    
+    public static void logout(AuthTicket authTicket)
+    {
+        String url = AppAuthenticator.getInstance().getBaseUrl()
+                + getLogoutUrl(authTicket);
+        Request client = Request.Delete(url);
+
+        if (proxyHttpHost != null) {
+            client.viaProxy(proxyHttpHost);
+        }
+
+        AppAuthenticator.addAuthHeader(client);
+
+        try {
+            client.execute().returnResponse();
+        } catch (IOException ioe) {
+            throw new ApiException("IO Exception occurred while authenticating user: "
+                    + ioe.getMessage());
+        }
     }
 
-    private static AuthenticationProfile setUserAuth(HttpResponse response, UserScope userScope) {
+    private static AuthenticationProfile setUserAuth(HttpResponse response, AuthenticationScope userScope, Integer siteId) {
         AuthenticationProfile userProfile = null;
 
         switch (userScope) {
@@ -125,17 +153,16 @@ public class UserAuthenticator {
         case Developer:
             userProfile = getDeveloperUserProfile(response, userScope);
             break;
-        case Shopper:
-            userProfile = getShopperUserProfile(response, userScope);
-            break;
         default:
             break;
         }
-
+        
+        userProfile.getAuthTicket().setSiteId(siteId);
+        
         return userProfile;
     }
 
-    private static AuthenticationProfile getTenantUserProfile(HttpResponse response, UserScope userScope) {
+    private static AuthenticationProfile getTenantUserProfile(HttpResponse response, AuthenticationScope userScope) {
         TenantAdminUserAuthTicket tenantAdminUserAuthTicket = null;
         try {
             tenantAdminUserAuthTicket = mapper.readValue(response.getEntity().getContent(),
@@ -166,7 +193,7 @@ public class UserAuthenticator {
         return new AuthenticationProfile(authTicket, availableScopes, activeScope, tenantAdminUserAuthTicket.getUser());
     }
 
-    private static AuthenticationProfile getDeveloperUserProfile(HttpResponse response, UserScope userScope) {
+    private static AuthenticationProfile getDeveloperUserProfile(HttpResponse response, AuthenticationScope userScope) {
         DeveloperAdminUserAuthTicket developerAdminUserAuthTicket = null;
         try {
             developerAdminUserAuthTicket = mapper.readValue(response.getEntity().getContent(),
@@ -197,35 +224,10 @@ public class UserAuthenticator {
         return new AuthenticationProfile(authTicket, availableScopes, activeScope, developerAdminUserAuthTicket.getUser());
     }
 
-    private static AuthenticationProfile getShopperUserProfile(HttpResponse response, UserScope userScope) {
-        UserAuthTicket shopperUserAuthTicketUserAuthTicket = null;
-        try {
-            shopperUserAuthTicketUserAuthTicket = mapper.readValue(response.getEntity()
-                    .getContent(), UserAuthTicket.class);
-        } catch (JsonParseException jpe) {
-            throw new ApiException("JSON error while deserializing shopper user auth ticket : "
-                    + jpe.getMessage());
-        } catch (IOException ioe) {
-            throw new ApiException("IO Exception occurred while authenticating shopper: "
-                    + ioe.getMessage());
-        }
-
-        AuthTicket authTicket = new AuthTicket(
-                shopperUserAuthTicketUserAuthTicket.getAccessToken(), shopperUserAuthTicketUserAuthTicket.getAccessTokenExpiration(),
-                shopperUserAuthTicketUserAuthTicket.getRefreshToken(), 
-                        shopperUserAuthTicketUserAuthTicket.getRefreshTokenExpiration(),
-                userScope);
-
-        return new AuthenticationProfile(authTicket, null, null, shopperUserAuthTicketUserAuthTicket.getUser());
-    }
-
     private static String getResourceRefreshUrl(AuthTicket authTicket, Integer id) {
         switch (authTicket.getScope()) {
         case Tenant:
             return TenantAdminUserAuthTicketUrl.refreshAuthTicketUrl(id).getUrl();
-        case Shopper:
-            return UserAuthTicketUrl.refreshUserAuthTicketUrl(authTicket.getRefreshToken())
-                    .getUrl();
         case Developer:
             return DeveloperAdminUserAuthTicketUrl.refreshDeveloperAuthTicketUrl(id).getUrl();
         default:
@@ -233,12 +235,10 @@ public class UserAuthenticator {
         }
     }
 
-    private static String getResourceUrl(UserScope scope, Integer id) {
+    private static String getResourceUrl(AuthenticationScope scope, Integer id) {
         switch (scope) {
         case Tenant:
             return TenantAdminUserAuthTicketUrl.createUserAuthTicketUrl(id).getUrl();
-        case Shopper:
-            return UserAuthTicketUrl.createUserAuthTicketUrl().getUrl();
         case Developer:
             return DeveloperAdminUserAuthTicketUrl.createDeveloperUserAuthTicketUrl(id).getUrl();
         default:
@@ -246,4 +246,16 @@ public class UserAuthenticator {
         }
     }
 
+    private static String getLogoutUrl(AuthTicket ticket)
+    {
+        switch (ticket.getScope())
+        {
+            case Tenant:
+                return TenantAdminUserAuthTicketUrl.deleteUserAuthTicketUrl(ticket.getRefreshToken()).getUrl();
+            case Developer:
+                return DeveloperAdminUserAuthTicketUrl.deleteUserAuthTicketUrl(ticket.getAccessToken()).getUrl();
+            default:
+                throw new NotImplementedException();
+        }
+    }
 }

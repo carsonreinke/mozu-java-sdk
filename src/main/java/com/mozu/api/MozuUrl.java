@@ -12,7 +12,7 @@ public class MozuUrl {
     }
 
     public MozuUrl(String url, UrlLocation location) {
-        this.url = url;
+        this.url = url.toLowerCase();
         this.location = location;
     }
 
@@ -20,15 +20,8 @@ public class MozuUrl {
         return url;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
     public UrlLocation getLocation() {
         return location;
     }
 
-    public void setLocation(UrlLocation location) {
-        this.location = location;
-    }
 }

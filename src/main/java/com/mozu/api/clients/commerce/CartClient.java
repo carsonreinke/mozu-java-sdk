@@ -14,20 +14,20 @@ import com.mozu.api.Headers;
 import com.mozu.api.security.AuthTicket;
 
 /** <summary>
- * 
+ * Use the Carts resource to manage storefront shopping carts as items are added and removed. Each time a shopper's cart is modified, the Carts resource updates the estimated total with any applicable discounts.
  * </summary>
  */
 public class CartClient {
 	
 	/**
-	 * 
+	 * Retrieves the cart specified in the request.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.commerceruntime.carts.Cart> mozuClient=GetCartClient( cartId, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * Cart cart = client.Result();
 	 * </code></pre></p>
-	 * @param cartId 
+	 * @param cartId Identifier of the cart to retrieve.
 	 * @param authTicket User Auth Ticket
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.commerceruntime.carts.Cart>
 	 * @see com.mozu.api.contracts.commerceruntime.carts.Cart
@@ -47,7 +47,7 @@ public class CartClient {
 	}
 
 	/**
-	 * 
+	 * Retrieves a cart's contents for the current shopper. If the shopper does not have an active cart on the site, the service creates one.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.commerceruntime.carts.Cart> mozuClient=GetOrCreateCartClient(authTicket);
 	 * client.setBaseAddress(url);
@@ -73,7 +73,7 @@ public class CartClient {
 	}
 
 	/**
-	 * 
+	 * Retrieves summary information associated with the cart of the current shopper, including the number of items, the current total, and whether the cart has expired. All anonymous idle carts that do not proceed to checkout expire after 14 days.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.commerceruntime.carts.CartSummary> mozuClient=GetCartSummaryClient(authTicket);
 	 * client.setBaseAddress(url);
@@ -99,14 +99,14 @@ public class CartClient {
 	}
 
 	/**
-	 * 
+	 * Retrieves the cart of the user specified in the request.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.commerceruntime.carts.Cart> mozuClient=GetUserCartClient( userId, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * Cart cart = client.Result();
 	 * </code></pre></p>
-	 * @param userId 
+	 * @param userId Unique identifier of the user whose cart you want to retrieve.
 	 * @param authTicket User Auth Ticket
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.commerceruntime.carts.Cart>
 	 * @see com.mozu.api.contracts.commerceruntime.carts.Cart
@@ -126,14 +126,14 @@ public class CartClient {
 	}
 
 	/**
-	 * 
+	 * Retrieves summary information associated with the cart of user specified in the request, including the number of items in the cart, the current total, and whether the cart has expired. All anonymous idle carts that do not proceed to checkout expire after 14 days.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.commerceruntime.carts.CartSummary> mozuClient=GetUserCartSummaryClient( userId, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * CartSummary cartSummary = client.Result();
 	 * </code></pre></p>
-	 * @param userId 
+	 * @param userId Unique identifier of the user whose cart details you want to retrieve.
 	 * @param authTicket User Auth Ticket
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.commerceruntime.carts.CartSummary>
 	 * @see com.mozu.api.contracts.commerceruntime.carts.CartSummary
@@ -153,7 +153,7 @@ public class CartClient {
 	}
 
 	/**
-	 * 
+	 * Update the current shopper's cart.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.commerceruntime.carts.Cart> mozuClient=UpdateCartClient( cart, authTicket);
 	 * client.setBaseAddress(url);
@@ -161,7 +161,7 @@ public class CartClient {
 	 * Cart cart = client.Result();
 	 * </code></pre></p>
 	 * @param authTicket User Auth Ticket
-	 * @param cart 
+	 * @param cart All of the properties of the cart to update. The product code is required.
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.commerceruntime.carts.Cart>
 	 * @see com.mozu.api.contracts.commerceruntime.carts.Cart
 	 * @see com.mozu.api.contracts.commerceruntime.carts.Cart
@@ -182,13 +182,13 @@ public class CartClient {
 	}
 
 	/**
-	 * 
+	 * Deletes the cart specified in the request.
 	 * <p><pre><code>
 	 * MozuClient mozuClient=DeleteCartClient( cartId, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * </code></pre></p>
-	 * @param cartId 
+	 * @param cartId Identifier of the cart to delete.
 	 * @param authTicket User Auth Ticket
 	 * @return Mozu.Api.MozuClient 
 	 */
@@ -206,7 +206,7 @@ public class CartClient {
 	}
 
 	/**
-	 * 
+	 * Deletes the cart of the currently active shopper.
 	 * <p><pre><code>
 	 * MozuClient mozuClient=DeleteCurrentCartClient(authTicket);
 	 * client.setBaseAddress(url);

@@ -15,7 +15,7 @@ import com.mozu.api.Headers;
 import com.mozu.api.security.AuthTicket;
 
 /** <summary>
- * 
+ * Use the return packages subresource to manage physical packages used to ship return replacement items.
  * </summary>
  */
 public class PackageResource {
@@ -29,20 +29,20 @@ public class PackageResource {
 	}
 	
 	/**
-	 * 
+	 * Retrieves the details of a package of return replacement items.
 	 * <p><pre><code>
 	 *	Package package = new Package();
-	 *	Package package = package.GetPackage( packageId,  returnId, authTicket);
+	 *	Package package = package.GetPackage( returnId,  packageId, authTicket);
 	 * </code></pre></p>
-	 * @param packageId 
-	 * @param returnId 
+	 * @param packageId Unique identifier of the return replacement package to retrieve.
+	 * @param returnId Unique identifier of the return associated with the replacement package to retrieve.
 	 * @param authTicket User Auth Ticket
 	 * @return com.mozu.api.contracts.commerceruntime.fulfillment.Package
 	 * @see com.mozu.api.contracts.commerceruntime.fulfillment.Package
 	 */
-	public com.mozu.api.contracts.commerceruntime.fulfillment.Package getPackage(String packageId, String returnId, AuthTicket authTicket) throws Exception
+	public com.mozu.api.contracts.commerceruntime.fulfillment.Package getPackage(String returnId, String packageId, AuthTicket authTicket) throws Exception
 	{
-		MozuClient<com.mozu.api.contracts.commerceruntime.fulfillment.Package> client = com.mozu.api.clients.commerce.returns.PackageClient.getPackageClient( packageId,  returnId, authTicket);
+		MozuClient<com.mozu.api.contracts.commerceruntime.fulfillment.Package> client = com.mozu.api.clients.commerce.returns.PackageClient.getPackageClient( returnId,  packageId, authTicket);
 		client.setContext(_apiContext);
 		client.executeRequest();
 		return client.getResult();
@@ -50,33 +50,35 @@ public class PackageResource {
 	}
 
 	/**
-	 * 
+	 * Retrieves the package label image supplied by the carrier for a return replacement.
 	 * <p><pre><code>
 	 *	Package package = new Package();
-	 *	package.GetPackageLabel( packageId,  returnId, authTicket);
+	 *	Stream stream = package.GetPackageLabel( returnId,  packageId, authTicket);
 	 * </code></pre></p>
-	 * @param packageId 
-	 * @param returnId 
+	 * @param packageId Unique identifier of the return replacement package for which to retrieve the label.
+	 * @param returnId Unique identifier of the return associated with the replacement package label to retrieve.
 	 * @param authTicket User Auth Ticket
-	 * @return 
+	 * @return Stream
+	 * @see Stream
 	 */
-	public void getPackageLabel(String packageId, String returnId, AuthTicket authTicket) throws Exception
+	public java.io.InputStream getPackageLabel(String returnId, String packageId, AuthTicket authTicket) throws Exception
 	{
-		MozuClient client = com.mozu.api.clients.commerce.returns.PackageClient.getPackageLabelClient( packageId,  returnId, authTicket);
+		MozuClient<java.io.InputStream> client = com.mozu.api.clients.commerce.returns.PackageClient.getPackageLabelClient( returnId,  packageId, authTicket);
 		client.setContext(_apiContext);
 		client.executeRequest();
+		return client.getResult();
 
 	}
 
 	/**
-	 * 
+	 * Creates a new physical package of return replacement items.
 	 * <p><pre><code>
 	 *	Package package = new Package();
 	 *	Package package = package.CreatePackage( pkg,  returnId, authTicket);
 	 * </code></pre></p>
-	 * @param returnId 
+	 * @param returnId Unique identifier of the return for which to create a replacement package.
 	 * @param authTicket User Auth Ticket
-	 * @param package 
+	 * @param package Properties of the physical package for a return replacement.
 	 * @return com.mozu.api.contracts.commerceruntime.fulfillment.Package
 	 * @see com.mozu.api.contracts.commerceruntime.fulfillment.Package
 	 * @see com.mozu.api.contracts.commerceruntime.fulfillment.Package
@@ -91,22 +93,22 @@ public class PackageResource {
 	}
 
 	/**
-	 * 
+	 * Updates one or more properties of a package associated with a return replacement.
 	 * <p><pre><code>
 	 *	Package package = new Package();
-	 *	Package package = package.UpdatePackage( pkg,  packageId,  returnId, authTicket);
+	 *	Package package = package.UpdatePackage( pkg,  returnId,  packageId, authTicket);
 	 * </code></pre></p>
-	 * @param packageId 
-	 * @param returnId 
+	 * @param packageId Unique identifier of the return replacement package to update.
+	 * @param returnId Unique identifier of the return associated with the replacement package to update.
 	 * @param authTicket User Auth Ticket
-	 * @param package 
+	 * @param package Properties of the return replacement package to update.
 	 * @return com.mozu.api.contracts.commerceruntime.fulfillment.Package
 	 * @see com.mozu.api.contracts.commerceruntime.fulfillment.Package
 	 * @see com.mozu.api.contracts.commerceruntime.fulfillment.Package
 	 */
-	public com.mozu.api.contracts.commerceruntime.fulfillment.Package updatePackage(com.mozu.api.contracts.commerceruntime.fulfillment.Package pkg, String packageId, String returnId, AuthTicket authTicket) throws Exception
+	public com.mozu.api.contracts.commerceruntime.fulfillment.Package updatePackage(com.mozu.api.contracts.commerceruntime.fulfillment.Package pkg, String returnId, String packageId, AuthTicket authTicket) throws Exception
 	{
-		MozuClient<com.mozu.api.contracts.commerceruntime.fulfillment.Package> client = com.mozu.api.clients.commerce.returns.PackageClient.updatePackageClient( pkg,  packageId,  returnId, authTicket);
+		MozuClient<com.mozu.api.contracts.commerceruntime.fulfillment.Package> client = com.mozu.api.clients.commerce.returns.PackageClient.updatePackageClient( pkg,  returnId,  packageId, authTicket);
 		client.setContext(_apiContext);
 		client.executeRequest();
 		return client.getResult();
@@ -114,19 +116,19 @@ public class PackageResource {
 	}
 
 	/**
-	 * 
+	 * Deletes a package associated with a return replacement.
 	 * <p><pre><code>
 	 *	Package package = new Package();
-	 *	package.DeletePackage( packageId,  returnId, authTicket);
+	 *	package.DeletePackage( returnId,  packageId, authTicket);
 	 * </code></pre></p>
-	 * @param packageId 
-	 * @param returnId 
+	 * @param packageId Unique identifier of the return replacement package to delete.
+	 * @param returnId Unique identifier of the return associated with the replacement package to delete.
 	 * @param authTicket User Auth Ticket
 	 * @return 
 	 */
-	public void deletePackage(String packageId, String returnId, AuthTicket authTicket) throws Exception
+	public void deletePackage(String returnId, String packageId, AuthTicket authTicket) throws Exception
 	{
-		MozuClient client = com.mozu.api.clients.commerce.returns.PackageClient.deletePackageClient( packageId,  returnId, authTicket);
+		MozuClient client = com.mozu.api.clients.commerce.returns.PackageClient.deletePackageClient( returnId,  packageId, authTicket);
 		client.setContext(_apiContext);
 		client.executeRequest();
 

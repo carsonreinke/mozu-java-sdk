@@ -15,7 +15,7 @@ public class DocumentListUrl
 
 	/**
 	 * Get Resource Url for GetDocumentLists
-	 * @param pageSize 
+	 * @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
 	 * @param sort 
 	 * @param startIndex 
 	 * @return   String Resource Url
@@ -31,7 +31,7 @@ public class DocumentListUrl
 
 	/**
 	 * Get Resource Url for GetDocumentList
-	 * @param documentListName 
+	 * @param documentListName The name of the document list.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl getDocumentListUrl(String documentListName)

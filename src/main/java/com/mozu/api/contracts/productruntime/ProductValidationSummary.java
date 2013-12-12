@@ -8,7 +8,9 @@ package com.mozu.api.contracts.productruntime;
 
 import java.util.List;
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
+import com.mozu.api.contracts.productruntime.BundledProductSummary;
 import com.mozu.api.contracts.productruntime.Category;
 import com.mozu.api.contracts.productruntime.ProductImage;
 import com.mozu.api.contracts.productruntime.ProductInventoryInfo;
@@ -17,11 +19,28 @@ import com.mozu.api.contracts.productruntime.ProductPrice;
 import com.mozu.api.contracts.productruntime.ProductProperty;
 import com.mozu.api.contracts.productruntime.ProductPurchasableState;
 
+/**
+ *	Summary list of the product validation in a storefront, including options selected by the shopper.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class ProductValidationSummary implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	protected Boolean isPackagedStandAlone;
+
+	public Boolean getIsPackagedStandAlone() {
+		return this.isPackagedStandAlone;
+	}
+
+	public void setIsPackagedStandAlone(Boolean isPackagedStandAlone) {
+		this.isPackagedStandAlone = isPackagedStandAlone;
+	}
+
+	/**
+	 * If true, the entity is subject to tax based on the relevant tax rate.
+	 */
 	protected Boolean isTaxable;
 
 	public Boolean getIsTaxable() {
@@ -32,6 +51,9 @@ public class ProductValidationSummary implements Serializable
 		this.isTaxable = isTaxable;
 	}
 
+	/**
+	 * Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
+	 */
 	protected String productCode;
 
 	public String getProductCode() {
@@ -42,6 +64,9 @@ public class ProductValidationSummary implements Serializable
 		this.productCode = productCode;
 	}
 
+	/**
+	 * The descriptive brief product name.
+	 */
 	protected String productName;
 
 	public String getProductName() {
@@ -52,6 +77,9 @@ public class ProductValidationSummary implements Serializable
 		this.productName = productName;
 	}
 
+	/**
+	 * Brief description of the product typically used when the product is displayed in a list or in search results.
+	 */
 	protected String productShortDescription;
 
 	public String getProductShortDescription() {
@@ -62,6 +90,19 @@ public class ProductValidationSummary implements Serializable
 		this.productShortDescription = productShortDescription;
 	}
 
+	protected String productUsage;
+
+	public String getProductUsage() {
+		return this.productUsage;
+	}
+
+	public void setProductUsage(String productUsage) {
+		this.productUsage = productUsage;
+	}
+
+	/**
+	 * Merchant-created code associated with a specific product variation. Variation product codes maintain an association with the base product code.
+	 */
 	protected String variationProductCode;
 
 	public String getVariationProductCode() {
@@ -72,6 +113,17 @@ public class ProductValidationSummary implements Serializable
 		this.variationProductCode = variationProductCode;
 	}
 
+	protected List<BundledProductSummary> bundledProducts;
+	public List<BundledProductSummary> getBundledProducts() {
+		return this.bundledProducts;
+	}
+	public void setBundledProducts(List<BundledProductSummary> bundledProducts) {
+		this.bundledProducts = bundledProducts;
+	}
+
+	/**
+	 * The list of product categories for the storefront.
+	 */
 	protected List<Category> categories;
 	public List<Category> getCategories() {
 		return this.categories;
@@ -80,6 +132,9 @@ public class ProductValidationSummary implements Serializable
 		this.categories = categories;
 	}
 
+	/**
+	 * The image configured for the product on the storefront.
+	 */
 	protected ProductImage image;
 
 	public ProductImage getImage() {
@@ -90,6 +145,9 @@ public class ProductValidationSummary implements Serializable
 		this.image = image;
 	}
 
+	/**
+	 * Properties of the active inventory level of the associated product.
+	 */
 	protected ProductInventoryInfo inventoryInfo;
 
 	public ProductInventoryInfo getInventoryInfo() {
@@ -100,6 +158,9 @@ public class ProductValidationSummary implements Serializable
 		this.inventoryInfo = inventoryInfo;
 	}
 
+	/**
+	 * Dimensions of the packaged product.
+	 */
 	protected PackageMeasurements measurements;
 
 	public PackageMeasurements getMeasurements() {
@@ -110,6 +171,9 @@ public class ProductValidationSummary implements Serializable
 		this.measurements = measurements;
 	}
 
+	/**
+	 * Price that the merchant intends to sell the product which is not necessarily the list price. This is the price the merchant intends to sell the product if no sale price is present.
+	 */
 	protected ProductPrice price;
 
 	public ProductPrice getPrice() {
@@ -120,6 +184,9 @@ public class ProductValidationSummary implements Serializable
 		this.price = price;
 	}
 
+	/**
+	 * The list of product properties configured in product admin.
+	 */
 	protected List<ProductProperty> properties;
 	public List<ProductProperty> getProperties() {
 		return this.properties;
@@ -128,6 +195,9 @@ public class ProductValidationSummary implements Serializable
 		this.properties = properties;
 	}
 
+	/**
+	 * The current state of the product and whether or not it is available for purchasing. If the product is not eligible for purchase, the validation message is included.
+	 */
 	protected ProductPurchasableState purchasableState;
 
 	public ProductPurchasableState getPurchasableState() {

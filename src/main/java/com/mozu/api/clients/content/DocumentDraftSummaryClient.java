@@ -14,15 +14,15 @@ import com.mozu.api.Headers;
 import com.mozu.api.security.AuthTicket;
 
 /** <summary>
- * 
+ * Use the document publishing subresource to manage and publish document drafts in the Content service.
  * </summary>
  */
 public class DocumentDraftSummaryClient {
 	
 	/**
-	 * 
+	 * Retrieves a list of the documents currently in draft state, according to any defined filter and sort criteria.
 	 * <p><pre><code>
-	 * MozuClient<com.mozu.api.contracts.content.DocumentDraftSummaryPagedCollection> mozuClient=ListDocumentDraftSummariesClient();
+	 * MozuClient<com.mozu.api.contracts.content.DocumentDraftSummaryPagedCollection> mozuClient=ListDocumentDraftSummariesClient(dataViewMode);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * DocumentDraftSummaryPagedCollection documentDraftSummaryPagedCollection = client.Result();
@@ -31,27 +31,27 @@ public class DocumentDraftSummaryClient {
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.content.DocumentDraftSummaryPagedCollection>
 	 * @see com.mozu.api.contracts.content.DocumentDraftSummaryPagedCollection
 	 */
-	public static MozuClient<com.mozu.api.contracts.content.DocumentDraftSummaryPagedCollection> listDocumentDraftSummariesClient() throws Exception
+	public static MozuClient<com.mozu.api.contracts.content.DocumentDraftSummaryPagedCollection> listDocumentDraftSummariesClient(com.mozu.api.DataViewMode dataViewMode) throws Exception
 	{
-		return listDocumentDraftSummariesClient( null,  null,  null, null);
+		return listDocumentDraftSummariesClient(dataViewMode,  null,  null,  null, null);
 	}
 
 	/**
-	 * 
+	 * Retrieves a list of the documents currently in draft state, according to any defined filter and sort criteria.
 	 * <p><pre><code>
-	 * MozuClient<com.mozu.api.contracts.content.DocumentDraftSummaryPagedCollection> mozuClient=ListDocumentDraftSummariesClient( documentLists,  pageSize,  startIndex, authTicket);
+	 * MozuClient<com.mozu.api.contracts.content.DocumentDraftSummaryPagedCollection> mozuClient=ListDocumentDraftSummariesClient(dataViewMode,  pageSize,  startIndex,  documentLists, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * DocumentDraftSummaryPagedCollection documentDraftSummaryPagedCollection = client.Result();
 	 * </code></pre></p>
-	 * @param documentLists 
-	 * @param pageSize 
-	 * @param startIndex 
+	 * @param documentLists Lists that contain the document drafts.
+	 * @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
+	 * @param startIndex When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
 	 * @param authTicket User Auth Ticket
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.content.DocumentDraftSummaryPagedCollection>
 	 * @see com.mozu.api.contracts.content.DocumentDraftSummaryPagedCollection
 	 */
-	public static MozuClient<com.mozu.api.contracts.content.DocumentDraftSummaryPagedCollection> listDocumentDraftSummariesClient(String documentLists, Integer pageSize, Integer startIndex, AuthTicket authTicket) throws Exception
+	public static MozuClient<com.mozu.api.contracts.content.DocumentDraftSummaryPagedCollection> listDocumentDraftSummariesClient(com.mozu.api.DataViewMode dataViewMode, Integer pageSize, Integer startIndex, String documentLists, AuthTicket authTicket) throws Exception
 	{
 		MozuUrl url = com.mozu.api.urls.content.DocumentDraftSummaryUrl.listDocumentDraftSummariesUrl(documentLists, pageSize, startIndex);
 		String verb = "GET";
@@ -59,6 +59,7 @@ public class DocumentDraftSummaryClient {
 		MozuClient<com.mozu.api.contracts.content.DocumentDraftSummaryPagedCollection> mozuClient = new MozuClient(clz);
 		mozuClient.setVerb(verb);
 		mozuClient.setResourceUrl(url);
+		mozuClient.addHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.toString());
 		if (authTicket != null)
 			mozuClient.setUserAuth(authTicket);
 		return mozuClient;
@@ -66,36 +67,36 @@ public class DocumentDraftSummaryClient {
 	}
 
 	/**
-	 * 
+	 * Publish one or more document drafts to live content on the site.
 	 * <p><pre><code>
-	 * MozuClient mozuClient=PublishDocumentsClient( documentIds);
+	 * MozuClient mozuClient=PublishDocumentsClient(dataViewMode,  documentIds);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * </code></pre></p>
 	 * @param authTicket User Auth Ticket
-	 * @param documentIds 
+	 * @param documentIds List of unique identifiers of the document drafts to publish.
 	 * @return Mozu.Api.MozuClient 
 	 * @see string
 	 */
-	public static MozuClient publishDocumentsClient(List<String> documentIds) throws Exception
+	public static MozuClient publishDocumentsClient(com.mozu.api.DataViewMode dataViewMode, List<String> documentIds) throws Exception
 	{
-		return publishDocumentsClient( documentIds,  null, null);
+		return publishDocumentsClient(dataViewMode,  documentIds,  null, null);
 	}
 
 	/**
-	 * 
+	 * Publish one or more document drafts to live content on the site.
 	 * <p><pre><code>
-	 * MozuClient mozuClient=PublishDocumentsClient( documentIds,  documentLists, authTicket);
+	 * MozuClient mozuClient=PublishDocumentsClient(dataViewMode,  documentIds,  documentLists, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * </code></pre></p>
-	 * @param documentLists 
+	 * @param documentLists List of document lists that contain documents to publish.
 	 * @param authTicket User Auth Ticket
-	 * @param documentIds 
+	 * @param documentIds List of unique identifiers of the document drafts to publish.
 	 * @return Mozu.Api.MozuClient 
 	 * @see string
 	 */
-	public static MozuClient publishDocumentsClient(List<String> documentIds, String documentLists, AuthTicket authTicket) throws Exception
+	public static MozuClient publishDocumentsClient(com.mozu.api.DataViewMode dataViewMode, List<String> documentIds, String documentLists, AuthTicket authTicket) throws Exception
 	{
 		MozuUrl url = com.mozu.api.urls.content.DocumentDraftSummaryUrl.publishDocumentsUrl(documentLists);
 		String verb = "PUT";
@@ -103,6 +104,7 @@ public class DocumentDraftSummaryClient {
 		mozuClient.setVerb(verb);
 		mozuClient.setResourceUrl(url);
 		mozuClient.setBody(documentIds);
+		mozuClient.addHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.toString());
 		if (authTicket != null)
 			mozuClient.setUserAuth(authTicket);
 		return mozuClient;
@@ -110,40 +112,41 @@ public class DocumentDraftSummaryClient {
 	}
 
 	/**
-	 * 
+	 * Deletes the drafts of the specified documents. Published documents cannot be deleted.
 	 * <p><pre><code>
-	 * MozuClient mozuClient=DeleteDocumentDraftsClient( documentIds);
+	 * MozuClient mozuClient=DeleteDocumentDraftsClient(dataViewMode,  documentIds);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * </code></pre></p>
-	 * @param documentIds 
+	 * @param documentIds Unique identifiers of the documents to delete.
 	 * @param authTicket User Auth Ticket
 	 * @return Mozu.Api.MozuClient 
 	 */
-	public static MozuClient deleteDocumentDraftsClient(String documentIds) throws Exception
+	public static MozuClient deleteDocumentDraftsClient(com.mozu.api.DataViewMode dataViewMode, String documentIds) throws Exception
 	{
-		return deleteDocumentDraftsClient( documentIds,  null, null);
+		return deleteDocumentDraftsClient(dataViewMode,  documentIds,  null, null);
 	}
 
 	/**
-	 * 
+	 * Deletes the drafts of the specified documents. Published documents cannot be deleted.
 	 * <p><pre><code>
-	 * MozuClient mozuClient=DeleteDocumentDraftsClient( documentIds,  documentLists, authTicket);
+	 * MozuClient mozuClient=DeleteDocumentDraftsClient(dataViewMode,  documentIds,  documentLists, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * </code></pre></p>
-	 * @param documentIds 
-	 * @param documentLists 
+	 * @param documentIds Unique identifiers of the documents to delete.
+	 * @param documentLists List of document lists that contain documents to delete.
 	 * @param authTicket User Auth Ticket
 	 * @return Mozu.Api.MozuClient 
 	 */
-	public static MozuClient deleteDocumentDraftsClient(String documentIds, String documentLists, AuthTicket authTicket) throws Exception
+	public static MozuClient deleteDocumentDraftsClient(com.mozu.api.DataViewMode dataViewMode, String documentIds, String documentLists, AuthTicket authTicket) throws Exception
 	{
 		MozuUrl url = com.mozu.api.urls.content.DocumentDraftSummaryUrl.deleteDocumentDraftsUrl(documentIds, documentLists);
 		String verb = "DELETE";
 				MozuClient mozuClient = new MozuClient();
 		mozuClient.setVerb(verb);
 		mozuClient.setResourceUrl(url);
+		mozuClient.addHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.toString());
 		if (authTicket != null)
 			mozuClient.setUserAuth(authTicket);
 		return mozuClient;

@@ -14,20 +14,20 @@ import com.mozu.api.Headers;
 import com.mozu.api.security.AuthTicket;
 
 /** <summary>
- * 
+ * Use the Cards subresource to manage stored credit cards for customer accounts. Mozu stores limited card data in the Customer service for expedited ordering purposes; however, the complete card data is stored in the Payment service.
  * </summary>
  */
 public class CardClient {
 	
 	/**
-	 * 
+	 * Retrieves all stored credit cards for the customer account.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.customer.CardCollection> mozuClient=GetAccountCardsClient( accountId, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * CardCollection cardCollection = client.Result();
 	 * </code></pre></p>
-	 * @param accountId 
+	 * @param accountId Unique identifier of the customer account.
 	 * @param authTicket User Auth Ticket
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.customer.CardCollection>
 	 * @see com.mozu.api.contracts.customer.CardCollection
@@ -49,14 +49,42 @@ public class CardClient {
 	/**
 	 * 
 	 * <p><pre><code>
-	 * MozuClient<com.mozu.api.contracts.customer.Card> mozuClient=AddAccountCardClient( card,  accountId, authTicket);
+	 * MozuClient<com.mozu.api.contracts.customer.Card> mozuClient=GetAccountCardClient( accountId,  cardId, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * Card card = client.Result();
 	 * </code></pre></p>
 	 * @param accountId 
+	 * @param cardId 
 	 * @param authTicket User Auth Ticket
-	 * @param card 
+	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.customer.Card>
+	 * @see com.mozu.api.contracts.customer.Card
+	 */
+	public static MozuClient<com.mozu.api.contracts.customer.Card> getAccountCardClient(Integer accountId, String cardId, AuthTicket authTicket) throws Exception
+	{
+		MozuUrl url = com.mozu.api.urls.commerce.customer.accounts.CardUrl.getAccountCardUrl(accountId, cardId);
+		String verb = "GET";
+		Class<?> clz = com.mozu.api.contracts.customer.Card.class;
+		MozuClient<com.mozu.api.contracts.customer.Card> mozuClient = new MozuClient(clz);
+		mozuClient.setVerb(verb);
+		mozuClient.setResourceUrl(url);
+		if (authTicket != null)
+			mozuClient.setUserAuth(authTicket);
+		return mozuClient;
+
+	}
+
+	/**
+	 * Creates a new credit card record and stores it for the customer account.
+	 * <p><pre><code>
+	 * MozuClient<com.mozu.api.contracts.customer.Card> mozuClient=AddAccountCardClient( card,  accountId, authTicket);
+	 * client.setBaseAddress(url);
+	 * client.executeRequest();
+	 * Card card = client.Result();
+	 * </code></pre></p>
+	 * @param accountId Unique identifier of the customer account.
+	 * @param authTicket User Auth Ticket
+	 * @param card Properties of the customer credit card to add to the account.
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.customer.Card>
 	 * @see com.mozu.api.contracts.customer.Card
 	 * @see com.mozu.api.contracts.customer.Card
@@ -77,23 +105,24 @@ public class CardClient {
 	}
 
 	/**
-	 * 
+	 * Update one or more properties of a credit card defined for a customer account.
 	 * <p><pre><code>
-	 * MozuClient<com.mozu.api.contracts.customer.Card> mozuClient=UpdateAccountCardClient( card,  accountId, authTicket);
+	 * MozuClient<com.mozu.api.contracts.customer.Card> mozuClient=UpdateAccountCardClient( card,  accountId,  cardId, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * Card card = client.Result();
 	 * </code></pre></p>
-	 * @param accountId 
+	 * @param accountId Unique identifier of the customer account.
+	 * @param cardId 
 	 * @param authTicket User Auth Ticket
-	 * @param card 
+	 * @param card Properties of the customer account credit card to update.
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.customer.Card>
 	 * @see com.mozu.api.contracts.customer.Card
 	 * @see com.mozu.api.contracts.customer.Card
 	 */
-	public static MozuClient<com.mozu.api.contracts.customer.Card> updateAccountCardClient(com.mozu.api.contracts.customer.Card card, Integer accountId, AuthTicket authTicket) throws Exception
+	public static MozuClient<com.mozu.api.contracts.customer.Card> updateAccountCardClient(com.mozu.api.contracts.customer.Card card, Integer accountId, String cardId, AuthTicket authTicket) throws Exception
 	{
-		MozuUrl url = com.mozu.api.urls.commerce.customer.accounts.CardUrl.updateAccountCardUrl(accountId);
+		MozuUrl url = com.mozu.api.urls.commerce.customer.accounts.CardUrl.updateAccountCardUrl(accountId, cardId);
 		String verb = "PUT";
 		Class<?> clz = com.mozu.api.contracts.customer.Card.class;
 		MozuClient<com.mozu.api.contracts.customer.Card> mozuClient = new MozuClient(clz);
@@ -107,14 +136,14 @@ public class CardClient {
 	}
 
 	/**
-	 * 
+	 * Removes a stored credit card from a customer account.
 	 * <p><pre><code>
 	 * MozuClient mozuClient=DeleteAccountCardClient( accountId,  cardId, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * </code></pre></p>
-	 * @param accountId 
-	 * @param cardId 
+	 * @param accountId Unique identifier of the customer account.
+	 * @param cardId Unique identifier of the credit card to delete.
 	 * @param authTicket User Auth Ticket
 	 * @return Mozu.Api.MozuClient 
 	 */

@@ -15,13 +15,13 @@ import com.mozu.api.Headers;
 import com.mozu.api.security.AuthTicket;
 
 /** <summary>
- * 
+ * Use the Developer Accounts resource to retrieve details about the developer account a company uses to test applications and themes.
  * </summary>
  */
 public class DeveloperAccountResource {
 	
 	/**
-	 * 
+	 * Retrieves the details of the developer account specified in the request.
 	 * <p><pre><code>
 	 *	DeveloperAccount developeraccount = new DeveloperAccount();
 	 *	DeveloperAccount developerAccount = developeraccount.GetDeveloperAccount();
@@ -36,12 +36,12 @@ public class DeveloperAccountResource {
 	}
 
 	/**
-	 * 
+	 * Retrieves the details of the developer account specified in the request.
 	 * <p><pre><code>
 	 *	DeveloperAccount developeraccount = new DeveloperAccount();
 	 *	DeveloperAccount developerAccount = developeraccount.GetDeveloperAccount( accountId, authTicket);
 	 * </code></pre></p>
-	 * @param accountId 
+	 * @param accountId Unique identifier of the developer account to retrieve.
 	 * @param authTicket User Auth Ticket
 	 * @return com.mozu.api.contracts.appdev.DeveloperAccount
 	 * @see com.mozu.api.contracts.appdev.DeveloperAccount

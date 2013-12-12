@@ -7,13 +7,21 @@
 package com.mozu.api.contracts.location;
 
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 
+/**
+ *	Properties of the geographical coordinates associated with a specific location.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Coordinates implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * The latitude coordinate of the location.
+	 */
 	protected double lat;
 
 	public double getLat() {
@@ -24,6 +32,9 @@ public class Coordinates implements Serializable
 		this.lat = lat;
 	}
 
+	/**
+	 * The longitude coordinate of the location.
+	 */
 	protected double lng;
 
 	public double getLng() {

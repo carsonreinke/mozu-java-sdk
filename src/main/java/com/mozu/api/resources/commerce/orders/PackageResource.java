@@ -15,7 +15,7 @@ import com.mozu.api.Headers;
 import com.mozu.api.security.AuthTicket;
 
 /** <summary>
- * 
+ * Use the packages subresource to manage the physical packages to ship for an order.
  * </summary>
  */
 public class PackageResource {
@@ -29,13 +29,13 @@ public class PackageResource {
 	}
 	
 	/**
-	 * 
+	 * Retrieves the details of a package of order items.
 	 * <p><pre><code>
 	 *	Package package = new Package();
 	 *	Package package = package.GetPackage( orderId,  packageId, authTicket);
 	 * </code></pre></p>
-	 * @param orderId 
-	 * @param packageId 
+	 * @param orderId Unique identifier of the order associated with the package to retrieve.
+	 * @param packageId Unique identifier of the package to retrieve.
 	 * @param authTicket User Auth Ticket
 	 * @return com.mozu.api.contracts.commerceruntime.fulfillment.Package
 	 * @see com.mozu.api.contracts.commerceruntime.fulfillment.Package
@@ -50,13 +50,13 @@ public class PackageResource {
 	}
 
 	/**
-	 * 
+	 * Retrieves a list of the actions available to perform for a package associated with order fulfillment.
 	 * <p><pre><code>
 	 *	Package package = new Package();
 	 *	string string = package.GetAvailablePackageFulfillmentActions( orderId,  packageId, authTicket);
 	 * </code></pre></p>
-	 * @param orderId 
-	 * @param packageId 
+	 * @param orderId Unique identifier of the order associated with the package fulfillment.
+	 * @param packageId Unique identifier of the package associated with the fulfillment actions to retrieve.
 	 * @param authTicket User Auth Ticket
 	 * @return List<string>
 	 * @see string
@@ -71,33 +71,35 @@ public class PackageResource {
 	}
 
 	/**
-	 * 
+	 * Retrieves the package label image supplied by the carrier.
 	 * <p><pre><code>
 	 *	Package package = new Package();
-	 *	package.GetPackageLabel( orderId,  packageId, authTicket);
+	 *	Stream stream = package.GetPackageLabel( orderId,  packageId, authTicket);
 	 * </code></pre></p>
-	 * @param orderId 
-	 * @param packageId 
+	 * @param orderId Unique identifier of the order associated with the package label to retrieve.
+	 * @param packageId Unique identifier of the package for which to retrieve the label.
 	 * @param authTicket User Auth Ticket
-	 * @return 
+	 * @return Stream
+	 * @see Stream
 	 */
-	public void getPackageLabel(String orderId, String packageId, AuthTicket authTicket) throws Exception
+	public java.io.InputStream getPackageLabel(String orderId, String packageId, AuthTicket authTicket) throws Exception
 	{
-		MozuClient client = com.mozu.api.clients.commerce.orders.PackageClient.getPackageLabelClient( orderId,  packageId, authTicket);
+		MozuClient<java.io.InputStream> client = com.mozu.api.clients.commerce.orders.PackageClient.getPackageLabelClient( orderId,  packageId, authTicket);
 		client.setContext(_apiContext);
 		client.executeRequest();
+		return client.getResult();
 
 	}
 
 	/**
-	 * 
+	 * Creates a new physical package of order items.
 	 * <p><pre><code>
 	 *	Package package = new Package();
 	 *	Package package = package.CreatePackage( pkg,  orderId, authTicket);
 	 * </code></pre></p>
-	 * @param orderId 
+	 * @param orderId Unique identifier of the order associated with this package.
 	 * @param authTicket User Auth Ticket
-	 * @param package 
+	 * @param package Properties of the physical package of order items.
 	 * @return com.mozu.api.contracts.commerceruntime.fulfillment.Package
 	 * @see com.mozu.api.contracts.commerceruntime.fulfillment.Package
 	 * @see com.mozu.api.contracts.commerceruntime.fulfillment.Package
@@ -112,15 +114,15 @@ public class PackageResource {
 	}
 
 	/**
-	 * 
+	 * Updates one or more properties of a physical package of order items.
 	 * <p><pre><code>
 	 *	Package package = new Package();
 	 *	Package package = package.UpdatePackage( pkg,  orderId,  packageId, authTicket);
 	 * </code></pre></p>
-	 * @param orderId 
-	 * @param packageId 
+	 * @param orderId Unique identifier of the order associated with the package to update.
+	 * @param packageId Unique identifier of the package of order items to update.
 	 * @param authTicket User Auth Ticket
-	 * @param package 
+	 * @param package Wrapper of properties for the package of order items to update.
 	 * @return com.mozu.api.contracts.commerceruntime.fulfillment.Package
 	 * @see com.mozu.api.contracts.commerceruntime.fulfillment.Package
 	 * @see com.mozu.api.contracts.commerceruntime.fulfillment.Package
@@ -135,13 +137,13 @@ public class PackageResource {
 	}
 
 	/**
-	 * 
+	 * Removes a physical package of items from the specified order.
 	 * <p><pre><code>
 	 *	Package package = new Package();
 	 *	package.DeletePackage( orderId,  packageId, authTicket);
 	 * </code></pre></p>
-	 * @param orderId 
-	 * @param packageId 
+	 * @param orderId Unique identifier of the order associated with the package to delete.
+	 * @param packageId Unique identifier of the package to delete.
 	 * @param authTicket User Auth Ticket
 	 * @return 
 	 */

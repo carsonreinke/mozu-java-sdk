@@ -15,7 +15,7 @@ import com.mozu.api.Headers;
 import com.mozu.api.security.AuthTicket;
 
 /** <summary>
- * 
+ * Use the Locations resource to manage each physical location associated with a tenant. Locations enable tenants to associate a physical address with product inventory, provide a store finder for in-store pickup, or both. Locations that support inventory can use both direct ship and in-store pickup fulfillment types.
  * </summary>
  */
 public class LocationResource {
@@ -29,7 +29,7 @@ public class LocationResource {
 	}
 	
 	/**
-	 * 
+	 * Retrieves a list of all locations associated with a tenant, according to any filter and sort criteria specified in the request.
 	 * <p><pre><code>
 	 *	Location location = new Location();
 	 *	LocationCollection locationCollection = location.GetLocations();
@@ -44,22 +44,22 @@ public class LocationResource {
 	}
 
 	/**
-	 * 
+	 * Retrieves a list of all locations associated with a tenant, according to any filter and sort criteria specified in the request.
 	 * <p><pre><code>
 	 *	Location location = new Location();
-	 *	LocationCollection locationCollection = location.GetLocations( filter,  pageSize,  sortBy,  startIndex, authTicket);
+	 *	LocationCollection locationCollection = location.GetLocations( startIndex,  pageSize,  sortBy,  filter, authTicket);
 	 * </code></pre></p>
-	 * @param filter 
-	 * @param pageSize 
-	 * @param sortBy 
-	 * @param startIndex 
+	 * @param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
+	 * @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
+	 * @param sortBy The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"
+	 * @param startIndex When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
 	 * @param authTicket User Auth Ticket
 	 * @return com.mozu.api.contracts.location.LocationCollection
 	 * @see com.mozu.api.contracts.location.LocationCollection
 	 */
-	public com.mozu.api.contracts.location.LocationCollection getLocations(String filter, Integer pageSize, String sortBy, Integer startIndex, AuthTicket authTicket) throws Exception
+	public com.mozu.api.contracts.location.LocationCollection getLocations(Integer startIndex, Integer pageSize, String sortBy, String filter, AuthTicket authTicket) throws Exception
 	{
-		MozuClient<com.mozu.api.contracts.location.LocationCollection> client = com.mozu.api.clients.commerce.location.admin.LocationClient.getLocationsClient( filter,  pageSize,  sortBy,  startIndex, authTicket);
+		MozuClient<com.mozu.api.contracts.location.LocationCollection> client = com.mozu.api.clients.commerce.location.admin.LocationClient.getLocationsClient( startIndex,  pageSize,  sortBy,  filter, authTicket);
 		client.setContext(_apiContext);
 		client.executeRequest();
 		return client.getResult();
@@ -67,12 +67,12 @@ public class LocationResource {
 	}
 
 	/**
-	 * 
+	 * Retrieves the details of the location specified in the request by location code.
 	 * <p><pre><code>
 	 *	Location location = new Location();
 	 *	Location location = location.GetLocation( locationCode, authTicket);
 	 * </code></pre></p>
-	 * @param locationCode 
+	 * @param locationCode The merchant-defined code of the location to retrieve.
 	 * @param authTicket User Auth Ticket
 	 * @return com.mozu.api.contracts.location.Location
 	 * @see com.mozu.api.contracts.location.Location
@@ -87,13 +87,13 @@ public class LocationResource {
 	}
 
 	/**
-	 * 
+	 * Creates a new physical location for the tenant specified in the request header.
 	 * <p><pre><code>
 	 *	Location location = new Location();
 	 *	Location location = location.AddLocation( location, authTicket);
 	 * </code></pre></p>
 	 * @param authTicket User Auth Ticket
-	 * @param location 
+	 * @param location Properties of the location to create.
 	 * @return com.mozu.api.contracts.location.Location
 	 * @see com.mozu.api.contracts.location.Location
 	 * @see com.mozu.api.contracts.location.Location
@@ -108,14 +108,14 @@ public class LocationResource {
 	}
 
 	/**
-	 * 
+	 * Updates one or more details of a the location specified in the request by location code.
 	 * <p><pre><code>
 	 *	Location location = new Location();
 	 *	Location location = location.UpdateLocation( location,  locationCode, authTicket);
 	 * </code></pre></p>
-	 * @param locationCode 
+	 * @param locationCode The merchant-defined code associated with the location to update.
 	 * @param authTicket User Auth Ticket
-	 * @param location 
+	 * @param location Properties of the location to update.
 	 * @return com.mozu.api.contracts.location.Location
 	 * @see com.mozu.api.contracts.location.Location
 	 * @see com.mozu.api.contracts.location.Location
@@ -130,12 +130,12 @@ public class LocationResource {
 	}
 
 	/**
-	 * 
+	 * Deletes the location specified in the request.
 	 * <p><pre><code>
 	 *	Location location = new Location();
 	 *	location.DeleteLocation( locationCode, authTicket);
 	 * </code></pre></p>
-	 * @param locationCode 
+	 * @param locationCode The merchant-defined code of the location to delete.
 	 * @param authTicket User Auth Ticket
 	 * @return 
 	 */

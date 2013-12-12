@@ -14,13 +14,13 @@ import com.mozu.api.Headers;
 import com.mozu.api.security.AuthTicket;
 
 /** <summary>
- * 
+ * Use the returns subresource to manage returned items that were previously fufilled. Returns can include any number of items associated with an original Mozu order. Each return must either be associated with an original order or a product definition to represent each returned item.
  * </summary>
  */
 public class ReturnClient {
 	
 	/**
-	 * 
+	 * Retrieves a list of all returns according to any filter and sort criteria.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.commerceruntime.returns.ReturnCollection> mozuClient=GetReturnsClient();
 	 * client.setBaseAddress(url);
@@ -37,22 +37,22 @@ public class ReturnClient {
 	}
 
 	/**
-	 * 
+	 * Retrieves a list of all returns according to any filter and sort criteria.
 	 * <p><pre><code>
-	 * MozuClient<com.mozu.api.contracts.commerceruntime.returns.ReturnCollection> mozuClient=GetReturnsClient( filter,  pageSize,  sortBy,  startIndex, authTicket);
+	 * MozuClient<com.mozu.api.contracts.commerceruntime.returns.ReturnCollection> mozuClient=GetReturnsClient( startIndex,  pageSize,  sortBy,  filter, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * ReturnCollection returnCollection = client.Result();
 	 * </code></pre></p>
-	 * @param filter 
-	 * @param pageSize 
-	 * @param sortBy 
-	 * @param startIndex 
+	 * @param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
+	 * @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
+	 * @param sortBy The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"
+	 * @param startIndex When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
 	 * @param authTicket User Auth Ticket
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.commerceruntime.returns.ReturnCollection>
 	 * @see com.mozu.api.contracts.commerceruntime.returns.ReturnCollection
 	 */
-	public static MozuClient<com.mozu.api.contracts.commerceruntime.returns.ReturnCollection> getReturnsClient(String filter, Integer pageSize, String sortBy, Integer startIndex, AuthTicket authTicket) throws Exception
+	public static MozuClient<com.mozu.api.contracts.commerceruntime.returns.ReturnCollection> getReturnsClient(Integer startIndex, Integer pageSize, String sortBy, String filter, AuthTicket authTicket) throws Exception
 	{
 		MozuUrl url = com.mozu.api.urls.commerce.ReturnUrl.getReturnsUrl(filter, pageSize, sortBy, startIndex);
 		String verb = "GET";
@@ -67,14 +67,14 @@ public class ReturnClient {
 	}
 
 	/**
-	 * 
+	 * Retrieves a list of properties for the specified return.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.commerceruntime.returns.Return> mozuClient=GetReturnClient( returnId, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * Return return = client.Result();
 	 * </code></pre></p>
-	 * @param returnId 
+	 * @param returnId Returns the properties of the return specified in the request as well as system-supplied information.
 	 * @param authTicket User Auth Ticket
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.commerceruntime.returns.Return>
 	 * @see com.mozu.api.contracts.commerceruntime.returns.Return
@@ -94,14 +94,14 @@ public class ReturnClient {
 	}
 
 	/**
-	 * 
+	 * Retrieves a list of the actions available to perform for the specified return based on its current state.
 	 * <p><pre><code>
 	 * MozuClient<List<String>> mozuClient=GetAvailableReturnActionsClient( returnId, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * string string = client.Result();
 	 * </code></pre></p>
-	 * @param returnId 
+	 * @param returnId Retrieves a list of the actions available to perform for the specified return based on its current state.
 	 * @param authTicket User Auth Ticket
 	 * @return Mozu.Api.MozuClient <List<string>>
 	 * @see string
@@ -121,14 +121,14 @@ public class ReturnClient {
 	}
 
 	/**
-	 * 
+	 * Retrieves a list of all payments submitted as part of a refund associated with a customer return.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.commerceruntime.payments.PaymentCollection> mozuClient=GetPaymentsClient( returnId, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * PaymentCollection paymentCollection = client.Result();
 	 * </code></pre></p>
-	 * @param returnId 
+	 * @param returnId Returns the details of the refund payment associated with the return specified in the request.
 	 * @param authTicket User Auth Ticket
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.commerceruntime.payments.PaymentCollection>
 	 * @see com.mozu.api.contracts.commerceruntime.payments.PaymentCollection
@@ -148,20 +148,20 @@ public class ReturnClient {
 	}
 
 	/**
-	 * 
+	 * Retrieves the details of a payment submitted as part of a refund associated with a customer return.
 	 * <p><pre><code>
-	 * MozuClient<com.mozu.api.contracts.commerceruntime.payments.Payment> mozuClient=GetPaymentClient( paymentId,  returnId, authTicket);
+	 * MozuClient<com.mozu.api.contracts.commerceruntime.payments.Payment> mozuClient=GetPaymentClient( returnId,  paymentId, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * Payment payment = client.Result();
 	 * </code></pre></p>
-	 * @param paymentId 
-	 * @param returnId 
+	 * @param paymentId Unique identifier of the return payment to retrieve.
+	 * @param returnId Unique identifier of the return associated with the payment.
 	 * @param authTicket User Auth Ticket
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.commerceruntime.payments.Payment>
 	 * @see com.mozu.api.contracts.commerceruntime.payments.Payment
 	 */
-	public static MozuClient<com.mozu.api.contracts.commerceruntime.payments.Payment> getPaymentClient(String paymentId, String returnId, AuthTicket authTicket) throws Exception
+	public static MozuClient<com.mozu.api.contracts.commerceruntime.payments.Payment> getPaymentClient(String returnId, String paymentId, AuthTicket authTicket) throws Exception
 	{
 		MozuUrl url = com.mozu.api.urls.commerce.ReturnUrl.getPaymentUrl(paymentId, returnId);
 		String verb = "GET";
@@ -176,20 +176,20 @@ public class ReturnClient {
 	}
 
 	/**
-	 * 
+	 * Retrieves a list of the payment actions available to perform for the specified return when a return results in a refund to the customer.
 	 * <p><pre><code>
-	 * MozuClient<List<String>> mozuClient=GetAvailablePaymentActionsForReturnClient( paymentId,  returnId, authTicket);
+	 * MozuClient<List<String>> mozuClient=GetAvailablePaymentActionsForReturnClient( returnId,  paymentId, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * string string = client.Result();
 	 * </code></pre></p>
-	 * @param paymentId 
-	 * @param returnId 
+	 * @param paymentId Unique identifier of the payment for which to perform the action.
+	 * @param returnId Unique identifier of the return associated with the payment.
 	 * @param authTicket User Auth Ticket
 	 * @return Mozu.Api.MozuClient <List<string>>
 	 * @see string
 	 */
-	public static MozuClient<List<String>> getAvailablePaymentActionsForReturnClient(String paymentId, String returnId, AuthTicket authTicket) throws Exception
+	public static MozuClient<List<String>> getAvailablePaymentActionsForReturnClient(String returnId, String paymentId, AuthTicket authTicket) throws Exception
 	{
 		MozuUrl url = com.mozu.api.urls.commerce.ReturnUrl.getAvailablePaymentActionsForReturnUrl(paymentId, returnId);
 		String verb = "GET";
@@ -204,7 +204,7 @@ public class ReturnClient {
 	}
 
 	/**
-	 * 
+	 * Creates a return for previously fulfilled items. Each return must either be associated with an original order or a product definition to represent each returned item.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.commerceruntime.returns.Return> mozuClient=CreateReturnClient( ret, authTicket);
 	 * client.setBaseAddress(url);
@@ -212,7 +212,7 @@ public class ReturnClient {
 	 * Return return = client.Result();
 	 * </code></pre></p>
 	 * @param authTicket User Auth Ticket
-	 * @param ret 
+	 * @param ret Wrapper for the properties of the return to create.
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.commerceruntime.returns.Return>
 	 * @see com.mozu.api.contracts.commerceruntime.returns.Return
 	 * @see com.mozu.api.contracts.commerceruntime.returns.Return
@@ -233,22 +233,22 @@ public class ReturnClient {
 	}
 
 	/**
-	 * 
+	 * Updates a refund payment associated with a customer return by performing the specified action.
 	 * <p><pre><code>
-	 * MozuClient<com.mozu.api.contracts.commerceruntime.returns.Return> mozuClient=PerformPaymentActionForReturnClient( action,  paymentId,  returnId, authTicket);
+	 * MozuClient<com.mozu.api.contracts.commerceruntime.returns.Return> mozuClient=PerformPaymentActionForReturnClient( action,  returnId,  paymentId, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * Return return = client.Result();
 	 * </code></pre></p>
-	 * @param paymentId 
-	 * @param returnId 
+	 * @param paymentId Unique identifier of the return payment to update.
+	 * @param returnId Unique identifier of the return associated with the refund payment.
 	 * @param authTicket User Auth Ticket
-	 * @param action 
+	 * @param action The payment action to perform for the refund payment.
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.commerceruntime.returns.Return>
 	 * @see com.mozu.api.contracts.commerceruntime.returns.Return
 	 * @see com.mozu.api.contracts.commerceruntime.payments.PaymentAction
 	 */
-	public static MozuClient<com.mozu.api.contracts.commerceruntime.returns.Return> performPaymentActionForReturnClient(com.mozu.api.contracts.commerceruntime.payments.PaymentAction action, String paymentId, String returnId, AuthTicket authTicket) throws Exception
+	public static MozuClient<com.mozu.api.contracts.commerceruntime.returns.Return> performPaymentActionForReturnClient(com.mozu.api.contracts.commerceruntime.payments.PaymentAction action, String returnId, String paymentId, AuthTicket authTicket) throws Exception
 	{
 		MozuUrl url = com.mozu.api.urls.commerce.ReturnUrl.performPaymentActionForReturnUrl(paymentId, returnId);
 		String verb = "POST";
@@ -264,16 +264,16 @@ public class ReturnClient {
 	}
 
 	/**
-	 * 
+	 * Creates a new payment for a return that results in a refund to the customer.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.commerceruntime.returns.Return> mozuClient=CreatePaymentActionForReturnClient( action,  returnId, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * Return return = client.Result();
 	 * </code></pre></p>
-	 * @param returnId 
+	 * @param returnId Unique identifier of the return associated with the payment action.
 	 * @param authTicket User Auth Ticket
-	 * @param action 
+	 * @param action The payment action to perform for the customer return.
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.commerceruntime.returns.Return>
 	 * @see com.mozu.api.contracts.commerceruntime.returns.Return
 	 * @see com.mozu.api.contracts.commerceruntime.payments.PaymentAction
@@ -294,7 +294,7 @@ public class ReturnClient {
 	}
 
 	/**
-	 * 
+	 * Updates the return by performing the specified action.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.commerceruntime.returns.ReturnCollection> mozuClient=PerformReturnActionsClient( action, authTicket);
 	 * client.setBaseAddress(url);
@@ -302,7 +302,7 @@ public class ReturnClient {
 	 * ReturnCollection returnCollection = client.Result();
 	 * </code></pre></p>
 	 * @param authTicket User Auth Ticket
-	 * @param action 
+	 * @param action The name of the return action to perform, such as "Refund" or "Replace".
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.commerceruntime.returns.ReturnCollection>
 	 * @see com.mozu.api.contracts.commerceruntime.returns.ReturnCollection
 	 * @see com.mozu.api.contracts.commerceruntime.returns.ReturnAction
@@ -323,16 +323,16 @@ public class ReturnClient {
 	}
 
 	/**
-	 * 
+	 * Updates one or more properties of a return for items previously shipped in a completed order.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.commerceruntime.returns.Return> mozuClient=UpdateReturnClient( ret,  returnId, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * Return return = client.Result();
 	 * </code></pre></p>
-	 * @param returnId 
+	 * @param returnId Unique identifier of the return.
 	 * @param authTicket User Auth Ticket
-	 * @param ret 
+	 * @param ret Wrapper for the array of properties to update for the return.
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.commerceruntime.returns.Return>
 	 * @see com.mozu.api.contracts.commerceruntime.returns.Return
 	 * @see com.mozu.api.contracts.commerceruntime.returns.Return
@@ -353,13 +353,13 @@ public class ReturnClient {
 	}
 
 	/**
-	 * 
+	 * Deletes the return specified in the request.
 	 * <p><pre><code>
 	 * MozuClient mozuClient=DeleteReturnClient( returnId, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * </code></pre></p>
-	 * @param returnId 
+	 * @param returnId Unique identifier of the return to delete.
 	 * @param authTicket User Auth Ticket
 	 * @return Mozu.Api.MozuClient 
 	 */

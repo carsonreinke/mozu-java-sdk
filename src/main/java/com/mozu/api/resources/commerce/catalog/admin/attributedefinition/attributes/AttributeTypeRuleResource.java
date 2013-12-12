@@ -15,7 +15,7 @@ import com.mozu.api.Headers;
 import com.mozu.api.security.AuthTicket;
 
 /** <summary>
- * 
+ * Type rules are subresources of product attributes which could be specifications that can be shared across products in a store or assigned to specific products. Attribute type rules provide definitions of how attribute types will appear on the user interface.
  * </summary>
  */
 public class AttributeTypeRuleResource {
@@ -29,7 +29,7 @@ public class AttributeTypeRuleResource {
 	}
 	
 	/**
-	 * 
+	 * Retrieves a list of attribute type rules according to optional filter criteria and sort options. Attribute type rules help drive the behavior of attributes on a storefront page.
 	 * <p><pre><code>
 	 *	AttributeTypeRule attributetyperule = new AttributeTypeRule();
 	 *	AttributeTypeRuleCollection attributeTypeRuleCollection = attributetyperule.GetAttributeTypeRules(dataViewMode);
@@ -45,13 +45,13 @@ public class AttributeTypeRuleResource {
 	}
 
 	/**
-	 * 
+	 * Retrieves a list of attribute type rules according to optional filter criteria and sort options. Attribute type rules help drive the behavior of attributes on a storefront page.
 	 * <p><pre><code>
 	 *	AttributeTypeRule attributetyperule = new AttributeTypeRule();
-	 *	AttributeTypeRuleCollection attributeTypeRuleCollection = attributetyperule.GetAttributeTypeRules(dataViewMode,  filter,  pageSize,  sortBy,  startIndex, authTicket);
+	 *	AttributeTypeRuleCollection attributeTypeRuleCollection = attributetyperule.GetAttributeTypeRules(dataViewMode,  startIndex,  pageSize,  sortBy,  filter, authTicket);
 	 * </code></pre></p>
-	 * @param filter 
-	 * @param pageSize 
+	 * @param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
+	 * @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
 	 * @param sortBy 
 	 * @param startIndex 
 	 * @param dataViewMode DataViewMode
@@ -59,9 +59,9 @@ public class AttributeTypeRuleResource {
 	 * @return com.mozu.api.contracts.productadmin.AttributeTypeRuleCollection
 	 * @see com.mozu.api.contracts.productadmin.AttributeTypeRuleCollection
 	 */
-	public com.mozu.api.contracts.productadmin.AttributeTypeRuleCollection getAttributeTypeRules(com.mozu.api.DataViewMode dataViewMode, String filter, Integer pageSize, String sortBy, Integer startIndex, AuthTicket authTicket) throws Exception
+	public com.mozu.api.contracts.productadmin.AttributeTypeRuleCollection getAttributeTypeRules(com.mozu.api.DataViewMode dataViewMode, Integer startIndex, Integer pageSize, String sortBy, String filter, AuthTicket authTicket) throws Exception
 	{
-		MozuClient<com.mozu.api.contracts.productadmin.AttributeTypeRuleCollection> client = com.mozu.api.clients.commerce.catalog.admin.attributedefinition.attributes.AttributeTypeRuleClient.getAttributeTypeRulesClient(dataViewMode,  filter,  pageSize,  sortBy,  startIndex, authTicket);
+		MozuClient<com.mozu.api.contracts.productadmin.AttributeTypeRuleCollection> client = com.mozu.api.clients.commerce.catalog.admin.attributedefinition.attributes.AttributeTypeRuleClient.getAttributeTypeRulesClient(dataViewMode,  startIndex,  pageSize,  sortBy,  filter, authTicket);
 		client.setContext(_apiContext);
 		client.executeRequest();
 		return client.getResult();

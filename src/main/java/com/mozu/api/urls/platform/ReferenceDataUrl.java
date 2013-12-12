@@ -15,7 +15,7 @@ public class ReferenceDataUrl
 
 	/**
 	 * Get Resource Url for GetAddressSchema
-	 * @param countryCode 
+	 * @param countryCode The 2-letter geographic code representing the country for the physical or mailing address. Currently limited to the US.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl getAddressSchemaUrl(String countryCode)
@@ -37,7 +37,7 @@ public class ReferenceDataUrl
 
 	/**
 	 * Get Resource Url for GetBehavior
-	 * @param behaviorId 
+	 * @param behaviorId ***Always private and should not be published.***
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl getBehaviorUrl(Integer behaviorId)
@@ -59,7 +59,7 @@ public class ReferenceDataUrl
 
 	/**
 	 * Get Resource Url for GetBehaviorCategory
-	 * @param categoryId 
+	 * @param categoryId ***Always private and should not be published.***
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl getBehaviorCategoryUrl(Integer categoryId)
@@ -133,7 +133,7 @@ public class ReferenceDataUrl
 
 	/**
 	 * Get Resource Url for GetUnitsOfMeasure
-	 * @param filter 
+	 * @param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl getUnitsOfMeasureUrl(String filter)

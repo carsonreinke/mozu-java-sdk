@@ -7,8 +7,13 @@
 package com.mozu.api.contracts.content;
 
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 
+/**
+ *	A high level description of the document draft.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class DocumentDraftSummary implements Serializable
 {
 	// Default Serial Version UID
@@ -24,6 +29,9 @@ public class DocumentDraftSummary implements Serializable
 		this.activeUpdateDate = activeUpdateDate;
 	}
 
+	/**
+	 * Name of the document list associated with the draft.
+	 */
 	protected String documentListName;
 
 	public String getDocumentListName() {
@@ -44,6 +52,9 @@ public class DocumentDraftSummary implements Serializable
 		this.draftUpdateDate = draftUpdateDate;
 	}
 
+	/**
+	 * Identifier of document draft.
+	 */
 	protected String id;
 
 	public String getId() {
@@ -54,6 +65,9 @@ public class DocumentDraftSummary implements Serializable
 		this.id = id;
 	}
 
+	/**
+	 * Name of the document draft.
+	 */
 	protected String name;
 
 	public String getName() {
@@ -64,6 +78,9 @@ public class DocumentDraftSummary implements Serializable
 		this.name = name;
 	}
 
+	/**
+	 * Whether the draft has been published.
+	 */
 	protected String publishType;
 
 	public String getPublishType() {
@@ -74,6 +91,9 @@ public class DocumentDraftSummary implements Serializable
 		this.publishType = publishType;
 	}
 
+	/**
+	 * Unique identifier of the user who last modified the item. This value is system-supplied and read-only.
+	 */
 	protected String updatedBy;
 
 	public String getUpdatedBy() {

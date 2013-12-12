@@ -7,14 +7,22 @@
 package com.mozu.api.contracts.productadmin;
 
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 import com.mozu.api.contracts.productadmin.AttributeVocabularyValueLocalizedContent;
 
+/**
+ *	Details of a product variation option.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class ProductVariationOption implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * The fully qualified name of the attribute, which is a user defined attribute identifier.
+	 */
 	protected String attributeFQN;
 
 	public String getAttributeFQN() {
@@ -25,6 +33,9 @@ public class ProductVariationOption implements Serializable
 		this.attributeFQN = attributeFQN;
 	}
 
+	/**
+	 * The value of an attribute option specified for this product variation.
+	 */
 	protected Object value;
 
 	public Object getValue() {
@@ -35,6 +46,9 @@ public class ProductVariationOption implements Serializable
 		this.value = value;
 	}
 
+	/**
+	 * Complex type that contains content for a language specified by LocaleCode.
+	 */
 	protected AttributeVocabularyValueLocalizedContent content;
 
 	public AttributeVocabularyValueLocalizedContent getContent() {

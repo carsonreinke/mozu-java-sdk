@@ -15,7 +15,7 @@ public class ProductTypeOptionUrl
 
 	/**
 	 * Get Resource Url for GetOptions
-	 * @param productTypeId 
+	 * @param productTypeId Identifier of the product type to retrieve.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl getOptionsUrl(Integer productTypeId)
@@ -27,8 +27,8 @@ public class ProductTypeOptionUrl
 
 	/**
 	 * Get Resource Url for GetOption
-	 * @param attributeFQN 
-	 * @param productTypeId 
+	 * @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
+	 * @param productTypeId The identifier of the product type.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl getOptionUrl(String attributeFQN, Integer productTypeId)
@@ -41,7 +41,7 @@ public class ProductTypeOptionUrl
 
 	/**
 	 * Get Resource Url for AddOption
-	 * @param productTypeId 
+	 * @param productTypeId Identifier of the product type.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl addOptionUrl(Integer productTypeId)
@@ -53,8 +53,8 @@ public class ProductTypeOptionUrl
 
 	/**
 	 * Get Resource Url for UpdateOption
-	 * @param attributeFQN 
-	 * @param productTypeId 
+	 * @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
+	 * @param productTypeId Identifier of the product type.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl updateOptionUrl(String attributeFQN, Integer productTypeId)
@@ -67,8 +67,8 @@ public class ProductTypeOptionUrl
 
 	/**
 	 * Get Resource Url for DeleteOption
-	 * @param attributeFQN 
-	 * @param productTypeId 
+	 * @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
+	 * @param productTypeId Identifier of the product type.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl deleteOptionUrl(String attributeFQN, Integer productTypeId)

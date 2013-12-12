@@ -8,13 +8,21 @@ package com.mozu.api.contracts.commerceruntime.returns;
 
 import java.util.List;
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 
+/**
+ *	Properties of an action a user can perform for a return.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class ReturnAction implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * The name of the action to perform for the return.
+	 */
 	protected String actionName;
 
 	public String getActionName() {
@@ -25,6 +33,9 @@ public class ReturnAction implements Serializable
 		this.actionName = actionName;
 	}
 
+	/**
+	 * The list of returns for which to perform the action.
+	 */
 	protected List<String> returnIds;
 	public List<String> getReturnIds() {
 		return this.returnIds;

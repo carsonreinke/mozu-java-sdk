@@ -8,15 +8,23 @@ package com.mozu.api.contracts.commerceruntime.fulfillment;
 
 import java.util.List;
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 import com.mozu.api.contracts.core.AuditInfo;
 import com.mozu.api.contracts.commerceruntime.fulfillment.PickupItem;
 
+/**
+ *	Properties of an in-store pickup defined to fulfill items in an order.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Pickup implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Array list of actions that can be performed for the in-store pickup.
+	 */
 	protected List<String> availableActions;
 	public List<String> getAvailableActions() {
 		return this.availableActions;
@@ -25,6 +33,9 @@ public class Pickup implements Serializable
 		this.availableActions = availableActions;
 	}
 
+	/**
+	 * The date and time the customer picked up the order items.
+	 */
 	protected Date fulfillmentDate;
 
 	public Date getFulfillmentDate() {
@@ -35,6 +46,9 @@ public class Pickup implements Serializable
 		this.fulfillmentDate = fulfillmentDate;
 	}
 
+	/**
+	 * Unique identifier of the in-store pickup.
+	 */
 	protected String id;
 
 	public String getId() {
@@ -45,6 +59,9 @@ public class Pickup implements Serializable
 		this.id = id;
 	}
 
+	/**
+	 * The fulfillment status of the in-store pickup, which is "Fulfilled," "NotFulfilled," or "PartiallyFulfilled."
+	 */
 	protected String status;
 
 	public String getStatus() {
@@ -55,6 +72,9 @@ public class Pickup implements Serializable
 		this.status = status;
 	}
 
+	/**
+	 * Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
+	 */
 	protected AuditInfo auditInfo;
 
 	public AuditInfo getAuditInfo() {
@@ -65,6 +85,9 @@ public class Pickup implements Serializable
 		this.auditInfo = auditInfo;
 	}
 
+	/**
+	 * An array list of objects in the returned collection.
+	 */
 	protected List<PickupItem> items;
 	public List<PickupItem> getItems() {
 		return this.items;

@@ -8,14 +8,22 @@ package com.mozu.api.contracts.commerceruntime.orders;
 
 import java.util.List;
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 import com.mozu.api.contracts.commerceruntime.orders.OrderItem;
 
+/**
+ *	Collection of all order items that appear on the order.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class OrderItemCollection implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * The number of results listed in the query collection, represented by a signed 64-bit (8-byte) integer. This value is system-supplied and read-only.
+	 */
 	protected Long totalCount;
 
 	public Long getTotalCount() {
@@ -26,6 +34,9 @@ public class OrderItemCollection implements Serializable
 		this.totalCount = totalCount;
 	}
 
+	/**
+	 * An array list of objects in the returned collection.
+	 */
 	protected List<OrderItem> items;
 	public List<OrderItem> getItems() {
 		return this.items;

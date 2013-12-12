@@ -15,8 +15,8 @@ public class ProductVariationUrl
 
 	/**
 	 * Get Resource Url for GetProductVariation
-	 * @param productCode 
-	 * @param variationKey 
+	 * @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
+	 * @param variationKey System-generated key that represents the attribute values that uniquely identify a specific product variation.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl getProductVariationUrl(String productCode, String variationKey)
@@ -29,11 +29,11 @@ public class ProductVariationUrl
 
 	/**
 	 * Get Resource Url for GetProductVariations
-	 * @param filter 
-	 * @param pageSize 
-	 * @param productCode 
-	 * @param sortBy 
-	 * @param startIndex 
+	 * @param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
+	 * @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
+	 * @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
+	 * @param sortBy The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"
+	 * @param startIndex When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl getProductVariationsUrl(String filter, Integer pageSize, String productCode, String sortBy, Integer startIndex)
@@ -49,7 +49,7 @@ public class ProductVariationUrl
 
 	/**
 	 * Get Resource Url for UpdateProductVariations
-	 * @param productCode 
+	 * @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl updateProductVariationsUrl(String productCode)
@@ -61,8 +61,8 @@ public class ProductVariationUrl
 
 	/**
 	 * Get Resource Url for UpdateProductVariation
-	 * @param productCode 
-	 * @param variationKey 
+	 * @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
+	 * @param variationKey System-generated key that represents the attribute values that uniquely identify a specific product variation.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl updateProductVariationUrl(String productCode, String variationKey)
@@ -75,8 +75,8 @@ public class ProductVariationUrl
 
 	/**
 	 * Get Resource Url for DeleteProductVariation
-	 * @param productCode 
-	 * @param variationKey 
+	 * @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
+	 * @param variationKey System-generated key that represents the attribute values that uniquely identify a specific product variation.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl deleteProductVariationUrl(String productCode, String variationKey)

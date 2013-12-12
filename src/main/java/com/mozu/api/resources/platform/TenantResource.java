@@ -15,18 +15,18 @@ import com.mozu.api.Headers;
 import com.mozu.api.security.AuthTicket;
 
 /** <summary>
- * 
+ * Use the tenants resource to manage information about a Mozu tenant.
  * </summary>
  */
 public class TenantResource {
 	
 	/**
-	 * 
+	 * Retrieve details about a specific tenant by providing the tenant ID.
 	 * <p><pre><code>
 	 *	Tenant tenant = new Tenant();
 	 *	Tenant tenant = tenant.GetTenant( tenantId, authTicket);
 	 * </code></pre></p>
-	 * @param tenantId 
+	 * @param tenantId Unique identifier of the Mozu tenant.
 	 * @param authTicket User Auth Ticket
 	 * @return com.mozu.api.contracts.tenant.Tenant
 	 * @see com.mozu.api.contracts.tenant.Tenant

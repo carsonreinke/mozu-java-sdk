@@ -15,7 +15,7 @@ import com.mozu.api.Headers;
 import com.mozu.api.security.AuthTicket;
 
 /** <summary>
- * 
+ * Use the Cart Messages resource to retrieve messages for live carts that the system logs when a product's price or inventory level changes.
  * </summary>
  */
 public class ChangeMessageResource {
@@ -29,7 +29,7 @@ public class ChangeMessageResource {
 	}
 	
 	/**
-	 * 
+	 * Retrieves the messages associated with the current shopper's cart.
 	 * <p><pre><code>
 	 *	ChangeMessage changemessage = new ChangeMessage();
 	 *	CartChangeMessageCollection cartChangeMessageCollection = changemessage.GetMessages(authTicket);
@@ -48,7 +48,7 @@ public class ChangeMessageResource {
 	}
 
 	/**
-	 * 
+	 * Deletes all messages associated with the cart of the current shopper.
 	 * <p><pre><code>
 	 *	ChangeMessage changemessage = new ChangeMessage();
 	 *	changemessage.RemoveAllMessages(authTicket);
@@ -65,12 +65,12 @@ public class ChangeMessageResource {
 	}
 
 	/**
-	 * 
+	 * Removes a single message associated with the cart of the current shopper.
 	 * <p><pre><code>
 	 *	ChangeMessage changemessage = new ChangeMessage();
 	 *	changemessage.RemoveMessage( messageId, authTicket);
 	 * </code></pre></p>
-	 * @param messageId 
+	 * @param messageId Identifier of the message to remove from the cart.
 	 * @param authTicket User Auth Ticket
 	 * @return 
 	 */

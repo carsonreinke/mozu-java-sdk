@@ -15,11 +15,11 @@ public class ProductUrl
 
 	/**
 	 * Get Resource Url for GetProducts
-	 * @param filter 
-	 * @param noCount 
-	 * @param pageSize 
-	 * @param q 
-	 * @param qLimit 
+	 * @param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
+	 * @param noCount If true, the operation does not return the TotalCount number of results.
+	 * @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
+	 * @param q A list of product search terms to use in the query when searching across product code and product name. Separate multiple search terms with a space character.
+	 * @param qLimit The maximum number of search results to return in the response. You can limit any range between 1-100.
 	 * @param sortBy 
 	 * @param startIndex 
 	 * @return   String Resource Url
@@ -39,7 +39,7 @@ public class ProductUrl
 
 	/**
 	 * Get Resource Url for GetProduct
-	 * @param productCode 
+	 * @param productCode Merchant-created code associated with the product such as a SKU. Max length: 30. Accepts a to z, A to Z, Ãƒâ€¹-ÃƒËœ, 0 to 9, #, semicolon, commas, apostrophes, and Spaces, but no punctuation or other characters.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl getProductUrl(String productCode)
@@ -51,7 +51,7 @@ public class ProductUrl
 
 	/**
 	 * Get Resource Url for GetProductInCatalogs
-	 * @param productCode 
+	 * @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl getProductInCatalogsUrl(String productCode)
@@ -64,7 +64,7 @@ public class ProductUrl
 	/**
 	 * Get Resource Url for GetProductInCatalog
 	 * @param catalogId 
-	 * @param productCode 
+	 * @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl getProductInCatalogUrl(Integer catalogId, String productCode)
@@ -87,7 +87,7 @@ public class ProductUrl
 
 	/**
 	 * Get Resource Url for AddProductInCatalog
-	 * @param productCode 
+	 * @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl addProductInCatalogUrl(String productCode)
@@ -99,7 +99,7 @@ public class ProductUrl
 
 	/**
 	 * Get Resource Url for UpdateProduct
-	 * @param productCode 
+	 * @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl updateProductUrl(String productCode)
@@ -111,7 +111,7 @@ public class ProductUrl
 
 	/**
 	 * Get Resource Url for UpdateProductInCatalogs
-	 * @param productCode 
+	 * @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl updateProductInCatalogsUrl(String productCode)
@@ -124,7 +124,7 @@ public class ProductUrl
 	/**
 	 * Get Resource Url for UpdateProductInCatalog
 	 * @param catalogId 
-	 * @param productCode 
+	 * @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl updateProductInCatalogUrl(Integer catalogId, String productCode)
@@ -150,7 +150,7 @@ public class ProductUrl
 	/**
 	 * Get Resource Url for DeleteProductInCatalog
 	 * @param catalogId 
-	 * @param productCode 
+	 * @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl deleteProductInCatalogUrl(Integer catalogId, String productCode)

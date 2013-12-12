@@ -7,14 +7,22 @@
 package com.mozu.api.contracts.pricingruntime;
 
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 import com.mozu.api.contracts.core.Address;
 
+/**
+ *	The tax properties associated with the order.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class TaxContext implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Unique identifier of the customer.
+	 */
 	protected String customerId;
 
 	public String getCustomerId() {
@@ -25,6 +33,9 @@ public class TaxContext implements Serializable
 		this.customerId = customerId;
 	}
 
+	/**
+	 * Unique identifier of the tax context.
+	 */
 	protected String taxContextId;
 
 	public String getTaxContextId() {
@@ -35,6 +46,9 @@ public class TaxContext implements Serializable
 		this.taxContextId = taxContextId;
 	}
 
+	/**
+	 * If the order is exempt from sales tax, the unique identifier of the tax exempt entity.
+	 */
 	protected String taxExemptId;
 
 	public String getTaxExemptId() {
@@ -45,6 +59,9 @@ public class TaxContext implements Serializable
 		this.taxExemptId = taxExemptId;
 	}
 
+	/**
+	 * The address to which the order ships.
+	 */
 	protected Address destinationAddress;
 
 	public Address getDestinationAddress() {
@@ -55,6 +72,9 @@ public class TaxContext implements Serializable
 		this.destinationAddress = destinationAddress;
 	}
 
+	/**
+	 * The address from which the order ships.
+	 */
 	protected Address originAddress;
 
 	public Address getOriginAddress() {

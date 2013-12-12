@@ -15,7 +15,7 @@ import com.mozu.api.Headers;
 import com.mozu.api.security.AuthTicket;
 
 /** <summary>
- * 
+ * Use the Payments subresource to manage payment transactions for orders. Each transaction performed for an order represents an individual payment. For example, if an order totals $75.00 but the shopper has a $50.00 gift certificate, both the gift certificate transaction and the credit card transaction for the remaining $25.00 are recorded as payments for the order.
  * </summary>
  */
 public class PaymentResource {
@@ -29,12 +29,12 @@ public class PaymentResource {
 	}
 	
 	/**
-	 * 
+	 * Retrieves information about all payment transactions submitted for the specified order.
 	 * <p><pre><code>
 	 *	Payment payment = new Payment();
 	 *	PaymentCollection paymentCollection = payment.GetPayments( orderId, authTicket);
 	 * </code></pre></p>
-	 * @param orderId 
+	 * @param orderId Unique identifier of the order.
 	 * @param authTicket User Auth Ticket
 	 * @return com.mozu.api.contracts.commerceruntime.payments.PaymentCollection
 	 * @see com.mozu.api.contracts.commerceruntime.payments.PaymentCollection
@@ -49,13 +49,13 @@ public class PaymentResource {
 	}
 
 	/**
-	 * 
+	 * Retrieves information about a specific payment transaction submitted for the specified order.
 	 * <p><pre><code>
 	 *	Payment payment = new Payment();
 	 *	Payment payment = payment.GetPayment( orderId,  paymentId, authTicket);
 	 * </code></pre></p>
-	 * @param orderId 
-	 * @param paymentId 
+	 * @param orderId Unique identifier of the order associated with the payment transaction.
+	 * @param paymentId Unique identifier of the payment transaction submitted for the order.
 	 * @param authTicket User Auth Ticket
 	 * @return com.mozu.api.contracts.commerceruntime.payments.Payment
 	 * @see com.mozu.api.contracts.commerceruntime.payments.Payment
@@ -70,13 +70,13 @@ public class PaymentResource {
 	}
 
 	/**
-	 * 
+	 * Retrieves the list of all available payment actions dependent on the order payment status by specifying the order ID.
 	 * <p><pre><code>
 	 *	Payment payment = new Payment();
 	 *	string string = payment.GetAvailablePaymentActions( orderId,  paymentId, authTicket);
 	 * </code></pre></p>
-	 * @param orderId 
-	 * @param paymentId 
+	 * @param orderId Unique identifier of the order associated with the payment.
+	 * @param paymentId Unique identifer of the payment for which to retrieve available actions.
 	 * @param authTicket User Auth Ticket
 	 * @return List<string>
 	 * @see string
@@ -91,15 +91,15 @@ public class PaymentResource {
 	}
 
 	/**
-	 * 
+	 * Performs the specified action for an individual order payment transaction.
 	 * <p><pre><code>
 	 *	Payment payment = new Payment();
 	 *	Order order = payment.PerformPaymentAction( action,  orderId,  paymentId, authTicket);
 	 * </code></pre></p>
-	 * @param orderId 
-	 * @param paymentId 
+	 * @param orderId Unique identifier of the order associated with the payment.
+	 * @param paymentId Unique identifer of the payment for which to perform the action.
 	 * @param authTicket User Auth Ticket
-	 * @param action 
+	 * @param action The action to perform for the payment. Possible values are AuthAndCapture, AuthorizePayment, CapturePayment, VoidPayment, CreditPayment, RequestCheck, ApplyCheck, DeclineCheck.
 	 * @return com.mozu.api.contracts.commerceruntime.orders.Order
 	 * @see com.mozu.api.contracts.commerceruntime.orders.Order
 	 * @see com.mozu.api.contracts.commerceruntime.payments.PaymentAction
@@ -114,14 +114,14 @@ public class PaymentResource {
 	}
 
 	/**
-	 * 
+	 * Creates a new payment transaction for the specified order and performs the specified action.
 	 * <p><pre><code>
 	 *	Payment payment = new Payment();
 	 *	Order order = payment.CreatePaymentAction( action,  orderId, authTicket);
 	 * </code></pre></p>
-	 * @param orderId 
+	 * @param orderId Unique identifier of the order for which to apply the payment.
 	 * @param authTicket User Auth Ticket
-	 * @param action 
+	 * @param action To action to perform for the newly created payment. Possible values are AuthAndCapture, AuthorizePayment, CapturePayment, VoidPayment, CreditPayment, RequestCheck, ApplyCheck, DeclineCheck.
 	 * @return com.mozu.api.contracts.commerceruntime.orders.Order
 	 * @see com.mozu.api.contracts.commerceruntime.orders.Order
 	 * @see com.mozu.api.contracts.commerceruntime.payments.PaymentAction

@@ -7,14 +7,22 @@
 package com.mozu.api.contracts.productadmin;
 
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 import com.mozu.api.contracts.productadmin.AttributeVocabularyValue;
 
+/**
+ *	The actual vocabulary value of the attribute that exists as a part of the product type.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class AttributeVocabularyValueInProductType implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Sequence of the attribute value within the product type.
+	 */
 	protected Integer order;
 
 	public Integer getOrder() {
@@ -25,6 +33,9 @@ public class AttributeVocabularyValueInProductType implements Serializable
 		this.order = order;
 	}
 
+	/**
+	 * The vocabulary value of an attribute defined for a product type.
+	 */
 	protected Object value;
 
 	public Object getValue() {
@@ -35,6 +46,9 @@ public class AttributeVocabularyValueInProductType implements Serializable
 		this.value = value;
 	}
 
+	/**
+	 * Navigates vocabulary value details for an attribute defined for a product type.
+	 */
 	protected AttributeVocabularyValue vocabularyValueDetail;
 
 	public AttributeVocabularyValue getVocabularyValueDetail() {

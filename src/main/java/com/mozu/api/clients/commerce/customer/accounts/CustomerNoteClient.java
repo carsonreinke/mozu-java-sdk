@@ -14,21 +14,21 @@ import com.mozu.api.Headers;
 import com.mozu.api.security.AuthTicket;
 
 /** <summary>
- * 
+ * Merchants can add and view internal notes for a customer account. For example, a merchant can track a customer's interests or complaints. Only merchants can add and view notes. Customers cannot see these notes from their My Account page.
  * </summary>
  */
 public class CustomerNoteClient {
 	
 	/**
-	 * 
+	 * Retrieves the contents of a particular note attached to a specified customer account.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.customer.CustomerNote> mozuClient=GetAccountNoteClient( accountId,  noteId, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * CustomerNote customerNote = client.Result();
 	 * </code></pre></p>
-	 * @param accountId 
-	 * @param noteId 
+	 * @param accountId Unique identifier of the customer account that contains the note being retrieved.
+	 * @param noteId Unique identifier of a particular note to retrieve.
 	 * @param authTicket User Auth Ticket
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.customer.CustomerNote>
 	 * @see com.mozu.api.contracts.customer.CustomerNote
@@ -48,14 +48,14 @@ public class CustomerNoteClient {
 	}
 
 	/**
-	 * 
+	 * Retrieves a list of notes added to a customer account according to any specified filter criteria and sort options.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.customer.CustomerNoteCollection> mozuClient=GetAccountNotesClient( accountId);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * CustomerNoteCollection customerNoteCollection = client.Result();
 	 * </code></pre></p>
-	 * @param accountId 
+	 * @param accountId Unique identifier of the customer account.
 	 * @param authTicket User Auth Ticket
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.customer.CustomerNoteCollection>
 	 * @see com.mozu.api.contracts.customer.CustomerNoteCollection
@@ -66,23 +66,23 @@ public class CustomerNoteClient {
 	}
 
 	/**
-	 * 
+	 * Retrieves a list of notes added to a customer account according to any specified filter criteria and sort options.
 	 * <p><pre><code>
-	 * MozuClient<com.mozu.api.contracts.customer.CustomerNoteCollection> mozuClient=GetAccountNotesClient( accountId,  filter,  pageSize,  sortBy,  startIndex, authTicket);
+	 * MozuClient<com.mozu.api.contracts.customer.CustomerNoteCollection> mozuClient=GetAccountNotesClient( accountId,  startIndex,  pageSize,  sortBy,  filter, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * CustomerNoteCollection customerNoteCollection = client.Result();
 	 * </code></pre></p>
-	 * @param accountId 
-	 * @param filter 
-	 * @param pageSize 
-	 * @param sortBy 
-	 * @param startIndex 
+	 * @param accountId Unique identifier of the customer account.
+	 * @param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
+	 * @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
+	 * @param sortBy The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"
+	 * @param startIndex When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
 	 * @param authTicket User Auth Ticket
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.customer.CustomerNoteCollection>
 	 * @see com.mozu.api.contracts.customer.CustomerNoteCollection
 	 */
-	public static MozuClient<com.mozu.api.contracts.customer.CustomerNoteCollection> getAccountNotesClient(Integer accountId, String filter, Integer pageSize, String sortBy, Integer startIndex, AuthTicket authTicket) throws Exception
+	public static MozuClient<com.mozu.api.contracts.customer.CustomerNoteCollection> getAccountNotesClient(Integer accountId, Integer startIndex, Integer pageSize, String sortBy, String filter, AuthTicket authTicket) throws Exception
 	{
 		MozuUrl url = com.mozu.api.urls.commerce.customer.accounts.CustomerNoteUrl.getAccountNotesUrl(accountId, filter, pageSize, sortBy, startIndex);
 		String verb = "GET";
@@ -97,16 +97,16 @@ public class CustomerNoteClient {
 	}
 
 	/**
-	 * 
+	 * Adds a new note to the specified customer account.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.customer.CustomerNote> mozuClient=AddAccountNoteClient( note,  accountId, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * CustomerNote customerNote = client.Result();
 	 * </code></pre></p>
-	 * @param accountId 
+	 * @param accountId Unique identifier of the customer account for which to create the note.
 	 * @param authTicket User Auth Ticket
-	 * @param note 
+	 * @param note Properties of the customer account note to create.
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.customer.CustomerNote>
 	 * @see com.mozu.api.contracts.customer.CustomerNote
 	 * @see com.mozu.api.contracts.customer.CustomerNote
@@ -127,17 +127,17 @@ public class CustomerNoteClient {
 	}
 
 	/**
-	 * 
+	 * Modifies an existing note for a customer account.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.customer.CustomerNote> mozuClient=UpdateAccountNoteClient( note,  accountId,  noteId, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * CustomerNote customerNote = client.Result();
 	 * </code></pre></p>
-	 * @param accountId 
-	 * @param noteId 
+	 * @param accountId Unique identifier of the customer account note to modify.
+	 * @param noteId Unique identifier of the note to update.
 	 * @param authTicket User Auth Ticket
-	 * @param note 
+	 * @param note The new content to replace the existing note.
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.customer.CustomerNote>
 	 * @see com.mozu.api.contracts.customer.CustomerNote
 	 * @see com.mozu.api.contracts.customer.CustomerNote
@@ -158,14 +158,14 @@ public class CustomerNoteClient {
 	}
 
 	/**
-	 * 
+	 * Removes a note from the specified customer account.
 	 * <p><pre><code>
 	 * MozuClient mozuClient=DeleteAccountNoteClient( accountId,  noteId, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * </code></pre></p>
-	 * @param accountId 
-	 * @param noteId 
+	 * @param accountId Unique identifier of the customer account that contains the note being deleted.
+	 * @param noteId Unique identifier of the customer account note being deleted.
 	 * @param authTicket User Auth Ticket
 	 * @return Mozu.Api.MozuClient 
 	 */

@@ -7,13 +7,21 @@
 package com.mozu.api.contracts.productadmin;
 
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 
+/**
+ *	System-supplied and read only parameter that validates a facet for its associated category.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class FacetValidity implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * If true, the facet source is valid for its associated category.
+	 */
 	protected Boolean isValid;
 
 	public Boolean getIsValid() {
@@ -24,6 +32,9 @@ public class FacetValidity implements Serializable
 		this.isValid = isValid;
 	}
 
+	/**
+	 * Code associated with a reason for facet validation to return false for its associated category.
+	 */
 	protected String reasonCode;
 
 	public String getReasonCode() {

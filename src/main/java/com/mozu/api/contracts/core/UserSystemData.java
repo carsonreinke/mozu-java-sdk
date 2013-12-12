@@ -7,13 +7,21 @@
 package com.mozu.api.contracts.core;
 
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 
+/**
+ *	System-supplied and read-only information about the user.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class UserSystemData implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Date and time when the entity was created, represented in UTC Date/Time.
+	 */
 	protected Date createdOn;
 
 	public Date getCreatedOn() {
@@ -24,6 +32,9 @@ public class UserSystemData implements Serializable
 		this.createdOn = createdOn;
 	}
 
+	/**
+	 * The number of failed authentication attempts associated with the user.
+	 */
 	protected Byte failedLoginAttemptCount;
 
 	public Byte getFailedLoginAttemptCount() {
@@ -34,6 +45,9 @@ public class UserSystemData implements Serializable
 		this.failedLoginAttemptCount = failedLoginAttemptCount;
 	}
 
+	/**
+	 * The date and time the initial login was unsuccessful, which is system-supplied and read only. Each time user authentication fails, an update occurs on this field.
+	 */
 	protected Date firstFailedLoginAttemptOn;
 
 	public Date getFirstFailedLoginAttemptOn() {
@@ -44,6 +58,9 @@ public class UserSystemData implements Serializable
 		this.firstFailedLoginAttemptOn = firstFailedLoginAttemptOn;
 	}
 
+	/**
+	 * If true, the user account is locked due to multiple failed authentication attempts.
+	 */
 	protected Boolean isLocked;
 
 	public Boolean getIsLocked() {
@@ -54,6 +71,9 @@ public class UserSystemData implements Serializable
 		this.isLocked = isLocked;
 	}
 
+	/**
+	 * If true, the login requires a password change for increased security. If false, the login does not require a password change.
+	 */
 	protected Boolean isPasswordChangeRequired;
 
 	public Boolean getIsPasswordChangeRequired() {
@@ -64,6 +84,9 @@ public class UserSystemData implements Serializable
 		this.isPasswordChangeRequired = isPasswordChangeRequired;
 	}
 
+	/**
+	 * When the user's account was last locked. System-supplied and read-only.
+	 */
 	protected Date lastLockedOn;
 
 	public Date getLastLockedOn() {
@@ -74,6 +97,9 @@ public class UserSystemData implements Serializable
 		this.lastLockedOn = lastLockedOn;
 	}
 
+	/**
+	 *  When the user last logged into the store. System-supplied and read-only.
+	 */
 	protected Date lastLoginOn;
 
 	public Date getLastLoginOn() {
@@ -84,6 +110,9 @@ public class UserSystemData implements Serializable
 		this.lastLoginOn = lastLoginOn;
 	}
 
+	/**
+	 *  When the password was last modified. System-supplied and read-only.
+	 */
 	protected Date lastPasswordChangeOn;
 
 	public Date getLastPasswordChangeOn() {
@@ -94,6 +123,9 @@ public class UserSystemData implements Serializable
 		this.lastPasswordChangeOn = lastPasswordChangeOn;
 	}
 
+	/**
+	 * The number of login attempts left for the user. The user must login successfully before this value reaches zero otherwise the account will be locked.
+	 */
 	protected Integer remainingLoginAttempts;
 
 	public Integer getRemainingLoginAttempts() {
@@ -104,6 +136,9 @@ public class UserSystemData implements Serializable
 		this.remainingLoginAttempts = remainingLoginAttempts;
 	}
 
+	/**
+	 * Date and time when the entity was last updated, represented in UTC Date/Time.
+	 */
 	protected Date updatedOn;
 
 	public Date getUpdatedOn() {

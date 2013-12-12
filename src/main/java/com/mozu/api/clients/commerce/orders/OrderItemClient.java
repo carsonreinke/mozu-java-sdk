@@ -14,21 +14,21 @@ import com.mozu.api.Headers;
 import com.mozu.api.security.AuthTicket;
 
 /** <summary>
- * 
+ * Use this subresource to retrieve details about items in an active order.
  * </summary>
  */
 public class OrderItemClient {
 	
 	/**
-	 * 
+	 * Retrieves the details of a single order item.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.commerceruntime.orders.OrderItem> mozuClient=GetOrderItemClient( orderId,  orderItemId);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * OrderItem orderItem = client.Result();
 	 * </code></pre></p>
-	 * @param orderId 
-	 * @param orderItemId 
+	 * @param orderId Unique identifier of the order item to retrieve.
+	 * @param orderItemId Unique identifier of the order item details to retrieve.
 	 * @param authTicket User Auth Ticket
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.commerceruntime.orders.OrderItem>
 	 * @see com.mozu.api.contracts.commerceruntime.orders.OrderItem
@@ -39,16 +39,16 @@ public class OrderItemClient {
 	}
 
 	/**
-	 * 
+	 * Retrieves the details of a single order item.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.commerceruntime.orders.OrderItem> mozuClient=GetOrderItemClient( orderId,  orderItemId,  draft, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * OrderItem orderItem = client.Result();
 	 * </code></pre></p>
-	 * @param draft 
-	 * @param orderId 
-	 * @param orderItemId 
+	 * @param draft If true, retrieve the draft version of this order item, which might include uncommitted changes to the order item, the order, or other order components.
+	 * @param orderId Unique identifier of the order item to retrieve.
+	 * @param orderItemId Unique identifier of the order item details to retrieve.
 	 * @param authTicket User Auth Ticket
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.commerceruntime.orders.OrderItem>
 	 * @see com.mozu.api.contracts.commerceruntime.orders.OrderItem
@@ -68,14 +68,14 @@ public class OrderItemClient {
 	}
 
 	/**
-	 * 
+	 * Retrieves the details of all items in an order.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.commerceruntime.orders.OrderItemCollection> mozuClient=GetOrderItemsClient( orderId);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * OrderItemCollection orderItemCollection = client.Result();
 	 * </code></pre></p>
-	 * @param orderId 
+	 * @param orderId Unique identifier of the order items to retrieve.
 	 * @param authTicket User Auth Ticket
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.commerceruntime.orders.OrderItemCollection>
 	 * @see com.mozu.api.contracts.commerceruntime.orders.OrderItemCollection
@@ -86,15 +86,15 @@ public class OrderItemClient {
 	}
 
 	/**
-	 * 
+	 * Retrieves the details of all items in an order.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.commerceruntime.orders.OrderItemCollection> mozuClient=GetOrderItemsClient( orderId,  draft, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * OrderItemCollection orderItemCollection = client.Result();
 	 * </code></pre></p>
-	 * @param draft 
-	 * @param orderId 
+	 * @param draft If true, retrieve the draft version of the order's items, which might include uncommitted changes to one or more order items, the order itself, or other order components.
+	 * @param orderId Unique identifier of the order items to retrieve.
 	 * @param authTicket User Auth Ticket
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.commerceruntime.orders.OrderItemCollection>
 	 * @see com.mozu.api.contracts.commerceruntime.orders.OrderItemCollection
@@ -114,45 +114,46 @@ public class OrderItemClient {
 	}
 
 	/**
-	 * 
+	 * Adds a new item to an existing order.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.commerceruntime.orders.Order> mozuClient=CreateOrderItemClient( orderItem,  orderId);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * Order order = client.Result();
 	 * </code></pre></p>
-	 * @param orderId 
+	 * @param orderId Unique identifier of the order for which to add the item.
 	 * @param authTicket User Auth Ticket
-	 * @param orderItem 
+	 * @param orderItem The properties of the item to create in the existing order.
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.commerceruntime.orders.Order>
 	 * @see com.mozu.api.contracts.commerceruntime.orders.Order
 	 * @see com.mozu.api.contracts.commerceruntime.orders.OrderItem
 	 */
 	public static MozuClient<com.mozu.api.contracts.commerceruntime.orders.Order> createOrderItemClient(com.mozu.api.contracts.commerceruntime.orders.OrderItem orderItem, String orderId) throws Exception
 	{
-		return createOrderItemClient( orderItem,  orderId,  null,  null, null);
+		return createOrderItemClient( orderItem,  orderId,  null,  null,  false, null);
 	}
 
 	/**
-	 * 
+	 * Adds a new item to an existing order.
 	 * <p><pre><code>
-	 * MozuClient<com.mozu.api.contracts.commerceruntime.orders.Order> mozuClient=CreateOrderItemClient( orderItem,  orderId,  updateMode,  version, authTicket);
+	 * MozuClient<com.mozu.api.contracts.commerceruntime.orders.Order> mozuClient=CreateOrderItemClient( orderItem,  orderId,  updateMode,  version,  skipInventoryCheck, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * Order order = client.Result();
 	 * </code></pre></p>
-	 * @param orderId 
-	 * @param updateMode 
-	 * @param version 
+	 * @param orderId Unique identifier of the order for which to add the item.
+	 * @param skipInventoryCheck 
+	 * @param updateMode Specifies whether to add the item by updating the original order, updating the order in draft mode, or updating the order in draft mode and then committing the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
+	 * @param version System-supplied integer that represents the current version of the order, which prevents users from unintentionally overriding changes to the order. When a user performs an operation for a defined order, the system validates that the version of the updated order matches the version of the order on the server. After the operation completes successfully, the system increments the version number by one.
 	 * @param authTicket User Auth Ticket
-	 * @param orderItem 
+	 * @param orderItem The properties of the item to create in the existing order.
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.commerceruntime.orders.Order>
 	 * @see com.mozu.api.contracts.commerceruntime.orders.Order
 	 * @see com.mozu.api.contracts.commerceruntime.orders.OrderItem
 	 */
-	public static MozuClient<com.mozu.api.contracts.commerceruntime.orders.Order> createOrderItemClient(com.mozu.api.contracts.commerceruntime.orders.OrderItem orderItem, String orderId, String updateMode, String version, AuthTicket authTicket) throws Exception
+	public static MozuClient<com.mozu.api.contracts.commerceruntime.orders.Order> createOrderItemClient(com.mozu.api.contracts.commerceruntime.orders.OrderItem orderItem, String orderId, String updateMode, String version, Boolean skipInventoryCheck, AuthTicket authTicket) throws Exception
 	{
-		MozuUrl url = com.mozu.api.urls.commerce.orders.OrderItemUrl.createOrderItemUrl(orderId, updateMode, version);
+		MozuUrl url = com.mozu.api.urls.commerce.orders.OrderItemUrl.createOrderItemUrl(orderId, skipInventoryCheck, updateMode, version);
 		String verb = "POST";
 		Class<?> clz = com.mozu.api.contracts.commerceruntime.orders.Order.class;
 		MozuClient<com.mozu.api.contracts.commerceruntime.orders.Order> mozuClient = new MozuClient(clz);
@@ -166,47 +167,47 @@ public class OrderItemClient {
 	}
 
 	/**
-	 * 
+	 * Update the discount applied to an item in an order.
 	 * <p><pre><code>
-	 * MozuClient<com.mozu.api.contracts.commerceruntime.orders.Order> mozuClient=UpdateOrderItemDiscountClient( discount,  discountId,  orderId,  orderItemId);
+	 * MozuClient<com.mozu.api.contracts.commerceruntime.orders.Order> mozuClient=UpdateOrderItemDiscountClient( discount,  orderId,  orderItemId,  discountId);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * Order order = client.Result();
 	 * </code></pre></p>
-	 * @param discountId 
-	 * @param orderId 
-	 * @param orderItemId 
+	 * @param discountId Unique identifier of the discount. System-supplied and read only.
+	 * @param orderId Unique identifier of the order associated with the item discount.
+	 * @param orderItemId Unique identifier of the item in the order.
 	 * @param authTicket User Auth Ticket
-	 * @param discount 
+	 * @param discount Properties of the discount to modify for the order item.
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.commerceruntime.orders.Order>
 	 * @see com.mozu.api.contracts.commerceruntime.orders.Order
 	 * @see com.mozu.api.contracts.commerceruntime.discounts.AppliedDiscount
 	 */
-	public static MozuClient<com.mozu.api.contracts.commerceruntime.orders.Order> updateOrderItemDiscountClient(com.mozu.api.contracts.commerceruntime.discounts.AppliedDiscount discount, Integer discountId, String orderId, String orderItemId) throws Exception
+	public static MozuClient<com.mozu.api.contracts.commerceruntime.orders.Order> updateOrderItemDiscountClient(com.mozu.api.contracts.commerceruntime.discounts.AppliedDiscount discount, String orderId, String orderItemId, Integer discountId) throws Exception
 	{
-		return updateOrderItemDiscountClient( discount,  discountId,  orderId,  orderItemId,  null,  null, null);
+		return updateOrderItemDiscountClient( discount,  orderId,  orderItemId,  discountId,  null,  null, null);
 	}
 
 	/**
-	 * 
+	 * Update the discount applied to an item in an order.
 	 * <p><pre><code>
-	 * MozuClient<com.mozu.api.contracts.commerceruntime.orders.Order> mozuClient=UpdateOrderItemDiscountClient( discount,  discountId,  orderId,  orderItemId,  updateMode,  version, authTicket);
+	 * MozuClient<com.mozu.api.contracts.commerceruntime.orders.Order> mozuClient=UpdateOrderItemDiscountClient( discount,  orderId,  orderItemId,  discountId,  updateMode,  version, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * Order order = client.Result();
 	 * </code></pre></p>
-	 * @param discountId 
-	 * @param orderId 
-	 * @param orderItemId 
-	 * @param updateMode 
-	 * @param version 
+	 * @param discountId Unique identifier of the discount. System-supplied and read only.
+	 * @param orderId Unique identifier of the order associated with the item discount.
+	 * @param orderItemId Unique identifier of the item in the order.
+	 * @param updateMode Specifies whether to change the item discount by updating the original order, updating the order in draft mode, or updating the order in draft mode and then committing the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
+	 * @param version System-supplied integer that represents the current version of the order, which prevents users from unintentionally overriding changes to the order. When a user performs an operation for a defined order, the system validates that the version of the updated order matches the version of the order on the server. After the operation completes successfully, the system increments the version number by one.
 	 * @param authTicket User Auth Ticket
-	 * @param discount 
+	 * @param discount Properties of the discount to modify for the order item.
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.commerceruntime.orders.Order>
 	 * @see com.mozu.api.contracts.commerceruntime.orders.Order
 	 * @see com.mozu.api.contracts.commerceruntime.discounts.AppliedDiscount
 	 */
-	public static MozuClient<com.mozu.api.contracts.commerceruntime.orders.Order> updateOrderItemDiscountClient(com.mozu.api.contracts.commerceruntime.discounts.AppliedDiscount discount, Integer discountId, String orderId, String orderItemId, String updateMode, String version, AuthTicket authTicket) throws Exception
+	public static MozuClient<com.mozu.api.contracts.commerceruntime.orders.Order> updateOrderItemDiscountClient(com.mozu.api.contracts.commerceruntime.discounts.AppliedDiscount discount, String orderId, String orderItemId, Integer discountId, String updateMode, String version, AuthTicket authTicket) throws Exception
 	{
 		MozuUrl url = com.mozu.api.urls.commerce.orders.OrderItemUrl.updateOrderItemDiscountUrl(discountId, orderId, orderItemId, updateMode, version);
 		String verb = "PUT";
@@ -222,16 +223,16 @@ public class OrderItemClient {
 	}
 
 	/**
-	 * 
+	 * Override the price of an individual product on a line item in the specified order.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.commerceruntime.orders.Order> mozuClient=UpdateItemProductPriceClient( orderId,  orderItemId,  price);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * Order order = client.Result();
 	 * </code></pre></p>
-	 * @param orderId 
-	 * @param orderItemId 
-	 * @param price 
+	 * @param orderId Unique identifier of the order containing the item to price override.
+	 * @param orderItemId Unique identifier of the item in the order to price override.
+	 * @param price The override price to specify for this item in the specified order.
 	 * @param authTicket User Auth Ticket
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.commerceruntime.orders.Order>
 	 * @see com.mozu.api.contracts.commerceruntime.orders.Order
@@ -242,18 +243,18 @@ public class OrderItemClient {
 	}
 
 	/**
-	 * 
+	 * Override the price of an individual product on a line item in the specified order.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.commerceruntime.orders.Order> mozuClient=UpdateItemProductPriceClient( orderId,  orderItemId,  price,  updateMode,  version, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * Order order = client.Result();
 	 * </code></pre></p>
-	 * @param orderId 
-	 * @param orderItemId 
-	 * @param price 
-	 * @param updateMode 
-	 * @param version 
+	 * @param orderId Unique identifier of the order containing the item to price override.
+	 * @param orderItemId Unique identifier of the item in the order to price override.
+	 * @param price The override price to specify for this item in the specified order.
+	 * @param updateMode Specifies whether to change the product price by updating the original order, updating the order in draft mode, or updating the order in draft mode and then committing the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
+	 * @param version System-supplied integer that represents the current version of the order, which prevents users from unintentionally overriding changes to the order. When a user performs an operation for a defined order, the system validates that the version of the updated order matches the version of the order on the server. After the operation completes successfully, the system increments the version number by one.
 	 * @param authTicket User Auth Ticket
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.commerceruntime.orders.Order>
 	 * @see com.mozu.api.contracts.commerceruntime.orders.Order
@@ -273,16 +274,16 @@ public class OrderItemClient {
 	}
 
 	/**
-	 * 
+	 * Update the quantity of an item in an order.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.commerceruntime.orders.Order> mozuClient=UpdateItemQuantityClient( orderId,  orderItemId,  quantity);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * Order order = client.Result();
 	 * </code></pre></p>
-	 * @param orderId 
-	 * @param orderItemId 
-	 * @param quantity 
+	 * @param orderId Unique identifier of the order containing the item to update quantity.
+	 * @param orderItemId Unique identifier of the item in the order to update quantity.
+	 * @param quantity The quantity of the item in the order to update.
 	 * @param authTicket User Auth Ticket
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.commerceruntime.orders.Order>
 	 * @see com.mozu.api.contracts.commerceruntime.orders.Order
@@ -293,18 +294,18 @@ public class OrderItemClient {
 	}
 
 	/**
-	 * 
+	 * Update the quantity of an item in an order.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.commerceruntime.orders.Order> mozuClient=UpdateItemQuantityClient( orderId,  orderItemId,  quantity,  updateMode,  version, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * Order order = client.Result();
 	 * </code></pre></p>
-	 * @param orderId 
-	 * @param orderItemId 
-	 * @param quantity 
-	 * @param updateMode 
-	 * @param version 
+	 * @param orderId Unique identifier of the order containing the item to update quantity.
+	 * @param orderItemId Unique identifier of the item in the order to update quantity.
+	 * @param quantity The quantity of the item in the order to update.
+	 * @param updateMode Specifies whether to change the item quantity by updating the original order, updating the order in draft mode, or updating the order in draft mode and then committing the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
+	 * @param version System-supplied integer that represents the current version of the order, which prevents users from unintentionally overriding changes to the order. When a user performs an operation for a defined order, the system validates that the version of the updated order matches the version of the order on the server. After the operation completes successfully, the system increments the version number by one.
 	 * @param authTicket User Auth Ticket
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.commerceruntime.orders.Order>
 	 * @see com.mozu.api.contracts.commerceruntime.orders.Order
@@ -324,15 +325,15 @@ public class OrderItemClient {
 	}
 
 	/**
-	 * 
+	 * Removes a previously added item from an existing order.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.commerceruntime.orders.Order> mozuClient=DeleteOrderItemClient( orderId,  orderItemId);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * Order order = client.Result();
 	 * </code></pre></p>
-	 * @param orderId 
-	 * @param orderItemId 
+	 * @param orderId Unique identifier of the order with the item to remove.
+	 * @param orderItemId Unique identifier of the item to remove from the order.
 	 * @param authTicket User Auth Ticket
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.commerceruntime.orders.Order>
 	 * @see com.mozu.api.contracts.commerceruntime.orders.Order
@@ -343,17 +344,17 @@ public class OrderItemClient {
 	}
 
 	/**
-	 * 
+	 * Removes a previously added item from an existing order.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.commerceruntime.orders.Order> mozuClient=DeleteOrderItemClient( orderId,  orderItemId,  updateMode,  version, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * Order order = client.Result();
 	 * </code></pre></p>
-	 * @param orderId 
-	 * @param orderItemId 
-	 * @param updateMode 
-	 * @param version 
+	 * @param orderId Unique identifier of the order with the item to remove.
+	 * @param orderItemId Unique identifier of the item to remove from the order.
+	 * @param updateMode Specifies whether to remove the item by updating the original order, updating the order in draft mode, or updating the order in draft mode and then committing the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
+	 * @param version System-supplied integer that represents the current version of the order, which prevents users from unintentionally overriding changes to the order. When a user performs an operation for a defined order, the system validates that the version of the updated order matches the version of the order on the server. After the operation completes successfully, the system increments the version number by one.
 	 * @param authTicket User Auth Ticket
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.commerceruntime.orders.Order>
 	 * @see com.mozu.api.contracts.commerceruntime.orders.Order

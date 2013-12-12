@@ -14,20 +14,20 @@ import com.mozu.api.Headers;
 import com.mozu.api.security.AuthTicket;
 
 /** <summary>
- * 
+ * Use the tenants resource to manage information about a Mozu tenant.
  * </summary>
  */
 public class TenantClient {
 	
 	/**
-	 * 
+	 * Retrieve details about a specific tenant by providing the tenant ID.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.tenant.Tenant> mozuClient=GetTenantClient( tenantId, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * Tenant tenant = client.Result();
 	 * </code></pre></p>
-	 * @param tenantId 
+	 * @param tenantId Unique identifier of the Mozu tenant.
 	 * @param authTicket User Auth Ticket
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.tenant.Tenant>
 	 * @see com.mozu.api.contracts.tenant.Tenant

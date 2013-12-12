@@ -8,6 +8,7 @@ package com.mozu.api.contracts.commerceruntime.carts;
 
 import java.util.List;
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 import com.mozu.api.contracts.core.AuditInfo;
 import com.mozu.api.contracts.commerceruntime.products.Product;
@@ -15,11 +16,18 @@ import com.mozu.api.contracts.commerceruntime.discounts.AppliedProductDiscount;
 import com.mozu.api.contracts.commerceruntime.discounts.ShippingDiscount;
 import com.mozu.api.contracts.commerceruntime.commerce.CommerceUnitPrice;
 
+/**
+ *	Properties of an item added to an active shopping cart.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class CartItem implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * The subtotal of the cart item including any applied discount calculations.
+	 */
 	protected Double discountedTotal;
 
 	public Double getDiscountedTotal() {
@@ -30,6 +38,9 @@ public class CartItem implements Serializable
 		this.discountedTotal = discountedTotal;
 	}
 
+	/**
+	 * Estimated amount of discounts applied to the item in the cart, which is system-supplied and read-only.
+	 */
 	protected Double discountTotal;
 
 	public Double getDiscountTotal() {
@@ -40,6 +51,9 @@ public class CartItem implements Serializable
 		this.discountTotal = discountTotal;
 	}
 
+	/**
+	 * Represents the total price of the cart item extended to the shopper. This begins with the Unit Price, then uses any of the following prices if they are defined, in the following order: Override Amount, Sale Amount, List Amount.
+	 */
 	protected Double extendedTotal;
 
 	public Double getExtendedTotal() {
@@ -50,6 +64,9 @@ public class CartItem implements Serializable
 		this.extendedTotal = extendedTotal;
 	}
 
+	/**
+	 * The total amount of all fees incurred for the item.
+	 */
 	protected Double feeTotal;
 
 	public Double getFeeTotal() {
@@ -60,6 +77,9 @@ public class CartItem implements Serializable
 		this.feeTotal = feeTotal;
 	}
 
+	/**
+	 * The location code associated with the location where this cart item will be fulfilled.
+	 */
 	protected String fulfillmentLocationCode;
 
 	public String getFulfillmentLocationCode() {
@@ -70,6 +90,9 @@ public class CartItem implements Serializable
 		this.fulfillmentLocationCode = fulfillmentLocationCode;
 	}
 
+	/**
+	 * The method used to fulfill this cart item, which is direct ship or in-store pickup.
+	 */
 	protected String fulfillmentMethod;
 
 	public String getFulfillmentMethod() {
@@ -80,6 +103,9 @@ public class CartItem implements Serializable
 		this.fulfillmentMethod = fulfillmentMethod;
 	}
 
+	/**
+	 * Unique identifier of the cart item.
+	 */
 	protected String id;
 
 	public String getId() {
@@ -90,6 +116,9 @@ public class CartItem implements Serializable
 		this.id = id;
 	}
 
+	/**
+	 * If true, the item can be purchased or fulfilled at regular intervals, such as a monthly billing cycle. For example, digital or physical product subscriptions are recurring cart items. This property is not used at this time and is reserved for future functionality.
+	 */
 	protected Boolean isRecurring;
 
 	public Boolean getIsRecurring() {
@@ -100,6 +129,9 @@ public class CartItem implements Serializable
 		this.isRecurring = isRecurring;
 	}
 
+	/**
+	 * If true, the entity is subject to tax based on the relevant tax rate.
+	 */
 	protected Boolean isTaxable;
 
 	public Boolean getIsTaxable() {
@@ -110,6 +142,9 @@ public class CartItem implements Serializable
 		this.isTaxable = isTaxable;
 	}
 
+	/**
+	 * The total amount of tax for the item in the cart.
+	 */
 	protected Double itemTaxTotal;
 
 	public Double getItemTaxTotal() {
@@ -120,6 +155,9 @@ public class CartItem implements Serializable
 		this.itemTaxTotal = itemTaxTotal;
 	}
 
+	/**
+	 * Language used for the entity. Currently, only "en-US" is supported.
+	 */
 	protected String localeCode;
 
 	public String getLocaleCode() {
@@ -130,6 +168,9 @@ public class CartItem implements Serializable
 		this.localeCode = localeCode;
 	}
 
+	/**
+	 * The specified quantity of the cart item.
+	 */
 	protected Integer quantity;
 
 	public Integer getQuantity() {
@@ -140,6 +181,9 @@ public class CartItem implements Serializable
 		this.quantity = quantity;
 	}
 
+	/**
+	 * The total amount of tax incurred on the shipping charges in the cart.
+	 */
 	protected Double shippingTaxTotal;
 
 	public Double getShippingTaxTotal() {
@@ -150,6 +194,9 @@ public class CartItem implements Serializable
 		this.shippingTaxTotal = shippingTaxTotal;
 	}
 
+	/**
+	 * The estimated total amount of shipping fees for the item in the cart.
+	 */
 	protected Double shippingTotal;
 
 	public Double getShippingTotal() {
@@ -160,6 +207,9 @@ public class CartItem implements Serializable
 		this.shippingTotal = shippingTotal;
 	}
 
+	/**
+	 * Estimated amount of the item in the cart without sales tax, shipping costs, and other fees.
+	 */
 	protected Double subtotal;
 
 	public Double getSubtotal() {
@@ -170,6 +220,9 @@ public class CartItem implements Serializable
 		this.subtotal = subtotal;
 	}
 
+	/**
+	 * The amount of the item in the cart that is subject to tax.
+	 */
 	protected Double taxableTotal;
 
 	public Double getTaxableTotal() {
@@ -180,6 +233,9 @@ public class CartItem implements Serializable
 		this.taxableTotal = taxableTotal;
 	}
 
+	/**
+	 * Estimated total amount of the item, including the product price, sales tax, shipping costs, and other fees.
+	 */
 	protected Double total;
 
 	public Double getTotal() {
@@ -190,6 +246,9 @@ public class CartItem implements Serializable
 		this.total = total;
 	}
 
+	/**
+	 * Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
+	 */
 	protected AuditInfo auditInfo;
 
 	public AuditInfo getAuditInfo() {
@@ -200,6 +259,9 @@ public class CartItem implements Serializable
 		this.auditInfo = auditInfo;
 	}
 
+	/**
+	 * The properties of the associated product.
+	 */
 	protected Product product;
 
 	public Product getProduct() {
@@ -210,6 +272,9 @@ public class CartItem implements Serializable
 		this.product = product;
 	}
 
+	/**
+	 * List of product-level discounts projected to apply to the cart item at checkout.
+	 */
 	protected List<AppliedProductDiscount> productDiscounts;
 	public List<AppliedProductDiscount> getProductDiscounts() {
 		return this.productDiscounts;
@@ -218,6 +283,9 @@ public class CartItem implements Serializable
 		this.productDiscounts = productDiscounts;
 	}
 
+	/**
+	 * List of shipping discounts projected to apply to the cart item at checkout.
+	 */
 	protected List<ShippingDiscount> shippingDiscounts;
 	public List<ShippingDiscount> getShippingDiscounts() {
 		return this.shippingDiscounts;
@@ -226,6 +294,9 @@ public class CartItem implements Serializable
 		this.shippingDiscounts = shippingDiscounts;
 	}
 
+	/**
+	 * Properties of the unit price associated with the cart item.
+	 */
 	protected CommerceUnitPrice unitPrice;
 
 	public CommerceUnitPrice getUnitPrice() {

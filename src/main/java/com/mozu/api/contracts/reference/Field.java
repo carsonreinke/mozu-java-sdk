@@ -8,14 +8,22 @@ package com.mozu.api.contracts.reference;
 
 import java.util.List;
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 import com.mozu.api.contracts.reference.FieldData;
 
+/**
+ *	A property that is a wrapper for additional properties pertaining to the schema such as the type, label, any associated data, an ID, and the order of the response.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Field implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Identifier of the field.
+	 */
 	protected Integer id;
 
 	public Integer getId() {
@@ -26,6 +34,9 @@ public class Field implements Serializable
 		this.id = id;
 	}
 
+	/**
+	 * Label for the field.
+	 */
 	protected String label;
 
 	public String getLabel() {
@@ -36,6 +47,9 @@ public class Field implements Serializable
 		this.label = label;
 	}
 
+	/**
+	 * Sequence of the field.
+	 */
 	protected Integer order;
 
 	public Integer getOrder() {
@@ -46,6 +60,9 @@ public class Field implements Serializable
 		this.order = order;
 	}
 
+	/**
+	 * Type of field.
+	 */
 	protected String type;
 
 	public String getType() {
@@ -56,6 +73,9 @@ public class Field implements Serializable
 		this.type = type;
 	}
 
+	/**
+	 * Data for the field property.
+	 */
 	protected List<FieldData> data;
 	public List<FieldData> getData() {
 		return this.data;

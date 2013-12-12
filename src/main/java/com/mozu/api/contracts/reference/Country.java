@@ -7,13 +7,21 @@
 package com.mozu.api.contracts.reference;
 
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 
+/**
+ *	The 2-letter code and corresponding country name that the system supports.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Country implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * The 2-letter geographic code representing the country for the physical or mailing address. Currently limited to the US.
+	 */
 	protected String code;
 
 	public String getCode() {
@@ -24,6 +32,9 @@ public class Country implements Serializable
 		this.code = code;
 	}
 
+	/**
+	 * The name of the country.
+	 */
 	protected String name;
 
 	public String getName() {

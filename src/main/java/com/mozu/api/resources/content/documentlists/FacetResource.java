@@ -15,7 +15,7 @@ import com.mozu.api.Headers;
 import com.mozu.api.security.AuthTicket;
 
 /** <summary>
- * 
+ * Use the facets subresource to allow a merchant to add information for product indexing and searching.
  * </summary>
  */
 public class FacetResource {
@@ -29,20 +29,20 @@ public class FacetResource {
 	}
 	
 	/**
-	 * 
+	 * Retrieves the properties of facets that aid in indexing and searching.
 	 * <p><pre><code>
 	 *	Facet facet = new Facet();
-	 *	Facet facet = facet.GetFacets( documentListName,  propertyName, authTicket);
+	 *	Facet facet = facet.GetFacets(dataViewMode,  documentListName,  propertyName, authTicket);
 	 * </code></pre></p>
-	 * @param documentListName 
-	 * @param propertyName 
+	 * @param documentListName The document list associated with the facets to retrieve.
+	 * @param propertyName The property name associated with the facets to retrieve.
 	 * @param authTicket User Auth Ticket
 	 * @return List<com.mozu.api.contracts.content.Facet>
 	 * @see com.mozu.api.contracts.content.Facet
 	 */
-	public List<com.mozu.api.contracts.content.Facet> getFacets(String documentListName, String propertyName, AuthTicket authTicket) throws Exception
+	public List<com.mozu.api.contracts.content.Facet> getFacets(com.mozu.api.DataViewMode dataViewMode, String documentListName, String propertyName, AuthTicket authTicket) throws Exception
 	{
-		MozuClient<List<com.mozu.api.contracts.content.Facet>> client = com.mozu.api.clients.content.documentlists.FacetClient.getFacetsClient( documentListName,  propertyName, authTicket);
+		MozuClient<List<com.mozu.api.contracts.content.Facet>> client = com.mozu.api.clients.content.documentlists.FacetClient.getFacetsClient(dataViewMode,  documentListName,  propertyName, authTicket);
 		client.setContext(_apiContext);
 		client.executeRequest();
 		return client.getResult();

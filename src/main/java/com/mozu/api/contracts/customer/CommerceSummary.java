@@ -7,14 +7,22 @@
 package com.mozu.api.contracts.customer;
 
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 import com.mozu.api.contracts.customer.CurrencyAmount;
 
+/**
+ *	Properties of the commerce summary associated with a customer account, which includes details about the shopper's most recent order, wish lists, and total order value over time.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class CommerceSummary implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * The date and time the shopper last submitted an order for any site associated with the tenant.
+	 */
 	protected Date lastOrderDate;
 
 	public Date getLastOrderDate() {
@@ -25,6 +33,9 @@ public class CommerceSummary implements Serializable
 		this.lastOrderDate = lastOrderDate;
 	}
 
+	/**
+	 * The total number of order the shopper submitted across all sites associated with the tenant.
+	 */
 	protected Integer orderCount;
 
 	public Integer getOrderCount() {
@@ -35,6 +46,9 @@ public class CommerceSummary implements Serializable
 		this.orderCount = orderCount;
 	}
 
+	/**
+	 * The number of wish lists associated with a customer account. This number represents the total number of a shopper's wish lists across all sites associated with a tenant.
+	 */
 	protected Integer wishlistCount;
 
 	public Integer getWishlistCount() {
@@ -45,6 +59,9 @@ public class CommerceSummary implements Serializable
 		this.wishlistCount = wishlistCount;
 	}
 
+	/**
+	 * The aggregate total amount of all orders the shopper submitted, across all sites associated with the tenant.
+	 */
 	protected CurrencyAmount totalOrderAmount;
 
 	public CurrencyAmount getTotalOrderAmount() {

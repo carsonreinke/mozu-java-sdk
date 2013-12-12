@@ -15,7 +15,7 @@ import com.mozu.api.Headers;
 import com.mozu.api.security.AuthTicket;
 
 /** <summary>
- * 
+ * Use the Product Types resource to manage the types for your product catalog. Product types act as configuration templates, which store a set of attributes common to all products associated with that type. Unlike categories, products can only be associated with a single product type.
  * </summary>
  */
 public class ProductTypeResource {
@@ -29,7 +29,7 @@ public class ProductTypeResource {
 	}
 	
 	/**
-	 * 
+	 * Retrieves a list of product types according to any specified filter criteria and sort options.
 	 * <p><pre><code>
 	 *	ProductType producttype = new ProductType();
 	 *	ProductTypeCollection productTypeCollection = producttype.GetProductTypes(dataViewMode);
@@ -45,13 +45,13 @@ public class ProductTypeResource {
 	}
 
 	/**
-	 * 
+	 * Retrieves a list of product types according to any specified filter criteria and sort options.
 	 * <p><pre><code>
 	 *	ProductType producttype = new ProductType();
-	 *	ProductTypeCollection productTypeCollection = producttype.GetProductTypes(dataViewMode,  filter,  pageSize,  sortBy,  startIndex, authTicket);
+	 *	ProductTypeCollection productTypeCollection = producttype.GetProductTypes(dataViewMode,  startIndex,  pageSize,  sortBy,  filter, authTicket);
 	 * </code></pre></p>
-	 * @param filter 
-	 * @param pageSize 
+	 * @param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. You can filter product type search results by any of its properties. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=Name+cont+shoes"
+	 * @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
 	 * @param sortBy 
 	 * @param startIndex 
 	 * @param dataViewMode DataViewMode
@@ -59,9 +59,9 @@ public class ProductTypeResource {
 	 * @return com.mozu.api.contracts.productadmin.ProductTypeCollection
 	 * @see com.mozu.api.contracts.productadmin.ProductTypeCollection
 	 */
-	public com.mozu.api.contracts.productadmin.ProductTypeCollection getProductTypes(com.mozu.api.DataViewMode dataViewMode, String filter, Integer pageSize, String sortBy, Integer startIndex, AuthTicket authTicket) throws Exception
+	public com.mozu.api.contracts.productadmin.ProductTypeCollection getProductTypes(com.mozu.api.DataViewMode dataViewMode, Integer startIndex, Integer pageSize, String sortBy, String filter, AuthTicket authTicket) throws Exception
 	{
-		MozuClient<com.mozu.api.contracts.productadmin.ProductTypeCollection> client = com.mozu.api.clients.commerce.catalog.admin.attributedefinition.ProductTypeClient.getProductTypesClient(dataViewMode,  filter,  pageSize,  sortBy,  startIndex, authTicket);
+		MozuClient<com.mozu.api.contracts.productadmin.ProductTypeCollection> client = com.mozu.api.clients.commerce.catalog.admin.attributedefinition.ProductTypeClient.getProductTypesClient(dataViewMode,  startIndex,  pageSize,  sortBy,  filter, authTicket);
 		client.setContext(_apiContext);
 		client.executeRequest();
 		return client.getResult();
@@ -69,12 +69,12 @@ public class ProductTypeResource {
 	}
 
 	/**
-	 * 
+	 * Retrieves the details of the product type specified in the request.
 	 * <p><pre><code>
 	 *	ProductType producttype = new ProductType();
 	 *	ProductType productType = producttype.GetProductType(dataViewMode,  productTypeId, authTicket);
 	 * </code></pre></p>
-	 * @param productTypeId 
+	 * @param productTypeId Identifier of the product type to retrieve.
 	 * @param dataViewMode DataViewMode
 	 * @param authTicket User Auth Ticket
 	 * @return com.mozu.api.contracts.productadmin.ProductType
@@ -90,14 +90,14 @@ public class ProductTypeResource {
 	}
 
 	/**
-	 * 
+	 * Creates a new product type based on the information supplied in the request.
 	 * <p><pre><code>
 	 *	ProductType producttype = new ProductType();
 	 *	ProductType productType = producttype.AddProductType(dataViewMode,  productType, authTicket);
 	 * </code></pre></p>
 	 * @param dataViewMode DataViewMode
 	 * @param authTicket User Auth Ticket
-	 * @param productType 
+	 * @param productType Properties of the product type to create.
 	 * @return com.mozu.api.contracts.productadmin.ProductType
 	 * @see com.mozu.api.contracts.productadmin.ProductType
 	 * @see com.mozu.api.contracts.productadmin.ProductType
@@ -112,15 +112,15 @@ public class ProductTypeResource {
 	}
 
 	/**
-	 * 
+	 * Updates one or more properties of a product type.
 	 * <p><pre><code>
 	 *	ProductType producttype = new ProductType();
 	 *	ProductType productType = producttype.UpdateProductType(dataViewMode,  productType,  productTypeId, authTicket);
 	 * </code></pre></p>
-	 * @param productTypeId 
+	 * @param productTypeId Identifier of the product type to update.
 	 * @param dataViewMode DataViewMode
 	 * @param authTicket User Auth Ticket
-	 * @param productType 
+	 * @param productType The details of the product type to update.
 	 * @return com.mozu.api.contracts.productadmin.ProductType
 	 * @see com.mozu.api.contracts.productadmin.ProductType
 	 * @see com.mozu.api.contracts.productadmin.ProductType
@@ -135,12 +135,12 @@ public class ProductTypeResource {
 	}
 
 	/**
-	 * 
+	 * Deletes the product type by providing the product type ID.
 	 * <p><pre><code>
 	 *	ProductType producttype = new ProductType();
 	 *	producttype.DeleteProductType(dataViewMode,  productTypeId, authTicket);
 	 * </code></pre></p>
-	 * @param productTypeId 
+	 * @param productTypeId Identifier of the product type to delete.
 	 * @param dataViewMode DataViewMode
 	 * @param authTicket User Auth Ticket
 	 * @return 

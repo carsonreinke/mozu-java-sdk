@@ -29,7 +29,7 @@ public class DocumentTypeUrl
 
 	/**
 	 * Get Resource Url for Get
-	 * @param documentTypeName 
+	 * @param documentTypeName The documentType name being retrieved.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl getUrl(String documentTypeName)

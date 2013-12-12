@@ -15,11 +15,11 @@ public class CustomerAccountUrl
 
 	/**
 	 * Get Resource Url for GetAccounts
-	 * @param fields 
-	 * @param filter 
+	 * @param fields The fields to include in the response.
+	 * @param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
 	 * @param pageSize 
-	 * @param q 
-	 * @param qLimit 
+	 * @param q A list of customer account search terms to use in the query when searching across customer name and email. Separate multiple search terms with a space character.
+	 * @param qLimit The maximum number of search results to return in the response. You can limit any range between 1-100.
 	 * @param sortBy 
 	 * @param startIndex 
 	 * @return   String Resource Url
@@ -39,7 +39,7 @@ public class CustomerAccountUrl
 
 	/**
 	 * Get Resource Url for GetAccount
-	 * @param accountId 
+	 * @param accountId Unique identifier of the customer account to retrieve.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl getAccountUrl(Integer accountId)
@@ -50,36 +50,38 @@ public class CustomerAccountUrl
 	}
 
 	/**
-	 * Get Resource Url for GetInStockNotification
+	 * Get Resource Url for GetLoginState
 	 * @param accountId 
-	 * @param inStockNotificationSubscriptionId 
 	 * @return   String Resource Url
 	 */
-	public static MozuUrl getInStockNotificationUrl(Integer accountId, Integer inStockNotificationSubscriptionId)
+	public static MozuUrl getLoginStateUrl(Integer accountId)
 	{
-		UrlFormatter formatter = new UrlFormatter("/api/commerce/customer/accounts/{accountId}/instocknotifications/{inStockNotificationSubscriptionId}");
+		UrlFormatter formatter = new UrlFormatter("/api/commerce/customer/accounts/{accountId}/loginstate");
 		formatter.formatUrl("accountId", accountId);
-		formatter.formatUrl("inStockNotificationSubscriptionId", inStockNotificationSubscriptionId);
 		return new MozuUrl(formatter.getResourceUrl(), MozuUrl.UrlLocation.TENANT_POD) ;
 	}
 
 	/**
-	 * Get Resource Url for GetInStockNotifications
-	 * @param accountId 
-	 * @param filter 
-	 * @param pageSize 
-	 * @param sortBy 
-	 * @param startIndex 
+	 * Get Resource Url for GetLoginStateByEmailAddress
+	 * @param emailAddress 
 	 * @return   String Resource Url
 	 */
-	public static MozuUrl getInStockNotificationsUrl(Integer accountId, String filter, Integer pageSize, String sortBy, Integer startIndex)
+	public static MozuUrl getLoginStateByEmailAddressUrl(String emailAddress)
 	{
-		UrlFormatter formatter = new UrlFormatter("/api/commerce/customer/accounts/{accountId}/instocknotifications?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}");
-		formatter.formatUrl("accountId", accountId);
-		formatter.formatUrl("filter", filter);
-		formatter.formatUrl("pageSize", pageSize);
-		formatter.formatUrl("sortBy", sortBy);
-		formatter.formatUrl("startIndex", startIndex);
+		UrlFormatter formatter = new UrlFormatter("/api/commerce/customer/accounts/loginstate?emailAddress={emailAddress}");
+		formatter.formatUrl("emailAddress", emailAddress);
+		return new MozuUrl(formatter.getResourceUrl(), MozuUrl.UrlLocation.TENANT_POD) ;
+	}
+
+	/**
+	 * Get Resource Url for GetLoginStateByUserName
+	 * @param userName 
+	 * @return   String Resource Url
+	 */
+	public static MozuUrl getLoginStateByUserNameUrl(String userName)
+	{
+		UrlFormatter formatter = new UrlFormatter("/api/commerce/customer/accounts/loginstate?userName={userName}");
+		formatter.formatUrl("userName", userName);
 		return new MozuUrl(formatter.getResourceUrl(), MozuUrl.UrlLocation.TENANT_POD) ;
 	}
 
@@ -94,13 +96,13 @@ public class CustomerAccountUrl
 	}
 
 	/**
-	 * Get Resource Url for AddInStockNotification
+	 * Get Resource Url for AddLoginToExistingCustomer
 	 * @param accountId 
 	 * @return   String Resource Url
 	 */
-	public static MozuUrl addInStockNotificationUrl(Integer accountId)
+	public static MozuUrl addLoginToExistingCustomerUrl(Integer accountId)
 	{
-		UrlFormatter formatter = new UrlFormatter("/api/commerce/customer/accounts/{accountId}/instocknotifications");
+		UrlFormatter formatter = new UrlFormatter("/api/commerce/customer/accounts/{accountId}/Create-Login");
 		formatter.formatUrl("accountId", accountId);
 		return new MozuUrl(formatter.getResourceUrl(), MozuUrl.UrlLocation.TENANT_POD) ;
 	}
@@ -118,8 +120,62 @@ public class CustomerAccountUrl
 	}
 
 	/**
-	 * Get Resource Url for UpdateAccount
+	 * Get Resource Url for SetLoginLocked
 	 * @param accountId 
+	 * @return   String Resource Url
+	 */
+	public static MozuUrl setLoginLockedUrl(Integer accountId)
+	{
+		UrlFormatter formatter = new UrlFormatter("/api/commerce/customer/accounts/{accountId}/Set-Login-Locked");
+		formatter.formatUrl("accountId", accountId);
+		return new MozuUrl(formatter.getResourceUrl(), MozuUrl.UrlLocation.TENANT_POD) ;
+	}
+
+	/**
+	 * Get Resource Url for SetPasswordChangeRequired
+	 * @param accountId 
+	 * @return   String Resource Url
+	 */
+	public static MozuUrl setPasswordChangeRequiredUrl(Integer accountId)
+	{
+		UrlFormatter formatter = new UrlFormatter("/api/commerce/customer/accounts/{accountId}/Set-Password-Change-Required");
+		formatter.formatUrl("accountId", accountId);
+		return new MozuUrl(formatter.getResourceUrl(), MozuUrl.UrlLocation.TENANT_POD) ;
+	}
+
+	/**
+	 * Get Resource Url for AddAccountAndLogin
+	 * @return   String Resource Url
+	 */
+	public static MozuUrl addAccountAndLoginUrl()
+	{
+		UrlFormatter formatter = new UrlFormatter("/api/commerce/customer/accounts/Add-Account-And-Login");
+		return new MozuUrl(formatter.getResourceUrl(), MozuUrl.UrlLocation.TENANT_POD) ;
+	}
+
+	/**
+	 * Get Resource Url for AddAccounts
+	 * @return   String Resource Url
+	 */
+	public static MozuUrl addAccountsUrl()
+	{
+		UrlFormatter formatter = new UrlFormatter("/api/commerce/customer/accounts/Bulk");
+		return new MozuUrl(formatter.getResourceUrl(), MozuUrl.UrlLocation.TENANT_POD) ;
+	}
+
+	/**
+	 * Get Resource Url for ResetPassword
+	 * @return   String Resource Url
+	 */
+	public static MozuUrl resetPasswordUrl()
+	{
+		UrlFormatter formatter = new UrlFormatter("/api/commerce/customer/accounts/Reset-Password");
+		return new MozuUrl(formatter.getResourceUrl(), MozuUrl.UrlLocation.TENANT_POD) ;
+	}
+
+	/**
+	 * Get Resource Url for UpdateAccount
+	 * @param accountId Unique identifier of the customer account.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl updateAccountUrl(Integer accountId)
@@ -131,27 +187,13 @@ public class CustomerAccountUrl
 
 	/**
 	 * Get Resource Url for DeleteAccount
-	 * @param accountId 
+	 * @param accountId Unique identifier of the customer account to delete.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl deleteAccountUrl(Integer accountId)
 	{
 		UrlFormatter formatter = new UrlFormatter("/api/commerce/customer/accounts/{accountId}");
 		formatter.formatUrl("accountId", accountId);
-		return new MozuUrl(formatter.getResourceUrl(), MozuUrl.UrlLocation.TENANT_POD) ;
-	}
-
-	/**
-	 * Get Resource Url for DeleteInStockNotificationSubscription
-	 * @param accountId 
-	 * @param inStockNotificationSubscriptionId 
-	 * @return   String Resource Url
-	 */
-	public static MozuUrl deleteInStockNotificationSubscriptionUrl(Integer accountId, Integer inStockNotificationSubscriptionId)
-	{
-		UrlFormatter formatter = new UrlFormatter("/api/commerce/customer/accounts/{accountId}/instocknotifications/{inStockNotificationSubscriptionId}");
-		formatter.formatUrl("accountId", accountId);
-		formatter.formatUrl("inStockNotificationSubscriptionId", inStockNotificationSubscriptionId);
 		return new MozuUrl(formatter.getResourceUrl(), MozuUrl.UrlLocation.TENANT_POD) ;
 	}
 

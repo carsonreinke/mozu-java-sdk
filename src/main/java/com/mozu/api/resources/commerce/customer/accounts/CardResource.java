@@ -15,7 +15,7 @@ import com.mozu.api.Headers;
 import com.mozu.api.security.AuthTicket;
 
 /** <summary>
- * 
+ * Use the Cards subresource to manage stored credit cards for customer accounts. Mozu stores limited card data in the Customer service for expedited ordering purposes; however, the complete card data is stored in the Payment service.
  * </summary>
  */
 public class CardResource {
@@ -29,12 +29,12 @@ public class CardResource {
 	}
 	
 	/**
-	 * 
+	 * Retrieves all stored credit cards for the customer account.
 	 * <p><pre><code>
 	 *	Card card = new Card();
 	 *	CardCollection cardCollection = card.GetAccountCards( accountId, authTicket);
 	 * </code></pre></p>
-	 * @param accountId 
+	 * @param accountId Unique identifier of the customer account.
 	 * @param authTicket User Auth Ticket
 	 * @return com.mozu.api.contracts.customer.CardCollection
 	 * @see com.mozu.api.contracts.customer.CardCollection
@@ -52,11 +52,32 @@ public class CardResource {
 	 * 
 	 * <p><pre><code>
 	 *	Card card = new Card();
-	 *	Card card = card.AddAccountCard( card,  accountId, authTicket);
+	 *	Card card = card.GetAccountCard( accountId,  cardId, authTicket);
 	 * </code></pre></p>
 	 * @param accountId 
+	 * @param cardId 
 	 * @param authTicket User Auth Ticket
-	 * @param card 
+	 * @return com.mozu.api.contracts.customer.Card
+	 * @see com.mozu.api.contracts.customer.Card
+	 */
+	public com.mozu.api.contracts.customer.Card getAccountCard(Integer accountId, String cardId, AuthTicket authTicket) throws Exception
+	{
+		MozuClient<com.mozu.api.contracts.customer.Card> client = com.mozu.api.clients.commerce.customer.accounts.CardClient.getAccountCardClient( accountId,  cardId, authTicket);
+		client.setContext(_apiContext);
+		client.executeRequest();
+		return client.getResult();
+
+	}
+
+	/**
+	 * Creates a new credit card record and stores it for the customer account.
+	 * <p><pre><code>
+	 *	Card card = new Card();
+	 *	Card card = card.AddAccountCard( card,  accountId, authTicket);
+	 * </code></pre></p>
+	 * @param accountId Unique identifier of the customer account.
+	 * @param authTicket User Auth Ticket
+	 * @param card Properties of the customer credit card to add to the account.
 	 * @return com.mozu.api.contracts.customer.Card
 	 * @see com.mozu.api.contracts.customer.Card
 	 * @see com.mozu.api.contracts.customer.Card
@@ -71,21 +92,22 @@ public class CardResource {
 	}
 
 	/**
-	 * 
+	 * Update one or more properties of a credit card defined for a customer account.
 	 * <p><pre><code>
 	 *	Card card = new Card();
-	 *	Card card = card.UpdateAccountCard( card,  accountId, authTicket);
+	 *	Card card = card.UpdateAccountCard( card,  accountId,  cardId, authTicket);
 	 * </code></pre></p>
-	 * @param accountId 
+	 * @param accountId Unique identifier of the customer account.
+	 * @param cardId 
 	 * @param authTicket User Auth Ticket
-	 * @param card 
+	 * @param card Properties of the customer account credit card to update.
 	 * @return com.mozu.api.contracts.customer.Card
 	 * @see com.mozu.api.contracts.customer.Card
 	 * @see com.mozu.api.contracts.customer.Card
 	 */
-	public com.mozu.api.contracts.customer.Card updateAccountCard(com.mozu.api.contracts.customer.Card card, Integer accountId, AuthTicket authTicket) throws Exception
+	public com.mozu.api.contracts.customer.Card updateAccountCard(com.mozu.api.contracts.customer.Card card, Integer accountId, String cardId, AuthTicket authTicket) throws Exception
 	{
-		MozuClient<com.mozu.api.contracts.customer.Card> client = com.mozu.api.clients.commerce.customer.accounts.CardClient.updateAccountCardClient( card,  accountId, authTicket);
+		MozuClient<com.mozu.api.contracts.customer.Card> client = com.mozu.api.clients.commerce.customer.accounts.CardClient.updateAccountCardClient( card,  accountId,  cardId, authTicket);
 		client.setContext(_apiContext);
 		client.executeRequest();
 		return client.getResult();
@@ -93,13 +115,13 @@ public class CardResource {
 	}
 
 	/**
-	 * 
+	 * Removes a stored credit card from a customer account.
 	 * <p><pre><code>
 	 *	Card card = new Card();
 	 *	card.DeleteAccountCard( accountId,  cardId, authTicket);
 	 * </code></pre></p>
-	 * @param accountId 
-	 * @param cardId 
+	 * @param accountId Unique identifier of the customer account.
+	 * @param cardId Unique identifier of the credit card to delete.
 	 * @param authTicket User Auth Ticket
 	 * @return 
 	 */

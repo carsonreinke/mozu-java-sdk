@@ -8,16 +8,24 @@ package com.mozu.api.contracts.commerceruntime.fulfillment;
 
 import java.util.List;
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 import com.mozu.api.contracts.core.AuditInfo;
 import com.mozu.api.contracts.commerceruntime.fulfillment.PackageItem;
 import com.mozu.api.contracts.commerceruntime.commerce.PackageMeasurements;
 
+/**
+ *	Properties of a physical package shipped for an order.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Package implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * The actions that a user can perform for a package at this time.
+	 */
 	protected List<String> availableActions;
 	public List<String> getAvailableActions() {
 		return this.availableActions;
@@ -26,6 +34,9 @@ public class Package implements Serializable
 		this.availableActions = availableActions;
 	}
 
+	/**
+	 * The date and time the package shipped to the customer.
+	 */
 	protected Date fulfillmentDate;
 
 	public Date getFulfillmentDate() {
@@ -36,6 +47,9 @@ public class Package implements Serializable
 		this.fulfillmentDate = fulfillmentDate;
 	}
 
+	/**
+	 * Unique identifier of a package.
+	 */
 	protected String id;
 
 	public String getId() {
@@ -46,6 +60,9 @@ public class Package implements Serializable
 		this.id = id;
 	}
 
+	/**
+	 * The package type associated with this physical package. Possible values include Tube, Letter, Pak, Small Box (carrier_box_small), Medium Box (carrier_box_medium), Large Box (carrier_box_large), or Custom.
+	 */
 	protected String packagingType;
 
 	public String getPackagingType() {
@@ -56,6 +73,9 @@ public class Package implements Serializable
 		this.packagingType = packagingType;
 	}
 
+	/**
+	 * Unique identifier of the shipment associated with this package.
+	 */
 	protected String shipmentId;
 
 	public String getShipmentId() {
@@ -66,6 +86,9 @@ public class Package implements Serializable
 		this.shipmentId = shipmentId;
 	}
 
+	/**
+	 * The code associated with the carrier's shipping method service type. Service type codes include a prefix that indicates the carrier. For example: FEDEX_INTERNATIONAL_STANDARD
+	 */
 	protected String shippingMethodCode;
 
 	public String getShippingMethodCode() {
@@ -76,6 +99,9 @@ public class Package implements Serializable
 		this.shippingMethodCode = shippingMethodCode;
 	}
 
+	/**
+	 * Name of the shipping method associated with the package. For example: UPS Ground or 2nd Day Air.
+	 */
 	protected String shippingMethodName;
 
 	public String getShippingMethodName() {
@@ -86,6 +112,9 @@ public class Package implements Serializable
 		this.shippingMethodName = shippingMethodName;
 	}
 
+	/**
+	 * Status of the package, which is "Fulfilled" or "NotFulfilled".
+	 */
 	protected String status;
 
 	public String getStatus() {
@@ -96,6 +125,9 @@ public class Package implements Serializable
 		this.status = status;
 	}
 
+	/**
+	 * Tracking number for the package supplied by the carrier.
+	 */
 	protected String trackingNumber;
 
 	public String getTrackingNumber() {
@@ -106,6 +138,9 @@ public class Package implements Serializable
 		this.trackingNumber = trackingNumber;
 	}
 
+	/**
+	 * Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
+	 */
 	protected AuditInfo auditInfo;
 
 	public AuditInfo getAuditInfo() {
@@ -116,6 +151,9 @@ public class Package implements Serializable
 		this.auditInfo = auditInfo;
 	}
 
+	/**
+	 * An array list of objects in the returned collection.
+	 */
 	protected List<PackageItem> items;
 	public List<PackageItem> getItems() {
 		return this.items;
@@ -124,6 +162,9 @@ public class Package implements Serializable
 		this.items = items;
 	}
 
+	/**
+	 * Dimensional properties of the package.
+	 */
 	protected PackageMeasurements measurements;
 
 	public PackageMeasurements getMeasurements() {

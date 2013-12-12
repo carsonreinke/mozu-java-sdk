@@ -7,13 +7,21 @@
 package com.mozu.api.contracts.productruntime;
 
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 
+/**
+ *	Properties of an image defined for a product.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class ProductImage implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Descriptive text associated with the image or video that appears on the storefront.
+	 */
 	protected String altText;
 
 	public String getAltText() {
@@ -24,6 +32,19 @@ public class ProductImage implements Serializable
 		this.altText = altText;
 	}
 
+	protected String cmsId;
+
+	public String getCmsId() {
+		return this.cmsId;
+	}
+
+	public void setCmsId(String cmsId) {
+		this.cmsId = cmsId;
+	}
+
+	/**
+	 * Image title that appears on the storefront.
+	 */
 	protected String imageLabel;
 
 	public String getImageLabel() {
@@ -34,16 +55,9 @@ public class ProductImage implements Serializable
 		this.imageLabel = imageLabel;
 	}
 
-	protected String imagePath;
-
-	public String getImagePath() {
-		return this.imagePath;
-	}
-
-	public void setImagePath(String imagePath) {
-		this.imagePath = imagePath;
-	}
-
+	/**
+	 * URL of the product image.
+	 */
 	protected String imageUrl;
 
 	public String getImageUrl() {
@@ -54,6 +68,9 @@ public class ProductImage implements Serializable
 		this.imageUrl = imageUrl;
 	}
 
+	/**
+	 * Type of media specification required to successfully render the product image, video, or other content.
+	 */
 	protected String mediaType;
 
 	public String getMediaType() {
@@ -64,6 +81,9 @@ public class ProductImage implements Serializable
 		this.mediaType = mediaType;
 	}
 
+	/**
+	 * The numeric value that denotes the place this entity occupies in the order of the entity list.
+	 */
 	protected Integer sequence;
 
 	public Integer getSequence() {
@@ -74,6 +94,9 @@ public class ProductImage implements Serializable
 		this.sequence = sequence;
 	}
 
+	/**
+	 * The file link or URL of the product video.
+	 */
 	protected String videoUrl;
 
 	public String getVideoUrl() {

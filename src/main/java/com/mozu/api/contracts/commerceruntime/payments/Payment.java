@@ -8,16 +8,24 @@ package com.mozu.api.contracts.commerceruntime.payments;
 
 import java.util.List;
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 import com.mozu.api.contracts.core.AuditInfo;
 import com.mozu.api.contracts.commerceruntime.payments.BillingInfo;
 import com.mozu.api.contracts.commerceruntime.payments.PaymentInteraction;
 
+/**
+ *	Properties of a payment transaction submitted for an order.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Payment implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * The total monetary amount collected in this payment transaction for the order.
+	 */
 	protected Double amountCollected;
 
 	public Double getAmountCollected() {
@@ -28,6 +36,9 @@ public class Payment implements Serializable
 		this.amountCollected = amountCollected;
 	}
 
+	/**
+	 * If the payment transaction is a shopper store credit, the total monetary amount credited in this payment transaction for the order.
+	 */
 	protected Double amountCredited;
 
 	public Double getAmountCredited() {
@@ -38,6 +49,9 @@ public class Payment implements Serializable
 		this.amountCredited = amountCredited;
 	}
 
+	/**
+	 * The actions a user can perform for a payment at this time.
+	 */
 	protected List<String> availableActions;
 	public List<String> getAvailableActions() {
 		return this.availableActions;
@@ -46,6 +60,9 @@ public class Payment implements Serializable
 		this.availableActions = availableActions;
 	}
 
+	/**
+	 * Unique identifier of the payment transaction.
+	 */
 	protected String id;
 
 	public String getId() {
@@ -56,6 +73,9 @@ public class Payment implements Serializable
 		this.id = id;
 	}
 
+	/**
+	 * If true, the payment transaction occurs at regular intervals such as a monthly billing cycle or a digital or physical subscription.
+	 */
 	protected Boolean isRecurring;
 
 	public Boolean getIsRecurring() {
@@ -66,6 +86,9 @@ public class Payment implements Serializable
 		this.isRecurring = isRecurring;
 	}
 
+	/**
+	 * Unique identifier of the order associated with the payment.
+	 */
 	protected String orderId;
 
 	public String getOrderId() {
@@ -76,6 +99,9 @@ public class Payment implements Serializable
 		this.orderId = orderId;
 	}
 
+	/**
+	 * The transaction ID supplied by the payment service to associate with this order payment.
+	 */
 	protected String paymentServiceTransactionId;
 
 	public String getPaymentServiceTransactionId() {
@@ -86,6 +112,9 @@ public class Payment implements Serializable
 		this.paymentServiceTransactionId = paymentServiceTransactionId;
 	}
 
+	/**
+	 * The type of payment transaction performed, such as check, credit card, or PayPal Express. Additional payment types will be supported in future releases.
+	 */
 	protected String paymentType;
 
 	public String getPaymentType() {
@@ -96,6 +125,9 @@ public class Payment implements Serializable
 		this.paymentType = paymentType;
 	}
 
+	/**
+	 * Current status of the payment transaction for the order.
+	 */
 	protected String status;
 
 	public String getStatus() {
@@ -106,6 +138,9 @@ public class Payment implements Serializable
 		this.status = status;
 	}
 
+	/**
+	 * Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
+	 */
 	protected AuditInfo auditInfo;
 
 	public AuditInfo getAuditInfo() {
@@ -116,6 +151,9 @@ public class Payment implements Serializable
 		this.auditInfo = auditInfo;
 	}
 
+	/**
+	 * Properties of the customer billing information associated with this payment.
+	 */
 	protected BillingInfo billingInfo;
 
 	public BillingInfo getBillingInfo() {
@@ -126,6 +164,9 @@ public class Payment implements Serializable
 		this.billingInfo = billingInfo;
 	}
 
+	/**
+	 * Container for the interactions associated with the payment, which includes details for each action performed for the payment.
+	 */
 	protected List<PaymentInteraction> interactions;
 	public List<PaymentInteraction> getInteractions() {
 		return this.interactions;

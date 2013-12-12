@@ -2,11 +2,13 @@ package com.mozu.api;
 
 import java.util.Map;
 
-import org.apache.commons.lang.StringUtils;
+import javax.servlet.http.HttpServletRequest;
+
 import org.apache.http.HttpRequest;
 
 import com.mozu.api.contracts.tenant.Site;
 import com.mozu.api.contracts.tenant.Tenant;
+import com.mozu.api.utils.HttpHelper;
 
 public class MozuApiContext implements ApiContext {
 
@@ -45,10 +47,10 @@ public class MozuApiContext implements ApiContext {
     public MozuApiContext(Tenant tenant, Site site, Integer masterCatalogId, Integer catalogId)
             throws ApiException {
         this(tenant.getId(), site.getId(), masterCatalogId, catalogId);
-        this.tenantUrl = getUrl(tenant.getDomain());
+        this.tenantUrl = HttpHelper.getUrl(tenant.getDomain());
 
         if (site != null && site.getId() >= 0) {
-            this.siteUrl = getUrl(site.getDomain());
+            this.siteUrl = HttpHelper.getUrl(site.getDomain());
         }
     }
 
@@ -57,7 +59,7 @@ public class MozuApiContext implements ApiContext {
 
         if (site != null && site.getId() >= 0) {
             this.siteId = site.getId();
-            this.siteUrl = getUrl(site.getDomain());
+            this.siteUrl = HttpHelper.getUrl(site.getDomain());
         }
         this.masterCatalogId = masterCatalogId;
         this.catalogId = catalogId;
@@ -83,13 +85,9 @@ public class MozuApiContext implements ApiContext {
             this.catalogId = Integer.getInteger(catalogStr);
         }
 
-        if (StringUtils.isNotBlank(tenantUrl)) {
-            this.tenantUrl = String.format("Http://{0}", tenantUrl);
-        }
+        this.tenantUrl = HttpHelper.getUrl(tenantUrl);
 
-        if (StringUtils.isNotBlank(siteUrl)) {
-            siteUrl = String.format("http://{0}", siteUrl);
-        }
+        this.siteUrl = HttpHelper.getUrl(siteUrl);
 
     }
 
@@ -103,14 +101,25 @@ public class MozuApiContext implements ApiContext {
         masterCatalogId = getHeaderValueInt(Headers.X_VOL_MASTER_CATALOG, request);
         catalogId = getHeaderValueInt(Headers.X_VOL_CATALOG, request);
 
-        if (StringUtils.isNotBlank(tenantUrl))
-            tenantUrl = "Http://" + tenantUrl;
+        this.tenantUrl = HttpHelper.getUrl(tenantUrl);
 
-        if (StringUtils.isNotBlank(siteUrl))
-            siteUrl = "http://" + siteUrl;
-
+        siteUrl = HttpHelper.getUrl(siteUrl);
     }
 
+    public MozuApiContext (HttpServletRequest request) throws ApiException {
+        tenantUrl = request.getHeader(Headers.X_VOL_TENANT_DOMAIN);
+        siteUrl = request.getHeader(Headers.X_VOL_SITE_DOMAIN);
+        tenantId = request.getIntHeader(Headers.X_VOL_TENANT);
+        siteId = request.getIntHeader(Headers.X_VOL_SITE);
+        correlationId = request.getHeader(Headers.X_VOL_CORRELATION);
+        hmacSha256 = request.getHeader(Headers.X_VOL_HMAC_SHA256);
+        masterCatalogId = request.getIntHeader(Headers.X_VOL_MASTER_CATALOG);
+        catalogId = request.getIntHeader(Headers.X_VOL_CATALOG);
+
+         tenantUrl = HttpHelper.getUrl(tenantUrl);
+
+         siteUrl = HttpHelper.getUrl(siteUrl);
+    }
     public Integer getTenantId() {
         return tenantId;
     }
@@ -163,10 +172,6 @@ public class MozuApiContext implements ApiContext {
             return Integer.parseInt((request.getFirstHeader(header)).getValue());
         else
             return null;
-    }
-
-    public String getUrl(String domain) {
-        return "http://" + domain;
     }
 
  }

@@ -15,7 +15,7 @@ import com.mozu.api.Headers;
 import com.mozu.api.security.AuthTicket;
 
 /** <summary>
- * 
+ * Manage shoppers' product selection process during a visit to the storefront. Update product options as shoppers pick and choose their product choices. A shopper cannot add a product to a cart until all of its required options have been selected.
  * </summary>
  */
 public class ProductResource {
@@ -29,7 +29,7 @@ public class ProductResource {
 	}
 	
 	/**
-	 * 
+	 * Retrieves a list of products that appear on the storefront according to any specified filter criteria and sort options.
 	 * <p><pre><code>
 	 *	Product product = new Product();
 	 *	ProductCollection productCollection = product.GetProducts();
@@ -44,22 +44,22 @@ public class ProductResource {
 	}
 
 	/**
-	 * 
+	 * Retrieves a list of products that appear on the storefront according to any specified filter criteria and sort options.
 	 * <p><pre><code>
 	 *	Product product = new Product();
-	 *	ProductCollection productCollection = product.GetProducts( filter,  pageSize,  sortBy,  startIndex, authTicket);
+	 *	ProductCollection productCollection = product.GetProducts( filter,  startIndex,  pageSize,  sortBy, authTicket);
 	 * </code></pre></p>
-	 * @param filter 
-	 * @param pageSize 
+	 * @param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
+	 * @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
 	 * @param sortBy 
 	 * @param startIndex 
 	 * @param authTicket User Auth Ticket
 	 * @return com.mozu.api.contracts.productruntime.ProductCollection
 	 * @see com.mozu.api.contracts.productruntime.ProductCollection
 	 */
-	public com.mozu.api.contracts.productruntime.ProductCollection getProducts(String filter, Integer pageSize, String sortBy, Integer startIndex, AuthTicket authTicket) throws Exception
+	public com.mozu.api.contracts.productruntime.ProductCollection getProducts(String filter, Integer startIndex, Integer pageSize, String sortBy, AuthTicket authTicket) throws Exception
 	{
-		MozuClient<com.mozu.api.contracts.productruntime.ProductCollection> client = com.mozu.api.clients.commerce.catalog.storefront.ProductClient.getProductsClient( filter,  pageSize,  sortBy,  startIndex, authTicket);
+		MozuClient<com.mozu.api.contracts.productruntime.ProductCollection> client = com.mozu.api.clients.commerce.catalog.storefront.ProductClient.getProductsClient( filter,  startIndex,  pageSize,  sortBy, authTicket);
 		client.setContext(_apiContext);
 		client.executeRequest();
 		return client.getResult();
@@ -67,12 +67,12 @@ public class ProductResource {
 	}
 
 	/**
-	 * 
+	 * Retrieves the active inventory level information associated with the product or location specified in the request.
 	 * <p><pre><code>
 	 *	Product product = new Product();
 	 *	LocationInventoryCollection locationInventoryCollection = product.GetProductInventory( productCode);
 	 * </code></pre></p>
-	 * @param productCode 
+	 * @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 	 * @param authTicket User Auth Ticket
 	 * @return com.mozu.api.contracts.productruntime.LocationInventoryCollection
 	 * @see com.mozu.api.contracts.productruntime.LocationInventoryCollection
@@ -83,13 +83,13 @@ public class ProductResource {
 	}
 
 	/**
-	 * 
+	 * Retrieves the active inventory level information associated with the product or location specified in the request.
 	 * <p><pre><code>
 	 *	Product product = new Product();
 	 *	LocationInventoryCollection locationInventoryCollection = product.GetProductInventory( productCode,  locationCodes, authTicket);
 	 * </code></pre></p>
-	 * @param locationCodes 
-	 * @param productCode 
+	 * @param locationCodes Array of location codes for which to retrieve product inventory information.
+	 * @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 	 * @param authTicket User Auth Ticket
 	 * @return com.mozu.api.contracts.productruntime.LocationInventoryCollection
 	 * @see com.mozu.api.contracts.productruntime.LocationInventoryCollection
@@ -104,37 +104,38 @@ public class ProductResource {
 	}
 
 	/**
-	 * 
+	 * Retrieves information about a single product given its product code.
 	 * <p><pre><code>
 	 *	Product product = new Product();
 	 *	Product product = product.GetProduct( productCode);
 	 * </code></pre></p>
-	 * @param productCode 
+	 * @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 	 * @param authTicket User Auth Ticket
 	 * @return com.mozu.api.contracts.productruntime.Product
 	 * @see com.mozu.api.contracts.productruntime.Product
 	 */
 	public com.mozu.api.contracts.productruntime.Product getProduct(String productCode) throws Exception
 	{
-		return getProduct( productCode,  false,  null, null);
+		return getProduct( productCode,  null,  false,  false, null);
 	}
 
 	/**
-	 * 
+	 * Retrieves information about a single product given its product code.
 	 * <p><pre><code>
 	 *	Product product = new Product();
-	 *	Product product = product.GetProduct( productCode,  allowInactive,  variationProductCode, authTicket);
+	 *	Product product = product.GetProduct( productCode,  variationProductCode,  allowInactive,  skipInventoryCheck, authTicket);
 	 * </code></pre></p>
-	 * @param allowInactive 
-	 * @param productCode 
-	 * @param variationProductCode 
+	 * @param allowInactive If true, returns an inactive product as part of the query.
+	 * @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
+	 * @param skipInventoryCheck 
+	 * @param variationProductCode Merchant-created code associated with a specific product variation. Variation product codes maintain an association with the base product code.
 	 * @param authTicket User Auth Ticket
 	 * @return com.mozu.api.contracts.productruntime.Product
 	 * @see com.mozu.api.contracts.productruntime.Product
 	 */
-	public com.mozu.api.contracts.productruntime.Product getProduct(String productCode, Boolean allowInactive, String variationProductCode, AuthTicket authTicket) throws Exception
+	public com.mozu.api.contracts.productruntime.Product getProduct(String productCode, String variationProductCode, Boolean allowInactive, Boolean skipInventoryCheck, AuthTicket authTicket) throws Exception
 	{
-		MozuClient<com.mozu.api.contracts.productruntime.Product> client = com.mozu.api.clients.commerce.catalog.storefront.ProductClient.getProductClient( productCode,  allowInactive,  variationProductCode, authTicket);
+		MozuClient<com.mozu.api.contracts.productruntime.Product> client = com.mozu.api.clients.commerce.catalog.storefront.ProductClient.getProductClient( productCode,  variationProductCode,  allowInactive,  skipInventoryCheck, authTicket);
 		client.setContext(_apiContext);
 		client.executeRequest();
 		return client.getResult();
@@ -142,40 +143,41 @@ public class ProductResource {
 	}
 
 	/**
-	 * 
+	 * Creates a new product selection. A create occurs each time a shopper selects a product option as they configure a product. Once all the required product options are configured, the product can be added to a cart.
 	 * <p><pre><code>
 	 *	Product product = new Product();
 	 *	ConfiguredProduct configuredProduct = product.ConfiguredProduct( productOptionSelections,  productCode);
 	 * </code></pre></p>
-	 * @param productCode 
+	 * @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 	 * @param authTicket User Auth Ticket
-	 * @param productOptionSelections 
+	 * @param productOptionSelections For a product with shopper-configurable options, the properties of the product options selected by the shopper.
 	 * @return com.mozu.api.contracts.productruntime.ConfiguredProduct
 	 * @see com.mozu.api.contracts.productruntime.ConfiguredProduct
 	 * @see com.mozu.api.contracts.productruntime.ProductOptionSelections
 	 */
 	public com.mozu.api.contracts.productruntime.ConfiguredProduct configuredProduct(com.mozu.api.contracts.productruntime.ProductOptionSelections productOptionSelections, String productCode) throws Exception
 	{
-		return configuredProduct( productOptionSelections,  productCode,  false, null);
+		return configuredProduct( productOptionSelections,  productCode,  false,  false, null);
 	}
 
 	/**
-	 * 
+	 * Creates a new product selection. A create occurs each time a shopper selects a product option as they configure a product. Once all the required product options are configured, the product can be added to a cart.
 	 * <p><pre><code>
 	 *	Product product = new Product();
-	 *	ConfiguredProduct configuredProduct = product.ConfiguredProduct( productOptionSelections,  productCode,  includeOptionDetails, authTicket);
+	 *	ConfiguredProduct configuredProduct = product.ConfiguredProduct( productOptionSelections,  productCode,  includeOptionDetails,  skipInventoryCheck, authTicket);
 	 * </code></pre></p>
-	 * @param includeOptionDetails 
-	 * @param productCode 
+	 * @param includeOptionDetails If true, the response returns details about the product. If false, returns a product summary such as the product name, price, and sale price.
+	 * @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
+	 * @param skipInventoryCheck 
 	 * @param authTicket User Auth Ticket
-	 * @param productOptionSelections 
+	 * @param productOptionSelections For a product with shopper-configurable options, the properties of the product options selected by the shopper.
 	 * @return com.mozu.api.contracts.productruntime.ConfiguredProduct
 	 * @see com.mozu.api.contracts.productruntime.ConfiguredProduct
 	 * @see com.mozu.api.contracts.productruntime.ProductOptionSelections
 	 */
-	public com.mozu.api.contracts.productruntime.ConfiguredProduct configuredProduct(com.mozu.api.contracts.productruntime.ProductOptionSelections productOptionSelections, String productCode, Boolean includeOptionDetails, AuthTicket authTicket) throws Exception
+	public com.mozu.api.contracts.productruntime.ConfiguredProduct configuredProduct(com.mozu.api.contracts.productruntime.ProductOptionSelections productOptionSelections, String productCode, Boolean includeOptionDetails, Boolean skipInventoryCheck, AuthTicket authTicket) throws Exception
 	{
-		MozuClient<com.mozu.api.contracts.productruntime.ConfiguredProduct> client = com.mozu.api.clients.commerce.catalog.storefront.ProductClient.configuredProductClient( productOptionSelections,  productCode,  includeOptionDetails, authTicket);
+		MozuClient<com.mozu.api.contracts.productruntime.ConfiguredProduct> client = com.mozu.api.clients.commerce.catalog.storefront.ProductClient.configuredProductClient( productOptionSelections,  productCode,  includeOptionDetails,  skipInventoryCheck, authTicket);
 		client.setContext(_apiContext);
 		client.executeRequest();
 		return client.getResult();
@@ -183,21 +185,40 @@ public class ProductResource {
 	}
 
 	/**
-	 * 
+	 * Validate the final state of shopper-selected options.
 	 * <p><pre><code>
 	 *	Product product = new Product();
-	 *	ProductValidationSummary productValidationSummary = product.ValidateProduct( productOptionSelections,  productCode, authTicket);
+	 *	ProductValidationSummary productValidationSummary = product.ValidateProduct( productOptionSelections,  productCode);
 	 * </code></pre></p>
-	 * @param productCode 
+	 * @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 	 * @param authTicket User Auth Ticket
-	 * @param productOptionSelections 
+	 * @param productOptionSelections For a product with shopper-configurable options, the properties of the product options selected by the shopper.
 	 * @return com.mozu.api.contracts.productruntime.ProductValidationSummary
 	 * @see com.mozu.api.contracts.productruntime.ProductValidationSummary
 	 * @see com.mozu.api.contracts.productruntime.ProductOptionSelections
 	 */
-	public com.mozu.api.contracts.productruntime.ProductValidationSummary validateProduct(com.mozu.api.contracts.productruntime.ProductOptionSelections productOptionSelections, String productCode, AuthTicket authTicket) throws Exception
+	public com.mozu.api.contracts.productruntime.ProductValidationSummary validateProduct(com.mozu.api.contracts.productruntime.ProductOptionSelections productOptionSelections, String productCode) throws Exception
 	{
-		MozuClient<com.mozu.api.contracts.productruntime.ProductValidationSummary> client = com.mozu.api.clients.commerce.catalog.storefront.ProductClient.validateProductClient( productOptionSelections,  productCode, authTicket);
+		return validateProduct( productOptionSelections,  productCode,  false, null);
+	}
+
+	/**
+	 * Validate the final state of shopper-selected options.
+	 * <p><pre><code>
+	 *	Product product = new Product();
+	 *	ProductValidationSummary productValidationSummary = product.ValidateProduct( productOptionSelections,  productCode,  skipInventoryCheck, authTicket);
+	 * </code></pre></p>
+	 * @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
+	 * @param skipInventoryCheck 
+	 * @param authTicket User Auth Ticket
+	 * @param productOptionSelections For a product with shopper-configurable options, the properties of the product options selected by the shopper.
+	 * @return com.mozu.api.contracts.productruntime.ProductValidationSummary
+	 * @see com.mozu.api.contracts.productruntime.ProductValidationSummary
+	 * @see com.mozu.api.contracts.productruntime.ProductOptionSelections
+	 */
+	public com.mozu.api.contracts.productruntime.ProductValidationSummary validateProduct(com.mozu.api.contracts.productruntime.ProductOptionSelections productOptionSelections, String productCode, Boolean skipInventoryCheck, AuthTicket authTicket) throws Exception
+	{
+		MozuClient<com.mozu.api.contracts.productruntime.ProductValidationSummary> client = com.mozu.api.clients.commerce.catalog.storefront.ProductClient.validateProductClient( productOptionSelections,  productCode,  skipInventoryCheck, authTicket);
 		client.setContext(_apiContext);
 		client.executeRequest();
 		return client.getResult();

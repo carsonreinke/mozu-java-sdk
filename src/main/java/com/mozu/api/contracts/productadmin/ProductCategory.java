@@ -7,13 +7,21 @@
 package com.mozu.api.contracts.productadmin;
 
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 
+/**
+ *	The category to which a product belongs.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class ProductCategory implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Unique identifier for the storefront container used to organize products.
+	 */
 	protected Integer categoryId;
 
 	public Integer getCategoryId() {

@@ -15,7 +15,7 @@ import com.mozu.api.Headers;
 import com.mozu.api.security.AuthTicket;
 
 /** <summary>
- * 
+ * Use the document tree subresource to retrieve documents and manage content within the document hierarchy.
  * </summary>
  */
 public class DocumentTreeResource {
@@ -29,76 +29,39 @@ public class DocumentTreeResource {
 	}
 	
 	/**
-	 * 
+	 * Retrieve the content associated with the document, such as a product image or PDF specifications file.
 	 * <p><pre><code>
 	 *	DocumentTree documenttree = new DocumentTree();
-	 *	documenttree.GetTreeDocumentContent( documentListName,  documentName);
+	 *	Stream stream = documenttree.GetTreeDocumentContent(dataViewMode,  documentListName,  documentName);
 	 * </code></pre></p>
-	 * @param documentListName 
-	 * @param documentName 
+	 * @param documentListName The name of the document list associated with the document.
+	 * @param documentName The name of the document, which is unique within its folder.
 	 * @param authTicket User Auth Ticket
-	 * @return 
+	 * @return Stream
+	 * @see Stream
 	 */
-	public void getTreeDocumentContent(String documentListName, String documentName) throws Exception
+	public java.io.InputStream getTreeDocumentContent(com.mozu.api.DataViewMode dataViewMode, String documentListName, String documentName) throws Exception
 	{
-		getTreeDocumentContent( documentListName,  documentName,  null,  null, null);
+		return getTreeDocumentContent(dataViewMode,  documentListName,  documentName,  null,  null, null);
 	}
 
 	/**
-	 * 
+	 * Retrieve the content associated with the document, such as a product image or PDF specifications file.
 	 * <p><pre><code>
 	 *	DocumentTree documenttree = new DocumentTree();
-	 *	documenttree.GetTreeDocumentContent( documentListName,  documentName,  folderId,  folderPath, authTicket);
+	 *	Stream stream = documenttree.GetTreeDocumentContent(dataViewMode,  documentListName,  documentName,  folderPath,  folderId, authTicket);
 	 * </code></pre></p>
-	 * @param documentListName 
-	 * @param documentName 
-	 * @param folderId 
-	 * @param folderPath 
+	 * @param documentListName The name of the document list associated with the document.
+	 * @param documentName The name of the document, which is unique within its folder.
+	 * @param folderId If applicable, the unique identifier of the folder that contains the document.
+	 * @param folderPath If applicable, the path of the folder hierarchy location associated with the document.
 	 * @param authTicket User Auth Ticket
-	 * @return 
+	 * @return Stream
+	 * @see Stream
 	 */
-	public void getTreeDocumentContent(String documentListName, String documentName, String folderId, String folderPath, AuthTicket authTicket) throws Exception
+	public java.io.InputStream getTreeDocumentContent(com.mozu.api.DataViewMode dataViewMode, String documentListName, String documentName, String folderPath, String folderId, AuthTicket authTicket) throws Exception
 	{
-		MozuClient client = com.mozu.api.clients.content.documentlists.DocumentTreeClient.getTreeDocumentContentClient( documentListName,  documentName,  folderId,  folderPath, authTicket);
-		client.setContext(_apiContext);
-		client.executeRequest();
-
-	}
-
-	/**
-	 * 
-	 * <p><pre><code>
-	 *	DocumentTree documenttree = new DocumentTree();
-	 *	Document document = documenttree.GetTreeDocument( documentListName,  documentName);
-	 * </code></pre></p>
-	 * @param documentListName 
-	 * @param documentName 
-	 * @param authTicket User Auth Ticket
-	 * @return com.mozu.api.contracts.content.Document
-	 * @see com.mozu.api.contracts.content.Document
-	 */
-	public com.mozu.api.contracts.content.Document getTreeDocument(String documentListName, String documentName) throws Exception
-	{
-		return getTreeDocument( documentListName,  documentName,  null,  null, null);
-	}
-
-	/**
-	 * 
-	 * <p><pre><code>
-	 *	DocumentTree documenttree = new DocumentTree();
-	 *	Document document = documenttree.GetTreeDocument( documentListName,  documentName,  folderId,  folderPath, authTicket);
-	 * </code></pre></p>
-	 * @param documentListName 
-	 * @param documentName 
-	 * @param folderId 
-	 * @param folderPath 
-	 * @param authTicket User Auth Ticket
-	 * @return com.mozu.api.contracts.content.Document
-	 * @see com.mozu.api.contracts.content.Document
-	 */
-	public com.mozu.api.contracts.content.Document getTreeDocument(String documentListName, String documentName, String folderId, String folderPath, AuthTicket authTicket) throws Exception
-	{
-		MozuClient<com.mozu.api.contracts.content.Document> client = com.mozu.api.clients.content.documentlists.DocumentTreeClient.getTreeDocumentClient( documentListName,  documentName,  folderId,  folderPath, authTicket);
+		MozuClient<java.io.InputStream> client = com.mozu.api.clients.content.documentlists.DocumentTreeClient.getTreeDocumentContentClient(dataViewMode,  documentListName,  documentName,  folderPath,  folderId, authTicket);
 		client.setContext(_apiContext);
 		client.executeRequest();
 		return client.getResult();
@@ -106,82 +69,122 @@ public class DocumentTreeResource {
 	}
 
 	/**
-	 * 
+	 * Retrieves a document based on its document list and folder path in the document hierarchy.
 	 * <p><pre><code>
 	 *	DocumentTree documenttree = new DocumentTree();
-	 *	documenttree.UpdateTreeDocumentContent( stream,  documentListName,  documentName);
+	 *	Document document = documenttree.GetTreeDocument(dataViewMode,  documentListName,  documentName);
 	 * </code></pre></p>
-	 * @param documentListName 
-	 * @param documentName 
+	 * @param documentListName The name of the document list associated with the document.
+	 * @param documentName The name of the document, which is unique within its folder.
 	 * @param authTicket User Auth Ticket
-	 * @param stream 
-	 * @return 
-	 * @see Stream
+	 * @return com.mozu.api.contracts.content.Document
+	 * @see com.mozu.api.contracts.content.Document
 	 */
-	public void updateTreeDocumentContent(java.io.InputStream stream, String documentListName, String documentName) throws Exception
+	public com.mozu.api.contracts.content.Document getTreeDocument(com.mozu.api.DataViewMode dataViewMode, String documentListName, String documentName) throws Exception
 	{
-		updateTreeDocumentContent( stream,  documentListName,  documentName,  null,  null, null);
+		return getTreeDocument(dataViewMode,  documentListName,  documentName,  null,  null, null);
 	}
 
 	/**
-	 * 
+	 * Retrieves a document based on its document list and folder path in the document hierarchy.
 	 * <p><pre><code>
 	 *	DocumentTree documenttree = new DocumentTree();
-	 *	documenttree.UpdateTreeDocumentContent( stream,  documentListName,  documentName,  folderId,  folderPath, authTicket);
+	 *	Document document = documenttree.GetTreeDocument(dataViewMode,  documentListName,  documentName,  folderPath,  folderId, authTicket);
 	 * </code></pre></p>
-	 * @param documentListName 
-	 * @param documentName 
-	 * @param folderId 
-	 * @param folderPath 
+	 * @param documentListName The name of the document list associated with the document.
+	 * @param documentName The name of the document, which is unique within its folder.
+	 * @param folderId If applicable, the unique identifier of the folder that contains the document.
+	 * @param folderPath If applicable, the path of the folder hierarchy location that contains the document.
+	 * @param authTicket User Auth Ticket
+	 * @return com.mozu.api.contracts.content.Document
+	 * @see com.mozu.api.contracts.content.Document
+	 */
+	public com.mozu.api.contracts.content.Document getTreeDocument(com.mozu.api.DataViewMode dataViewMode, String documentListName, String documentName, String folderPath, String folderId, AuthTicket authTicket) throws Exception
+	{
+		MozuClient<com.mozu.api.contracts.content.Document> client = com.mozu.api.clients.content.documentlists.DocumentTreeClient.getTreeDocumentClient(dataViewMode,  documentListName,  documentName,  folderPath,  folderId, authTicket);
+		client.setContext(_apiContext);
+		client.executeRequest();
+		return client.getResult();
+
+	}
+
+	/**
+	 * Updates the content associated with a document, such as a product image or PDF specifications file, based on the document's position in the document hierarchy.
+	 * <p><pre><code>
+	 *	DocumentTree documenttree = new DocumentTree();
+	 *	documenttree.UpdateTreeDocumentContent(dataViewMode,  stream,  documentListName,  documentName);
+	 * </code></pre></p>
+	 * @param documentListName The name of the document list associated with the document.
+	 * @param documentName The name of the document, which is unique within its folder.
 	 * @param authTicket User Auth Ticket
 	 * @param stream 
 	 * @return 
 	 * @see Stream
 	 */
-	public void updateTreeDocumentContent(java.io.InputStream stream, String documentListName, String documentName, String folderId, String folderPath, AuthTicket authTicket) throws Exception
+	public void updateTreeDocumentContent(com.mozu.api.DataViewMode dataViewMode, java.io.InputStream stream, String documentListName, String documentName) throws Exception
 	{
-		MozuClient client = com.mozu.api.clients.content.documentlists.DocumentTreeClient.updateTreeDocumentContentClient( stream,  documentListName,  documentName,  folderId,  folderPath, authTicket);
+		updateTreeDocumentContent(dataViewMode,  stream,  documentListName,  documentName,  null,  null, null);
+	}
+
+	/**
+	 * Updates the content associated with a document, such as a product image or PDF specifications file, based on the document's position in the document hierarchy.
+	 * <p><pre><code>
+	 *	DocumentTree documenttree = new DocumentTree();
+	 *	documenttree.UpdateTreeDocumentContent(dataViewMode,  stream,  documentListName,  documentName,  folderPath,  folderId, authTicket);
+	 * </code></pre></p>
+	 * @param documentListName The name of the document list associated with the document.
+	 * @param documentName The name of the document, which is unique within its folder.
+	 * @param folderId If applicable, the unique identifier of the folder that contains the document.
+	 * @param folderPath If applicable, the path of the folder hierarchy location associated with the document.
+	 * @param authTicket User Auth Ticket
+	 * @param stream 
+	 * @return 
+	 * @see Stream
+	 */
+	public void updateTreeDocumentContent(com.mozu.api.DataViewMode dataViewMode, java.io.InputStream stream, String documentListName, String documentName, String folderPath, String folderId, AuthTicket authTicket) throws Exception
+	{
+		MozuClient client = com.mozu.api.clients.content.documentlists.DocumentTreeClient.updateTreeDocumentContentClient(dataViewMode,  stream,  documentListName,  documentName,  folderPath,  folderId, authTicket);
 		client.setContext(_apiContext);
 		client.executeRequest();
 
 	}
 
 	/**
-	 * 
+	 * Deletes the content associated with a document, such as a product image or PDF specifications file.
 	 * <p><pre><code>
 	 *	DocumentTree documenttree = new DocumentTree();
-	 *	documenttree.DeleteTreeDocumentContent( stream,  documentListName,  documentName);
+	 *	documenttree.DeleteTreeDocumentContent(dataViewMode,  stream,  documentListName,  documentName);
 	 * </code></pre></p>
-	 * @param documentListName 
-	 * @param documentName 
+	 * @param documentListName The name of the document list associated with the document.
+	 * @param documentName The name of the document, which is unique within its folder.
 	 * @param authTicket User Auth Ticket
 	 * @param stream 
 	 * @return 
 	 * @see Stream
 	 */
-	public void deleteTreeDocumentContent(java.io.InputStream stream, String documentListName, String documentName) throws Exception
+	public void deleteTreeDocumentContent(com.mozu.api.DataViewMode dataViewMode, java.io.InputStream stream, String documentListName, String documentName) throws Exception
 	{
-		deleteTreeDocumentContent( stream,  documentListName,  documentName,  null,  null, null);
+		deleteTreeDocumentContent(dataViewMode,  stream,  documentListName,  documentName,  null,  null, null);
 	}
 
 	/**
-	 * 
+	 * Deletes the content associated with a document, such as a product image or PDF specifications file.
 	 * <p><pre><code>
 	 *	DocumentTree documenttree = new DocumentTree();
-	 *	documenttree.DeleteTreeDocumentContent( stream,  documentListName,  documentName,  folderId,  folderPath, authTicket);
+	 *	documenttree.DeleteTreeDocumentContent(dataViewMode,  stream,  documentListName,  documentName,  folderPath,  folderId, authTicket);
 	 * </code></pre></p>
-	 * @param documentListName 
-	 * @param documentName 
-	 * @param folderId 
-	 * @param folderPath 
+	 * @param documentListName The name of the document list associated with the document.
+	 * @param documentName The name of the document, which is unique within its folder.
+	 * @param folderId If applicable, the unique identifier of the folder that contains the document.
+	 * @param folderPath If applicable, the path of the folder hierarchy location associated with the document.
 	 * @param authTicket User Auth Ticket
 	 * @param stream 
 	 * @return 
 	 * @see Stream
 	 */
-	public void deleteTreeDocumentContent(java.io.InputStream stream, String documentListName, String documentName, String folderId, String folderPath, AuthTicket authTicket) throws Exception
+	public void deleteTreeDocumentContent(com.mozu.api.DataViewMode dataViewMode, java.io.InputStream stream, String documentListName, String documentName, String folderPath, String folderId, AuthTicket authTicket) throws Exception
 	{
-		MozuClient client = com.mozu.api.clients.content.documentlists.DocumentTreeClient.deleteTreeDocumentContentClient( stream,  documentListName,  documentName,  folderId,  folderPath, authTicket);
+		MozuClient client = com.mozu.api.clients.content.documentlists.DocumentTreeClient.deleteTreeDocumentContentClient(dataViewMode,  stream,  documentListName,  documentName,  folderPath,  folderId, authTicket);
 		client.setContext(_apiContext);
 		client.executeRequest();
 

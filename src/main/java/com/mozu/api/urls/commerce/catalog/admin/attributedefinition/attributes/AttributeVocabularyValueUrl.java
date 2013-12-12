@@ -15,7 +15,7 @@ public class AttributeVocabularyValueUrl
 
 	/**
 	 * Get Resource Url for GetAttributeVocabularyValues
-	 * @param attributeFQN 
+	 * @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl getAttributeVocabularyValuesUrl(String attributeFQN)
@@ -27,8 +27,8 @@ public class AttributeVocabularyValueUrl
 
 	/**
 	 * Get Resource Url for GetAttributeVocabularyValue
-	 * @param attributeFQN 
-	 * @param value 
+	 * @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
+	 * @param value The actual unique value of the attribute vocabulary to retrieve. A single attribute must have a unique value and match the attribute's data type. If a string value returns null, the system will generate a value. The actual string content displayed shoud be stored as "Content" and actual content is required for string values.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl getAttributeVocabularyValueUrl(String attributeFQN, String value)
@@ -41,7 +41,7 @@ public class AttributeVocabularyValueUrl
 
 	/**
 	 * Get Resource Url for AddAttributeVocabularyValue
-	 * @param attributeFQN 
+	 * @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl addAttributeVocabularyValueUrl(String attributeFQN)
@@ -53,7 +53,7 @@ public class AttributeVocabularyValueUrl
 
 	/**
 	 * Get Resource Url for UpdateAttributeVocabularyValues
-	 * @param attributeFQN 
+	 * @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl updateAttributeVocabularyValuesUrl(String attributeFQN)
@@ -65,8 +65,8 @@ public class AttributeVocabularyValueUrl
 
 	/**
 	 * Get Resource Url for UpdateAttributeVocabularyValue
-	 * @param attributeFQN 
-	 * @param value 
+	 * @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
+	 * @param value The actual unique value of the attribute vocabulary value to update. A single attribute must have a unique value and match the attribute's data type. If a string value returns null, the system will generate a value. The actual string content displayed shoud be stored as "Content" and actual content is required for string values.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl updateAttributeVocabularyValueUrl(String attributeFQN, String value)
@@ -79,8 +79,8 @@ public class AttributeVocabularyValueUrl
 
 	/**
 	 * Get Resource Url for DeleteAttributeVocabularyValue
-	 * @param attributeFQN 
-	 * @param value 
+	 * @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
+	 * @param value The actual unique value of the attribute vocabulary to delete. A single attribute must have a unique value and match the attribute's data type. If a string value returns null, the system will generate a value. The actual string content displayed shoud be stored as "Content" and actual content is required for string values.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl deleteAttributeVocabularyValueUrl(String attributeFQN, String value)

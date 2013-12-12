@@ -7,13 +7,21 @@
 package com.mozu.api.contracts.core.thirdparty;
 
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 
+/**
+ *	Properties of a URL endpoint associated with a capability operation.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class OperationUrl implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * The name of the URL endpoint.
+	 */
 	protected String name;
 
 	public String getName() {
@@ -24,6 +32,9 @@ public class OperationUrl implements Serializable
 		this.name = name;
 	}
 
+	/**
+	 * The URL endpoint address.
+	 */
 	protected String url;
 
 	public String getUrl() {

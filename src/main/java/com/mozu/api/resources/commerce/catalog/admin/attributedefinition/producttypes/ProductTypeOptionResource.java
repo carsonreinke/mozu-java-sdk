@@ -15,7 +15,7 @@ import com.mozu.api.Headers;
 import com.mozu.api.security.AuthTicket;
 
 /** <summary>
- * 
+ * Use the Options subresource to define how an option attribute is used for a specific product type. Product attribute definitions are unique for each associated product type.
  * </summary>
  */
 public class ProductTypeOptionResource {
@@ -29,12 +29,12 @@ public class ProductTypeOptionResource {
 	}
 	
 	/**
-	 * 
+	 * Retrieves a list of option product attributes defined for the specified product type.
 	 * <p><pre><code>
 	 *	ProductTypeOption producttypeoption = new ProductTypeOption();
 	 *	AttributeInProductType attributeInProductType = producttypeoption.GetOptions(dataViewMode,  productTypeId, authTicket);
 	 * </code></pre></p>
-	 * @param productTypeId 
+	 * @param productTypeId Identifier of the product type to retrieve.
 	 * @param dataViewMode DataViewMode
 	 * @param authTicket User Auth Ticket
 	 * @return List<com.mozu.api.contracts.productadmin.AttributeInProductType>
@@ -50,21 +50,21 @@ public class ProductTypeOptionResource {
 	}
 
 	/**
-	 * 
+	 * Retrieves the details of an option attribute defined for the specified product type.
 	 * <p><pre><code>
 	 *	ProductTypeOption producttypeoption = new ProductTypeOption();
-	 *	AttributeInProductType attributeInProductType = producttypeoption.GetOption(dataViewMode,  attributeFQN,  productTypeId, authTicket);
+	 *	AttributeInProductType attributeInProductType = producttypeoption.GetOption(dataViewMode,  productTypeId,  attributeFQN, authTicket);
 	 * </code></pre></p>
-	 * @param attributeFQN 
-	 * @param productTypeId 
+	 * @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
+	 * @param productTypeId The identifier of the product type.
 	 * @param dataViewMode DataViewMode
 	 * @param authTicket User Auth Ticket
 	 * @return com.mozu.api.contracts.productadmin.AttributeInProductType
 	 * @see com.mozu.api.contracts.productadmin.AttributeInProductType
 	 */
-	public com.mozu.api.contracts.productadmin.AttributeInProductType getOption(com.mozu.api.DataViewMode dataViewMode, String attributeFQN, Integer productTypeId, AuthTicket authTicket) throws Exception
+	public com.mozu.api.contracts.productadmin.AttributeInProductType getOption(com.mozu.api.DataViewMode dataViewMode, Integer productTypeId, String attributeFQN, AuthTicket authTicket) throws Exception
 	{
-		MozuClient<com.mozu.api.contracts.productadmin.AttributeInProductType> client = com.mozu.api.clients.commerce.catalog.admin.attributedefinition.producttypes.ProductTypeOptionClient.getOptionClient(dataViewMode,  attributeFQN,  productTypeId, authTicket);
+		MozuClient<com.mozu.api.contracts.productadmin.AttributeInProductType> client = com.mozu.api.clients.commerce.catalog.admin.attributedefinition.producttypes.ProductTypeOptionClient.getOptionClient(dataViewMode,  productTypeId,  attributeFQN, authTicket);
 		client.setContext(_apiContext);
 		client.executeRequest();
 		return client.getResult();
@@ -72,15 +72,15 @@ public class ProductTypeOptionResource {
 	}
 
 	/**
-	 * 
+	 * Assigns an option attribute to the product type based on the information supplied in the request.
 	 * <p><pre><code>
 	 *	ProductTypeOption producttypeoption = new ProductTypeOption();
 	 *	AttributeInProductType attributeInProductType = producttypeoption.AddOption(dataViewMode,  attributeInProductType,  productTypeId, authTicket);
 	 * </code></pre></p>
-	 * @param productTypeId 
+	 * @param productTypeId Identifier of the product type.
 	 * @param dataViewMode DataViewMode
 	 * @param authTicket User Auth Ticket
-	 * @param attributeInProductType 
+	 * @param attributeInProductType Properties of the option attribute to define for the specified product type.
 	 * @return com.mozu.api.contracts.productadmin.AttributeInProductType
 	 * @see com.mozu.api.contracts.productadmin.AttributeInProductType
 	 * @see com.mozu.api.contracts.productadmin.AttributeInProductType
@@ -95,23 +95,23 @@ public class ProductTypeOptionResource {
 	}
 
 	/**
-	 * 
+	 * Updates an option attribute definition for the specified product type.
 	 * <p><pre><code>
 	 *	ProductTypeOption producttypeoption = new ProductTypeOption();
-	 *	AttributeInProductType attributeInProductType = producttypeoption.UpdateOption(dataViewMode,  attributeInProductType,  attributeFQN,  productTypeId, authTicket);
+	 *	AttributeInProductType attributeInProductType = producttypeoption.UpdateOption(dataViewMode,  attributeInProductType,  productTypeId,  attributeFQN, authTicket);
 	 * </code></pre></p>
-	 * @param attributeFQN 
-	 * @param productTypeId 
+	 * @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
+	 * @param productTypeId Identifier of the product type.
 	 * @param dataViewMode DataViewMode
 	 * @param authTicket User Auth Ticket
-	 * @param attributeInProductType 
+	 * @param attributeInProductType Properties of the option product attribute to define for the specified product type.
 	 * @return com.mozu.api.contracts.productadmin.AttributeInProductType
 	 * @see com.mozu.api.contracts.productadmin.AttributeInProductType
 	 * @see com.mozu.api.contracts.productadmin.AttributeInProductType
 	 */
-	public com.mozu.api.contracts.productadmin.AttributeInProductType updateOption(com.mozu.api.DataViewMode dataViewMode, com.mozu.api.contracts.productadmin.AttributeInProductType attributeInProductType, String attributeFQN, Integer productTypeId, AuthTicket authTicket) throws Exception
+	public com.mozu.api.contracts.productadmin.AttributeInProductType updateOption(com.mozu.api.DataViewMode dataViewMode, com.mozu.api.contracts.productadmin.AttributeInProductType attributeInProductType, Integer productTypeId, String attributeFQN, AuthTicket authTicket) throws Exception
 	{
-		MozuClient<com.mozu.api.contracts.productadmin.AttributeInProductType> client = com.mozu.api.clients.commerce.catalog.admin.attributedefinition.producttypes.ProductTypeOptionClient.updateOptionClient(dataViewMode,  attributeInProductType,  attributeFQN,  productTypeId, authTicket);
+		MozuClient<com.mozu.api.contracts.productadmin.AttributeInProductType> client = com.mozu.api.clients.commerce.catalog.admin.attributedefinition.producttypes.ProductTypeOptionClient.updateOptionClient(dataViewMode,  attributeInProductType,  productTypeId,  attributeFQN, authTicket);
 		client.setContext(_apiContext);
 		client.executeRequest();
 		return client.getResult();
@@ -119,20 +119,20 @@ public class ProductTypeOptionResource {
 	}
 
 	/**
-	 * 
+	 * Removes an option attribute definition for the specified product type.
 	 * <p><pre><code>
 	 *	ProductTypeOption producttypeoption = new ProductTypeOption();
-	 *	producttypeoption.DeleteOption(dataViewMode,  attributeFQN,  productTypeId, authTicket);
+	 *	producttypeoption.DeleteOption(dataViewMode,  productTypeId,  attributeFQN, authTicket);
 	 * </code></pre></p>
-	 * @param attributeFQN 
-	 * @param productTypeId 
+	 * @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
+	 * @param productTypeId Identifier of the product type.
 	 * @param dataViewMode DataViewMode
 	 * @param authTicket User Auth Ticket
 	 * @return 
 	 */
-	public void deleteOption(com.mozu.api.DataViewMode dataViewMode, String attributeFQN, Integer productTypeId, AuthTicket authTicket) throws Exception
+	public void deleteOption(com.mozu.api.DataViewMode dataViewMode, Integer productTypeId, String attributeFQN, AuthTicket authTicket) throws Exception
 	{
-		MozuClient client = com.mozu.api.clients.commerce.catalog.admin.attributedefinition.producttypes.ProductTypeOptionClient.deleteOptionClient(dataViewMode,  attributeFQN,  productTypeId, authTicket);
+		MozuClient client = com.mozu.api.clients.commerce.catalog.admin.attributedefinition.producttypes.ProductTypeOptionClient.deleteOptionClient(dataViewMode,  productTypeId,  attributeFQN, authTicket);
 		client.setContext(_apiContext);
 		client.executeRequest();
 

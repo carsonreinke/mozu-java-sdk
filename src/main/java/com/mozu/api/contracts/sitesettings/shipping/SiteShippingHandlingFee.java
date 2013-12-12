@@ -7,13 +7,21 @@
 package com.mozu.api.contracts.sitesettings.shipping;
 
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 
+/**
+ *	Properties of the handling fee to apply to order shipments for the site.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class SiteShippingHandlingFee implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * The amount of the order handling fee.
+	 */
 	protected Double amount;
 
 	public Double getAmount() {

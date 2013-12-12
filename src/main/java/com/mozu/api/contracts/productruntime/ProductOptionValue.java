@@ -7,13 +7,21 @@
 package com.mozu.api.contracts.productruntime;
 
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 
+/**
+ *	Represents the values that are the product option selections for a shopper to choose when ordering a product.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class ProductOptionValue implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Unique identifier of the product attribute value.
+	 */
 	protected Integer attributeValueId;
 
 	public Integer getAttributeValueId() {
@@ -24,6 +32,9 @@ public class ProductOptionValue implements Serializable
 		this.attributeValueId = attributeValueId;
 	}
 
+	/**
+	 * The difference between the highest price and the lowest price.
+	 */
 	protected Double deltaPrice;
 
 	public Double getDeltaPrice() {
@@ -34,6 +45,9 @@ public class ProductOptionValue implements Serializable
 		this.deltaPrice = deltaPrice;
 	}
 
+	/**
+	 * The difference between the highest weight and the lowest weight.
+	 */
 	protected Double deltaWeight;
 
 	public Double getDeltaWeight() {
@@ -44,6 +58,9 @@ public class ProductOptionValue implements Serializable
 		this.deltaWeight = deltaWeight;
 	}
 
+	/**
+	 * If true, the product option value is the default value that the merchant supplied.
+	 */
 	protected Boolean isDefault;
 
 	public Boolean getIsDefault() {
@@ -54,6 +71,9 @@ public class ProductOptionValue implements Serializable
 		this.isDefault = isDefault;
 	}
 
+	/**
+	 * If true, the product option value is available for a shopper to choose. During configuration, this property will be false if the option value is invalid with other selected options.
+	 */
 	protected Boolean isEnabled;
 
 	public Boolean getIsEnabled() {
@@ -64,6 +84,9 @@ public class ProductOptionValue implements Serializable
 		this.isEnabled = isEnabled;
 	}
 
+	/**
+	 * If true, the entity is selected. If false, the entity is not selected.
+	 */
 	protected Boolean isSelected;
 
 	public Boolean getIsSelected() {
@@ -74,6 +97,9 @@ public class ProductOptionValue implements Serializable
 		this.isSelected = isSelected;
 	}
 
+	/**
+	 * The product attribute value entered by the shopper, if applicable.
+	 */
 	protected Object shopperEnteredValue;
 
 	public Object getShopperEnteredValue() {
@@ -84,6 +110,9 @@ public class ProductOptionValue implements Serializable
 		this.shopperEnteredValue = shopperEnteredValue;
 	}
 
+	/**
+	 * The string value entered for a product option attribute.
+	 */
 	protected String stringValue;
 
 	public String getStringValue() {
@@ -94,6 +123,9 @@ public class ProductOptionValue implements Serializable
 		this.stringValue = stringValue;
 	}
 
+	/**
+	 * The value of a product option attribute.
+	 */
 	protected Object value;
 
 	public Object getValue() {

@@ -15,7 +15,7 @@ import com.mozu.api.Headers;
 import com.mozu.api.security.AuthTicket;
 
 /** <summary>
- * 
+ * Use the Wish List Items subresource to manage items in a shopper wish list. The same product can be defined as an item in any number of wish lists for the customer account. Use the Wish Lists resource to manage shopper wish lists.
  * </summary>
  */
 public class WishlistItemResource {
@@ -29,13 +29,13 @@ public class WishlistItemResource {
 	}
 	
 	/**
-	 * 
+	 * Retrieves the details of an item in a shopper wish list.
 	 * <p><pre><code>
 	 *	WishlistItem wishlistitem = new WishlistItem();
 	 *	WishlistItem wishlistItem = wishlistitem.GetWishlistItem( wishlistId,  wishlistItemId, authTicket);
 	 * </code></pre></p>
-	 * @param wishlistId 
-	 * @param wishlistItemId 
+	 * @param wishlistId Unique identifier of the wish list item to retrieve.
+	 * @param wishlistItemId Unique identifier of the wish list associated with the item to retrieve.
 	 * @param authTicket User Auth Ticket
 	 * @return com.mozu.api.contracts.commerceruntime.wishlists.WishlistItem
 	 * @see com.mozu.api.contracts.commerceruntime.wishlists.WishlistItem
@@ -50,12 +50,12 @@ public class WishlistItemResource {
 	}
 
 	/**
-	 * 
+	 * Retrieves a list of items in a shopper wish list according to any specified filter and sort criteria.
 	 * <p><pre><code>
 	 *	WishlistItem wishlistitem = new WishlistItem();
 	 *	WishlistItemCollection wishlistItemCollection = wishlistitem.GetWishlistItems( wishlistId);
 	 * </code></pre></p>
-	 * @param wishlistId 
+	 * @param wishlistId Unique identifier of the wish list associated with the items to retrieve.
 	 * @param authTicket User Auth Ticket
 	 * @return com.mozu.api.contracts.commerceruntime.wishlists.WishlistItemCollection
 	 * @see com.mozu.api.contracts.commerceruntime.wishlists.WishlistItemCollection
@@ -66,23 +66,23 @@ public class WishlistItemResource {
 	}
 
 	/**
-	 * 
+	 * Retrieves a list of items in a shopper wish list according to any specified filter and sort criteria.
 	 * <p><pre><code>
 	 *	WishlistItem wishlistitem = new WishlistItem();
-	 *	WishlistItemCollection wishlistItemCollection = wishlistitem.GetWishlistItems( wishlistId,  filter,  pageSize,  sortBy,  startIndex, authTicket);
+	 *	WishlistItemCollection wishlistItemCollection = wishlistitem.GetWishlistItems( wishlistId,  startIndex,  pageSize,  sortBy,  filter, authTicket);
 	 * </code></pre></p>
-	 * @param filter 
-	 * @param pageSize 
-	 * @param sortBy 
-	 * @param startIndex 
-	 * @param wishlistId 
+	 * @param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
+	 * @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
+	 * @param sortBy The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"
+	 * @param startIndex When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
+	 * @param wishlistId Unique identifier of the wish list associated with the items to retrieve.
 	 * @param authTicket User Auth Ticket
 	 * @return com.mozu.api.contracts.commerceruntime.wishlists.WishlistItemCollection
 	 * @see com.mozu.api.contracts.commerceruntime.wishlists.WishlistItemCollection
 	 */
-	public com.mozu.api.contracts.commerceruntime.wishlists.WishlistItemCollection getWishlistItems(String wishlistId, String filter, Integer pageSize, String sortBy, Integer startIndex, AuthTicket authTicket) throws Exception
+	public com.mozu.api.contracts.commerceruntime.wishlists.WishlistItemCollection getWishlistItems(String wishlistId, Integer startIndex, Integer pageSize, String sortBy, String filter, AuthTicket authTicket) throws Exception
 	{
-		MozuClient<com.mozu.api.contracts.commerceruntime.wishlists.WishlistItemCollection> client = com.mozu.api.clients.commerce.wishlists.WishlistItemClient.getWishlistItemsClient( wishlistId,  filter,  pageSize,  sortBy,  startIndex, authTicket);
+		MozuClient<com.mozu.api.contracts.commerceruntime.wishlists.WishlistItemCollection> client = com.mozu.api.clients.commerce.wishlists.WishlistItemClient.getWishlistItemsClient( wishlistId,  startIndex,  pageSize,  sortBy,  filter, authTicket);
 		client.setContext(_apiContext);
 		client.executeRequest();
 		return client.getResult();
@@ -93,11 +93,53 @@ public class WishlistItemResource {
 	 * 
 	 * <p><pre><code>
 	 *	WishlistItem wishlistitem = new WishlistItem();
+	 *	WishlistItemCollection wishlistItemCollection = wishlistitem.GetWishlistItemsByWishlistName( customerAccountId,  wishlistName);
+	 * </code></pre></p>
+	 * @param customerAccountId 
+	 * @param wishlistName 
+	 * @param authTicket User Auth Ticket
+	 * @return com.mozu.api.contracts.commerceruntime.wishlists.WishlistItemCollection
+	 * @see com.mozu.api.contracts.commerceruntime.wishlists.WishlistItemCollection
+	 */
+	public com.mozu.api.contracts.commerceruntime.wishlists.WishlistItemCollection getWishlistItemsByWishlistName(Integer customerAccountId, String wishlistName) throws Exception
+	{
+		return getWishlistItemsByWishlistName( customerAccountId,  wishlistName,  null,  null,  null,  null, null);
+	}
+
+	/**
+	 * 
+	 * <p><pre><code>
+	 *	WishlistItem wishlistitem = new WishlistItem();
+	 *	WishlistItemCollection wishlistItemCollection = wishlistitem.GetWishlistItemsByWishlistName( customerAccountId,  wishlistName,  startIndex,  pageSize,  sortBy,  filter, authTicket);
+	 * </code></pre></p>
+	 * @param customerAccountId 
+	 * @param filter 
+	 * @param pageSize 
+	 * @param sortBy 
+	 * @param startIndex 
+	 * @param wishlistName 
+	 * @param authTicket User Auth Ticket
+	 * @return com.mozu.api.contracts.commerceruntime.wishlists.WishlistItemCollection
+	 * @see com.mozu.api.contracts.commerceruntime.wishlists.WishlistItemCollection
+	 */
+	public com.mozu.api.contracts.commerceruntime.wishlists.WishlistItemCollection getWishlistItemsByWishlistName(Integer customerAccountId, String wishlistName, Integer startIndex, Integer pageSize, String sortBy, String filter, AuthTicket authTicket) throws Exception
+	{
+		MozuClient<com.mozu.api.contracts.commerceruntime.wishlists.WishlistItemCollection> client = com.mozu.api.clients.commerce.wishlists.WishlistItemClient.getWishlistItemsByWishlistNameClient( customerAccountId,  wishlistName,  startIndex,  pageSize,  sortBy,  filter, authTicket);
+		client.setContext(_apiContext);
+		client.executeRequest();
+		return client.getResult();
+
+	}
+
+	/**
+	 * Adds a product in a site's catalog as an item in a shopper wish list.
+	 * <p><pre><code>
+	 *	WishlistItem wishlistitem = new WishlistItem();
 	 *	WishlistItem wishlistItem = wishlistitem.AddItemToWishlist( wishlistItem,  wishlistId, authTicket);
 	 * </code></pre></p>
-	 * @param wishlistId 
+	 * @param wishlistId Unique identifier of the wish list associated with the item to add.
 	 * @param authTicket User Auth Ticket
-	 * @param wishlistItem 
+	 * @param wishlistItem Properties of the item to add to the wish list.
 	 * @return com.mozu.api.contracts.commerceruntime.wishlists.WishlistItem
 	 * @see com.mozu.api.contracts.commerceruntime.wishlists.WishlistItem
 	 * @see com.mozu.api.contracts.commerceruntime.wishlists.WishlistItem
@@ -112,15 +154,15 @@ public class WishlistItemResource {
 	}
 
 	/**
-	 * 
+	 * Updates the details of an item in a shopper wish list.
 	 * <p><pre><code>
 	 *	WishlistItem wishlistitem = new WishlistItem();
 	 *	WishlistItem wishlistItem = wishlistitem.UpdateWishlistItem( wishlistItem,  wishlistId,  wishlistItemId, authTicket);
 	 * </code></pre></p>
-	 * @param wishlistId 
-	 * @param wishlistItemId 
+	 * @param wishlistId Unique identifier of the wish list associated with the item to update.
+	 * @param wishlistItemId Unique identifier of the item in the shopper wish list to update.
 	 * @param authTicket User Auth Ticket
-	 * @param wishlistItem 
+	 * @param wishlistItem Properties of the shopper wish list item to update.
 	 * @return com.mozu.api.contracts.commerceruntime.wishlists.WishlistItem
 	 * @see com.mozu.api.contracts.commerceruntime.wishlists.WishlistItem
 	 * @see com.mozu.api.contracts.commerceruntime.wishlists.WishlistItem
@@ -135,21 +177,21 @@ public class WishlistItemResource {
 	}
 
 	/**
-	 * 
+	 * Updates the quantity of an item in a shopper wish list.
 	 * <p><pre><code>
 	 *	WishlistItem wishlistitem = new WishlistItem();
-	 *	WishlistItem wishlistItem = wishlistitem.UpdateWishlistItemQuantity( quantity,  wishlistId,  wishlistItemId, authTicket);
+	 *	WishlistItem wishlistItem = wishlistitem.UpdateWishlistItemQuantity( wishlistId,  wishlistItemId,  quantity, authTicket);
 	 * </code></pre></p>
-	 * @param quantity 
-	 * @param wishlistId 
-	 * @param wishlistItemId 
+	 * @param quantity The quantity of the item in the wish list.
+	 * @param wishlistId Unique identifier of the wish list associated with the item quantity to update.
+	 * @param wishlistItemId Unique identifier of the item in the wish list to update quantity.
 	 * @param authTicket User Auth Ticket
 	 * @return com.mozu.api.contracts.commerceruntime.wishlists.WishlistItem
 	 * @see com.mozu.api.contracts.commerceruntime.wishlists.WishlistItem
 	 */
-	public com.mozu.api.contracts.commerceruntime.wishlists.WishlistItem updateWishlistItemQuantity(Integer quantity, String wishlistId, String wishlistItemId, AuthTicket authTicket) throws Exception
+	public com.mozu.api.contracts.commerceruntime.wishlists.WishlistItem updateWishlistItemQuantity(String wishlistId, String wishlistItemId, Integer quantity, AuthTicket authTicket) throws Exception
 	{
-		MozuClient<com.mozu.api.contracts.commerceruntime.wishlists.WishlistItem> client = com.mozu.api.clients.commerce.wishlists.WishlistItemClient.updateWishlistItemQuantityClient( quantity,  wishlistId,  wishlistItemId, authTicket);
+		MozuClient<com.mozu.api.contracts.commerceruntime.wishlists.WishlistItem> client = com.mozu.api.clients.commerce.wishlists.WishlistItemClient.updateWishlistItemQuantityClient( wishlistId,  wishlistItemId,  quantity, authTicket);
 		client.setContext(_apiContext);
 		client.executeRequest();
 		return client.getResult();
@@ -157,12 +199,12 @@ public class WishlistItemResource {
 	}
 
 	/**
-	 * 
+	 * Removes all items associated with a shopper wish list.
 	 * <p><pre><code>
 	 *	WishlistItem wishlistitem = new WishlistItem();
 	 *	Wishlist wishlist = wishlistitem.RemoveAllWishlistItems( wishlistId, authTicket);
 	 * </code></pre></p>
-	 * @param wishlistId 
+	 * @param wishlistId Unique identifier of the wish list associated with the items to remove.
 	 * @param authTicket User Auth Ticket
 	 * @return com.mozu.api.contracts.commerceruntime.wishlists.Wishlist
 	 * @see com.mozu.api.contracts.commerceruntime.wishlists.Wishlist
@@ -177,13 +219,13 @@ public class WishlistItemResource {
 	}
 
 	/**
-	 * 
+	 * Removes an item from the wish list specified in the request.
 	 * <p><pre><code>
 	 *	WishlistItem wishlistitem = new WishlistItem();
 	 *	wishlistitem.DeleteWishlistItem( wishlistId,  wishlistItemId, authTicket);
 	 * </code></pre></p>
-	 * @param wishlistId 
-	 * @param wishlistItemId 
+	 * @param wishlistId Unique identifier of the wish list associated with the item to remove.
+	 * @param wishlistItemId Unique identifier of the item to remove from the shopper wish list.
 	 * @param authTicket User Auth Ticket
 	 * @return 
 	 */

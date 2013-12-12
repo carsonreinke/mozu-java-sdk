@@ -15,7 +15,7 @@ import com.mozu.api.Headers;
 import com.mozu.api.security.AuthTicket;
 
 /** <summary>
- * 
+ * Use the shipments resource to manage shipments of collections of packages for an order.
  * </summary>
  */
 public class ShipmentResource {
@@ -29,13 +29,13 @@ public class ShipmentResource {
 	}
 	
 	/**
-	 * 
+	 * Retrieves the details of the order shipment specified in the request.
 	 * <p><pre><code>
 	 *	Shipment shipment = new Shipment();
 	 *	Shipment shipment = shipment.GetShipment( orderId,  shipmentId, authTicket);
 	 * </code></pre></p>
-	 * @param orderId 
-	 * @param shipmentId 
+	 * @param orderId Unique identifier of the order associated with the shipment to retrieve.
+	 * @param shipmentId Unique identifier of the shipment to retrieve.
 	 * @param authTicket User Auth Ticket
 	 * @return com.mozu.api.contracts.commerceruntime.fulfillment.Shipment
 	 * @see com.mozu.api.contracts.commerceruntime.fulfillment.Shipment
@@ -50,12 +50,12 @@ public class ShipmentResource {
 	}
 
 	/**
-	 * 
+	 * Retrieves the available shipping methods applicable to the order. Typically used to display available shipping method options on the checkout page.
 	 * <p><pre><code>
 	 *	Shipment shipment = new Shipment();
 	 *	ShippingRate shippingRate = shipment.GetAvailableShipmentMethods( orderId, authTicket);
 	 * </code></pre></p>
-	 * @param orderId 
+	 * @param orderId Unique identifier of the order for the available shipment methods being retrieved.
 	 * @param authTicket User Auth Ticket
 	 * @return List<com.mozu.api.contracts.commerceruntime.fulfillment.ShippingRate>
 	 * @see com.mozu.api.contracts.commerceruntime.fulfillment.ShippingRate
@@ -70,14 +70,14 @@ public class ShipmentResource {
 	}
 
 	/**
-	 * 
+	 * Creates a shipment from one or more package associated with an order and assign a label and tracking number to an order shipment.
 	 * <p><pre><code>
 	 *	Shipment shipment = new Shipment();
 	 *	Package package = shipment.CreatePackageShipments( packageIds,  orderId, authTicket);
 	 * </code></pre></p>
-	 * @param orderId 
+	 * @param orderId Unique identifier of the order for this shipment.
 	 * @param authTicket User Auth Ticket
-	 * @param packageIds 
+	 * @param packageIds List of unique identifiers for each package associated with this shipment. Not all packages must belong to the same shipment.
 	 * @return List<com.mozu.api.contracts.commerceruntime.fulfillment.Package>
 	 * @see com.mozu.api.contracts.commerceruntime.fulfillment.Package
 	 * @see string
@@ -92,13 +92,13 @@ public class ShipmentResource {
 	}
 
 	/**
-	 * 
+	 * Deletes the shipment specified in the request.
 	 * <p><pre><code>
 	 *	Shipment shipment = new Shipment();
 	 *	shipment.DeleteShipment( orderId,  shipmentId, authTicket);
 	 * </code></pre></p>
-	 * @param orderId 
-	 * @param shipmentId 
+	 * @param orderId Unique identifier of the order to cancel shipment.
+	 * @param shipmentId Unique identifier of the shipment to cancel.
 	 * @param authTicket User Auth Ticket
 	 * @return 
 	 */

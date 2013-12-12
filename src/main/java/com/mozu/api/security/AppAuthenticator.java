@@ -1,6 +1,9 @@
 package com.mozu.api.security;
 
+
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.Date;
 
 import org.apache.http.HttpHost;
@@ -13,6 +16,7 @@ import org.slf4j.LoggerFactory;
 
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mozu.api.ApiException;
 import com.mozu.api.Headers;
@@ -32,6 +36,8 @@ public class AppAuthenticator {
 
     protected static Object lockObj = new Object();
 
+    static private boolean useSSL = false;
+
     private AppAuthInfo appAuthInfo = null;
 
     private HttpHost proxyHttpHost = HttpHelper.getProxyHost();
@@ -41,6 +47,7 @@ public class AppAuthenticator {
     private RefreshInterval refreshInterval = null;
 
     private String baseUrl;
+    
 
     private AppAuthenticator(AppAuthInfo appAuthInfo, String baseUrl) {
         this(appAuthInfo, baseUrl, null);
@@ -84,6 +91,16 @@ public class AppAuthenticator {
                     try {
                         auth = new AppAuthenticator(appAuthInfo, baseAppAuthUrl, refreshInterval);
                         auth.authenticateApp();
+                        if (org.apache.commons.lang.StringUtils.isNotBlank(baseAppAuthUrl)) {
+                            try {
+                                URL url = new URL(baseAppAuthUrl);
+                                AppAuthenticator.useSSL = url.getProtocol().toLowerCase().equals("https");
+                            } catch (MalformedURLException mue){
+                                StringBuilder msgBuilder = new StringBuilder("Base URL is malformed. ");
+                                msgBuilder.append(mue.getMessage());
+                                logger.error(msgBuilder.toString());
+                            }
+                        }
                     } catch (ApiException ae) {
                         auth = null;
                         throw ae;
@@ -224,6 +241,10 @@ public class AppAuthenticator {
         return this.appAuthTicket;
     }
 
+    public AppAuthInfo getAppAuthInfo() {
+        return appAuthInfo;
+    }
+
     public String getBaseUrl() {
         return baseUrl;
     }
@@ -238,6 +259,10 @@ public class AppAuthenticator {
         this.proxyHttpHost = proxyHttpHost;
     }
     
+    public static boolean isUseSSL() {
+        return useSSL;
+    }
+
     private long getExpirationInterval (Date expirationDateTime) {
         long interval = 0;
                 

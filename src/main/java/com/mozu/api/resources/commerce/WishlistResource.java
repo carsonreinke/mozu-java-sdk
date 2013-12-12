@@ -15,7 +15,7 @@ import com.mozu.api.Headers;
 import com.mozu.api.security.AuthTicket;
 
 /** <summary>
- * 
+ * Use the Wish Lists resource to manage the shopper wish lists of products associated with a customer account. Although customer accounts are managed at the tenant level, the system stores shopper wish lists at the site level. This enables the same customer to have wish lists for each of a merchant's sites. Use the Wish List Items resource to manage items in a wish list.
  * </summary>
  */
 public class WishlistResource {
@@ -29,7 +29,7 @@ public class WishlistResource {
 	}
 	
 	/**
-	 * 
+	 * Retrieves a list of shopper wish lists according to any filter and sort criteria.
 	 * <p><pre><code>
 	 *	Wishlist wishlist = new Wishlist();
 	 *	WishlistCollection wishlistCollection = wishlist.GetWishlists();
@@ -44,24 +44,24 @@ public class WishlistResource {
 	}
 
 	/**
-	 * 
+	 * Retrieves a list of shopper wish lists according to any filter and sort criteria.
 	 * <p><pre><code>
 	 *	Wishlist wishlist = new Wishlist();
-	 *	WishlistCollection wishlistCollection = wishlist.GetWishlists( filter,  pageSize,  q,  qLimit,  sortBy,  startIndex, authTicket);
+	 *	WishlistCollection wishlistCollection = wishlist.GetWishlists( startIndex,  pageSize,  sortBy,  filter,  q,  qLimit, authTicket);
 	 * </code></pre></p>
-	 * @param filter 
-	 * @param pageSize 
-	 * @param q 
-	 * @param qLimit 
-	 * @param sortBy 
-	 * @param startIndex 
+	 * @param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
+	 * @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
+	 * @param q A list of search terms to use in the query when searching across wish list name. Separate multiple search terms with a space character.
+	 * @param qLimit The maximum number of search results to return in the response. You can limit any range between 1-100.
+	 * @param sortBy The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"
+	 * @param startIndex When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
 	 * @param authTicket User Auth Ticket
 	 * @return com.mozu.api.contracts.commerceruntime.wishlists.WishlistCollection
 	 * @see com.mozu.api.contracts.commerceruntime.wishlists.WishlistCollection
 	 */
-	public com.mozu.api.contracts.commerceruntime.wishlists.WishlistCollection getWishlists(String filter, Integer pageSize, String q, Integer qLimit, String sortBy, Integer startIndex, AuthTicket authTicket) throws Exception
+	public com.mozu.api.contracts.commerceruntime.wishlists.WishlistCollection getWishlists(Integer startIndex, Integer pageSize, String sortBy, String filter, String q, Integer qLimit, AuthTicket authTicket) throws Exception
 	{
-		MozuClient<com.mozu.api.contracts.commerceruntime.wishlists.WishlistCollection> client = com.mozu.api.clients.commerce.WishlistClient.getWishlistsClient( filter,  pageSize,  q,  qLimit,  sortBy,  startIndex, authTicket);
+		MozuClient<com.mozu.api.contracts.commerceruntime.wishlists.WishlistCollection> client = com.mozu.api.clients.commerce.WishlistClient.getWishlistsClient( startIndex,  pageSize,  sortBy,  filter,  q,  qLimit, authTicket);
 		client.setContext(_apiContext);
 		client.executeRequest();
 		return client.getResult();
@@ -69,12 +69,12 @@ public class WishlistResource {
 	}
 
 	/**
-	 * 
+	 * Retrieves the details of the shopper wish list specified in the request.
 	 * <p><pre><code>
 	 *	Wishlist wishlist = new Wishlist();
 	 *	Wishlist wishlist = wishlist.GetWishlist( wishlistId, authTicket);
 	 * </code></pre></p>
-	 * @param wishlistId 
+	 * @param wishlistId Unique identifier of the shopper wish list to retrieve.
 	 * @param authTicket User Auth Ticket
 	 * @return com.mozu.api.contracts.commerceruntime.wishlists.Wishlist
 	 * @see com.mozu.api.contracts.commerceruntime.wishlists.Wishlist
@@ -92,10 +92,31 @@ public class WishlistResource {
 	 * 
 	 * <p><pre><code>
 	 *	Wishlist wishlist = new Wishlist();
+	 *	Wishlist wishlist = wishlist.GetWishlistByName( customerAccountId,  wishlistName, authTicket);
+	 * </code></pre></p>
+	 * @param customerAccountId 
+	 * @param wishlistName 
+	 * @param authTicket User Auth Ticket
+	 * @return com.mozu.api.contracts.commerceruntime.wishlists.Wishlist
+	 * @see com.mozu.api.contracts.commerceruntime.wishlists.Wishlist
+	 */
+	public com.mozu.api.contracts.commerceruntime.wishlists.Wishlist getWishlistByName(Integer customerAccountId, String wishlistName, AuthTicket authTicket) throws Exception
+	{
+		MozuClient<com.mozu.api.contracts.commerceruntime.wishlists.Wishlist> client = com.mozu.api.clients.commerce.WishlistClient.getWishlistByNameClient( customerAccountId,  wishlistName, authTicket);
+		client.setContext(_apiContext);
+		client.executeRequest();
+		return client.getResult();
+
+	}
+
+	/**
+	 * Creates a new shopper wish list for the associated customer account. Although customer accounts are maintained at the tenant level, the system stores wish lists at the site level. Newly created wish lists do not have any items.
+	 * <p><pre><code>
+	 *	Wishlist wishlist = new Wishlist();
 	 *	Wishlist wishlist = wishlist.CreateWishlist( wishlist, authTicket);
 	 * </code></pre></p>
 	 * @param authTicket User Auth Ticket
-	 * @param wishlist 
+	 * @param wishlist Properties of the wish list to create.
 	 * @return com.mozu.api.contracts.commerceruntime.wishlists.Wishlist
 	 * @see com.mozu.api.contracts.commerceruntime.wishlists.Wishlist
 	 * @see com.mozu.api.contracts.commerceruntime.wishlists.Wishlist
@@ -110,14 +131,14 @@ public class WishlistResource {
 	}
 
 	/**
-	 * 
+	 * Updates one or more properties of a shopper wish list defined for a customer account.
 	 * <p><pre><code>
 	 *	Wishlist wishlist = new Wishlist();
 	 *	Wishlist wishlist = wishlist.UpdateWishlist( wishlist,  wishlistId, authTicket);
 	 * </code></pre></p>
-	 * @param wishlistId 
+	 * @param wishlistId Unique identifier of the shopper wish list to update.
 	 * @param authTicket User Auth Ticket
-	 * @param wishlist 
+	 * @param wishlist Properties of the shopper wish list to update.
 	 * @return com.mozu.api.contracts.commerceruntime.wishlists.Wishlist
 	 * @see com.mozu.api.contracts.commerceruntime.wishlists.Wishlist
 	 * @see com.mozu.api.contracts.commerceruntime.wishlists.Wishlist
@@ -132,12 +153,12 @@ public class WishlistResource {
 	}
 
 	/**
-	 * 
+	 * Deletes the shopper wish list specified in the request and all items associated with it.
 	 * <p><pre><code>
 	 *	Wishlist wishlist = new Wishlist();
 	 *	wishlist.DeleteWishlist( wishlistId, authTicket);
 	 * </code></pre></p>
-	 * @param wishlistId 
+	 * @param wishlistId Unique identifier of the wish list to delete.
 	 * @param authTicket User Auth Ticket
 	 * @return 
 	 */

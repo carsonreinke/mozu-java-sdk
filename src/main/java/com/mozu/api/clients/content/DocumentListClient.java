@@ -14,15 +14,15 @@ import com.mozu.api.Headers;
 import com.mozu.api.security.AuthTicket;
 
 /** <summary>
- * 
+ * Use the document lists resource to organize your site's documents into a hierarchy. Document lists can contain documents, folders, and complete hierarchies of folders, which contain documents with unique names.
  * </summary>
  */
 public class DocumentListClient {
 	
 	/**
-	 * 
+	 * Retrieves a collection of document lists.
 	 * <p><pre><code>
-	 * MozuClient<com.mozu.api.contracts.content.DocumentListCollection> mozuClient=GetDocumentListsClient();
+	 * MozuClient<com.mozu.api.contracts.content.DocumentListCollection> mozuClient=GetDocumentListsClient(dataViewMode);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * DocumentListCollection documentListCollection = client.Result();
@@ -31,27 +31,27 @@ public class DocumentListClient {
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.content.DocumentListCollection>
 	 * @see com.mozu.api.contracts.content.DocumentListCollection
 	 */
-	public static MozuClient<com.mozu.api.contracts.content.DocumentListCollection> getDocumentListsClient() throws Exception
+	public static MozuClient<com.mozu.api.contracts.content.DocumentListCollection> getDocumentListsClient(com.mozu.api.DataViewMode dataViewMode) throws Exception
 	{
-		return getDocumentListsClient( null,  null,  null, null);
+		return getDocumentListsClient(dataViewMode,  null,  null,  null, null);
 	}
 
 	/**
-	 * 
+	 * Retrieves a collection of document lists.
 	 * <p><pre><code>
-	 * MozuClient<com.mozu.api.contracts.content.DocumentListCollection> mozuClient=GetDocumentListsClient( pageSize,  sort,  startIndex, authTicket);
+	 * MozuClient<com.mozu.api.contracts.content.DocumentListCollection> mozuClient=GetDocumentListsClient(dataViewMode,  pageSize,  startIndex,  sort, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * DocumentListCollection documentListCollection = client.Result();
 	 * </code></pre></p>
-	 * @param pageSize 
+	 * @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
 	 * @param sort 
 	 * @param startIndex 
 	 * @param authTicket User Auth Ticket
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.content.DocumentListCollection>
 	 * @see com.mozu.api.contracts.content.DocumentListCollection
 	 */
-	public static MozuClient<com.mozu.api.contracts.content.DocumentListCollection> getDocumentListsClient(Integer pageSize, String sort, Integer startIndex, AuthTicket authTicket) throws Exception
+	public static MozuClient<com.mozu.api.contracts.content.DocumentListCollection> getDocumentListsClient(com.mozu.api.DataViewMode dataViewMode, Integer pageSize, Integer startIndex, String sort, AuthTicket authTicket) throws Exception
 	{
 		MozuUrl url = com.mozu.api.urls.content.DocumentListUrl.getDocumentListsUrl(pageSize, sort, startIndex);
 		String verb = "GET";
@@ -59,6 +59,7 @@ public class DocumentListClient {
 		MozuClient<com.mozu.api.contracts.content.DocumentListCollection> mozuClient = new MozuClient(clz);
 		mozuClient.setVerb(verb);
 		mozuClient.setResourceUrl(url);
+		mozuClient.addHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.toString());
 		if (authTicket != null)
 			mozuClient.setUserAuth(authTicket);
 		return mozuClient;
@@ -66,19 +67,19 @@ public class DocumentListClient {
 	}
 
 	/**
-	 * 
+	 * Retrieve the details of a document list by providing the list name.
 	 * <p><pre><code>
-	 * MozuClient<com.mozu.api.contracts.content.DocumentList> mozuClient=GetDocumentListClient( documentListName, authTicket);
+	 * MozuClient<com.mozu.api.contracts.content.DocumentList> mozuClient=GetDocumentListClient(dataViewMode,  documentListName, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * DocumentList documentList = client.Result();
 	 * </code></pre></p>
-	 * @param documentListName 
+	 * @param documentListName The name of the document list.
 	 * @param authTicket User Auth Ticket
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.content.DocumentList>
 	 * @see com.mozu.api.contracts.content.DocumentList
 	 */
-	public static MozuClient<com.mozu.api.contracts.content.DocumentList> getDocumentListClient(String documentListName, AuthTicket authTicket) throws Exception
+	public static MozuClient<com.mozu.api.contracts.content.DocumentList> getDocumentListClient(com.mozu.api.DataViewMode dataViewMode, String documentListName, AuthTicket authTicket) throws Exception
 	{
 		MozuUrl url = com.mozu.api.urls.content.DocumentListUrl.getDocumentListUrl(documentListName);
 		String verb = "GET";
@@ -86,6 +87,7 @@ public class DocumentListClient {
 		MozuClient<com.mozu.api.contracts.content.DocumentList> mozuClient = new MozuClient(clz);
 		mozuClient.setVerb(verb);
 		mozuClient.setResourceUrl(url);
+		mozuClient.addHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.toString());
 		if (authTicket != null)
 			mozuClient.setUserAuth(authTicket);
 		return mozuClient;

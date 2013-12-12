@@ -14,13 +14,13 @@ import com.mozu.api.Headers;
 import com.mozu.api.security.AuthTicket;
 
 /** <summary>
- * 
+ * Define and manage discounts to apply to products, product categories, or orders. The discounts can be a specified amount off the price, percentage off the price, or for free shipping. Create a coupon code that shoppers can use to redeem the discount.
  * </summary>
  */
 public class DiscountClient {
 	
 	/**
-	 * 
+	 * Retrieves a list of discounts according to any specified filter criteria and sort options.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.productadmin.DiscountCollection> mozuClient=GetDiscountsClient(dataViewMode);
 	 * client.setBaseAddress(url);
@@ -37,22 +37,22 @@ public class DiscountClient {
 	}
 
 	/**
-	 * 
+	 * Retrieves a list of discounts according to any specified filter criteria and sort options.
 	 * <p><pre><code>
-	 * MozuClient<com.mozu.api.contracts.productadmin.DiscountCollection> mozuClient=GetDiscountsClient(dataViewMode,  filter,  pageSize,  sortBy,  startIndex, authTicket);
+	 * MozuClient<com.mozu.api.contracts.productadmin.DiscountCollection> mozuClient=GetDiscountsClient(dataViewMode,  startIndex,  pageSize,  sortBy,  filter, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * DiscountCollection discountCollection = client.Result();
 	 * </code></pre></p>
-	 * @param filter 
-	 * @param pageSize 
+	 * @param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
+	 * @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
 	 * @param sortBy 
 	 * @param startIndex 
 	 * @param authTicket User Auth Ticket
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.productadmin.DiscountCollection>
 	 * @see com.mozu.api.contracts.productadmin.DiscountCollection
 	 */
-	public static MozuClient<com.mozu.api.contracts.productadmin.DiscountCollection> getDiscountsClient(com.mozu.api.DataViewMode dataViewMode, String filter, Integer pageSize, String sortBy, Integer startIndex, AuthTicket authTicket) throws Exception
+	public static MozuClient<com.mozu.api.contracts.productadmin.DiscountCollection> getDiscountsClient(com.mozu.api.DataViewMode dataViewMode, Integer startIndex, Integer pageSize, String sortBy, String filter, AuthTicket authTicket) throws Exception
 	{
 		MozuUrl url = com.mozu.api.urls.commerce.catalog.admin.DiscountUrl.getDiscountsUrl(filter, pageSize, sortBy, startIndex);
 		String verb = "GET";
@@ -68,14 +68,14 @@ public class DiscountClient {
 	}
 
 	/**
-	 * 
+	 * Retrieves the details of a single discount.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.productadmin.Discount> mozuClient=GetDiscountClient(dataViewMode,  discountId, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * Discount discount = client.Result();
 	 * </code></pre></p>
-	 * @param discountId 
+	 * @param discountId Unique identifier of the discount. System-supplied and read-only.
 	 * @param authTicket User Auth Ticket
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.productadmin.Discount>
 	 * @see com.mozu.api.contracts.productadmin.Discount
@@ -96,14 +96,14 @@ public class DiscountClient {
 	}
 
 	/**
-	 * 
+	 * Retrieves the localized content specified for the specified discount.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.productadmin.DiscountLocalizedContent> mozuClient=GetDiscountContentClient(dataViewMode,  discountId, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * DiscountLocalizedContent discountLocalizedContent = client.Result();
 	 * </code></pre></p>
-	 * @param discountId 
+	 * @param discountId Unique identifier of the discount. System-supplied and read-only.
 	 * @param authTicket User Auth Ticket
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.productadmin.DiscountLocalizedContent>
 	 * @see com.mozu.api.contracts.productadmin.DiscountLocalizedContent
@@ -124,7 +124,7 @@ public class DiscountClient {
 	}
 
 	/**
-	 * 
+	 * Generates a random code for a coupon.
 	 * <p><pre><code>
 	 * MozuClient<String> mozuClient=GenerateRandomCouponClient(dataViewMode, authTicket);
 	 * client.setBaseAddress(url);
@@ -151,7 +151,7 @@ public class DiscountClient {
 	}
 
 	/**
-	 * 
+	 * Creates a discount.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.productadmin.Discount> mozuClient=CreateDiscountClient(dataViewMode,  discount, authTicket);
 	 * client.setBaseAddress(url);
@@ -159,7 +159,7 @@ public class DiscountClient {
 	 * Discount discount = client.Result();
 	 * </code></pre></p>
 	 * @param authTicket User Auth Ticket
-	 * @param discount 
+	 * @param discount Properties of the discount to create. Required properties: Content.Name, AmountType, StartDate, and Target.Type.
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.productadmin.Discount>
 	 * @see com.mozu.api.contracts.productadmin.Discount
 	 * @see com.mozu.api.contracts.productadmin.Discount
@@ -181,7 +181,7 @@ public class DiscountClient {
 	}
 
 	/**
-	 * 
+	 * Redeems a discount configured in the product admin.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.productadmin.discounts.Redemption> mozuClient=RedeemDiscountClient(dataViewMode,  redemption, authTicket);
 	 * client.setBaseAddress(url);
@@ -189,7 +189,7 @@ public class DiscountClient {
 	 * Redemption redemption = client.Result();
 	 * </code></pre></p>
 	 * @param authTicket User Auth Ticket
-	 * @param redemption 
+	 * @param redemption Properties of the product discount redemption.
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.productadmin.discounts.Redemption>
 	 * @see com.mozu.api.contracts.productadmin.discounts.Redemption
 	 * @see com.mozu.api.contracts.productadmin.discounts.Redemption
@@ -211,16 +211,16 @@ public class DiscountClient {
 	}
 
 	/**
-	 * 
+	 * Modifies a discount.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.productadmin.Discount> mozuClient=UpdateDiscountClient(dataViewMode,  discount,  discountId, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * Discount discount = client.Result();
 	 * </code></pre></p>
-	 * @param discountId 
+	 * @param discountId Unique identifier of the discount. System-supplied and read-only.
 	 * @param authTicket User Auth Ticket
-	 * @param discount 
+	 * @param discount Properties of the discount to update. Required properties: Content.Name, AmountType, StartDate, and Target.Type. Any unspecified properties are set to null and boolean variables are set to false.
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.productadmin.Discount>
 	 * @see com.mozu.api.contracts.productadmin.Discount
 	 * @see com.mozu.api.contracts.productadmin.Discount
@@ -242,16 +242,16 @@ public class DiscountClient {
 	}
 
 	/**
-	 * 
+	 * Modifies the localized content for the specified discount. Rename the discount without modifying any other discount properties.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.productadmin.DiscountLocalizedContent> mozuClient=UpdateDiscountContentClient(dataViewMode,  content,  discountId, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * DiscountLocalizedContent discountLocalizedContent = client.Result();
 	 * </code></pre></p>
-	 * @param discountId 
+	 * @param discountId Unique identifier of the discount. System-supplied and read-only.
 	 * @param authTicket User Auth Ticket
-	 * @param content 
+	 * @param content New Name and/or LocaleCode. Properties of the content to update. Required property: Name.
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.productadmin.DiscountLocalizedContent>
 	 * @see com.mozu.api.contracts.productadmin.DiscountLocalizedContent
 	 * @see com.mozu.api.contracts.productadmin.DiscountLocalizedContent
@@ -273,13 +273,13 @@ public class DiscountClient {
 	}
 
 	/**
-	 * 
+	 * Deletes a discount specified by its discount ID.
 	 * <p><pre><code>
 	 * MozuClient mozuClient=DeleteDiscountClient(dataViewMode,  discountId, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * </code></pre></p>
-	 * @param discountId 
+	 * @param discountId Unique identifier of the discount. System-supplied and read-only.
 	 * @param authTicket User Auth Ticket
 	 * @return Mozu.Api.MozuClient 
 	 */
@@ -298,7 +298,7 @@ public class DiscountClient {
 	}
 
 	/**
-	 * 
+	 * Deletes a previous discount redemption from an order.
 	 * <p><pre><code>
 	 * MozuClient mozuClient=UnRedeemDiscountClient(dataViewMode);
 	 * client.setBaseAddress(url);
@@ -313,14 +313,14 @@ public class DiscountClient {
 	}
 
 	/**
-	 * 
+	 * Deletes a previous discount redemption from an order.
 	 * <p><pre><code>
 	 * MozuClient mozuClient=UnRedeemDiscountClient(dataViewMode,  discountId,  orderNumber, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * </code></pre></p>
-	 * @param discountId 
-	 * @param orderNumber 
+	 * @param discountId Unique identifier of the previously redeemed discount. System-supplied and read only.
+	 * @param orderNumber The number of the order associated with the redeemed product discount.
 	 * @param authTicket User Auth Ticket
 	 * @return Mozu.Api.MozuClient 
 	 */

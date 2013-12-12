@@ -8,13 +8,21 @@ package com.mozu.api.contracts.content;
 
 import java.util.List;
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 
+/**
+ *	The list of document types and related properties that define content used by the content management system (CMS).
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class DocumentList implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * A document type is a template.
+	 */
 	protected List<String> documentTypes;
 	public List<String> getDocumentTypes() {
 		return this.documentTypes;
@@ -23,6 +31,9 @@ public class DocumentList implements Serializable
 		this.documentTypes = documentTypes;
 	}
 
+	/**
+	 * If true, publishing of draft documents in this document list is enabled for the site. If false, all document changes are immediately published in live mode.
+	 */
 	protected Boolean enablePublishing;
 
 	public Boolean getEnablePublishing() {
@@ -33,6 +44,9 @@ public class DocumentList implements Serializable
 		this.enablePublishing = enablePublishing;
 	}
 
+	/**
+	 * The name of the document list.
+	 */
 	protected String name;
 
 	public String getName() {
@@ -43,6 +57,9 @@ public class DocumentList implements Serializable
 		this.name = name;
 	}
 
+	/**
+	 * If true, changes documents in this list can be saved as drafts until they are published to the site. If false, all document changes are immediately published in live mode. System-supplied and read only.
+	 */
 	protected Boolean supportsPublishing;
 
 	public Boolean getSupportsPublishing() {

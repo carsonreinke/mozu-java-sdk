@@ -14,15 +14,15 @@ import com.mozu.api.Headers;
 import com.mozu.api.security.AuthTicket;
 
 /** <summary>
- * 
+ * The DocumentTypes resource is a part of the Content Service.
  * </summary>
  */
 public class DocumentTypeClient {
 	
 	/**
-	 * 
+	 * Retrieves a paged list of DocumentTypes.
 	 * <p><pre><code>
-	 * MozuClient<com.mozu.api.contracts.content.DocumentTypeCollection> mozuClient=ListClient();
+	 * MozuClient<com.mozu.api.contracts.content.DocumentTypeCollection> mozuClient=ListClient(dataViewMode);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * DocumentTypeCollection documentTypeCollection = client.Result();
@@ -31,15 +31,15 @@ public class DocumentTypeClient {
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.content.DocumentTypeCollection>
 	 * @see com.mozu.api.contracts.content.DocumentTypeCollection
 	 */
-	public static MozuClient<com.mozu.api.contracts.content.DocumentTypeCollection> listClient() throws Exception
+	public static MozuClient<com.mozu.api.contracts.content.DocumentTypeCollection> listClient(com.mozu.api.DataViewMode dataViewMode) throws Exception
 	{
-		return listClient( null,  null, null);
+		return listClient(dataViewMode,  null,  null, null);
 	}
 
 	/**
-	 * 
+	 * Retrieves a paged list of DocumentTypes.
 	 * <p><pre><code>
-	 * MozuClient<com.mozu.api.contracts.content.DocumentTypeCollection> mozuClient=ListClient( pageSize,  startIndex, authTicket);
+	 * MozuClient<com.mozu.api.contracts.content.DocumentTypeCollection> mozuClient=ListClient(dataViewMode,  pageSize,  startIndex, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * DocumentTypeCollection documentTypeCollection = client.Result();
@@ -50,7 +50,7 @@ public class DocumentTypeClient {
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.content.DocumentTypeCollection>
 	 * @see com.mozu.api.contracts.content.DocumentTypeCollection
 	 */
-	public static MozuClient<com.mozu.api.contracts.content.DocumentTypeCollection> listClient(Integer pageSize, Integer startIndex, AuthTicket authTicket) throws Exception
+	public static MozuClient<com.mozu.api.contracts.content.DocumentTypeCollection> listClient(com.mozu.api.DataViewMode dataViewMode, Integer pageSize, Integer startIndex, AuthTicket authTicket) throws Exception
 	{
 		MozuUrl url = com.mozu.api.urls.content.DocumentTypeUrl.listUrl(pageSize, startIndex);
 		String verb = "GET";
@@ -58,6 +58,7 @@ public class DocumentTypeClient {
 		MozuClient<com.mozu.api.contracts.content.DocumentTypeCollection> mozuClient = new MozuClient(clz);
 		mozuClient.setVerb(verb);
 		mozuClient.setResourceUrl(url);
+		mozuClient.addHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.toString());
 		if (authTicket != null)
 			mozuClient.setUserAuth(authTicket);
 		return mozuClient;
@@ -65,19 +66,19 @@ public class DocumentTypeClient {
 	}
 
 	/**
-	 * 
+	 * Retrieves an existing DocumentType.
 	 * <p><pre><code>
-	 * MozuClient<com.mozu.api.contracts.content.DocumentType> mozuClient=GetClient( documentTypeName, authTicket);
+	 * MozuClient<com.mozu.api.contracts.content.DocumentType> mozuClient=GetClient(dataViewMode,  documentTypeName, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * DocumentType documentType = client.Result();
 	 * </code></pre></p>
-	 * @param documentTypeName 
+	 * @param documentTypeName The documentType name being retrieved.
 	 * @param authTicket User Auth Ticket
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.content.DocumentType>
 	 * @see com.mozu.api.contracts.content.DocumentType
 	 */
-	public static MozuClient<com.mozu.api.contracts.content.DocumentType> getClient(String documentTypeName, AuthTicket authTicket) throws Exception
+	public static MozuClient<com.mozu.api.contracts.content.DocumentType> getClient(com.mozu.api.DataViewMode dataViewMode, String documentTypeName, AuthTicket authTicket) throws Exception
 	{
 		MozuUrl url = com.mozu.api.urls.content.DocumentTypeUrl.getUrl(documentTypeName);
 		String verb = "GET";
@@ -85,6 +86,7 @@ public class DocumentTypeClient {
 		MozuClient<com.mozu.api.contracts.content.DocumentType> mozuClient = new MozuClient(clz);
 		mozuClient.setVerb(verb);
 		mozuClient.setResourceUrl(url);
+		mozuClient.addHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.toString());
 		if (authTicket != null)
 			mozuClient.setUserAuth(authTicket);
 		return mozuClient;

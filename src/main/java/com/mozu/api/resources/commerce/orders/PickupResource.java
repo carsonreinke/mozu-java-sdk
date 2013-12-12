@@ -15,7 +15,7 @@ import com.mozu.api.Headers;
 import com.mozu.api.security.AuthTicket;
 
 /** <summary>
- * 
+ * Use the Pickups resource to organize items submitted in an order into pickups that enable the shopper to fulfill the order items using the in-store pickup method.
  * </summary>
  */
 public class PickupResource {
@@ -29,13 +29,13 @@ public class PickupResource {
 	}
 	
 	/**
-	 * 
+	 * Retrieves the details of the in-store pickup specified in the request.
 	 * <p><pre><code>
 	 *	Pickup pickup = new Pickup();
 	 *	Pickup pickup = pickup.GetPickup( orderId,  pickupId, authTicket);
 	 * </code></pre></p>
-	 * @param orderId 
-	 * @param pickupId 
+	 * @param orderId Unique identifier of the order associated with the pickup.
+	 * @param pickupId Unique identifier of the pickup to retrieve.
 	 * @param authTicket User Auth Ticket
 	 * @return com.mozu.api.contracts.commerceruntime.fulfillment.Pickup
 	 * @see com.mozu.api.contracts.commerceruntime.fulfillment.Pickup
@@ -50,13 +50,13 @@ public class PickupResource {
 	}
 
 	/**
-	 * 
+	 * Retrieves a list of the actions available to perform for the pickup specified in the request.
 	 * <p><pre><code>
 	 *	Pickup pickup = new Pickup();
 	 *	string string = pickup.GetAvailablePickupFulfillmentActions( orderId,  pickupId, authTicket);
 	 * </code></pre></p>
-	 * @param orderId 
-	 * @param pickupId 
+	 * @param orderId Unique identifier of the order associated with the pickup.
+	 * @param pickupId Unique identifier of the pickup for which to retrieve available actions.
 	 * @param authTicket User Auth Ticket
 	 * @return List<string>
 	 * @see string
@@ -71,14 +71,14 @@ public class PickupResource {
 	}
 
 	/**
-	 * 
+	 * Create a new pickup for the order specified in the request for in-store fufillment.
 	 * <p><pre><code>
 	 *	Pickup pickup = new Pickup();
 	 *	Pickup pickup = pickup.CreatePickup( pickup,  orderId, authTicket);
 	 * </code></pre></p>
-	 * @param orderId 
+	 * @param orderId Unique identifier of the order.
 	 * @param authTicket User Auth Ticket
-	 * @param pickup 
+	 * @param pickup Properties of the in-store pickup to create.
 	 * @return com.mozu.api.contracts.commerceruntime.fulfillment.Pickup
 	 * @see com.mozu.api.contracts.commerceruntime.fulfillment.Pickup
 	 * @see com.mozu.api.contracts.commerceruntime.fulfillment.Pickup
@@ -93,15 +93,15 @@ public class PickupResource {
 	}
 
 	/**
-	 * 
+	 * Updates one or more details of a defined in-store pickup.
 	 * <p><pre><code>
 	 *	Pickup pickup = new Pickup();
 	 *	Pickup pickup = pickup.UpdatePickup( pickup,  orderId,  pickupId, authTicket);
 	 * </code></pre></p>
-	 * @param orderId 
-	 * @param pickupId 
+	 * @param orderId Unique identifier of the order associated with the in-store pickup.
+	 * @param pickupId Unique identifier of the pickup to update.
 	 * @param authTicket User Auth Ticket
-	 * @param pickup 
+	 * @param pickup Properties of the in-store pickup to update.
 	 * @return com.mozu.api.contracts.commerceruntime.fulfillment.Pickup
 	 * @see com.mozu.api.contracts.commerceruntime.fulfillment.Pickup
 	 * @see com.mozu.api.contracts.commerceruntime.fulfillment.Pickup
@@ -116,13 +116,13 @@ public class PickupResource {
 	}
 
 	/**
-	 * 
+	 * Removes a pickup previously defined for order item in-store pickup fulfillment.
 	 * <p><pre><code>
 	 *	Pickup pickup = new Pickup();
 	 *	pickup.DeletePickup( orderId,  pickupId, authTicket);
 	 * </code></pre></p>
-	 * @param orderId 
-	 * @param pickupId 
+	 * @param orderId Unique identifier of the order associated with the pickup.
+	 * @param pickupId Unique identifier of the pickup to remove.
 	 * @param authTicket User Auth Ticket
 	 * @return 
 	 */

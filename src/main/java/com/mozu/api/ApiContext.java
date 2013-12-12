@@ -57,13 +57,7 @@ public interface ApiContext {
      */
     Integer getCatalogId();
     
-    /**
-     * 
-     * @param domain
-     * @return
-     */
-    String getUrl(String domain);
-    
+   
     /**
      * Get the current tenant
      * @return null if there is not a current tenant, otherwise return a tenant.

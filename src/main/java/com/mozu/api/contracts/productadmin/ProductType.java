@@ -8,15 +8,23 @@ package com.mozu.api.contracts.productadmin;
 
 import java.util.List;
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 import com.mozu.api.contracts.core.AuditInfo;
 import com.mozu.api.contracts.productadmin.AttributeInProductType;
 
+/**
+ *	A product type is like a product template.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class ProductType implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Identifier of the entity.
+	 */
 	protected Integer id;
 
 	public Integer getId() {
@@ -27,6 +35,9 @@ public class ProductType implements Serializable
 		this.id = id;
 	}
 
+	/**
+	 * If true, this product is associated with the overall product type. There is only one BaseProductType per site group. System-supplied and read-only.
+	 */
 	protected Boolean isBaseProductType;
 
 	public Boolean getIsBaseProductType() {
@@ -47,6 +58,9 @@ public class ProductType implements Serializable
 		this.masterCatalogId = masterCatalogId;
 	}
 
+	/**
+	 * Name of the product type, such as "Shoes" or "TVs".
+	 */
 	protected String name;
 
 	public String getName() {
@@ -57,6 +71,9 @@ public class ProductType implements Serializable
 		this.name = name;
 	}
 
+	/**
+	 * The number of products associated with this product type.
+	 */
 	protected Integer productCount;
 
 	public Integer getProductCount() {
@@ -67,6 +84,17 @@ public class ProductType implements Serializable
 		this.productCount = productCount;
 	}
 
+	protected List<String> productUsages;
+	public List<String> getProductUsages() {
+		return this.productUsages;
+	}
+	public void setProductUsages(List<String> productUsages) {
+		this.productUsages = productUsages;
+	}
+
+	/**
+	 * Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
+	 */
 	protected AuditInfo auditInfo;
 
 	public AuditInfo getAuditInfo() {
@@ -77,6 +105,9 @@ public class ProductType implements Serializable
 		this.auditInfo = auditInfo;
 	}
 
+	/**
+	 * The list of product type attributes which exist as extras. Example: monogram
+	 */
 	protected List<AttributeInProductType> extras;
 	public List<AttributeInProductType> getExtras() {
 		return this.extras;
@@ -85,6 +116,9 @@ public class ProductType implements Serializable
 		this.extras = extras;
 	}
 
+	/**
+	 * The list of product type attributes which exist as options.
+	 */
 	protected List<AttributeInProductType> options;
 	public List<AttributeInProductType> getOptions() {
 		return this.options;
@@ -93,6 +127,9 @@ public class ProductType implements Serializable
 		this.options = options;
 	}
 
+	/**
+	 * The list of product type attributes which exist as properties, such as color.
+	 */
 	protected List<AttributeInProductType> properties;
 	public List<AttributeInProductType> getProperties() {
 		return this.properties;

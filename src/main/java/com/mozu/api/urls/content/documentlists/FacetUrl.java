@@ -15,8 +15,8 @@ public class FacetUrl
 
 	/**
 	 * Get Resource Url for GetFacets
-	 * @param documentListName 
-	 * @param propertyName 
+	 * @param documentListName The document list associated with the facets to retrieve.
+	 * @param propertyName The property name associated with the facets to retrieve.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl getFacetsUrl(String documentListName, String propertyName)

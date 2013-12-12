@@ -14,13 +14,13 @@ import com.mozu.api.Headers;
 import com.mozu.api.security.AuthTicket;
 
 /** <summary>
- * 
+ * Use the Applications resource to manage the applications associated with a developer account.
  * </summary>
  */
 public class ApplicationVersionClient {
 	
 	/**
-	 * 
+	 * Retrieves the list of applications associated with the developer account scoped to the user claim specified in the request.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.appdev.ApplicationCollection> mozuClient=GetAllApplicationsClient(authTicket);
 	 * client.setBaseAddress(url);
@@ -46,7 +46,7 @@ public class ApplicationVersionClient {
 	}
 
 	/**
-	 * 
+	 * Retrieves the details of the application specified in the request. The application specified in the request must be associated with the developer account scoped to the user claim specified in the request header, otherwise the operation returns an error.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.appdev.Application> mozuClient=GetApplicationClient();
 	 * client.setBaseAddress(url);
@@ -63,14 +63,14 @@ public class ApplicationVersionClient {
 	}
 
 	/**
-	 * 
+	 * Retrieves the details of the application specified in the request. The application specified in the request must be associated with the developer account scoped to the user claim specified in the request header, otherwise the operation returns an error.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.appdev.Application> mozuClient=GetApplicationClient( applicationId, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * Application application = client.Result();
 	 * </code></pre></p>
-	 * @param applicationId 
+	 * @param applicationId Unique identifier of the application.
 	 * @param authTicket User Auth Ticket
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.appdev.Application>
 	 * @see com.mozu.api.contracts.appdev.Application
@@ -90,14 +90,14 @@ public class ApplicationVersionClient {
 	}
 
 	/**
-	 * 
+	 * Retrieves the details of a specific version of an application associated with the developer account scoped to the user claim specified in the request.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.appdev.ApplicationVersion> mozuClient=GetApplicationVersionClient( applicationVersionId, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * ApplicationVersion applicationVersion = client.Result();
 	 * </code></pre></p>
-	 * @param applicationVersionId 
+	 * @param applicationVersionId Unique identifier of the application version. Application version IDs are unique across all applications associated with a developer account.
 	 * @param authTicket User Auth Ticket
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.appdev.ApplicationVersion>
 	 * @see com.mozu.api.contracts.appdev.ApplicationVersion
@@ -117,14 +117,14 @@ public class ApplicationVersionClient {
 	}
 
 	/**
-	 * 
+	 * Retrieves a list of the package definitions created for an application version, including all development packages and release packages. The application must be associated with the developer account scoped to the user claim specified in the request.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.appdev.PackageCollection> mozuClient=GetPackagesClient( applicationVersionId, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * PackageCollection packageCollection = client.Result();
 	 * </code></pre></p>
-	 * @param applicationVersionId 
+	 * @param applicationVersionId Unique identifier of the application version. Application version IDs are unique across all applications associated with a developer account.
 	 * @param authTicket User Auth Ticket
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.appdev.PackageCollection>
 	 * @see com.mozu.api.contracts.appdev.PackageCollection
@@ -144,15 +144,15 @@ public class ApplicationVersionClient {
 	}
 
 	/**
-	 * 
+	 * Retrieves the details of a package definition associated with an application version. The application ust be associated with the developer account scoped to the user claim specified in the request. 
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.appdev.Package> mozuClient=GetPackageClient( applicationVersionId,  packageId, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * Package package = client.Result();
 	 * </code></pre></p>
-	 * @param applicationVersionId 
-	 * @param packageId 
+	 * @param applicationVersionId Unique identifier of the application version associated with the package. Application version IDs are unique across all applications associated with the developer account.
+	 * @param packageId Unique identifier of the package to retrieve.
 	 * @param authTicket User Auth Ticket
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.appdev.Package>
 	 * @see com.mozu.api.contracts.appdev.Package
@@ -172,15 +172,15 @@ public class ApplicationVersionClient {
 	}
 
 	/**
-	 * 
+	 * Retrieves the metadata for items in a package associated with an application version, including a list of all files and subfolders. The application must be associated with the developer account acoped to the user claim specified in the request.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.appdev.FolderMetadata> mozuClient=GetPackageItemsMetadataClient( applicationVersionId,  packageId, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * FolderMetadata folderMetadata = client.Result();
 	 * </code></pre></p>
-	 * @param applicationVersionId 
-	 * @param packageId 
+	 * @param applicationVersionId Unique identifier of the application version. Application version IDs are unique across all applications associated with a developer account.
+	 * @param packageId Unique identifier of the package.
 	 * @param authTicket User Auth Ticket
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.appdev.FolderMetadata>
 	 * @see com.mozu.api.contracts.appdev.FolderMetadata
@@ -200,21 +200,21 @@ public class ApplicationVersionClient {
 	}
 
 	/**
-	 * 
+	 * Retrieves the metadata of a file in a package for an application version. The application must be associated with the developer account scoped to the user claim specified in the request.
 	 * <p><pre><code>
-	 * MozuClient<com.mozu.api.contracts.appdev.FileMetadata> mozuClient=GetPackageItemMetadataClient( applicationVersionId,  itempath,  packageId, authTicket);
+	 * MozuClient<com.mozu.api.contracts.appdev.FileMetadata> mozuClient=GetPackageItemMetadataClient( applicationVersionId,  packageId,  itempath, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * FileMetadata fileMetadata = client.Result();
 	 * </code></pre></p>
-	 * @param applicationVersionId 
-	 * @param itempath 
-	 * @param packageId 
+	 * @param applicationVersionId Unique identifier of the application version. Application version IDs are unique across all applications associated with a developer account.
+	 * @param itempath Complete file directory location and name of the item in the package to retrieve metadata.
+	 * @param packageId Unique identifier of the package.
 	 * @param authTicket User Auth Ticket
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.appdev.FileMetadata>
 	 * @see com.mozu.api.contracts.appdev.FileMetadata
 	 */
-	public static MozuClient<com.mozu.api.contracts.appdev.FileMetadata> getPackageItemMetadataClient(Integer applicationVersionId, String itempath, Integer packageId, AuthTicket authTicket) throws Exception
+	public static MozuClient<com.mozu.api.contracts.appdev.FileMetadata> getPackageItemMetadataClient(Integer applicationVersionId, Integer packageId, String itempath, AuthTicket authTicket) throws Exception
 	{
 		MozuUrl url = com.mozu.api.urls.platform.developer.ApplicationVersionUrl.getPackageItemMetadataUrl(applicationVersionId, itempath, packageId);
 		String verb = "GET";
@@ -231,20 +231,23 @@ public class ApplicationVersionClient {
 	/**
 	 * 
 	 * <p><pre><code>
-	 * MozuClient mozuClient=GetPackageFilesZipClient( applicationVersionId,  packageId, authTicket);
+	 * MozuClient<java.io.InputStream> mozuClient=GetPackageFilesZipClient( applicationVersionId,  packageId, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
+	 * Stream stream = client.Result();
 	 * </code></pre></p>
 	 * @param applicationVersionId 
 	 * @param packageId 
 	 * @param authTicket User Auth Ticket
-	 * @return Mozu.Api.MozuClient 
+	 * @return Mozu.Api.MozuClient <Stream>
+	 * @see Stream
 	 */
-	public static MozuClient getPackageFilesZipClient(Integer applicationVersionId, Integer packageId, AuthTicket authTicket) throws Exception
+	public static MozuClient<java.io.InputStream> getPackageFilesZipClient(Integer applicationVersionId, Integer packageId, AuthTicket authTicket) throws Exception
 	{
 		MozuUrl url = com.mozu.api.urls.platform.developer.ApplicationVersionUrl.getPackageFilesZipUrl(applicationVersionId, packageId);
 		String verb = "GET";
-				MozuClient mozuClient = new MozuClient();
+		Class<?> clz = java.io.InputStream.class;
+		MozuClient<java.io.InputStream> mozuClient = new MozuClient(clz);
 		mozuClient.setVerb(verb);
 		mozuClient.setResourceUrl(url);
 		if (authTicket != null)
@@ -254,16 +257,16 @@ public class ApplicationVersionClient {
 	}
 
 	/**
-	 * 
+	 * Creates a new development or release package for the application version specified in the request.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.appdev.Package> mozuClient=AddPackageClient( pkg,  applicationVersionId, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * Package package = client.Result();
 	 * </code></pre></p>
-	 * @param applicationVersionId 
+	 * @param applicationVersionId Unique identifier of the application version. Application version IDs are unique across all applications associated with the developer account.
 	 * @param authTicket User Auth Ticket
-	 * @param package 
+	 * @param package Properties of the development or release package to define.
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.appdev.Package>
 	 * @see com.mozu.api.contracts.appdev.Package
 	 * @see com.mozu.api.contracts.appdev.Package
@@ -284,23 +287,23 @@ public class ApplicationVersionClient {
 	}
 
 	/**
-	 * 
+	 * Uploads a file to a defined package for an application version in the file location specified in the request.
 	 * <p><pre><code>
-	 * MozuClient<com.mozu.api.contracts.appdev.FileMetadata> mozuClient=AddPackageFileClient( stream,  applicationVersionId,  filepath,  packageId, authTicket);
+	 * MozuClient<com.mozu.api.contracts.appdev.FileMetadata> mozuClient=AddPackageFileClient( stream,  applicationVersionId,  packageId,  filepath, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * FileMetadata fileMetadata = client.Result();
 	 * </code></pre></p>
-	 * @param applicationVersionId 
-	 * @param filepath 
-	 * @param packageId 
+	 * @param applicationVersionId Unique identifier of the application version. Application version IDs are unique across all applications associated with a developer account.
+	 * @param filepath The file location to which to add the package file.
+	 * @param packageId Unique identifier of the package.
 	 * @param authTicket User Auth Ticket
-	 * @param stream 
+	 * @param stream The contents of the package file to upload, which requires a content-type value of "application/octet-stream" in the request header.
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.appdev.FileMetadata>
 	 * @see com.mozu.api.contracts.appdev.FileMetadata
 	 * @see Stream
 	 */
-	public static MozuClient<com.mozu.api.contracts.appdev.FileMetadata> addPackageFileClient(java.io.InputStream stream, Integer applicationVersionId, String filepath, Integer packageId, AuthTicket authTicket) throws Exception
+	public static MozuClient<com.mozu.api.contracts.appdev.FileMetadata> addPackageFileClient(java.io.InputStream stream, Integer applicationVersionId, Integer packageId, String filepath, AuthTicket authTicket) throws Exception
 	{
 		MozuUrl url = com.mozu.api.urls.platform.developer.ApplicationVersionUrl.addPackageFileUrl(applicationVersionId, filepath, packageId);
 		String verb = "POST";
@@ -347,23 +350,23 @@ public class ApplicationVersionClient {
 	}
 
 	/**
-	 * 
+	 * Updates one or more properties of a file in a package associated with an application version.
 	 * <p><pre><code>
-	 * MozuClient<com.mozu.api.contracts.appdev.FileMetadata> mozuClient=UpdatePackageFileClient( stream,  applicationVersionId,  filepath,  packageId, authTicket);
+	 * MozuClient<com.mozu.api.contracts.appdev.FileMetadata> mozuClient=UpdatePackageFileClient( stream,  applicationVersionId,  packageId,  filepath, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * FileMetadata fileMetadata = client.Result();
 	 * </code></pre></p>
-	 * @param applicationVersionId 
-	 * @param filepath 
-	 * @param packageId 
+	 * @param applicationVersionId Unique identifier of the application version. Application version IDs are unique across all applications associated with a developer account.
+	 * @param filepath The location path and name that identifies the package file to update.
+	 * @param packageId The unique identifier of the package.
 	 * @param authTicket User Auth Ticket
-	 * @param stream 
+	 * @param stream The contents of the package file to update, which requires a content-type value of "application/octet-stream" in the request header.
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.appdev.FileMetadata>
 	 * @see com.mozu.api.contracts.appdev.FileMetadata
 	 * @see Stream
 	 */
-	public static MozuClient<com.mozu.api.contracts.appdev.FileMetadata> updatePackageFileClient(java.io.InputStream stream, Integer applicationVersionId, String filepath, Integer packageId, AuthTicket authTicket) throws Exception
+	public static MozuClient<com.mozu.api.contracts.appdev.FileMetadata> updatePackageFileClient(java.io.InputStream stream, Integer applicationVersionId, Integer packageId, String filepath, AuthTicket authTicket) throws Exception
 	{
 		MozuUrl url = com.mozu.api.urls.platform.developer.ApplicationVersionUrl.updatePackageFileUrl(applicationVersionId, filepath, packageId);
 		String verb = "PUT";
@@ -379,19 +382,19 @@ public class ApplicationVersionClient {
 	}
 
 	/**
-	 * 
+	 * Deletes the specified file from a package associated with an application version.
 	 * <p><pre><code>
-	 * MozuClient mozuClient=DeletePackageFileClient( applicationVersionId,  filepath,  packageId, authTicket);
+	 * MozuClient mozuClient=DeletePackageFileClient( applicationVersionId,  packageId,  filepath, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * </code></pre></p>
-	 * @param applicationVersionId 
-	 * @param filepath 
-	 * @param packageId 
+	 * @param applicationVersionId Unique identifier of the application version.
+	 * @param filepath The file path and name of the file location to delete from the package.
+	 * @param packageId Unique identifier of the package.
 	 * @param authTicket User Auth Ticket
 	 * @return Mozu.Api.MozuClient 
 	 */
-	public static MozuClient deletePackageFileClient(Integer applicationVersionId, String filepath, Integer packageId, AuthTicket authTicket) throws Exception
+	public static MozuClient deletePackageFileClient(Integer applicationVersionId, Integer packageId, String filepath, AuthTicket authTicket) throws Exception
 	{
 		MozuUrl url = com.mozu.api.urls.platform.developer.ApplicationVersionUrl.deletePackageFileUrl(applicationVersionId, filepath, packageId);
 		String verb = "DELETE";

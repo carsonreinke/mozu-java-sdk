@@ -7,13 +7,21 @@
 package com.mozu.api.contracts.reference;
 
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 
+/**
+ *	A world date and time standard such as "Dateline Standard Time" or "UTC-12".
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class TimeZone implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Identifier of the time zone.
+	 */
 	protected String id;
 
 	public String getId() {
@@ -24,6 +32,9 @@ public class TimeZone implements Serializable
 		this.id = id;
 	}
 
+	/**
+	 * If true, the time zone standard observes daylight savings time advancements, for example, twice a year so that evenings have more daylight and mornings have less. If false, the time zone standard does not adhere to daylight savings changes.
+	 */
 	protected Boolean isDaylightSavingsTime;
 
 	public Boolean getIsDaylightSavingsTime() {
@@ -34,6 +45,9 @@ public class TimeZone implements Serializable
 		this.isDaylightSavingsTime = isDaylightSavingsTime;
 	}
 
+	/**
+	 * The offset associated with the time zone, such as "-12".
+	 */
 	protected double offset;
 
 	public double getOffset() {

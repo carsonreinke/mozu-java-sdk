@@ -15,7 +15,7 @@ import com.mozu.api.Headers;
 import com.mozu.api.security.AuthTicket;
 
 /** <summary>
- * 
+ * Use the Customer Account Transactions resource to manage the transactions associated with a customer account.
  * </summary>
  */
 public class TransactionResource {
@@ -29,12 +29,12 @@ public class TransactionResource {
 	}
 	
 	/**
-	 * 
+	 * Retrieves a list of transactions associated with the customer account specified in the request.
 	 * <p><pre><code>
 	 *	Transaction transaction = new Transaction();
 	 *	Transaction transaction = transaction.GetTransactions( accountId, authTicket);
 	 * </code></pre></p>
-	 * @param accountId 
+	 * @param accountId Unique identifier of the customer account for which to retrieve transactions.
 	 * @param authTicket User Auth Ticket
 	 * @return List<com.mozu.api.contracts.customer.Transaction>
 	 * @see com.mozu.api.contracts.customer.Transaction
@@ -49,14 +49,14 @@ public class TransactionResource {
 	}
 
 	/**
-	 * 
+	 * Creates a new transaction for the customer account specified in the request.
 	 * <p><pre><code>
 	 *	Transaction transaction = new Transaction();
 	 *	Transaction transaction = transaction.AddTransaction( transaction,  accountId, authTicket);
 	 * </code></pre></p>
-	 * @param accountId 
+	 * @param accountId Unique identifier of the customer account.
 	 * @param authTicket User Auth Ticket
-	 * @param transaction 
+	 * @param transaction Properties of the transaction to create for the customer account.
 	 * @return com.mozu.api.contracts.customer.Transaction
 	 * @see com.mozu.api.contracts.customer.Transaction
 	 * @see com.mozu.api.contracts.customer.Transaction
@@ -71,13 +71,13 @@ public class TransactionResource {
 	}
 
 	/**
-	 * 
+	 * Deletes a transaction from the customer account specified in the request.
 	 * <p><pre><code>
 	 *	Transaction transaction = new Transaction();
 	 *	transaction.RemoveTransaction( accountId,  transactionId, authTicket);
 	 * </code></pre></p>
-	 * @param accountId 
-	 * @param transactionId 
+	 * @param accountId Unique identifier of the customer account from which to delete the transaction.
+	 * @param transactionId Unique identifier of the transaction to delete.
 	 * @param authTicket User Auth Ticket
 	 * @return 
 	 */

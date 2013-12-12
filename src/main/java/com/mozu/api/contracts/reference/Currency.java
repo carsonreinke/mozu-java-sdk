@@ -7,13 +7,21 @@
 package com.mozu.api.contracts.reference;
 
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 
+/**
+ *	Three-letter currency code that the system supports, which is derived from the ISO 4217 standard. For example, the code "EUR" for the name "Euro Member Countries" is an entry that returns in a list of items.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Currency implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * 3-letter ISO 4217 standard global currency code. Currently, only "USD" (US Dollar) is supported.
+	 */
 	protected String code;
 
 	public String getCode() {
@@ -24,6 +32,9 @@ public class Currency implements Serializable
 		this.code = code;
 	}
 
+	/**
+	 * The name of the currency represented by the ISO currency code.
+	 */
 	protected String name;
 
 	public String getName() {

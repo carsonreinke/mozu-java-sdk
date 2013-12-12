@@ -14,13 +14,13 @@ import com.mozu.api.Headers;
 import com.mozu.api.security.AuthTicket;
 
 /** <summary>
- * 
+ * Use the Groups resource to manage customer groups that enable a merchant to manage sets of customers and target discounts for these groups. After a customer group is defined, you can associate any number of customer accounts with the group.
  * </summary>
  */
 public class CustomerGroupClient {
 	
 	/**
-	 * 
+	 * Retrieves a list of all customer groups defined for the site according to any specified filter criteria and sort options.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.customer.CustomerGroupCollection> mozuClient=GetGroupsClient();
 	 * client.setBaseAddress(url);
@@ -37,22 +37,22 @@ public class CustomerGroupClient {
 	}
 
 	/**
-	 * 
+	 * Retrieves a list of all customer groups defined for the site according to any specified filter criteria and sort options.
 	 * <p><pre><code>
-	 * MozuClient<com.mozu.api.contracts.customer.CustomerGroupCollection> mozuClient=GetGroupsClient( filter,  pageSize,  sortBy,  startIndex, authTicket);
+	 * MozuClient<com.mozu.api.contracts.customer.CustomerGroupCollection> mozuClient=GetGroupsClient( startIndex,  pageSize,  sortBy,  filter, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * CustomerGroupCollection customerGroupCollection = client.Result();
 	 * </code></pre></p>
-	 * @param filter 
-	 * @param pageSize 
-	 * @param sortBy 
-	 * @param startIndex 
+	 * @param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
+	 * @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
+	 * @param sortBy The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"
+	 * @param startIndex When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
 	 * @param authTicket User Auth Ticket
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.customer.CustomerGroupCollection>
 	 * @see com.mozu.api.contracts.customer.CustomerGroupCollection
 	 */
-	public static MozuClient<com.mozu.api.contracts.customer.CustomerGroupCollection> getGroupsClient(String filter, Integer pageSize, String sortBy, Integer startIndex, AuthTicket authTicket) throws Exception
+	public static MozuClient<com.mozu.api.contracts.customer.CustomerGroupCollection> getGroupsClient(Integer startIndex, Integer pageSize, String sortBy, String filter, AuthTicket authTicket) throws Exception
 	{
 		MozuUrl url = com.mozu.api.urls.commerce.customer.CustomerGroupUrl.getGroupsUrl(filter, pageSize, sortBy, startIndex);
 		String verb = "GET";
@@ -67,14 +67,14 @@ public class CustomerGroupClient {
 	}
 
 	/**
-	 * 
+	 * Retrieves the name of a customer group specified the customer group ID.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.customer.CustomerGroup> mozuClient=GetGroupClient( groupId, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * CustomerGroup customerGroup = client.Result();
 	 * </code></pre></p>
-	 * @param groupId 
+	 * @param groupId Identifier of the customer group to retrieve.
 	 * @param authTicket User Auth Ticket
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.customer.CustomerGroup>
 	 * @see com.mozu.api.contracts.customer.CustomerGroup
@@ -94,7 +94,7 @@ public class CustomerGroupClient {
 	}
 
 	/**
-	 * 
+	 * Creates a new customer group. New customer groups do not have any associated customer accounts.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.customer.CustomerGroup> mozuClient=AddGroupClient( group, authTicket);
 	 * client.setBaseAddress(url);
@@ -102,7 +102,7 @@ public class CustomerGroupClient {
 	 * CustomerGroup customerGroup = client.Result();
 	 * </code></pre></p>
 	 * @param authTicket User Auth Ticket
-	 * @param group 
+	 * @param group Properties of the customer group to add.
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.customer.CustomerGroup>
 	 * @see com.mozu.api.contracts.customer.CustomerGroup
 	 * @see com.mozu.api.contracts.customer.CustomerGroup
@@ -123,16 +123,16 @@ public class CustomerGroupClient {
 	}
 
 	/**
-	 * 
+	 * Updates the name of a defined customer group.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.customer.CustomerGroup> mozuClient=UpdateGroupClient( group,  groupId, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * CustomerGroup customerGroup = client.Result();
 	 * </code></pre></p>
-	 * @param groupId 
+	 * @param groupId Identifier of the customer group to update.
 	 * @param authTicket User Auth Ticket
-	 * @param group 
+	 * @param group Properties of the customer group to update.
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.customer.CustomerGroup>
 	 * @see com.mozu.api.contracts.customer.CustomerGroup
 	 * @see com.mozu.api.contracts.customer.CustomerGroup
@@ -153,13 +153,13 @@ public class CustomerGroupClient {
 	}
 
 	/**
-	 * 
+	 * Deletes a customer group specified by its unique identifier. Deleting a group removes any customer account associations, but does not delete the customer account itself.
 	 * <p><pre><code>
 	 * MozuClient mozuClient=DeleteGroupClient( groupId, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * </code></pre></p>
-	 * @param groupId 
+	 * @param groupId Identifier of the customer group to delete.
 	 * @param authTicket User Auth Ticket
 	 * @return Mozu.Api.MozuClient 
 	 */
