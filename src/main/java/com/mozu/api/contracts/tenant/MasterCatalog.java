@@ -8,9 +8,14 @@ package com.mozu.api.contracts.tenant;
 
 import java.util.List;
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 import com.mozu.api.contracts.tenant.Catalog;
 
+/**
+ *	Properties of a master product catalog defined for a tenant. All catalogs and sites associated with a master catalog share product definitions.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class MasterCatalog implements Serializable
 {
 	// Default Serial Version UID
@@ -26,6 +31,9 @@ public class MasterCatalog implements Serializable
 		this.createDate = createDate;
 	}
 
+	/**
+	 * The default three-letter ISO currency code associated with this master catalog. At this time, only "USD" is supported.
+	 */
 	protected String defaultCurrencyCode;
 
 	public String getDefaultCurrencyCode() {
@@ -36,6 +44,9 @@ public class MasterCatalog implements Serializable
 		this.defaultCurrencyCode = defaultCurrencyCode;
 	}
 
+	/**
+	 * The default locale code associated with this master catalog. At this time, only "en-US" is supported.
+	 */
 	protected String defaultLocaleCode;
 
 	public String getDefaultLocaleCode() {
@@ -46,6 +57,9 @@ public class MasterCatalog implements Serializable
 		this.defaultLocaleCode = defaultLocaleCode;
 	}
 
+	/**
+	 * The date and time the master catalog was deleted.
+	 */
 	protected Date deleteDate;
 
 	public Date getDeleteDate() {
@@ -66,6 +80,9 @@ public class MasterCatalog implements Serializable
 		this.id = id;
 	}
 
+	/**
+	 * If true, this master catalog and its associated catalogs have been deleted from the tenant.
+	 */
 	protected Boolean isDeleted;
 
 	public Boolean getIsDeleted() {
@@ -76,6 +93,9 @@ public class MasterCatalog implements Serializable
 		this.isDeleted = isDeleted;
 	}
 
+	/**
+	 * User-defined name of the master catalog.
+	 */
 	protected String name;
 
 	public String getName() {
@@ -96,6 +116,9 @@ public class MasterCatalog implements Serializable
 		this.updateDate = updateDate;
 	}
 
+	/**
+	 * Collection of product catalogs that use product definitions from the master catalog.
+	 */
 	protected List<Catalog> catalogs;
 	public List<Catalog> getCatalogs() {
 		return this.catalogs;

@@ -7,14 +7,22 @@
 package com.mozu.api.contracts.productruntime;
 
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 import com.mozu.api.contracts.productruntime.ProductPrice;
 
+/**
+ *	For products with options that vary the cost of the product, the range between lowest and highest possible price of the product based on the current selection of options.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class ProductPriceRange implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * The lowest possible price value for a product with options that vary the cost of the product.
+	 */
 	protected ProductPrice lower;
 
 	public ProductPrice getLower() {
@@ -25,6 +33,9 @@ public class ProductPriceRange implements Serializable
 		this.lower = lower;
 	}
 
+	/**
+	 * Thw highest possible price value for a product with options that vary the cost of the product.
+	 */
 	protected ProductPrice upper;
 
 	public ProductPrice getUpper() {

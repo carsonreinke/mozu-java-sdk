@@ -15,7 +15,7 @@ public class DiscountTargetUrl
 
 	/**
 	 * Get Resource Url for GetDiscountTarget
-	 * @param discountId 
+	 * @param discountId Unique identifier of the discount. System-supplied and read only.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl getDiscountTargetUrl(Integer discountId)
@@ -27,7 +27,7 @@ public class DiscountTargetUrl
 
 	/**
 	 * Get Resource Url for UpdateDiscountTarget
-	 * @param discountId 
+	 * @param discountId Unique identifier of the discount. System-supplied and read-only.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl updateDiscountTargetUrl(Integer discountId)

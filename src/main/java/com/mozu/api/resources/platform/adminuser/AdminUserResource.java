@@ -15,18 +15,18 @@ import com.mozu.api.Headers;
 import com.mozu.api.security.AuthTicket;
 
 /** <summary>
- * 
+ * Displays the user accounts and account details associated with a developer or Mozu tenant administrator. Email addresses uniquely identify admin user accounts.
  * </summary>
  */
 public class AdminUserResource {
 	
 	/**
-	 * 
+	 * Retrieves the details of the specified administrator user account.
 	 * <p><pre><code>
 	 *	AdminUser adminuser = new AdminUser();
 	 *	User user = adminuser.GetUser( userId, authTicket);
 	 * </code></pre></p>
-	 * @param userId 
+	 * @param userId Unique identifier of the administrator account to retrieve.
 	 * @param authTicket User Auth Ticket
 	 * @return com.mozu.api.contracts.core.User
 	 * @see com.mozu.api.contracts.core.User
@@ -40,12 +40,12 @@ public class AdminUserResource {
 	}
 
 	/**
-	 * 
+	 * Retrieves a list of the Mozu tenants or development stores for which the specified user has an assigned role.
 	 * <p><pre><code>
 	 *	AdminUser adminuser = new AdminUser();
 	 *	TenantCollection tenantCollection = adminuser.GetTenantScopesForUser( userId, authTicket);
 	 * </code></pre></p>
-	 * @param userId 
+	 * @param userId Unique identifier of the user whose tenant scopes you want to retrieve.
 	 * @param authTicket User Auth Ticket
 	 * @return com.mozu.api.contracts.tenant.TenantCollection
 	 * @see com.mozu.api.contracts.tenant.TenantCollection

@@ -8,9 +8,11 @@ package com.mozu.api.contracts.commerceruntime.orders;
 
 import java.util.List;
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 import com.mozu.api.contracts.commerceruntime.orders.OrderValidationMessage;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class OrderValidationResult implements Serializable
 {
 	// Default Serial Version UID

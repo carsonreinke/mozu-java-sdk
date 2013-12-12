@@ -14,21 +14,21 @@ import com.mozu.api.Headers;
 import com.mozu.api.security.AuthTicket;
 
 /** <summary>
- * 
+ * Use the shipments resource to manage shipments of collections of packages for an order.
  * </summary>
  */
 public class ShipmentClient {
 	
 	/**
-	 * 
+	 * Retrieves the details of the order shipment specified in the request.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.commerceruntime.fulfillment.Shipment> mozuClient=GetShipmentClient( orderId,  shipmentId, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * Shipment shipment = client.Result();
 	 * </code></pre></p>
-	 * @param orderId 
-	 * @param shipmentId 
+	 * @param orderId Unique identifier of the order associated with the shipment to retrieve.
+	 * @param shipmentId Unique identifier of the shipment to retrieve.
 	 * @param authTicket User Auth Ticket
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.commerceruntime.fulfillment.Shipment>
 	 * @see com.mozu.api.contracts.commerceruntime.fulfillment.Shipment
@@ -48,14 +48,14 @@ public class ShipmentClient {
 	}
 
 	/**
-	 * 
+	 * Retrieves the available shipping methods applicable to the order. Typically used to display available shipping method options on the checkout page.
 	 * <p><pre><code>
 	 * MozuClient<List<com.mozu.api.contracts.commerceruntime.fulfillment.ShippingRate>> mozuClient=GetAvailableShipmentMethodsClient( orderId, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * ShippingRate shippingRate = client.Result();
 	 * </code></pre></p>
-	 * @param orderId 
+	 * @param orderId Unique identifier of the order for the available shipment methods being retrieved.
 	 * @param authTicket User Auth Ticket
 	 * @return Mozu.Api.MozuClient <List<com.mozu.api.contracts.commerceruntime.fulfillment.ShippingRate>>
 	 * @see com.mozu.api.contracts.commerceruntime.fulfillment.ShippingRate
@@ -75,16 +75,16 @@ public class ShipmentClient {
 	}
 
 	/**
-	 * 
+	 * Creates a shipment from one or more package associated with an order and assign a label and tracking number to an order shipment.
 	 * <p><pre><code>
 	 * MozuClient<List<com.mozu.api.contracts.commerceruntime.fulfillment.Package>> mozuClient=CreatePackageShipmentsClient( packageIds,  orderId, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * Package package = client.Result();
 	 * </code></pre></p>
-	 * @param orderId 
+	 * @param orderId Unique identifier of the order for this shipment.
 	 * @param authTicket User Auth Ticket
-	 * @param packageIds 
+	 * @param packageIds List of unique identifiers for each package associated with this shipment. Not all packages must belong to the same shipment.
 	 * @return Mozu.Api.MozuClient <List<com.mozu.api.contracts.commerceruntime.fulfillment.Package>>
 	 * @see com.mozu.api.contracts.commerceruntime.fulfillment.Package
 	 * @see string
@@ -105,14 +105,14 @@ public class ShipmentClient {
 	}
 
 	/**
-	 * 
+	 * Deletes the shipment specified in the request.
 	 * <p><pre><code>
 	 * MozuClient mozuClient=DeleteShipmentClient( orderId,  shipmentId, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * </code></pre></p>
-	 * @param orderId 
-	 * @param shipmentId 
+	 * @param orderId Unique identifier of the order to cancel shipment.
+	 * @param shipmentId Unique identifier of the shipment to cancel.
 	 * @param authTicket User Auth Ticket
 	 * @return Mozu.Api.MozuClient 
 	 */

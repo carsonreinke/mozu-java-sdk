@@ -8,14 +8,22 @@ package com.mozu.api.contracts.productadmin;
 
 import java.util.List;
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 import com.mozu.api.contracts.productadmin.ProductExtraValue;
 
+/**
+ *	Properties of an extra attribute to defined for a product that is associated with a product type that uses the extra. Setting up extras for a product enables shopper-entered information, such as initials for a monogram.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class ProductExtra implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * The fully qualified name of the attribute, which is a user defined attribute identifier.
+	 */
 	protected String attributeFQN;
 
 	public String getAttributeFQN() {
@@ -26,6 +34,9 @@ public class ProductExtra implements Serializable
 		this.attributeFQN = attributeFQN;
 	}
 
+	/**
+	 * If true, the shopper can select more than one value from a predefined list for this extra.
+	 */
 	protected Boolean isMultiSelect;
 
 	public Boolean getIsMultiSelect() {
@@ -36,6 +47,9 @@ public class ProductExtra implements Serializable
 		this.isMultiSelect = isMultiSelect;
 	}
 
+	/**
+	 * If true, the shopper must select the product extra and specify a value for it during checkout.
+	 */
 	protected Boolean isRequired;
 
 	public Boolean getIsRequired() {
@@ -46,6 +60,9 @@ public class ProductExtra implements Serializable
 		this.isRequired = isRequired;
 	}
 
+	/**
+	 * The list of predefined values a shopper can select for the product when defining this extra.
+	 */
 	protected List<ProductExtraValue> values;
 	public List<ProductExtraValue> getValues() {
 		return this.values;

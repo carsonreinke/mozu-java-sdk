@@ -7,14 +7,19 @@
 package com.mozu.api.contracts.paymentservice;
 
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 import com.mozu.api.contracts.paymentservice.PreAuthorizeTransactionTypeDataContract;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class PreAuthorizeDefinition implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Identifier of the entity.
+	 */
 	protected Integer id;
 
 	public Integer getId() {

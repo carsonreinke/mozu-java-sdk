@@ -15,8 +15,8 @@ public class FacetUrl
 
 	/**
 	 * Get Resource Url for GetFacet
-	 * @param facetId 
-	 * @param validate 
+	 * @param facetId Unique identifier of the facet to retrieve.
+	 * @param validate Validates that the product category associated with a facet is active. System-supplied and read only.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl getFacetUrl(Integer facetId, Boolean validate)
@@ -29,9 +29,9 @@ public class FacetUrl
 
 	/**
 	 * Get Resource Url for GetFacetCategoryList
-	 * @param categoryId 
-	 * @param includeAvailable 
-	 * @param validate 
+	 * @param categoryId Unique identifier of the category associated with the facets to retrieve.
+	 * @param includeAvailable If true, returns a list of the attributes and categories associated with a product type that have not been defined as a facet for the category.
+	 * @param validate Validates that the product category associated with a facet is active. System-supplied and read only.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl getFacetCategoryListUrl(Integer categoryId, Boolean includeAvailable, Boolean validate)
@@ -55,7 +55,7 @@ public class FacetUrl
 
 	/**
 	 * Get Resource Url for UpdateFacet
-	 * @param facetId 
+	 * @param facetId Unique identifier of the facet to modify.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl updateFacetUrl(Integer facetId)
@@ -67,7 +67,7 @@ public class FacetUrl
 
 	/**
 	 * Get Resource Url for DeleteFacetById
-	 * @param facetId 
+	 * @param facetId Unique identifier of the facet to delete.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl deleteFacetByIdUrl(Integer facetId)

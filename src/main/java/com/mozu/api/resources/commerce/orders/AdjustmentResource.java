@@ -15,7 +15,7 @@ import com.mozu.api.Headers;
 import com.mozu.api.security.AuthTicket;
 
 /** <summary>
- * 
+ * Use this subresource to manage ad-hoc order level price adjustments.
  * </summary>
  */
 public class AdjustmentResource {
@@ -29,14 +29,14 @@ public class AdjustmentResource {
 	}
 	
 	/**
-	 * 
+	 * Applies a shipping adjustment to the specified order.
 	 * <p><pre><code>
 	 *	Adjustment adjustment = new Adjustment();
 	 *	Order order = adjustment.ApplyShippingAdjustment( adjustment,  orderId);
 	 * </code></pre></p>
-	 * @param orderId 
+	 * @param orderId Unique identifier of the order associated with the shipping adjustment.
 	 * @param authTicket User Auth Ticket
-	 * @param adjustment 
+	 * @param adjustment Properties of the shipping adjustment to apply to the order.
 	 * @return com.mozu.api.contracts.commerceruntime.orders.Order
 	 * @see com.mozu.api.contracts.commerceruntime.orders.Order
 	 * @see com.mozu.api.contracts.commerceruntime.commerce.Adjustment
@@ -47,16 +47,16 @@ public class AdjustmentResource {
 	}
 
 	/**
-	 * 
+	 * Applies a shipping adjustment to the specified order.
 	 * <p><pre><code>
 	 *	Adjustment adjustment = new Adjustment();
 	 *	Order order = adjustment.ApplyShippingAdjustment( adjustment,  orderId,  updateMode,  version, authTicket);
 	 * </code></pre></p>
-	 * @param orderId 
-	 * @param updateMode 
-	 * @param version 
+	 * @param orderId Unique identifier of the order associated with the shipping adjustment.
+	 * @param updateMode Specifies whether to apply the shipping adjustment by updating the original order, updating the order in draft mode, or updating the order in draft mode and then committing the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
+	 * @param version System-supplied integer that represents the current version of the order, which prevents users from unintentionally overriding changes to the order. When a user performs an operation for a defined order, the system validates that the version of the updated order matches the version of the order on the server. After the operation completes successfully, the system increments the version number by one.
 	 * @param authTicket User Auth Ticket
-	 * @param adjustment 
+	 * @param adjustment Properties of the shipping adjustment to apply to the order.
 	 * @return com.mozu.api.contracts.commerceruntime.orders.Order
 	 * @see com.mozu.api.contracts.commerceruntime.orders.Order
 	 * @see com.mozu.api.contracts.commerceruntime.commerce.Adjustment
@@ -71,14 +71,14 @@ public class AdjustmentResource {
 	}
 
 	/**
-	 * 
+	 * Applies a price adjustment to the specified order.
 	 * <p><pre><code>
 	 *	Adjustment adjustment = new Adjustment();
 	 *	Order order = adjustment.ApplyAdjustment( adjustment,  orderId);
 	 * </code></pre></p>
-	 * @param orderId 
+	 * @param orderId Unique identifier of the order for which to apply the adjustment.
 	 * @param authTicket User Auth Ticket
-	 * @param adjustment 
+	 * @param adjustment Properties of the price adjustment to apply to the order.
 	 * @return com.mozu.api.contracts.commerceruntime.orders.Order
 	 * @see com.mozu.api.contracts.commerceruntime.orders.Order
 	 * @see com.mozu.api.contracts.commerceruntime.commerce.Adjustment
@@ -89,16 +89,16 @@ public class AdjustmentResource {
 	}
 
 	/**
-	 * 
+	 * Applies a price adjustment to the specified order.
 	 * <p><pre><code>
 	 *	Adjustment adjustment = new Adjustment();
 	 *	Order order = adjustment.ApplyAdjustment( adjustment,  orderId,  updateMode,  version, authTicket);
 	 * </code></pre></p>
-	 * @param orderId 
-	 * @param updateMode 
-	 * @param version 
+	 * @param orderId Unique identifier of the order for which to apply the adjustment.
+	 * @param updateMode Specifies whether to apply the adjustment by updating the original order, updating the order in draft mode, or updating the order in draft mode and then committing the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
+	 * @param version System-supplied integer that represents the current version of the order, which prevents users from unintentionally overriding changes to the order. When a user performs an operation for a defined order, the system validates that the version of the updated order matches the version of the order on the server. After the operation completes successfully, the system increments the version number by one.
 	 * @param authTicket User Auth Ticket
-	 * @param adjustment 
+	 * @param adjustment Properties of the price adjustment to apply to the order.
 	 * @return com.mozu.api.contracts.commerceruntime.orders.Order
 	 * @see com.mozu.api.contracts.commerceruntime.orders.Order
 	 * @see com.mozu.api.contracts.commerceruntime.commerce.Adjustment
@@ -113,12 +113,12 @@ public class AdjustmentResource {
 	}
 
 	/**
-	 * 
+	 * Removes a shipping adjustment previously applied to an order or draft.
 	 * <p><pre><code>
 	 *	Adjustment adjustment = new Adjustment();
 	 *	Order order = adjustment.RemoveShippingAdjustment( orderId);
 	 * </code></pre></p>
-	 * @param orderId 
+	 * @param orderId Unique identifier of the order with the applied shipping adjustment.
 	 * @param authTicket User Auth Ticket
 	 * @return com.mozu.api.contracts.commerceruntime.orders.Order
 	 * @see com.mozu.api.contracts.commerceruntime.orders.Order
@@ -129,14 +129,14 @@ public class AdjustmentResource {
 	}
 
 	/**
-	 * 
+	 * Removes a shipping adjustment previously applied to an order or draft.
 	 * <p><pre><code>
 	 *	Adjustment adjustment = new Adjustment();
 	 *	Order order = adjustment.RemoveShippingAdjustment( orderId,  updateMode,  version, authTicket);
 	 * </code></pre></p>
-	 * @param orderId 
-	 * @param updateMode 
-	 * @param version 
+	 * @param orderId Unique identifier of the order with the applied shipping adjustment.
+	 * @param updateMode Specifies whether to remove the shipping adjustment by updating the original order, updating the order in draft mode, or updating the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
+	 * @param version System-supplied integer that represents the current version of the order, which prevents users from unintentionally overriding changes to the order. When a user performs an operation for a defined order, the system validates that the version of the updated order matches the version of the order on the server. After the operation completes successfully, the system increments the version number by one.
 	 * @param authTicket User Auth Ticket
 	 * @return com.mozu.api.contracts.commerceruntime.orders.Order
 	 * @see com.mozu.api.contracts.commerceruntime.orders.Order
@@ -151,12 +151,12 @@ public class AdjustmentResource {
 	}
 
 	/**
-	 * 
+	 * Removes a price adjustment from the specified order.
 	 * <p><pre><code>
 	 *	Adjustment adjustment = new Adjustment();
 	 *	Order order = adjustment.RemoveAdjustment( orderId);
 	 * </code></pre></p>
-	 * @param orderId 
+	 * @param orderId Unique identifier of the order for which to delete the adjustment.
 	 * @param authTicket User Auth Ticket
 	 * @return com.mozu.api.contracts.commerceruntime.orders.Order
 	 * @see com.mozu.api.contracts.commerceruntime.orders.Order
@@ -167,14 +167,14 @@ public class AdjustmentResource {
 	}
 
 	/**
-	 * 
+	 * Removes a price adjustment from the specified order.
 	 * <p><pre><code>
 	 *	Adjustment adjustment = new Adjustment();
 	 *	Order order = adjustment.RemoveAdjustment( orderId,  updateMode,  version, authTicket);
 	 * </code></pre></p>
-	 * @param orderId 
-	 * @param updateMode 
-	 * @param version 
+	 * @param orderId Unique identifier of the order for which to delete the adjustment.
+	 * @param updateMode Specifies whether to remove the adjustment by updating the original order, updating the order in draft mode, or updating the order in draft mode and then committing the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
+	 * @param version System-supplied integer that represents the current version of the order, which prevents users from unintentionally overriding changes to the order. When a user performs an operation for a defined order, the system validates that the version of the updated order matches the version of the order on the server. After the operation completes successfully, the system increments the version number by one.
 	 * @param authTicket User Auth Ticket
 	 * @return com.mozu.api.contracts.commerceruntime.orders.Order
 	 * @see com.mozu.api.contracts.commerceruntime.orders.Order

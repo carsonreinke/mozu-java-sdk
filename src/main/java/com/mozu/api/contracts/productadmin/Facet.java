@@ -8,17 +8,25 @@ package com.mozu.api.contracts.productadmin;
 
 import java.util.List;
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 import com.mozu.api.contracts.core.AuditInfo;
 import com.mozu.api.contracts.productadmin.FacetRangeQuery;
 import com.mozu.api.contracts.productadmin.FacetSource;
 import com.mozu.api.contracts.productadmin.FacetValidity;
 
+/**
+ *	Properties of the category, price, or attribute facet shoppers use to filter product display results on a storefront.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Facet implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Unique identifier for the storefront container used to organize products.
+	 */
 	protected Integer categoryId;
 
 	public Integer getCategoryId() {
@@ -29,6 +37,9 @@ public class Facet implements Serializable
 		this.categoryId = categoryId;
 	}
 
+	/**
+	 * Unique identifier of the facet.
+	 */
 	protected Integer facetId;
 
 	public Integer getFacetId() {
@@ -39,6 +50,9 @@ public class Facet implements Serializable
 		this.facetId = facetId;
 	}
 
+	/**
+	 * The type of facet. Valid values are "range," which enables creation of a range of values, or "value," which populates the facet values based on the associated attribute or category.
+	 */
 	protected String facetType;
 
 	public String getFacetType() {
@@ -49,6 +63,9 @@ public class Facet implements Serializable
 		this.facetType = facetType;
 	}
 
+	/**
+	 * If true, disables a facet inherited from a parent category.
+	 */
 	protected Boolean isHidden;
 
 	public Boolean getIsHidden() {
@@ -59,6 +76,9 @@ public class Facet implements Serializable
 		this.isHidden = isHidden;
 	}
 
+	/**
+	 * The numeric sequence of the facet for its associated category.
+	 */
 	protected Integer order;
 
 	public Integer getOrder() {
@@ -69,6 +89,9 @@ public class Facet implements Serializable
 		this.order = order;
 	}
 
+	/**
+	 * Overrides a facet inherited from a parent category for a specified subcategory. System-supplied and read only.
+	 */
 	protected Integer overrideFacetId;
 
 	public Integer getOverrideFacetId() {
@@ -79,6 +102,9 @@ public class Facet implements Serializable
 		this.overrideFacetId = overrideFacetId;
 	}
 
+	/**
+	 * Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
+	 */
 	protected AuditInfo auditInfo;
 
 	public AuditInfo getAuditInfo() {
@@ -89,6 +115,9 @@ public class Facet implements Serializable
 		this.auditInfo = auditInfo;
 	}
 
+	/**
+	 * For range type facets, an array of ranges to use for the facet values. For example, a price facet might have range queries for $0-$25, $25-$50, and $50-$100.
+	 */
 	protected List<FacetRangeQuery> rangeQueries;
 	public List<FacetRangeQuery> getRangeQueries() {
 		return this.rangeQueries;
@@ -97,6 +126,9 @@ public class Facet implements Serializable
 		this.rangeQueries = rangeQueries;
 	}
 
+	/**
+	 * Container for the facet source information, which includes the category, price, or attribute properties.
+	 */
 	protected FacetSource source;
 
 	public FacetSource getSource() {
@@ -107,6 +139,9 @@ public class Facet implements Serializable
 		this.source = source;
 	}
 
+	/**
+	 * System-supplied and read only parameter that validates a facet for its associated category.
+	 */
 	protected FacetValidity validity;
 
 	public FacetValidity getValidity() {

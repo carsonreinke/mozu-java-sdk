@@ -7,14 +7,22 @@
 package com.mozu.api.contracts.commerceruntime.commerce;
 
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 import com.mozu.api.contracts.core.Measurement;
 
+/**
+ *	Dimensions of the packaged product.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class PackageMeasurements implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Height of the package in imperial units of feet and inches.
+	 */
 	protected Measurement height;
 
 	public Measurement getHeight() {
@@ -25,6 +33,9 @@ public class PackageMeasurements implements Serializable
 		this.height = height;
 	}
 
+	/**
+	 * Length of the package in imperial units of feet and inches.
+	 */
 	protected Measurement length;
 
 	public Measurement getLength() {
@@ -35,6 +46,9 @@ public class PackageMeasurements implements Serializable
 		this.length = length;
 	}
 
+	/**
+	 * Weight of the package in imperial units of pounds and ounces.
+	 */
 	protected Measurement weight;
 
 	public Measurement getWeight() {
@@ -45,6 +59,9 @@ public class PackageMeasurements implements Serializable
 		this.weight = weight;
 	}
 
+	/**
+	 * Width of the package in imperial units of feet and inches.
+	 */
 	protected Measurement width;
 
 	public Measurement getWidth() {

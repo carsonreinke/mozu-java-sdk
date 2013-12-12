@@ -14,13 +14,13 @@ import com.mozu.api.Headers;
 import com.mozu.api.security.AuthTicket;
 
 /** <summary>
- * 
+ * Use the applications subresource to update site settings for installed applications.
  * </summary>
  */
 public class ApplicationClient {
 	
 	/**
-	 * 
+	 * Retrieve the settings of a third-party application.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.sitesettings.application.Application> mozuClient=ThirdPartyGetApplicationClient(authTicket);
 	 * client.setBaseAddress(url);
@@ -46,7 +46,7 @@ public class ApplicationClient {
 	}
 
 	/**
-	 * 
+	 * Initializes an application with the necessary configured settings.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.sitesettings.application.Application> mozuClient=ThirdPartyUpdateApplicationClient( application, authTicket);
 	 * client.setBaseAddress(url);
@@ -54,7 +54,7 @@ public class ApplicationClient {
 	 * Application application = client.Result();
 	 * </code></pre></p>
 	 * @param authTicket User Auth Ticket
-	 * @param application 
+	 * @param application Properties of the application to update.
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.sitesettings.application.Application>
 	 * @see com.mozu.api.contracts.sitesettings.application.Application
 	 * @see com.mozu.api.contracts.sitesettings.application.Application

@@ -7,13 +7,21 @@
 package com.mozu.api.contracts.productadmin;
 
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 
+/**
+ *	Properties of the inventory behavior associated with a product definition.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class ProductInventoryInfo implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * If true, Mozu manages inventory levels for this product.
+	 */
 	protected Boolean manageStock;
 
 	public Boolean getManageStock() {
@@ -24,6 +32,9 @@ public class ProductInventoryInfo implements Serializable
 		this.manageStock = manageStock;
 	}
 
+	/**
+	 * Determines the method this product uses when active stock is depeleted. Options are "DisplayMessage" to display an out of stock message to the shopper, "HideProduct" to disable the product on the storefront, or "AllowBackOrder" to allow the shopper to back order the product. This property is required only if Mozu manages inventory for this product.
+	 */
 	protected String outOfStockBehavior;
 
 	public String getOutOfStockBehavior() {

@@ -8,16 +8,25 @@ package com.mozu.api.contracts.commerceruntime.returns;
 
 import java.util.List;
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
+import com.mozu.api.contracts.commerceruntime.returns.ReturnBundle;
 import com.mozu.api.contracts.commerceruntime.orders.OrderNote;
 import com.mozu.api.contracts.commerceruntime.products.Product;
 import com.mozu.api.contracts.commerceruntime.returns.ReturnReason;
 
+/**
+ *	Properties of a previously fulfilled item associated with a return.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class ReturnItem implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Unique identifier of the item in the original completed order. All return items should be associated with a corresponding order item.
+	 */
 	protected String orderItemId;
 
 	public String getOrderItemId() {
@@ -28,6 +37,9 @@ public class ReturnItem implements Serializable
 		this.orderItemId = orderItemId;
 	}
 
+	/**
+	 * The total value of the product returned to the merchant for accounting purposes, calculated by multiplying the cost of the item by its quantity returned.
+	 */
 	protected Double productLossAmount;
 
 	public Double getProductLossAmount() {
@@ -38,6 +50,9 @@ public class ReturnItem implements Serializable
 		this.productLossAmount = productLossAmount;
 	}
 
+	/**
+	 * The total tax amount levied on the product loss amount.
+	 */
 	protected Double productLossTaxAmount;
 
 	public Double getProductLossTaxAmount() {
@@ -48,6 +63,9 @@ public class ReturnItem implements Serializable
 		this.productLossTaxAmount = productLossTaxAmount;
 	}
 
+	/**
+	 * The actual quantity received for the return item.
+	 */
 	protected Integer quantityReceived;
 
 	public Integer getQuantityReceived() {
@@ -58,6 +76,9 @@ public class ReturnItem implements Serializable
 		this.quantityReceived = quantityReceived;
 	}
 
+	/**
+	 * The quantity of returned items that can be returned to active product stock.
+	 */
 	protected Integer quantityRestockable;
 
 	public Integer getQuantityRestockable() {
@@ -68,6 +89,9 @@ public class ReturnItem implements Serializable
 		this.quantityRestockable = quantityRestockable;
 	}
 
+	/**
+	 * The quantity of the item shipped to the shopper in the event of a return item replacement.
+	 */
 	protected Integer quantityShipped;
 
 	public Integer getQuantityShipped() {
@@ -78,6 +102,9 @@ public class ReturnItem implements Serializable
 		this.quantityShipped = quantityShipped;
 	}
 
+	/**
+	 * The total value of shipping the returned product to the merchant for accounting purposes, calculated by multiplying the shipping cost of the item by its quantity returned.
+	 */
 	protected Double shippingLossAmount;
 
 	public Double getShippingLossAmount() {
@@ -88,6 +115,9 @@ public class ReturnItem implements Serializable
 		this.shippingLossAmount = shippingLossAmount;
 	}
 
+	/**
+	 * The total tax amount levied on the shipping loss amount.
+	 */
 	protected Double shippingLossTaxAmount;
 
 	public Double getShippingLossTaxAmount() {
@@ -98,6 +128,17 @@ public class ReturnItem implements Serializable
 		this.shippingLossTaxAmount = shippingLossTaxAmount;
 	}
 
+	protected List<ReturnBundle> bundledProducts;
+	public List<ReturnBundle> getBundledProducts() {
+		return this.bundledProducts;
+	}
+	public void setBundledProducts(List<ReturnBundle> bundledProducts) {
+		this.bundledProducts = bundledProducts;
+	}
+
+	/**
+	 * List of merchant-supplied notes associated with the return item.
+	 */
 	protected List<OrderNote> notes;
 	public List<OrderNote> getNotes() {
 		return this.notes;
@@ -106,6 +147,9 @@ public class ReturnItem implements Serializable
 		this.notes = notes;
 	}
 
+	/**
+	 * Properties of the product definition associated with the item in the return.
+	 */
 	protected Product product;
 
 	public Product getProduct() {
@@ -116,6 +160,9 @@ public class ReturnItem implements Serializable
 		this.product = product;
 	}
 
+	/**
+	 * The list of return reasons for the item and the quantity associated with each return reason.
+	 */
 	protected List<ReturnReason> reasons;
 	public List<ReturnReason> getReasons() {
 		return this.reasons;

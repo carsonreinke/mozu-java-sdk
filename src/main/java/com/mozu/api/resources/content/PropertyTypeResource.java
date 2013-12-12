@@ -15,7 +15,7 @@ import com.mozu.api.Headers;
 import com.mozu.api.security.AuthTicket;
 
 /** <summary>
- * 
+ * Use the property types subresource to manage content properties.
  * </summary>
  */
 public class PropertyTypeResource {
@@ -29,35 +29,35 @@ public class PropertyTypeResource {
 	}
 	
 	/**
-	 * 
+	 * Retrieves a list of the content property types.
 	 * <p><pre><code>
 	 *	PropertyType propertytype = new PropertyType();
-	 *	PropertyTypeCollection propertyTypeCollection = propertytype.GetList();
+	 *	PropertyTypeCollection propertyTypeCollection = propertytype.GetList(dataViewMode);
 	 * </code></pre></p>
 	 * @param authTicket User Auth Ticket
 	 * @return com.mozu.api.contracts.content.PropertyTypeCollection
 	 * @see com.mozu.api.contracts.content.PropertyTypeCollection
 	 */
-	public com.mozu.api.contracts.content.PropertyTypeCollection getList() throws Exception
+	public com.mozu.api.contracts.content.PropertyTypeCollection getList(com.mozu.api.DataViewMode dataViewMode) throws Exception
 	{
-		return getList( null,  null, null);
+		return getList(dataViewMode,  null,  null, null);
 	}
 
 	/**
-	 * 
+	 * Retrieves a list of the content property types.
 	 * <p><pre><code>
 	 *	PropertyType propertytype = new PropertyType();
-	 *	PropertyTypeCollection propertyTypeCollection = propertytype.GetList( pageSize,  startIndex, authTicket);
+	 *	PropertyTypeCollection propertyTypeCollection = propertytype.GetList(dataViewMode,  pageSize,  startIndex, authTicket);
 	 * </code></pre></p>
-	 * @param pageSize 
+	 * @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
 	 * @param startIndex 
 	 * @param authTicket User Auth Ticket
 	 * @return com.mozu.api.contracts.content.PropertyTypeCollection
 	 * @see com.mozu.api.contracts.content.PropertyTypeCollection
 	 */
-	public com.mozu.api.contracts.content.PropertyTypeCollection getList(Integer pageSize, Integer startIndex, AuthTicket authTicket) throws Exception
+	public com.mozu.api.contracts.content.PropertyTypeCollection getList(com.mozu.api.DataViewMode dataViewMode, Integer pageSize, Integer startIndex, AuthTicket authTicket) throws Exception
 	{
-		MozuClient<com.mozu.api.contracts.content.PropertyTypeCollection> client = com.mozu.api.clients.content.PropertyTypeClient.getListClient( pageSize,  startIndex, authTicket);
+		MozuClient<com.mozu.api.contracts.content.PropertyTypeCollection> client = com.mozu.api.clients.content.PropertyTypeClient.getListClient(dataViewMode,  pageSize,  startIndex, authTicket);
 		client.setContext(_apiContext);
 		client.executeRequest();
 		return client.getResult();
@@ -65,19 +65,19 @@ public class PropertyTypeResource {
 	}
 
 	/**
-	 * 
+	 * Retrieves the details of the content property type.
 	 * <p><pre><code>
 	 *	PropertyType propertytype = new PropertyType();
-	 *	PropertyType propertyType = propertytype.Get( propertyTypeName, authTicket);
+	 *	PropertyType propertyType = propertytype.Get(dataViewMode,  propertyTypeName, authTicket);
 	 * </code></pre></p>
-	 * @param propertyTypeName 
+	 * @param propertyTypeName The name of the content property type.
 	 * @param authTicket User Auth Ticket
 	 * @return com.mozu.api.contracts.content.PropertyType
 	 * @see com.mozu.api.contracts.content.PropertyType
 	 */
-	public com.mozu.api.contracts.content.PropertyType get(String propertyTypeName, AuthTicket authTicket) throws Exception
+	public com.mozu.api.contracts.content.PropertyType get(com.mozu.api.DataViewMode dataViewMode, String propertyTypeName, AuthTicket authTicket) throws Exception
 	{
-		MozuClient<com.mozu.api.contracts.content.PropertyType> client = com.mozu.api.clients.content.PropertyTypeClient.getClient( propertyTypeName, authTicket);
+		MozuClient<com.mozu.api.contracts.content.PropertyType> client = com.mozu.api.clients.content.PropertyTypeClient.getClient(dataViewMode,  propertyTypeName, authTicket);
 		client.setContext(_apiContext);
 		client.executeRequest();
 		return client.getResult();
@@ -85,18 +85,18 @@ public class PropertyTypeResource {
 	}
 
 	/**
-	 * 
+	 * Retrieves the value types associated with a content property.
 	 * <p><pre><code>
 	 *	PropertyType propertytype = new PropertyType();
-	 *	PropertyValueType propertyValueType = propertytype.PropertyValueTypes(authTicket);
+	 *	PropertyValueType propertyValueType = propertytype.PropertyValueTypes(dataViewMode, authTicket);
 	 * </code></pre></p>
 	 * @param authTicket User Auth Ticket
 	 * @return List<com.mozu.api.contracts.content.PropertyValueType>
 	 * @see com.mozu.api.contracts.content.PropertyValueType
 	 */
-	public List<com.mozu.api.contracts.content.PropertyValueType> propertyValueTypes(AuthTicket authTicket) throws Exception
+	public List<com.mozu.api.contracts.content.PropertyValueType> propertyValueTypes(com.mozu.api.DataViewMode dataViewMode, AuthTicket authTicket) throws Exception
 	{
-		MozuClient<List<com.mozu.api.contracts.content.PropertyValueType>> client = com.mozu.api.clients.content.PropertyTypeClient.propertyValueTypesClient(authTicket);
+		MozuClient<List<com.mozu.api.contracts.content.PropertyValueType>> client = com.mozu.api.clients.content.PropertyTypeClient.propertyValueTypesClient(dataViewMode, authTicket);
 		client.setContext(_apiContext);
 		client.executeRequest();
 		return client.getResult();

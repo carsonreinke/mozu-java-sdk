@@ -7,13 +7,21 @@
 package com.mozu.api.contracts.productadmin;
 
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 
+/**
+ *	Container for the facet source information, which includes the category, price, or attribute properties.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class FacetSource implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * If true, the facet allows for values that consist of one or more ranges, such as 0-100, 100-200, and 200-300.
+	 */
 	protected Boolean allowsRangeQuery;
 
 	public Boolean getAllowsRangeQuery() {
@@ -24,6 +32,9 @@ public class FacetSource implements Serializable
 		this.allowsRangeQuery = allowsRangeQuery;
 	}
 
+	/**
+	 * The data type associated with the attribute or category that generates the facet, such as bool or string.
+	 */
 	protected String dataType;
 
 	public String getDataType() {
@@ -34,6 +45,9 @@ public class FacetSource implements Serializable
 		this.dataType = dataType;
 	}
 
+	/**
+	 * Identifier of the facet source, which is attribute, category, or price. For attribute facets, the AttributeFQN.
+	 */
 	protected String id;
 
 	public String getId() {
@@ -44,6 +58,9 @@ public class FacetSource implements Serializable
 		this.id = id;
 	}
 
+	/**
+	 * System-supplied and read-only name of the associated facet source.
+	 */
 	protected String name;
 
 	public String getName() {
@@ -54,6 +71,9 @@ public class FacetSource implements Serializable
 		this.name = name;
 	}
 
+	/**
+	 * The source type for the facet, either "Attribute" or "Element". Category and price facets are elements.
+	 */
 	protected String type;
 
 	public String getType() {

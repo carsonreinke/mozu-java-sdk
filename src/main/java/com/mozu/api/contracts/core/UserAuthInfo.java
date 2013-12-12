@@ -7,13 +7,21 @@
 package com.mozu.api.contracts.core;
 
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 
+/**
+ *	Information required to authenticate a user.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class UserAuthInfo implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * The email address of the specified user or the email address associated with the specified entity.
+	 */
 	protected String emailAddress;
 
 	public String getEmailAddress() {
@@ -24,6 +32,9 @@ public class UserAuthInfo implements Serializable
 		this.emailAddress = emailAddress;
 	}
 
+	/**
+	 * Password of the user.
+	 */
 	protected String password;
 
 	public String getPassword() {

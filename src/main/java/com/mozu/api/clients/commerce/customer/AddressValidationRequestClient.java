@@ -14,13 +14,13 @@ import com.mozu.api.Headers;
 import com.mozu.api.security.AuthTicket;
 
 /** <summary>
- * 
+ * Use the Address Validation resource to validate addresses associated with a customer account contact.
  * </summary>
  */
 public class AddressValidationRequestClient {
 	
 	/**
-	 * 
+	 * Validates the customer address supplied in the request.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.customer.AddressValidationResponse> mozuClient=ValidateAddressClient( addressValidationRequest, authTicket);
 	 * client.setBaseAddress(url);
@@ -28,7 +28,7 @@ public class AddressValidationRequestClient {
 	 * AddressValidationResponse addressValidationResponse = client.Result();
 	 * </code></pre></p>
 	 * @param authTicket User Auth Ticket
-	 * @param addressValidationRequest 
+	 * @param addressValidationRequest Properties of the address to validate.
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.customer.AddressValidationResponse>
 	 * @see com.mozu.api.contracts.customer.AddressValidationResponse
 	 * @see com.mozu.api.contracts.customer.AddressValidationRequest

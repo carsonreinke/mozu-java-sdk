@@ -8,14 +8,22 @@ package com.mozu.api.contracts.productadmin;
 
 import java.util.List;
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 import com.mozu.api.contracts.productadmin.Category;
 
+/**
+ *	The container for a non-paged list of related site-specific product category properties.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class CategoryCollection implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * The number of results listed in the query collection, represented by a signed 64-bit (8-byte) integer. This value is system-supplied and read-only.
+	 */
 	protected Long totalCount;
 
 	public Long getTotalCount() {
@@ -26,6 +34,9 @@ public class CategoryCollection implements Serializable
 		this.totalCount = totalCount;
 	}
 
+	/**
+	 * An array list of objects in the returned collection.
+	 */
 	protected List<Category> items;
 	public List<Category> getItems() {
 		return this.items;

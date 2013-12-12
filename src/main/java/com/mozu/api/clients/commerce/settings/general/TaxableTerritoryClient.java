@@ -14,13 +14,13 @@ import com.mozu.api.Headers;
 import com.mozu.api.security.AuthTicket;
 
 /** <summary>
- * 
+ * Use the taxable territories subresource to manage the regional territories for this site that are subejct to sales tax.
  * </summary>
  */
 public class TaxableTerritoryClient {
 	
 	/**
-	 * 
+	 * Retrieves a list of the taxable territories configured for the site.
 	 * <p><pre><code>
 	 * MozuClient<List<com.mozu.api.contracts.sitesettings.general.TaxableTerritory>> mozuClient=GetTaxableTerritoriesClient(authTicket);
 	 * client.setBaseAddress(url);
@@ -46,7 +46,7 @@ public class TaxableTerritoryClient {
 	}
 
 	/**
-	 * 
+	 * Creates a new territory for which to calculate sales tax.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.sitesettings.general.TaxableTerritory> mozuClient=AddTaxableTerritoryClient( taxableTerritory, authTicket);
 	 * client.setBaseAddress(url);
@@ -54,7 +54,7 @@ public class TaxableTerritoryClient {
 	 * TaxableTerritory taxableTerritory = client.Result();
 	 * </code></pre></p>
 	 * @param authTicket User Auth Ticket
-	 * @param taxableTerritory 
+	 * @param taxableTerritory Properties of the taxable territory to create.
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.sitesettings.general.TaxableTerritory>
 	 * @see com.mozu.api.contracts.sitesettings.general.TaxableTerritory
 	 * @see com.mozu.api.contracts.sitesettings.general.TaxableTerritory
@@ -75,7 +75,7 @@ public class TaxableTerritoryClient {
 	}
 
 	/**
-	 * 
+	 * Updates one or more taxable territories configured for a site.
 	 * <p><pre><code>
 	 * MozuClient<List<com.mozu.api.contracts.sitesettings.general.TaxableTerritory>> mozuClient=UpdateTaxableTerritoriesClient( taxableterritories, authTicket);
 	 * client.setBaseAddress(url);
@@ -83,7 +83,7 @@ public class TaxableTerritoryClient {
 	 * TaxableTerritory taxableTerritory = client.Result();
 	 * </code></pre></p>
 	 * @param authTicket User Auth Ticket
-	 * @param taxableterritories 
+	 * @param taxableterritories Properties of the taxable territories to update.
 	 * @return Mozu.Api.MozuClient <List<com.mozu.api.contracts.sitesettings.general.TaxableTerritory>>
 	 * @see com.mozu.api.contracts.sitesettings.general.TaxableTerritory
 	 * @see com.mozu.api.contracts.sitesettings.general.TaxableTerritory

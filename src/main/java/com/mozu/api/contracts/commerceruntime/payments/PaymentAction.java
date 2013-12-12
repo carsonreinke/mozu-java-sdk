@@ -7,15 +7,23 @@
 package com.mozu.api.contracts.commerceruntime.payments;
 
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 import com.mozu.api.contracts.commerceruntime.payments.PaymentGatewayInteraction;
 import com.mozu.api.contracts.commerceruntime.payments.BillingInfo;
 
+/**
+ *	Properties of the payment action performed for an order.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class PaymentAction implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * The name of the payment action, such as "AuthorizeAndCapture".
+	 */
 	protected String actionName;
 
 	public String getActionName() {
@@ -26,6 +34,9 @@ public class PaymentAction implements Serializable
 		this.actionName = actionName;
 	}
 
+	/**
+	 * The total monetary amount of the payment transaction.
+	 */
 	protected Double amount;
 
 	public Double getAmount() {
@@ -36,6 +47,9 @@ public class PaymentAction implements Serializable
 		this.amount = amount;
 	}
 
+	/**
+	 * The URL provided to cancel payments submitted using PayPal Express or another non-gateway payment provider.
+	 */
 	protected String cancelUrl;
 
 	public String getCancelUrl() {
@@ -46,6 +60,9 @@ public class PaymentAction implements Serializable
 		this.cancelUrl = cancelUrl;
 	}
 
+	/**
+	 * If applicable, the check number associated with the payment action.
+	 */
 	protected String checkNumber;
 
 	public String getCheckNumber() {
@@ -56,6 +73,9 @@ public class PaymentAction implements Serializable
 		this.checkNumber = checkNumber;
 	}
 
+	/**
+	 * 3-letter ISO 4217 standard global currency code. Currently, only "USD" (US Dollar) is supported.
+	 */
 	protected String currencyCode;
 
 	public String getCurrencyCode() {
@@ -66,6 +86,9 @@ public class PaymentAction implements Serializable
 		this.currencyCode = currencyCode;
 	}
 
+	/**
+	 * Date and time the payment gateway interaction was performed.
+	 */
 	protected Date interactionDate;
 
 	public Date getInteractionDate() {
@@ -76,6 +99,9 @@ public class PaymentAction implements Serializable
 		this.interactionDate = interactionDate;
 	}
 
+	/**
+	 * Unique ID that references an original transaction in the event of a credit back.
+	 */
 	protected String referenceSourcePaymentId;
 
 	public String getReferenceSourcePaymentId() {
@@ -86,6 +112,9 @@ public class PaymentAction implements Serializable
 		this.referenceSourcePaymentId = referenceSourcePaymentId;
 	}
 
+	/**
+	 * The URL provided to redirect users who submit payments using PayPal Express or another non-gateway payment provider.
+	 */
 	protected String returnUrl;
 
 	public String getReturnUrl() {
@@ -96,6 +125,9 @@ public class PaymentAction implements Serializable
 		this.returnUrl = returnUrl;
 	}
 
+	/**
+	 * Properties of a manually performed interaction with the payment gateway.
+	 */
 	protected PaymentGatewayInteraction manualGatewayInteraction;
 
 	public PaymentGatewayInteraction getManualGatewayInteraction() {
@@ -106,6 +138,9 @@ public class PaymentAction implements Serializable
 		this.manualGatewayInteraction = manualGatewayInteraction;
 	}
 
+	/**
+	 * The billing information associated with this payment action.
+	 */
 	protected BillingInfo newBillingInfo;
 
 	public BillingInfo getNewBillingInfo() {

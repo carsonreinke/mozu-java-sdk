@@ -14,20 +14,20 @@ import com.mozu.api.Headers;
 import com.mozu.api.security.AuthTicket;
 
 /** <summary>
- * 
+ * Use the tenant data resource to store tenant-level information required for a third-party application in the Mozu database.
  * </summary>
  */
 public class TenantDataClient {
 	
 	/**
-	 * 
+	 * Retrieves the value of a record in the Mozu database.
 	 * <p><pre><code>
 	 * MozuClient<String> mozuClient=GetDBValueClient( dbEntryQuery);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * string string = client.Result();
 	 * </code></pre></p>
-	 * @param dbEntryQuery 
+	 * @param dbEntryQuery The database entry query string used to retrieve the record information.
 	 * @return Mozu.Api.MozuClient <string>
 	 * @see string
 	 */
@@ -44,14 +44,14 @@ public class TenantDataClient {
 	}
 
 	/**
-	 * 
+	 * Creates a new record in the Mozu database based on the information supplied in the request.
 	 * <p><pre><code>
 	 * MozuClient mozuClient=CreateDBValueClient( value,  dbEntryQuery);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * </code></pre></p>
-	 * @param dbEntryQuery 
-	 * @param value 
+	 * @param dbEntryQuery The database entry string to create.
+	 * @param value The value string to create.
 	 * @return Mozu.Api.MozuClient 
 	 * @see string
 	 */
@@ -68,14 +68,14 @@ public class TenantDataClient {
 	}
 
 	/**
-	 * 
+	 * Updates a record in the Mozu database based on the information supplied in the request.
 	 * <p><pre><code>
 	 * MozuClient mozuClient=UpdateDBValueClient( value,  dbEntryQuery);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * </code></pre></p>
-	 * @param dbEntryQuery 
-	 * @param value 
+	 * @param dbEntryQuery The database entry query string used to update the record information.
+	 * @param value The database value to update.
 	 * @return Mozu.Api.MozuClient 
 	 * @see string
 	 */
@@ -92,13 +92,13 @@ public class TenantDataClient {
 	}
 
 	/**
-	 * 
+	 * Removes a previously defined record in the Mozu database.
 	 * <p><pre><code>
 	 * MozuClient mozuClient=DeleteDBValueClient( dbEntryQuery);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * </code></pre></p>
-	 * @param dbEntryQuery 
+	 * @param dbEntryQuery The database entry string to delete.
 	 * @return Mozu.Api.MozuClient 
 	 */
 	public static MozuClient deleteDBValueClient(String dbEntryQuery) throws Exception

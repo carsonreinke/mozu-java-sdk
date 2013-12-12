@@ -7,13 +7,21 @@
 package com.mozu.api.contracts.productadmin;
 
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 
+/**
+ *	Validates the attribute configured for the product in the storefront against the attribute configured in product admin.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class AttributeValidation implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 *  System-supplied and read-only.
+	 */
 	protected Date maxDateValue;
 
 	public Date getMaxDateValue() {
@@ -24,6 +32,9 @@ public class AttributeValidation implements Serializable
 		this.maxDateValue = maxDateValue;
 	}
 
+	/**
+	 * The maximum number of characters for the numeric length.
+	 */
 	protected Double maxNumericValue;
 
 	public Double getMaxNumericValue() {
@@ -34,6 +45,9 @@ public class AttributeValidation implements Serializable
 		this.maxNumericValue = maxNumericValue;
 	}
 
+	/**
+	 * The maximum number of characters for the string length.
+	 */
 	protected Integer maxStringLength;
 
 	public Integer getMaxStringLength() {
@@ -44,6 +58,9 @@ public class AttributeValidation implements Serializable
 		this.maxStringLength = maxStringLength;
 	}
 
+	/**
+	 *  System-supplied and read-only.
+	 */
 	protected Date minDateValue;
 
 	public Date getMinDateValue() {
@@ -54,6 +71,9 @@ public class AttributeValidation implements Serializable
 		this.minDateValue = minDateValue;
 	}
 
+	/**
+	 * The minimum number of characters for the numeric length.
+	 */
 	protected Double minNumericValue;
 
 	public Double getMinNumericValue() {
@@ -64,6 +84,9 @@ public class AttributeValidation implements Serializable
 		this.minNumericValue = minNumericValue;
 	}
 
+	/**
+	 * The minimum character length of the string.
+	 */
 	protected Integer minStringLength;
 
 	public Integer getMinStringLength() {
@@ -74,6 +97,9 @@ public class AttributeValidation implements Serializable
 		this.minStringLength = minStringLength;
 	}
 
+	/**
+	 * Regular expression used to process attribute values that require special formatting such as phone numbers.
+	 */
 	protected String regularExpression;
 
 	public String getRegularExpression() {

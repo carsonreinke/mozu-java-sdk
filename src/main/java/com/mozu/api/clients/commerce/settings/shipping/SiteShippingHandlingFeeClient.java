@@ -14,13 +14,13 @@ import com.mozu.api.Headers;
 import com.mozu.api.security.AuthTicket;
 
 /** <summary>
- * 
+ * Use the Order Handling Fee subresource to configure any shipping and handling fees to apply to orders for this site.
  * </summary>
  */
 public class SiteShippingHandlingFeeClient {
 	
 	/**
-	 * 
+	 * Retrieves the details of the order handling fee configured for the site.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.sitesettings.shipping.SiteShippingHandlingFee> mozuClient=GetOrderHandlingFeeClient(authTicket);
 	 * client.setBaseAddress(url);
@@ -46,7 +46,7 @@ public class SiteShippingHandlingFeeClient {
 	}
 
 	/**
-	 * 
+	 * Creates a new order handling fee for the site.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.sitesettings.shipping.SiteShippingHandlingFee> mozuClient=CreateOrderHandlingFeeClient( orderHandlingFee, authTicket);
 	 * client.setBaseAddress(url);
@@ -54,7 +54,7 @@ public class SiteShippingHandlingFeeClient {
 	 * SiteShippingHandlingFee siteShippingHandlingFee = client.Result();
 	 * </code></pre></p>
 	 * @param authTicket User Auth Ticket
-	 * @param orderHandlingFee 
+	 * @param orderHandlingFee Properties of the order handling fee to assess for order shipment.
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.sitesettings.shipping.SiteShippingHandlingFee>
 	 * @see com.mozu.api.contracts.sitesettings.shipping.SiteShippingHandlingFee
 	 * @see com.mozu.api.contracts.sitesettings.shipping.SiteShippingHandlingFee
@@ -75,7 +75,7 @@ public class SiteShippingHandlingFeeClient {
 	}
 
 	/**
-	 * 
+	 * Updates the order handling fee amount for the site.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.sitesettings.shipping.SiteShippingHandlingFee> mozuClient=UpdateOrderHandlingFeeClient( orderHandlingFee, authTicket);
 	 * client.setBaseAddress(url);
@@ -83,7 +83,7 @@ public class SiteShippingHandlingFeeClient {
 	 * SiteShippingHandlingFee siteShippingHandlingFee = client.Result();
 	 * </code></pre></p>
 	 * @param authTicket User Auth Ticket
-	 * @param orderHandlingFee 
+	 * @param orderHandlingFee The combined price for all items in the order, including all selected options but excluding any discounts.
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.sitesettings.shipping.SiteShippingHandlingFee>
 	 * @see com.mozu.api.contracts.sitesettings.shipping.SiteShippingHandlingFee
 	 * @see com.mozu.api.contracts.sitesettings.shipping.SiteShippingHandlingFee

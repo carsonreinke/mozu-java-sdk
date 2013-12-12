@@ -14,88 +14,12 @@ public class PaymentSettingsUrl
 {
 
 	/**
-	 * Get Resource Url for GetPaymentSettings
-	 * @return   String Resource Url
-	 */
-	public static MozuUrl getPaymentSettingsUrl()
-	{
-		UrlFormatter formatter = new UrlFormatter("/api/commerce/settings/checkout/paymentsettings");
-		return new MozuUrl(formatter.getResourceUrl(), MozuUrl.UrlLocation.TENANT_POD) ;
-	}
-
-	/**
-	 * Get Resource Url for GetActiveGatewayForCountry
-	 * @param countryCode 
-	 * @return   String Resource Url
-	 */
-	public static MozuUrl getActiveGatewayForCountryUrl(String countryCode)
-	{
-		UrlFormatter formatter = new UrlFormatter("/api/commerce/settings/checkout/paymentsettings/activeForCountry/{countryCode}");
-		formatter.formatUrl("countryCode", countryCode);
-		return new MozuUrl(formatter.getResourceUrl(), MozuUrl.UrlLocation.TENANT_POD) ;
-	}
-
-	/**
-	 * Get Resource Url for GetGatewayDefinitions
-	 * @return   String Resource Url
-	 */
-	public static MozuUrl getGatewayDefinitionsUrl()
-	{
-		UrlFormatter formatter = new UrlFormatter("/api/commerce/settings/checkout/paymentsettings/gatewayDefinitions");
-		return new MozuUrl(formatter.getResourceUrl(), MozuUrl.UrlLocation.TENANT_POD) ;
-	}
-
-	/**
-	 * Get Resource Url for GetGateway
-	 * @param gatewayId 
-	 * @return   String Resource Url
-	 */
-	public static MozuUrl getGatewayUrl(String gatewayId)
-	{
-		UrlFormatter formatter = new UrlFormatter("/api/commerce/settings/checkout/paymentsettings/gateways/{gatewayId}");
-		formatter.formatUrl("gatewayId", gatewayId);
-		return new MozuUrl(formatter.getResourceUrl(), MozuUrl.UrlLocation.TENANT_POD) ;
-	}
-
-	/**
 	 * Get Resource Url for GetThirdPartyPaymentWorkflows
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl getThirdPartyPaymentWorkflowsUrl()
 	{
 		UrlFormatter formatter = new UrlFormatter("/api/commerce/settings/checkout/paymentsettings/thirdpartyworkflows");
-		return new MozuUrl(formatter.getResourceUrl(), MozuUrl.UrlLocation.TENANT_POD) ;
-	}
-
-	/**
-	 * Get Resource Url for CreateGateway
-	 * @return   String Resource Url
-	 */
-	public static MozuUrl createGatewayUrl()
-	{
-		UrlFormatter formatter = new UrlFormatter("/api/commerce/settings/checkout/paymentsettings/gateways");
-		return new MozuUrl(formatter.getResourceUrl(), MozuUrl.UrlLocation.TENANT_POD) ;
-	}
-
-	/**
-	 * Get Resource Url for UpdatePaymentSettings
-	 * @return   String Resource Url
-	 */
-	public static MozuUrl updatePaymentSettingsUrl()
-	{
-		UrlFormatter formatter = new UrlFormatter("/api/commerce/settings/checkout/paymentsettings");
-		return new MozuUrl(formatter.getResourceUrl(), MozuUrl.UrlLocation.TENANT_POD) ;
-	}
-
-	/**
-	 * Get Resource Url for UpdateGateway
-	 * @param gatewayId 
-	 * @return   String Resource Url
-	 */
-	public static MozuUrl updateGatewayUrl(String gatewayId)
-	{
-		UrlFormatter formatter = new UrlFormatter("/api/commerce/settings/checkout/paymentsettings/gateways/{gatewayId}");
-		formatter.formatUrl("gatewayId", gatewayId);
 		return new MozuUrl(formatter.getResourceUrl(), MozuUrl.UrlLocation.TENANT_POD) ;
 	}
 

@@ -8,15 +8,23 @@ package com.mozu.api.contracts.content;
 
 import java.util.List;
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 import com.mozu.api.contracts.content.LocalizedString;
 import com.mozu.api.contracts.content.PropertyType;
 
+/**
+ *	The type of documents used in the CMS such as "web_page" or "template" or "image_url".
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class DocumentType implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * User-defined description of the document type.
+	 */
 	protected String description;
 
 	public String getDescription() {
@@ -27,6 +35,9 @@ public class DocumentType implements Serializable
 		this.description = description;
 	}
 
+	/**
+	 * The name that displays for the document type.
+	 */
 	protected String displayName;
 
 	public String getDisplayName() {
@@ -37,6 +48,9 @@ public class DocumentType implements Serializable
 		this.displayName = displayName;
 	}
 
+	/**
+	 * The document type scope specifies where the the template can be used such as "Global".
+	 */
 	protected String documentTypeScope;
 
 	public String getDocumentTypeScope() {
@@ -47,6 +61,9 @@ public class DocumentType implements Serializable
 		this.documentTypeScope = documentTypeScope;
 	}
 
+	/**
+	 * The name of the document type.
+	 */
 	protected String name;
 
 	public String getName() {
@@ -57,6 +74,9 @@ public class DocumentType implements Serializable
 		this.name = name;
 	}
 
+	/**
+	 * If applicable, the name of the parent document type.
+	 */
 	protected String parentTypeName;
 
 	public String getParentTypeName() {
@@ -67,6 +87,9 @@ public class DocumentType implements Serializable
 		this.parentTypeName = parentTypeName;
 	}
 
+	/**
+	 * List of content entity descriptions localized to the site or site group's default language.
+	 */
 	protected List<LocalizedString> localizedDescriptions;
 	public List<LocalizedString> getLocalizedDescriptions() {
 		return this.localizedDescriptions;
@@ -75,6 +98,9 @@ public class DocumentType implements Serializable
 		this.localizedDescriptions = localizedDescriptions;
 	}
 
+	/**
+	 * List of content entity display names localized to the site or site group's default language.
+	 */
 	protected List<LocalizedString> localizedDisplayNames;
 	public List<LocalizedString> getLocalizedDisplayNames() {
 		return this.localizedDisplayNames;
@@ -83,6 +109,9 @@ public class DocumentType implements Serializable
 		this.localizedDisplayNames = localizedDisplayNames;
 	}
 
+	/**
+	 * List of content property types associated with the document type.
+	 */
 	protected List<PropertyType> propertyTypes;
 	public List<PropertyType> getPropertyTypes() {
 		return this.propertyTypes;

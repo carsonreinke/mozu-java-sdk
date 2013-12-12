@@ -15,7 +15,7 @@ import com.mozu.api.Headers;
 import com.mozu.api.security.AuthTicket;
 
 /** <summary>
- * 
+ * Specify settings when creating payments for order checkout on the site.
  * </summary>
  */
 public class PaymentSettingsResource {
@@ -29,85 +29,7 @@ public class PaymentSettingsResource {
 	}
 	
 	/**
-	 * 
-	 * <p><pre><code>
-	 *	PaymentSettings paymentsettings = new PaymentSettings();
-	 *	PaymentSettings paymentSettings = paymentsettings.GetPaymentSettings(authTicket);
-	 * </code></pre></p>
-	 * @param authTicket User Auth Ticket
-	 * @return com.mozu.api.contracts.sitesettings.order.PaymentSettings
-	 * @see com.mozu.api.contracts.sitesettings.order.PaymentSettings
-	 */
-	public com.mozu.api.contracts.sitesettings.order.PaymentSettings getPaymentSettings(AuthTicket authTicket) throws Exception
-	{
-		MozuClient<com.mozu.api.contracts.sitesettings.order.PaymentSettings> client = com.mozu.api.clients.commerce.settings.checkout.PaymentSettingsClient.getPaymentSettingsClient(authTicket);
-		client.setContext(_apiContext);
-		client.executeRequest();
-		return client.getResult();
-
-	}
-
-	/**
-	 * 
-	 * <p><pre><code>
-	 *	PaymentSettings paymentsettings = new PaymentSettings();
-	 *	Gateway gateway = paymentsettings.GetActiveGatewayForCountry( countryCode, authTicket);
-	 * </code></pre></p>
-	 * @param countryCode 
-	 * @param authTicket User Auth Ticket
-	 * @return com.mozu.api.contracts.sitesettings.order.Gateway
-	 * @see com.mozu.api.contracts.sitesettings.order.Gateway
-	 */
-	public com.mozu.api.contracts.sitesettings.order.Gateway getActiveGatewayForCountry(String countryCode, AuthTicket authTicket) throws Exception
-	{
-		MozuClient<com.mozu.api.contracts.sitesettings.order.Gateway> client = com.mozu.api.clients.commerce.settings.checkout.PaymentSettingsClient.getActiveGatewayForCountryClient( countryCode, authTicket);
-		client.setContext(_apiContext);
-		client.executeRequest();
-		return client.getResult();
-
-	}
-
-	/**
-	 * 
-	 * <p><pre><code>
-	 *	PaymentSettings paymentsettings = new PaymentSettings();
-	 *	GatewayDefinition gatewayDefinition = paymentsettings.GetGatewayDefinitions(authTicket);
-	 * </code></pre></p>
-	 * @param authTicket User Auth Ticket
-	 * @return List<com.mozu.api.contracts.paymentservice.GatewayDefinition>
-	 * @see com.mozu.api.contracts.paymentservice.GatewayDefinition
-	 */
-	public List<com.mozu.api.contracts.paymentservice.GatewayDefinition> getGatewayDefinitions(AuthTicket authTicket) throws Exception
-	{
-		MozuClient<List<com.mozu.api.contracts.paymentservice.GatewayDefinition>> client = com.mozu.api.clients.commerce.settings.checkout.PaymentSettingsClient.getGatewayDefinitionsClient(authTicket);
-		client.setContext(_apiContext);
-		client.executeRequest();
-		return client.getResult();
-
-	}
-
-	/**
-	 * 
-	 * <p><pre><code>
-	 *	PaymentSettings paymentsettings = new PaymentSettings();
-	 *	Gateway gateway = paymentsettings.GetGateway( gatewayId, authTicket);
-	 * </code></pre></p>
-	 * @param gatewayId 
-	 * @param authTicket User Auth Ticket
-	 * @return com.mozu.api.contracts.sitesettings.order.Gateway
-	 * @see com.mozu.api.contracts.sitesettings.order.Gateway
-	 */
-	public com.mozu.api.contracts.sitesettings.order.Gateway getGateway(String gatewayId, AuthTicket authTicket) throws Exception
-	{
-		MozuClient<com.mozu.api.contracts.sitesettings.order.Gateway> client = com.mozu.api.clients.commerce.settings.checkout.PaymentSettingsClient.getGatewayClient( gatewayId, authTicket);
-		client.setContext(_apiContext);
-		client.executeRequest();
-		return client.getResult();
-
-	}
-
-	/**
-	 * 
+	 * Retrieves the details of the third-party payment service workflows configured for the site.
 	 * <p><pre><code>
 	 *	PaymentSettings paymentsettings = new PaymentSettings();
 	 *	ExternalPaymentWorkflowDefinition externalPaymentWorkflowDefinition = paymentsettings.GetThirdPartyPaymentWorkflows(authTicket);
@@ -119,70 +41,6 @@ public class PaymentSettingsResource {
 	public List<com.mozu.api.contracts.sitesettings.order.ExternalPaymentWorkflowDefinition> getThirdPartyPaymentWorkflows(AuthTicket authTicket) throws Exception
 	{
 		MozuClient<List<com.mozu.api.contracts.sitesettings.order.ExternalPaymentWorkflowDefinition>> client = com.mozu.api.clients.commerce.settings.checkout.PaymentSettingsClient.getThirdPartyPaymentWorkflowsClient(authTicket);
-		client.setContext(_apiContext);
-		client.executeRequest();
-		return client.getResult();
-
-	}
-
-	/**
-	 * 
-	 * <p><pre><code>
-	 *	PaymentSettings paymentsettings = new PaymentSettings();
-	 *	Gateway gateway = paymentsettings.CreateGateway( gateway, authTicket);
-	 * </code></pre></p>
-	 * @param authTicket User Auth Ticket
-	 * @param gateway 
-	 * @return com.mozu.api.contracts.sitesettings.order.Gateway
-	 * @see com.mozu.api.contracts.sitesettings.order.Gateway
-	 * @see com.mozu.api.contracts.sitesettings.order.Gateway
-	 */
-	public com.mozu.api.contracts.sitesettings.order.Gateway createGateway(com.mozu.api.contracts.sitesettings.order.Gateway gateway, AuthTicket authTicket) throws Exception
-	{
-		MozuClient<com.mozu.api.contracts.sitesettings.order.Gateway> client = com.mozu.api.clients.commerce.settings.checkout.PaymentSettingsClient.createGatewayClient( gateway, authTicket);
-		client.setContext(_apiContext);
-		client.executeRequest();
-		return client.getResult();
-
-	}
-
-	/**
-	 * 
-	 * <p><pre><code>
-	 *	PaymentSettings paymentsettings = new PaymentSettings();
-	 *	PaymentSettings paymentSettings = paymentsettings.UpdatePaymentSettings( paymentSettings, authTicket);
-	 * </code></pre></p>
-	 * @param authTicket User Auth Ticket
-	 * @param paymentSettings 
-	 * @return com.mozu.api.contracts.sitesettings.order.PaymentSettings
-	 * @see com.mozu.api.contracts.sitesettings.order.PaymentSettings
-	 * @see com.mozu.api.contracts.sitesettings.order.PaymentSettings
-	 */
-	public com.mozu.api.contracts.sitesettings.order.PaymentSettings updatePaymentSettings(com.mozu.api.contracts.sitesettings.order.PaymentSettings paymentSettings, AuthTicket authTicket) throws Exception
-	{
-		MozuClient<com.mozu.api.contracts.sitesettings.order.PaymentSettings> client = com.mozu.api.clients.commerce.settings.checkout.PaymentSettingsClient.updatePaymentSettingsClient( paymentSettings, authTicket);
-		client.setContext(_apiContext);
-		client.executeRequest();
-		return client.getResult();
-
-	}
-
-	/**
-	 * 
-	 * <p><pre><code>
-	 *	PaymentSettings paymentsettings = new PaymentSettings();
-	 *	Gateway gateway = paymentsettings.UpdateGateway( gateway,  gatewayId, authTicket);
-	 * </code></pre></p>
-	 * @param gatewayId 
-	 * @param authTicket User Auth Ticket
-	 * @param gateway 
-	 * @return com.mozu.api.contracts.sitesettings.order.Gateway
-	 * @see com.mozu.api.contracts.sitesettings.order.Gateway
-	 * @see com.mozu.api.contracts.sitesettings.order.Gateway
-	 */
-	public com.mozu.api.contracts.sitesettings.order.Gateway updateGateway(com.mozu.api.contracts.sitesettings.order.Gateway gateway, String gatewayId, AuthTicket authTicket) throws Exception
-	{
-		MozuClient<com.mozu.api.contracts.sitesettings.order.Gateway> client = com.mozu.api.clients.commerce.settings.checkout.PaymentSettingsClient.updateGatewayClient( gateway,  gatewayId, authTicket);
 		client.setContext(_apiContext);
 		client.executeRequest();
 		return client.getResult();

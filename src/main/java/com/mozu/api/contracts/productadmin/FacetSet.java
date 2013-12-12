@@ -8,15 +8,23 @@ package com.mozu.api.contracts.productadmin;
 
 import java.util.List;
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 import com.mozu.api.contracts.productadmin.FacetSource;
 import com.mozu.api.contracts.productadmin.Facet;
 
+/**
+ *	The list of category, price, and attribute facets defined or available for definition for the category.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class FacetSet implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * The list of subcategories and attributes that have not been defined as facets for the category.
+	 */
 	protected List<FacetSource> available;
 	public List<FacetSource> getAvailable() {
 		return this.available;
@@ -25,6 +33,9 @@ public class FacetSet implements Serializable
 		this.available = available;
 	}
 
+	/**
+	 * The list of category, price, and attribute facets defined for the category.
+	 */
 	protected List<Facet> configured;
 	public List<Facet> getConfigured() {
 		return this.configured;

@@ -15,7 +15,7 @@ import com.mozu.api.Headers;
 import com.mozu.api.security.AuthTicket;
 
 /** <summary>
- * 
+ * Use the Extras subresource to define how a product attribute classified as an "extra" is used for a specific product type. Product attribute defintions are unique for each associated product type.
  * </summary>
  */
 public class ProductTypeExtraResource {
@@ -29,12 +29,12 @@ public class ProductTypeExtraResource {
 	}
 	
 	/**
-	 * 
+	 * Retrieves a list of extra attributes defined for the specified product type.
 	 * <p><pre><code>
 	 *	ProductTypeExtra producttypeextra = new ProductTypeExtra();
 	 *	AttributeInProductType attributeInProductType = producttypeextra.GetExtras(dataViewMode,  productTypeId, authTicket);
 	 * </code></pre></p>
-	 * @param productTypeId 
+	 * @param productTypeId Identifier of the product type.
 	 * @param dataViewMode DataViewMode
 	 * @param authTicket User Auth Ticket
 	 * @return List<com.mozu.api.contracts.productadmin.AttributeInProductType>
@@ -50,21 +50,21 @@ public class ProductTypeExtraResource {
 	}
 
 	/**
-	 * 
+	 * Retrieves the details of an extra attribute definition for the specified product type.
 	 * <p><pre><code>
 	 *	ProductTypeExtra producttypeextra = new ProductTypeExtra();
-	 *	AttributeInProductType attributeInProductType = producttypeextra.GetExtra(dataViewMode,  attributeFQN,  productTypeId, authTicket);
+	 *	AttributeInProductType attributeInProductType = producttypeextra.GetExtra(dataViewMode,  productTypeId,  attributeFQN, authTicket);
 	 * </code></pre></p>
-	 * @param attributeFQN 
-	 * @param productTypeId 
+	 * @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
+	 * @param productTypeId Identifier of the product type whose extra is being retrieved.
 	 * @param dataViewMode DataViewMode
 	 * @param authTicket User Auth Ticket
 	 * @return com.mozu.api.contracts.productadmin.AttributeInProductType
 	 * @see com.mozu.api.contracts.productadmin.AttributeInProductType
 	 */
-	public com.mozu.api.contracts.productadmin.AttributeInProductType getExtra(com.mozu.api.DataViewMode dataViewMode, String attributeFQN, Integer productTypeId, AuthTicket authTicket) throws Exception
+	public com.mozu.api.contracts.productadmin.AttributeInProductType getExtra(com.mozu.api.DataViewMode dataViewMode, Integer productTypeId, String attributeFQN, AuthTicket authTicket) throws Exception
 	{
-		MozuClient<com.mozu.api.contracts.productadmin.AttributeInProductType> client = com.mozu.api.clients.commerce.catalog.admin.attributedefinition.producttypes.ProductTypeExtraClient.getExtraClient(dataViewMode,  attributeFQN,  productTypeId, authTicket);
+		MozuClient<com.mozu.api.contracts.productadmin.AttributeInProductType> client = com.mozu.api.clients.commerce.catalog.admin.attributedefinition.producttypes.ProductTypeExtraClient.getExtraClient(dataViewMode,  productTypeId,  attributeFQN, authTicket);
 		client.setContext(_apiContext);
 		client.executeRequest();
 		return client.getResult();
@@ -72,15 +72,15 @@ public class ProductTypeExtraResource {
 	}
 
 	/**
-	 * 
+	 * Assigns a defined extra attribute to the product type based on the information supplied in the request.
 	 * <p><pre><code>
 	 *	ProductTypeExtra producttypeextra = new ProductTypeExtra();
 	 *	AttributeInProductType attributeInProductType = producttypeextra.AddExtra(dataViewMode,  attributeInProductType,  productTypeId, authTicket);
 	 * </code></pre></p>
-	 * @param productTypeId 
+	 * @param productTypeId Identifier of the product type.
 	 * @param dataViewMode DataViewMode
 	 * @param authTicket User Auth Ticket
-	 * @param attributeInProductType 
+	 * @param attributeInProductType The properties of the extra attribute definition for this product type assignment.
 	 * @return com.mozu.api.contracts.productadmin.AttributeInProductType
 	 * @see com.mozu.api.contracts.productadmin.AttributeInProductType
 	 * @see com.mozu.api.contracts.productadmin.AttributeInProductType
@@ -95,23 +95,23 @@ public class ProductTypeExtraResource {
 	}
 
 	/**
-	 * 
+	 * Update the definition of an extra attribute for the specified product type.
 	 * <p><pre><code>
 	 *	ProductTypeExtra producttypeextra = new ProductTypeExtra();
-	 *	AttributeInProductType attributeInProductType = producttypeextra.UpdateExtra(dataViewMode,  attributeInProductType,  attributeFQN,  productTypeId, authTicket);
+	 *	AttributeInProductType attributeInProductType = producttypeextra.UpdateExtra(dataViewMode,  attributeInProductType,  productTypeId,  attributeFQN, authTicket);
 	 * </code></pre></p>
-	 * @param attributeFQN 
-	 * @param productTypeId 
+	 * @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
+	 * @param productTypeId Identifier of the product type.
 	 * @param dataViewMode DataViewMode
 	 * @param authTicket User Auth Ticket
-	 * @param attributeInProductType 
+	 * @param attributeInProductType The properties of the extra attribute definition to update for the product type.
 	 * @return com.mozu.api.contracts.productadmin.AttributeInProductType
 	 * @see com.mozu.api.contracts.productadmin.AttributeInProductType
 	 * @see com.mozu.api.contracts.productadmin.AttributeInProductType
 	 */
-	public com.mozu.api.contracts.productadmin.AttributeInProductType updateExtra(com.mozu.api.DataViewMode dataViewMode, com.mozu.api.contracts.productadmin.AttributeInProductType attributeInProductType, String attributeFQN, Integer productTypeId, AuthTicket authTicket) throws Exception
+	public com.mozu.api.contracts.productadmin.AttributeInProductType updateExtra(com.mozu.api.DataViewMode dataViewMode, com.mozu.api.contracts.productadmin.AttributeInProductType attributeInProductType, Integer productTypeId, String attributeFQN, AuthTicket authTicket) throws Exception
 	{
-		MozuClient<com.mozu.api.contracts.productadmin.AttributeInProductType> client = com.mozu.api.clients.commerce.catalog.admin.attributedefinition.producttypes.ProductTypeExtraClient.updateExtraClient(dataViewMode,  attributeInProductType,  attributeFQN,  productTypeId, authTicket);
+		MozuClient<com.mozu.api.contracts.productadmin.AttributeInProductType> client = com.mozu.api.clients.commerce.catalog.admin.attributedefinition.producttypes.ProductTypeExtraClient.updateExtraClient(dataViewMode,  attributeInProductType,  productTypeId,  attributeFQN, authTicket);
 		client.setContext(_apiContext);
 		client.executeRequest();
 		return client.getResult();
@@ -119,20 +119,20 @@ public class ProductTypeExtraResource {
 	}
 
 	/**
-	 * 
+	 * Removes an extra attribute definition from the specified product type.
 	 * <p><pre><code>
 	 *	ProductTypeExtra producttypeextra = new ProductTypeExtra();
-	 *	producttypeextra.DeleteExtra(dataViewMode,  attributeFQN,  productTypeId, authTicket);
+	 *	producttypeextra.DeleteExtra(dataViewMode,  productTypeId,  attributeFQN, authTicket);
 	 * </code></pre></p>
-	 * @param attributeFQN 
-	 * @param productTypeId 
+	 * @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
+	 * @param productTypeId Identifier of the product type.
 	 * @param dataViewMode DataViewMode
 	 * @param authTicket User Auth Ticket
 	 * @return 
 	 */
-	public void deleteExtra(com.mozu.api.DataViewMode dataViewMode, String attributeFQN, Integer productTypeId, AuthTicket authTicket) throws Exception
+	public void deleteExtra(com.mozu.api.DataViewMode dataViewMode, Integer productTypeId, String attributeFQN, AuthTicket authTicket) throws Exception
 	{
-		MozuClient client = com.mozu.api.clients.commerce.catalog.admin.attributedefinition.producttypes.ProductTypeExtraClient.deleteExtraClient(dataViewMode,  attributeFQN,  productTypeId, authTicket);
+		MozuClient client = com.mozu.api.clients.commerce.catalog.admin.attributedefinition.producttypes.ProductTypeExtraClient.deleteExtraClient(dataViewMode,  productTypeId,  attributeFQN, authTicket);
 		client.setContext(_apiContext);
 		client.executeRequest();
 

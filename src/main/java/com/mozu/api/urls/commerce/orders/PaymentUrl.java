@@ -15,7 +15,7 @@ public class PaymentUrl
 
 	/**
 	 * Get Resource Url for GetPayments
-	 * @param orderId 
+	 * @param orderId Unique identifier of the order.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl getPaymentsUrl(String orderId)
@@ -27,8 +27,8 @@ public class PaymentUrl
 
 	/**
 	 * Get Resource Url for GetPayment
-	 * @param orderId 
-	 * @param paymentId 
+	 * @param orderId Unique identifier of the order associated with the payment transaction.
+	 * @param paymentId Unique identifier of the payment transaction submitted for the order.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl getPaymentUrl(String orderId, String paymentId)
@@ -41,8 +41,8 @@ public class PaymentUrl
 
 	/**
 	 * Get Resource Url for GetAvailablePaymentActions
-	 * @param orderId 
-	 * @param paymentId 
+	 * @param orderId Unique identifier of the order associated with the payment.
+	 * @param paymentId Unique identifer of the payment for which to retrieve available actions.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl getAvailablePaymentActionsUrl(String orderId, String paymentId)
@@ -55,8 +55,8 @@ public class PaymentUrl
 
 	/**
 	 * Get Resource Url for PerformPaymentAction
-	 * @param orderId 
-	 * @param paymentId 
+	 * @param orderId Unique identifier of the order associated with the payment.
+	 * @param paymentId Unique identifer of the payment for which to perform the action.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl performPaymentActionUrl(String orderId, String paymentId)
@@ -69,7 +69,7 @@ public class PaymentUrl
 
 	/**
 	 * Get Resource Url for CreatePaymentAction
-	 * @param orderId 
+	 * @param orderId Unique identifier of the order for which to apply the payment.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl createPaymentActionUrl(String orderId)

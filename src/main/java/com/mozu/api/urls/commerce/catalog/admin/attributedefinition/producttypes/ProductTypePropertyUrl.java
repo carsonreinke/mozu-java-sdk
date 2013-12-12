@@ -15,7 +15,7 @@ public class ProductTypePropertyUrl
 
 	/**
 	 * Get Resource Url for GetProperties
-	 * @param productTypeId 
+	 * @param productTypeId Identifier of the product type.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl getPropertiesUrl(Integer productTypeId)
@@ -27,8 +27,8 @@ public class ProductTypePropertyUrl
 
 	/**
 	 * Get Resource Url for GetProperty
-	 * @param attributeFQN 
-	 * @param productTypeId 
+	 * @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
+	 * @param productTypeId Identifier of the product type.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl getPropertyUrl(String attributeFQN, Integer productTypeId)
@@ -41,7 +41,7 @@ public class ProductTypePropertyUrl
 
 	/**
 	 * Get Resource Url for AddProperty
-	 * @param productTypeId 
+	 * @param productTypeId Identifier of the product type.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl addPropertyUrl(Integer productTypeId)
@@ -53,8 +53,8 @@ public class ProductTypePropertyUrl
 
 	/**
 	 * Get Resource Url for UpdateProperty
-	 * @param attributeFQN 
-	 * @param productTypeId 
+	 * @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
+	 * @param productTypeId Identifier of the product type.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl updatePropertyUrl(String attributeFQN, Integer productTypeId)
@@ -67,8 +67,8 @@ public class ProductTypePropertyUrl
 
 	/**
 	 * Get Resource Url for DeleteProperty
-	 * @param attributeFQN 
-	 * @param productTypeId 
+	 * @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
+	 * @param productTypeId Identifier of the product type.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl deletePropertyUrl(String attributeFQN, Integer productTypeId)

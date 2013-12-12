@@ -7,14 +7,22 @@
 package com.mozu.api.contracts.customer;
 
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 import com.mozu.api.contracts.core.Address;
 
+/**
+ *	Properties of the address to validate.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class AddressValidationRequest implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Properties of the address to validate.
+	 */
 	protected Address address;
 
 	public Address getAddress() {

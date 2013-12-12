@@ -14,21 +14,21 @@ import com.mozu.api.Headers;
 import com.mozu.api.security.AuthTicket;
 
 /** <summary>
- * 
+ * Use the return shipments subresource to manage shipments for a return replacement.
  * </summary>
  */
 public class ShipmentClient {
 	
 	/**
-	 * 
+	 * Retrieves the details of the specified return replacement shipment.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.commerceruntime.fulfillment.Shipment> mozuClient=GetShipmentClient( returnId,  shipmentId, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * Shipment shipment = client.Result();
 	 * </code></pre></p>
-	 * @param returnId 
-	 * @param shipmentId 
+	 * @param returnId Unique identifier of the return associated with the replacement shipment to retrieve.
+	 * @param shipmentId Unique identifier of the return replacement shipment to retrieve.
 	 * @param authTicket User Auth Ticket
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.commerceruntime.fulfillment.Shipment>
 	 * @see com.mozu.api.contracts.commerceruntime.fulfillment.Shipment
@@ -48,16 +48,16 @@ public class ShipmentClient {
 	}
 
 	/**
-	 * 
+	 * Creates a shipment from one or more packages associated with a return replacement.
 	 * <p><pre><code>
 	 * MozuClient<List<com.mozu.api.contracts.commerceruntime.fulfillment.Package>> mozuClient=CreatePackageShipmentsClient( packageIds,  returnId, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * Package package = client.Result();
 	 * </code></pre></p>
-	 * @param returnId 
+	 * @param returnId Unique identifier of the return for which to create replacement package shipments.
 	 * @param authTicket User Auth Ticket
-	 * @param packageIds 
+	 * @param packageIds List of packages in the return replacement shipment.
 	 * @return Mozu.Api.MozuClient <List<com.mozu.api.contracts.commerceruntime.fulfillment.Package>>
 	 * @see com.mozu.api.contracts.commerceruntime.fulfillment.Package
 	 * @see string
@@ -78,14 +78,14 @@ public class ShipmentClient {
 	}
 
 	/**
-	 * 
+	 * Deletes a shipment for a return replacement.
 	 * <p><pre><code>
 	 * MozuClient mozuClient=DeleteShipmentClient( returnId,  shipmentId, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * </code></pre></p>
-	 * @param returnId 
-	 * @param shipmentId 
+	 * @param returnId Unique identifier of the return associated with the replacement shipment to delete.
+	 * @param shipmentId Unique identifier of the return replacement shipment to delete.
 	 * @param authTicket User Auth Ticket
 	 * @return Mozu.Api.MozuClient 
 	 */

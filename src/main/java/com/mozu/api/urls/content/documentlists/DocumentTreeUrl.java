@@ -15,10 +15,10 @@ public class DocumentTreeUrl
 
 	/**
 	 * Get Resource Url for GetTreeDocumentContent
-	 * @param documentListName 
-	 * @param documentName 
-	 * @param folderId 
-	 * @param folderPath 
+	 * @param documentListName The name of the document list associated with the document.
+	 * @param documentName The name of the document, which is unique within its folder.
+	 * @param folderId If applicable, the unique identifier of the folder that contains the document.
+	 * @param folderPath If applicable, the path of the folder hierarchy location associated with the document.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl getTreeDocumentContentUrl(String documentListName, String documentName, String folderId, String folderPath)
@@ -33,10 +33,10 @@ public class DocumentTreeUrl
 
 	/**
 	 * Get Resource Url for GetTreeDocument
-	 * @param documentListName 
-	 * @param documentName 
-	 * @param folderId 
-	 * @param folderPath 
+	 * @param documentListName The name of the document list associated with the document.
+	 * @param documentName The name of the document, which is unique within its folder.
+	 * @param folderId If applicable, the unique identifier of the folder that contains the document.
+	 * @param folderPath If applicable, the path of the folder hierarchy location that contains the document.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl getTreeDocumentUrl(String documentListName, String documentName, String folderId, String folderPath)
@@ -51,10 +51,10 @@ public class DocumentTreeUrl
 
 	/**
 	 * Get Resource Url for UpdateTreeDocumentContent
-	 * @param documentListName 
-	 * @param documentName 
-	 * @param folderId 
-	 * @param folderPath 
+	 * @param documentListName The name of the document list associated with the document.
+	 * @param documentName The name of the document, which is unique within its folder.
+	 * @param folderId If applicable, the unique identifier of the folder that contains the document.
+	 * @param folderPath If applicable, the path of the folder hierarchy location associated with the document.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl updateTreeDocumentContentUrl(String documentListName, String documentName, String folderId, String folderPath)
@@ -69,10 +69,10 @@ public class DocumentTreeUrl
 
 	/**
 	 * Get Resource Url for DeleteTreeDocumentContent
-	 * @param documentListName 
-	 * @param documentName 
-	 * @param folderId 
-	 * @param folderPath 
+	 * @param documentListName The name of the document list associated with the document.
+	 * @param documentName The name of the document, which is unique within its folder.
+	 * @param folderId If applicable, the unique identifier of the folder that contains the document.
+	 * @param folderPath If applicable, the path of the folder hierarchy location associated with the document.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl deleteTreeDocumentContentUrl(String documentListName, String documentName, String folderId, String folderPath)

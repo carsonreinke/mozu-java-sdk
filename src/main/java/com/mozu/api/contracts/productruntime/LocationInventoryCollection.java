@@ -8,14 +8,22 @@ package com.mozu.api.contracts.productruntime;
 
 import java.util.List;
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 import com.mozu.api.contracts.productruntime.LocationInventory;
 
+/**
+ *	Paged collection of product inventory information by location.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class LocationInventoryCollection implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * The number of results listed in the query collection, represented by a signed 64-bit (8-byte) integer. This value is system-supplied and read-only.
+	 */
 	protected Long totalCount;
 
 	public Long getTotalCount() {
@@ -26,6 +34,9 @@ public class LocationInventoryCollection implements Serializable
 		this.totalCount = totalCount;
 	}
 
+	/**
+	 * An array list of objects in the returned collection.
+	 */
 	protected List<LocationInventory> items;
 	public List<LocationInventory> getItems() {
 		return this.items;

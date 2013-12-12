@@ -15,7 +15,7 @@ import com.mozu.api.Headers;
 import com.mozu.api.security.AuthTicket;
 
 /** <summary>
- * 
+ * Get the product category hierarchy as it appears to shoppers who are browsing the storefront. The hierarchy can be returned as a flat list or as a category tree.
  * </summary>
  */
 public class CategoryResource {
@@ -29,7 +29,7 @@ public class CategoryResource {
 	}
 	
 	/**
-	 * 
+	 * Retrieves a list of categories according to any specified filter criteria and sort options.
 	 * <p><pre><code>
 	 *	Category category = new Category();
 	 *	CategoryPagedCollection categoryPagedCollection = category.GetCategories();
@@ -44,22 +44,22 @@ public class CategoryResource {
 	}
 
 	/**
-	 * 
+	 * Retrieves a list of categories according to any specified filter criteria and sort options.
 	 * <p><pre><code>
 	 *	Category category = new Category();
-	 *	CategoryPagedCollection categoryPagedCollection = category.GetCategories( filter,  pageSize,  sortBy,  startIndex, authTicket);
+	 *	CategoryPagedCollection categoryPagedCollection = category.GetCategories( filter,  startIndex,  pageSize,  sortBy, authTicket);
 	 * </code></pre></p>
-	 * @param filter 
-	 * @param pageSize 
+	 * @param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. You can filter product category search results by any of its properties, including its position in the category hierarchy. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
+	 * @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
 	 * @param sortBy 
 	 * @param startIndex 
 	 * @param authTicket User Auth Ticket
 	 * @return com.mozu.api.contracts.productruntime.CategoryPagedCollection
 	 * @see com.mozu.api.contracts.productruntime.CategoryPagedCollection
 	 */
-	public com.mozu.api.contracts.productruntime.CategoryPagedCollection getCategories(String filter, Integer pageSize, String sortBy, Integer startIndex, AuthTicket authTicket) throws Exception
+	public com.mozu.api.contracts.productruntime.CategoryPagedCollection getCategories(String filter, Integer startIndex, Integer pageSize, String sortBy, AuthTicket authTicket) throws Exception
 	{
-		MozuClient<com.mozu.api.contracts.productruntime.CategoryPagedCollection> client = com.mozu.api.clients.commerce.catalog.storefront.CategoryClient.getCategoriesClient( filter,  pageSize,  sortBy,  startIndex, authTicket);
+		MozuClient<com.mozu.api.contracts.productruntime.CategoryPagedCollection> client = com.mozu.api.clients.commerce.catalog.storefront.CategoryClient.getCategoriesClient( filter,  startIndex,  pageSize,  sortBy, authTicket);
 		client.setContext(_apiContext);
 		client.executeRequest();
 		return client.getResult();
@@ -67,12 +67,12 @@ public class CategoryResource {
 	}
 
 	/**
-	 * 
+	 * Retrieves the details of a single category.
 	 * <p><pre><code>
 	 *	Category category = new Category();
 	 *	Category category = category.GetCategory( categoryId);
 	 * </code></pre></p>
-	 * @param categoryId 
+	 * @param categoryId Unique identifier for the storefront container used to organize products.
 	 * @param authTicket User Auth Ticket
 	 * @return com.mozu.api.contracts.productruntime.Category
 	 * @see com.mozu.api.contracts.productruntime.Category
@@ -83,13 +83,13 @@ public class CategoryResource {
 	}
 
 	/**
-	 * 
+	 * Retrieves the details of a single category.
 	 * <p><pre><code>
 	 *	Category category = new Category();
 	 *	Category category = category.GetCategory( categoryId,  allowInactive, authTicket);
 	 * </code></pre></p>
-	 * @param allowInactive 
-	 * @param categoryId 
+	 * @param allowInactive If true, allow inactive categories to be retrieved in the category list response. If false, the categories retrieved will not include ones marked inactive.
+	 * @param categoryId Unique identifier for the storefront container used to organize products.
 	 * @param authTicket User Auth Ticket
 	 * @return com.mozu.api.contracts.productruntime.Category
 	 * @see com.mozu.api.contracts.productruntime.Category
@@ -104,7 +104,7 @@ public class CategoryResource {
 	}
 
 	/**
-	 * 
+	 * Retrieves the list of product categories that appear on the storefront organized in a hierarchical format. Hidden categories do not appear in the list.
 	 * <p><pre><code>
 	 *	Category category = new Category();
 	 *	CategoryCollection categoryCollection = category.GetCategoryTree(authTicket);

@@ -15,7 +15,7 @@ import com.mozu.api.Headers;
 import com.mozu.api.security.AuthTicket;
 
 /** <summary>
- * 
+ * Use the Master Catalog resource to view details of the master catalogs associated with a tenant and to manage the product publishing mode for each master catalog.
  * </summary>
  */
 public class MasterCatalogResource {
@@ -29,7 +29,7 @@ public class MasterCatalogResource {
 	}
 	
 	/**
-	 * 
+	 * Retrieve the details of all master catalog associated with a tenant.
 	 * <p><pre><code>
 	 *	MasterCatalog mastercatalog = new MasterCatalog();
 	 *	MasterCatalogCollection masterCatalogCollection = mastercatalog.GetMasterCatalogs(authTicket);
@@ -48,13 +48,12 @@ public class MasterCatalogResource {
 	}
 
 	/**
-	 * 
+	 * Retrieve the details of the master catalog specified in the request.
 	 * <p><pre><code>
 	 *	MasterCatalog mastercatalog = new MasterCatalog();
 	 *	MasterCatalog masterCatalog = mastercatalog.GetMasterCatalog(dataViewMode,  masterCatalogId, authTicket);
 	 * </code></pre></p>
 	 * @param masterCatalogId 
-	 * @param dataViewMode DataViewMode
 	 * @param authTicket User Auth Ticket
 	 * @return com.mozu.api.contracts.productadmin.MasterCatalog
 	 * @see com.mozu.api.contracts.productadmin.MasterCatalog
@@ -69,15 +68,14 @@ public class MasterCatalogResource {
 	}
 
 	/**
-	 * 
+	 * Updates the product publishing mode for the master catalog specified in the request.
 	 * <p><pre><code>
 	 *	MasterCatalog mastercatalog = new MasterCatalog();
 	 *	MasterCatalog masterCatalog = mastercatalog.UpdateMasterCatalog(dataViewMode,  masterCatalog,  masterCatalogId, authTicket);
 	 * </code></pre></p>
 	 * @param masterCatalogId 
-	 * @param dataViewMode DataViewMode
 	 * @param authTicket User Auth Ticket
-	 * @param masterCatalog 
+	 * @param masterCatalog Properties of the master catalog to update, which consists of the product publishing mode. Possible values are "Pending" which saves product updates in draft mode until they are published, and "Live" which publishes all product changes immediately.
 	 * @return com.mozu.api.contracts.productadmin.MasterCatalog
 	 * @see com.mozu.api.contracts.productadmin.MasterCatalog
 	 * @see com.mozu.api.contracts.productadmin.MasterCatalog

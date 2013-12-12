@@ -7,13 +7,21 @@
 package com.mozu.api.contracts.reference;
 
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 
+/**
+ *	Properties of a content locale that determines the language and format used for a site.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class ContentLocale implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Language used for the entity. Currently, only "en-US" is supported.
+	 */
 	protected String code;
 
 	public String getCode() {
@@ -24,6 +32,9 @@ public class ContentLocale implements Serializable
 		this.code = code;
 	}
 
+	/**
+	 * The name of the content locale.
+	 */
 	protected String name;
 
 	public String getName() {

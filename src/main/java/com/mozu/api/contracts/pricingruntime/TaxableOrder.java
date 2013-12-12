@@ -8,15 +8,23 @@ package com.mozu.api.contracts.pricingruntime;
 
 import java.util.List;
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 import com.mozu.api.contracts.pricingruntime.TaxableLineItem;
 import com.mozu.api.contracts.pricingruntime.TaxContext;
 
+/**
+ *	Properties of an order for which to calculate tax. When a tax capability is enabled for a tenant, Mozu sends the TaxableOrder properties to the capability as read-only, system-supplied information.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class TaxableOrder implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * 3-letter ISO 4217 standard global currency code. Currently, only "USD" (US Dollar) is supported.
+	 */
 	protected String currencyCode;
 
 	public String getCurrencyCode() {
@@ -27,6 +35,9 @@ public class TaxableOrder implements Serializable
 		this.currencyCode = currencyCode;
 	}
 
+	/**
+	 * Handling fee associated with the order.
+	 */
 	protected Double handlingFee;
 
 	public Double getHandlingFee() {
@@ -37,6 +48,9 @@ public class TaxableOrder implements Serializable
 		this.handlingFee = handlingFee;
 	}
 
+	/**
+	 * The date and time the order was submitted.
+	 */
 	protected Date orderDate;
 
 	public Date getOrderDate() {
@@ -67,6 +81,9 @@ public class TaxableOrder implements Serializable
 		this.originalOrderDate = originalOrderDate;
 	}
 
+	/**
+	 * The total shipping amount calculated for the order.
+	 */
 	protected Double shippingAmount;
 
 	public Double getShippingAmount() {
@@ -87,6 +104,9 @@ public class TaxableOrder implements Serializable
 		this.taxRequestType = taxRequestType;
 	}
 
+	/**
+	 * The line items associated with the order.
+	 */
 	protected List<TaxableLineItem> lineItems;
 	public List<TaxableLineItem> getLineItems() {
 		return this.lineItems;
@@ -95,6 +115,9 @@ public class TaxableOrder implements Serializable
 		this.lineItems = lineItems;
 	}
 
+	/**
+	 * The tax properties associated with the order.
+	 */
 	protected TaxContext taxContext;
 
 	public TaxContext getTaxContext() {

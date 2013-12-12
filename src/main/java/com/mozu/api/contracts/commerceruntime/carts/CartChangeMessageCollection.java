@@ -7,14 +7,22 @@
 package com.mozu.api.contracts.commerceruntime.carts;
 
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 import com.mozu.api.contracts.commerceruntime.commerce.ChangeMessage;
 
+/**
+ *	Collection of messages logged or created each time the cart was modifed.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class CartChangeMessageCollection implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * The number of commerce runtime cart change messages transactions that can exist in a collection.
+	 */
 	protected Integer capacity;
 
 	public Integer getCapacity() {
@@ -25,6 +33,9 @@ public class CartChangeMessageCollection implements Serializable
 		this.capacity = capacity;
 	}
 
+	/**
+	 * The number of messages in the collection.
+	 */
 	protected Integer count;
 
 	public Integer getCount() {
@@ -35,6 +46,9 @@ public class CartChangeMessageCollection implements Serializable
 		this.count = count;
 	}
 
+	/**
+	 * Container for an item in a collection.
+	 */
 	protected ChangeMessage item;
 
 	public ChangeMessage getItem() {

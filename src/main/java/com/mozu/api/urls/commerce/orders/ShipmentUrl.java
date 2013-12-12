@@ -15,8 +15,8 @@ public class ShipmentUrl
 
 	/**
 	 * Get Resource Url for GetShipment
-	 * @param orderId 
-	 * @param shipmentId 
+	 * @param orderId Unique identifier of the order associated with the shipment to retrieve.
+	 * @param shipmentId Unique identifier of the shipment to retrieve.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl getShipmentUrl(String orderId, String shipmentId)
@@ -29,7 +29,7 @@ public class ShipmentUrl
 
 	/**
 	 * Get Resource Url for GetAvailableShipmentMethods
-	 * @param orderId 
+	 * @param orderId Unique identifier of the order for the available shipment methods being retrieved.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl getAvailableShipmentMethodsUrl(String orderId)
@@ -41,7 +41,7 @@ public class ShipmentUrl
 
 	/**
 	 * Get Resource Url for CreatePackageShipments
-	 * @param orderId 
+	 * @param orderId Unique identifier of the order for this shipment.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl createPackageShipmentsUrl(String orderId)
@@ -53,8 +53,8 @@ public class ShipmentUrl
 
 	/**
 	 * Get Resource Url for DeleteShipment
-	 * @param orderId 
-	 * @param shipmentId 
+	 * @param orderId Unique identifier of the order to cancel shipment.
+	 * @param shipmentId Unique identifier of the shipment to cancel.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl deleteShipmentUrl(String orderId, String shipmentId)

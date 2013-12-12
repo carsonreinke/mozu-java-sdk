@@ -7,14 +7,22 @@
 package com.mozu.api.contracts.commerceruntime.discounts;
 
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 import com.mozu.api.contracts.commerceruntime.discounts.AppliedDiscount;
 
+/**
+ *	Properties of a discount that can apply to shipping an order.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class ShippingDiscount implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Carrier-supplied code that represents the shipping method service type associated with the shipping discount.
+	 */
 	protected String methodCode;
 
 	public String getMethodCode() {
@@ -25,6 +33,9 @@ public class ShippingDiscount implements Serializable
 		this.methodCode = methodCode;
 	}
 
+	/**
+	 * Properties of the shipping discount.
+	 */
 	protected AppliedDiscount discount;
 
 	public AppliedDiscount getDiscount() {

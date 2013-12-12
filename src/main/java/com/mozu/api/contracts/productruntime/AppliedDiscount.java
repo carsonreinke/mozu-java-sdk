@@ -7,14 +7,22 @@
 package com.mozu.api.contracts.productruntime;
 
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 import com.mozu.api.contracts.productruntime.Discount;
 
+/**
+ *	The discount currently applied to the cart or order, represented as a negative currency amount to be subtracted from the final price. If multiple discounts are applied to the same order, the Applied Discount displays the most valuable discount for the shopper.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class AppliedDiscount implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Alphanumeric code associated with the coupon or promotion that results in a discounted price.
+	 */
 	protected String couponCode;
 
 	public String getCouponCode() {
@@ -25,6 +33,9 @@ public class AppliedDiscount implements Serializable
 		this.couponCode = couponCode;
 	}
 
+	/**
+	 * The value of the discount applied to the product, represented as a negative currency amount to apply to the original price.
+	 */
 	protected Double impact;
 
 	public Double getImpact() {
@@ -35,6 +46,9 @@ public class AppliedDiscount implements Serializable
 		this.impact = impact;
 	}
 
+	/**
+	 * Properties of the discount currently applied to the product.
+	 */
 	protected Discount discount;
 
 	public Discount getDiscount() {

@@ -14,21 +14,21 @@ import com.mozu.api.Headers;
 import com.mozu.api.security.AuthTicket;
 
 /** <summary>
- * 
+ * Use the Location Inventory resource to manage the level of active product inventory maintained at each defined location, at the location level.
  * </summary>
  */
 public class LocationInventoryClient {
 	
 	/**
-	 * 
+	 * Retrieves the details of a product's active inventory at the location specified in the request.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.productadmin.LocationInventory> mozuClient=GetLocationInventoryClient(dataViewMode,  locationCode,  productCode, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * LocationInventory locationInventory = client.Result();
 	 * </code></pre></p>
-	 * @param locationCode 
-	 * @param productCode 
+	 * @param locationCode User-defined code that uniquely identifies the location.
+	 * @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 	 * @param dataViewMode DataViewMode
 	 * @param authTicket User Auth Ticket
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.productadmin.LocationInventory>
@@ -50,14 +50,14 @@ public class LocationInventoryClient {
 	}
 
 	/**
-	 * 
+	 * Retrieves a list of all product inventory definitions for the location code specified in the request.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.productadmin.LocationInventoryCollection> mozuClient=GetLocationInventoriesClient(dataViewMode,  locationCode);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * LocationInventoryCollection locationInventoryCollection = client.Result();
 	 * </code></pre></p>
-	 * @param locationCode 
+	 * @param locationCode User-defined code that uniquely identifies the location.
 	 * @param dataViewMode DataViewMode
 	 * @param authTicket User Auth Ticket
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.productadmin.LocationInventoryCollection>
@@ -69,24 +69,24 @@ public class LocationInventoryClient {
 	}
 
 	/**
-	 * 
+	 * Retrieves a list of all product inventory definitions for the location code specified in the request.
 	 * <p><pre><code>
-	 * MozuClient<com.mozu.api.contracts.productadmin.LocationInventoryCollection> mozuClient=GetLocationInventoriesClient(dataViewMode,  locationCode,  filter,  pageSize,  sortBy,  startIndex, authTicket);
+	 * MozuClient<com.mozu.api.contracts.productadmin.LocationInventoryCollection> mozuClient=GetLocationInventoriesClient(dataViewMode,  locationCode,  startIndex,  pageSize,  sortBy,  filter, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * LocationInventoryCollection locationInventoryCollection = client.Result();
 	 * </code></pre></p>
-	 * @param filter 
-	 * @param locationCode 
-	 * @param pageSize 
-	 * @param sortBy 
-	 * @param startIndex 
+	 * @param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
+	 * @param locationCode User-defined code that uniquely identifies the location.
+	 * @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
+	 * @param sortBy The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"
+	 * @param startIndex When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
 	 * @param dataViewMode DataViewMode
 	 * @param authTicket User Auth Ticket
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.productadmin.LocationInventoryCollection>
 	 * @see com.mozu.api.contracts.productadmin.LocationInventoryCollection
 	 */
-	public static MozuClient<com.mozu.api.contracts.productadmin.LocationInventoryCollection> getLocationInventoriesClient(com.mozu.api.DataViewMode dataViewMode, String locationCode, String filter, Integer pageSize, String sortBy, Integer startIndex, AuthTicket authTicket) throws Exception
+	public static MozuClient<com.mozu.api.contracts.productadmin.LocationInventoryCollection> getLocationInventoriesClient(com.mozu.api.DataViewMode dataViewMode, String locationCode, Integer startIndex, Integer pageSize, String sortBy, String filter, AuthTicket authTicket) throws Exception
 	{
 		MozuUrl url = com.mozu.api.urls.commerce.catalog.admin.LocationInventoryUrl.getLocationInventoriesUrl(filter, locationCode, pageSize, sortBy, startIndex);
 		String verb = "GET";
@@ -102,17 +102,17 @@ public class LocationInventoryClient {
 	}
 
 	/**
-	 * 
+	 * Creates an array of product inventory definitions for the location specified in the request. When adding a new inventory definition, you must specify the productCode and stockOnHand value in each array you define. All other properties are system-supplied and read only.
 	 * <p><pre><code>
 	 * MozuClient<List<com.mozu.api.contracts.productadmin.LocationInventory>> mozuClient=AddLocationInventoryClient(dataViewMode,  locationInventoryList,  locationCode, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * LocationInventory locationInventory = client.Result();
 	 * </code></pre></p>
-	 * @param locationCode 
+	 * @param locationCode User-defined code that uniquely identifies the location.
 	 * @param dataViewMode DataViewMode
 	 * @param authTicket User Auth Ticket
-	 * @param locationInventoryList 
+	 * @param locationInventoryList Array list of product inventory definitions for all associated locations. For each location inventory in the list, define the productCode and stockOnHand values.
 	 * @return Mozu.Api.MozuClient <List<com.mozu.api.contracts.productadmin.LocationInventory>>
 	 * @see com.mozu.api.contracts.productadmin.LocationInventory
 	 * @see com.mozu.api.contracts.productadmin.LocationInventory
@@ -134,14 +134,14 @@ public class LocationInventoryClient {
 	}
 
 	/**
-	 * 
+	 * Updates the active stock on hand inventory of products for the location code specified in the request.
 	 * <p><pre><code>
 	 * MozuClient<List<com.mozu.api.contracts.productadmin.LocationInventory>> mozuClient=UpdateLocationInventoryClient(dataViewMode,  locationInventoryAdjustments,  locationCode, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * LocationInventory locationInventory = client.Result();
 	 * </code></pre></p>
-	 * @param locationCode 
+	 * @param locationCode User-defined code that uniquely identifies the location.
 	 * @param dataViewMode DataViewMode
 	 * @param authTicket User Auth Ticket
 	 * @param locationInventoryAdjustments 
@@ -166,14 +166,14 @@ public class LocationInventoryClient {
 	}
 
 	/**
-	 * 
+	 * Deletes the product code inventory definition for the location specified in the request.
 	 * <p><pre><code>
 	 * MozuClient mozuClient=DeleteLocationInventoryClient(dataViewMode,  locationCode,  productCode, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * </code></pre></p>
-	 * @param locationCode 
-	 * @param productCode 
+	 * @param locationCode User-defined code that uniquely identifies the location.
+	 * @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 	 * @param dataViewMode DataViewMode
 	 * @param authTicket User Auth Ticket
 	 * @return Mozu.Api.MozuClient 

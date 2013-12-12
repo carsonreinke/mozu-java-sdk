@@ -7,116 +7,25 @@
 package com.mozu.api.contracts.productadmin;
 
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 import com.mozu.api.contracts.core.AuditInfo;
+import com.mozu.api.contracts.productadmin.DiscountCondition;
 import com.mozu.api.contracts.productadmin.DiscountLocalizedContent;
 import com.mozu.api.contracts.productadmin.DiscountTarget;
 
+/**
+ *	Discount used to calculate SalePrice. Includes coupon code if applicable, amount of the discount, and discount savings. Discounts can be either an absolute price or a percentage off. The sale price beats any discounts.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Discount implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
-	protected Double amount;
-
-	public Double getAmount() {
-		return this.amount;
-	}
-
-	public void setAmount(Double amount) {
-		this.amount = amount;
-	}
-
-	protected String amountType;
-
-	public String getAmountType() {
-		return this.amountType;
-	}
-
-	public void setAmountType(String amountType) {
-		this.amountType = amountType;
-	}
-
-	protected String couponCode;
-
-	public String getCouponCode() {
-		return this.couponCode;
-	}
-
-	public void setCouponCode(String couponCode) {
-		this.couponCode = couponCode;
-	}
-
-	protected Integer currentRedemptionCount;
-
-	public Integer getCurrentRedemptionCount() {
-		return this.currentRedemptionCount;
-	}
-
-	public void setCurrentRedemptionCount(Integer currentRedemptionCount) {
-		this.currentRedemptionCount = currentRedemptionCount;
-	}
-
-	protected Date expirationDate;
-
-	public Date getExpirationDate() {
-		return this.expirationDate;
-	}
-
-	public void setExpirationDate(Date expirationDate) {
-		this.expirationDate = expirationDate;
-	}
-
-	protected Integer id;
-
-	public Integer getId() {
-		return this.id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	protected Integer maxRedemptionCount;
-
-	public Integer getMaxRedemptionCount() {
-		return this.maxRedemptionCount;
-	}
-
-	public void setMaxRedemptionCount(Integer maxRedemptionCount) {
-		this.maxRedemptionCount = maxRedemptionCount;
-	}
-
-	protected Boolean requiresCoupon;
-
-	public Boolean getRequiresCoupon() {
-		return this.requiresCoupon;
-	}
-
-	public void setRequiresCoupon(Boolean requiresCoupon) {
-		this.requiresCoupon = requiresCoupon;
-	}
-
-	protected String scope;
-
-	public String getScope() {
-		return this.scope;
-	}
-
-	public void setScope(String scope) {
-		this.scope = scope;
-	}
-
-	protected Date startDate;
-
-	public Date getStartDate() {
-		return this.startDate;
-	}
-
-	public void setStartDate(Date startDate) {
-		this.startDate = startDate;
-	}
-
+	/**
+	 * Current status of the product discount. Possible values are "Active", "Scheduled", or "Expired".
+	 */
 	protected String status;
 
 	public String getStatus() {
@@ -127,6 +36,74 @@ public class Discount implements Serializable
 		this.status = status;
 	}
 
+	/**
+	 * The integer amount of the discount. For example, an entry of "10" could represent a discount of $10.00 or a discount of 10%, depending on the type.
+	 */
+	protected Double amount;
+
+	public Double getAmount() {
+		return this.amount;
+	}
+
+	public void setAmount(Double amount) {
+		this.amount = amount;
+	}
+
+	/**
+	 * The type of discount amount, such as an amount or a percentage.
+	 */
+	protected String amountType;
+
+	public String getAmountType() {
+		return this.amountType;
+	}
+
+	public void setAmountType(String amountType) {
+		this.amountType = amountType;
+	}
+
+	/**
+	 * The most recent number of redeemed discounts.
+	 */
+	protected Integer currentRedemptionCount;
+
+	public Integer getCurrentRedemptionCount() {
+		return this.currentRedemptionCount;
+	}
+
+	public void setCurrentRedemptionCount(Integer currentRedemptionCount) {
+		this.currentRedemptionCount = currentRedemptionCount;
+	}
+
+	/**
+	 * Unique identifier of the discount.
+	 */
+	protected Integer id;
+
+	public Integer getId() {
+		return this.id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	/**
+	 * The scope to which the discount applies, which is "Order" for order discounts or "LineItem" for individual product discounts.
+	 */
+	protected String scope;
+
+	public String getScope() {
+		return this.scope;
+	}
+
+	public void setScope(String scope) {
+		this.scope = scope;
+	}
+
+	/**
+	 * Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
+	 */
 	protected AuditInfo auditInfo;
 
 	public AuditInfo getAuditInfo() {
@@ -137,6 +114,19 @@ public class Discount implements Serializable
 		this.auditInfo = auditInfo;
 	}
 
+	protected DiscountCondition conditions;
+
+	public DiscountCondition getConditions() {
+		return this.conditions;
+	}
+
+	public void setConditions(DiscountCondition conditions) {
+		this.conditions = conditions;
+	}
+
+	/**
+	 * Complex type that contains content for a language specified by LocaleCode.
+	 */
 	protected DiscountLocalizedContent content;
 
 	public DiscountLocalizedContent getContent() {
@@ -147,6 +137,9 @@ public class Discount implements Serializable
 		this.content = content;
 	}
 
+	/**
+	 * Properties of the target object to which the discount applies, such as a product or an order.
+	 */
 	protected DiscountTarget target;
 
 	public DiscountTarget getTarget() {

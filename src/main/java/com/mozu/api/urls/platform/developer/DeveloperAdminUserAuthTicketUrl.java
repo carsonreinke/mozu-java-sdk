@@ -15,7 +15,7 @@ public class DeveloperAdminUserAuthTicketUrl
 
 	/**
 	 * Get Resource Url for CreateDeveloperUserAuthTicket
-	 * @param developerAccountId 
+	 * @param developerAccountId Unique identifier of the developer account.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl createDeveloperUserAuthTicketUrl(Integer developerAccountId)
@@ -27,7 +27,7 @@ public class DeveloperAdminUserAuthTicketUrl
 
 	/**
 	 * Get Resource Url for RefreshDeveloperAuthTicket
-	 * @param developerAccountId 
+	 * @param developerAccountId Unique identifier of the developer account.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl refreshDeveloperAuthTicketUrl(Integer developerAccountId)
@@ -39,7 +39,7 @@ public class DeveloperAdminUserAuthTicketUrl
 
 	/**
 	 * Get Resource Url for DeleteUserAuthTicket
-	 * @param refreshToken 
+	 * @param refreshToken Refresh token string associated with the developer account authentication ticket.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl deleteUserAuthTicketUrl(String refreshToken)

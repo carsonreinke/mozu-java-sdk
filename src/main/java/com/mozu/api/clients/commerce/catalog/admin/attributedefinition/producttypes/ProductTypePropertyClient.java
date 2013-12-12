@@ -14,20 +14,20 @@ import com.mozu.api.Headers;
 import com.mozu.api.security.AuthTicket;
 
 /** <summary>
- * 
+ * Use the Properties subresource to define how property product attributes are used for a specific product type. Product attribute definitions are unique for each associated product type.
  * </summary>
  */
 public class ProductTypePropertyClient {
 	
 	/**
-	 * 
+	 * Retrieves a list of product property attributes defined for a product type.
 	 * <p><pre><code>
 	 * MozuClient<List<com.mozu.api.contracts.productadmin.AttributeInProductType>> mozuClient=GetPropertiesClient(dataViewMode,  productTypeId, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * AttributeInProductType attributeInProductType = client.Result();
 	 * </code></pre></p>
-	 * @param productTypeId 
+	 * @param productTypeId Identifier of the product type.
 	 * @param dataViewMode DataViewMode
 	 * @param authTicket User Auth Ticket
 	 * @return Mozu.Api.MozuClient <List<com.mozu.api.contracts.productadmin.AttributeInProductType>>
@@ -49,21 +49,21 @@ public class ProductTypePropertyClient {
 	}
 
 	/**
-	 * 
+	 * Retrieves a product property attribute definition for the specified product type.
 	 * <p><pre><code>
-	 * MozuClient<com.mozu.api.contracts.productadmin.AttributeInProductType> mozuClient=GetPropertyClient(dataViewMode,  attributeFQN,  productTypeId, authTicket);
+	 * MozuClient<com.mozu.api.contracts.productadmin.AttributeInProductType> mozuClient=GetPropertyClient(dataViewMode,  productTypeId,  attributeFQN, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * AttributeInProductType attributeInProductType = client.Result();
 	 * </code></pre></p>
-	 * @param attributeFQN 
-	 * @param productTypeId 
+	 * @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
+	 * @param productTypeId Identifier of the product type.
 	 * @param dataViewMode DataViewMode
 	 * @param authTicket User Auth Ticket
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.productadmin.AttributeInProductType>
 	 * @see com.mozu.api.contracts.productadmin.AttributeInProductType
 	 */
-	public static MozuClient<com.mozu.api.contracts.productadmin.AttributeInProductType> getPropertyClient(com.mozu.api.DataViewMode dataViewMode, String attributeFQN, Integer productTypeId, AuthTicket authTicket) throws Exception
+	public static MozuClient<com.mozu.api.contracts.productadmin.AttributeInProductType> getPropertyClient(com.mozu.api.DataViewMode dataViewMode, Integer productTypeId, String attributeFQN, AuthTicket authTicket) throws Exception
 	{
 		MozuUrl url = com.mozu.api.urls.commerce.catalog.admin.attributedefinition.producttypes.ProductTypePropertyUrl.getPropertyUrl(attributeFQN, productTypeId);
 		String verb = "GET";
@@ -79,17 +79,17 @@ public class ProductTypePropertyClient {
 	}
 
 	/**
-	 * 
+	 * Assigns a property attribute to the specified product type, according to the information defined in the request.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.productadmin.AttributeInProductType> mozuClient=AddPropertyClient(dataViewMode,  attributeInProductType,  productTypeId, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * AttributeInProductType attributeInProductType = client.Result();
 	 * </code></pre></p>
-	 * @param productTypeId 
+	 * @param productTypeId Identifier of the product type.
 	 * @param dataViewMode DataViewMode
 	 * @param authTicket User Auth Ticket
-	 * @param attributeInProductType 
+	 * @param attributeInProductType Properties of the property attribute to define for the specified product type.
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.productadmin.AttributeInProductType>
 	 * @see com.mozu.api.contracts.productadmin.AttributeInProductType
 	 * @see com.mozu.api.contracts.productadmin.AttributeInProductType
@@ -111,23 +111,23 @@ public class ProductTypePropertyClient {
 	}
 
 	/**
-	 * 
+	 * Updates the definition of a property attribute for the specified product type.
 	 * <p><pre><code>
-	 * MozuClient<com.mozu.api.contracts.productadmin.AttributeInProductType> mozuClient=UpdatePropertyClient(dataViewMode,  attributeInProductType,  attributeFQN,  productTypeId, authTicket);
+	 * MozuClient<com.mozu.api.contracts.productadmin.AttributeInProductType> mozuClient=UpdatePropertyClient(dataViewMode,  attributeInProductType,  productTypeId,  attributeFQN, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * AttributeInProductType attributeInProductType = client.Result();
 	 * </code></pre></p>
-	 * @param attributeFQN 
-	 * @param productTypeId 
+	 * @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
+	 * @param productTypeId Identifier of the product type.
 	 * @param dataViewMode DataViewMode
 	 * @param authTicket User Auth Ticket
-	 * @param attributeInProductType 
+	 * @param attributeInProductType Properties of the property attribute to define for the product type.
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.productadmin.AttributeInProductType>
 	 * @see com.mozu.api.contracts.productadmin.AttributeInProductType
 	 * @see com.mozu.api.contracts.productadmin.AttributeInProductType
 	 */
-	public static MozuClient<com.mozu.api.contracts.productadmin.AttributeInProductType> updatePropertyClient(com.mozu.api.DataViewMode dataViewMode, com.mozu.api.contracts.productadmin.AttributeInProductType attributeInProductType, String attributeFQN, Integer productTypeId, AuthTicket authTicket) throws Exception
+	public static MozuClient<com.mozu.api.contracts.productadmin.AttributeInProductType> updatePropertyClient(com.mozu.api.DataViewMode dataViewMode, com.mozu.api.contracts.productadmin.AttributeInProductType attributeInProductType, Integer productTypeId, String attributeFQN, AuthTicket authTicket) throws Exception
 	{
 		MozuUrl url = com.mozu.api.urls.commerce.catalog.admin.attributedefinition.producttypes.ProductTypePropertyUrl.updatePropertyUrl(attributeFQN, productTypeId);
 		String verb = "PUT";
@@ -144,19 +144,19 @@ public class ProductTypePropertyClient {
 	}
 
 	/**
-	 * 
+	 * Removes a property attribute previously defined for the specified product type.
 	 * <p><pre><code>
-	 * MozuClient mozuClient=DeletePropertyClient(dataViewMode,  attributeFQN,  productTypeId, authTicket);
+	 * MozuClient mozuClient=DeletePropertyClient(dataViewMode,  productTypeId,  attributeFQN, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * </code></pre></p>
-	 * @param attributeFQN 
-	 * @param productTypeId 
+	 * @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
+	 * @param productTypeId Identifier of the product type.
 	 * @param dataViewMode DataViewMode
 	 * @param authTicket User Auth Ticket
 	 * @return Mozu.Api.MozuClient 
 	 */
-	public static MozuClient deletePropertyClient(com.mozu.api.DataViewMode dataViewMode, String attributeFQN, Integer productTypeId, AuthTicket authTicket) throws Exception
+	public static MozuClient deletePropertyClient(com.mozu.api.DataViewMode dataViewMode, Integer productTypeId, String attributeFQN, AuthTicket authTicket) throws Exception
 	{
 		MozuUrl url = com.mozu.api.urls.commerce.catalog.admin.attributedefinition.producttypes.ProductTypePropertyUrl.deletePropertyUrl(attributeFQN, productTypeId);
 		String verb = "DELETE";

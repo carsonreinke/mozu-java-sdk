@@ -8,8 +8,10 @@ package com.mozu.api.contracts.productruntime;
 
 import java.util.List;
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 import com.mozu.api.contracts.productruntime.Discount;
+import com.mozu.api.contracts.productruntime.BundledProduct;
 import com.mozu.api.contracts.productruntime.Category;
 import com.mozu.api.contracts.productruntime.ProductContent;
 import com.mozu.api.contracts.productruntime.ProductInventoryInfo;
@@ -20,21 +22,18 @@ import com.mozu.api.contracts.productruntime.ProductPriceRange;
 import com.mozu.api.contracts.productruntime.ProductProperty;
 import com.mozu.api.contracts.productruntime.ProductPurchasableState;
 
+/**
+ *	Properties of the product that appears on a designated storefront.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Product implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
-	protected Integer attributeSetId;
-
-	public Integer getAttributeSetId() {
-		return this.attributeSetId;
-	}
-
-	public void setAttributeSetId(Integer attributeSetId) {
-		this.attributeSetId = attributeSetId;
-	}
-
+	/**
+	 * Date and time when the entity was created, represented in UTC Date/Time.
+	 */
 	protected Date createDate;
 
 	public Date getCreateDate() {
@@ -45,6 +44,9 @@ public class Product implements Serializable
 		this.createDate = createDate;
 	}
 
+	/**
+	 * If true, the product is marked as available for sale. Setting a product to IsActive = false will prevent it from being shown on the customer facing storefront.
+	 */
 	protected Boolean isActive;
 
 	public Boolean getIsActive() {
@@ -55,6 +57,19 @@ public class Product implements Serializable
 		this.isActive = isActive;
 	}
 
+	protected Boolean isPackagedStandAlone;
+
+	public Boolean getIsPackagedStandAlone() {
+		return this.isPackagedStandAlone;
+	}
+
+	public void setIsPackagedStandAlone(Boolean isPackagedStandAlone) {
+		this.isPackagedStandAlone = isPackagedStandAlone;
+	}
+
+	/**
+	 * If true, the product can be purchased or fulfilled at regular intervals such as a monthly billing cycle or a digital or physical subscription.
+	 */
 	protected Boolean isRecurring;
 
 	public Boolean getIsRecurring() {
@@ -65,6 +80,9 @@ public class Product implements Serializable
 		this.isRecurring = isRecurring;
 	}
 
+	/**
+	 * If true, the entity is subject to tax based on the relevant tax rate.
+	 */
 	protected Boolean isTaxable;
 
 	public Boolean getIsTaxable() {
@@ -75,6 +93,9 @@ public class Product implements Serializable
 		this.isTaxable = isTaxable;
 	}
 
+	/**
+	 * Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
+	 */
 	protected String productCode;
 
 	public String getProductCode() {
@@ -85,6 +106,9 @@ public class Product implements Serializable
 		this.productCode = productCode;
 	}
 
+	/**
+	 * Integer that represents the sequential order of the product.
+	 */
 	protected Integer productSequence;
 
 	public Integer getProductSequence() {
@@ -95,6 +119,9 @@ public class Product implements Serializable
 		this.productSequence = productSequence;
 	}
 
+	/**
+	 * A product type is like a product template that can be reused.
+	 */
 	protected String productType;
 
 	public String getProductType() {
@@ -105,6 +132,19 @@ public class Product implements Serializable
 		this.productType = productType;
 	}
 
+	protected String productUsage;
+
+	public String getProductUsage() {
+		return this.productUsage;
+	}
+
+	public void setProductUsage(String productUsage) {
+		this.productUsage = productUsage;
+	}
+
+	/**
+	 * The publishing state of the product definition in the master catalog, which is "New", "Draft", or "Live".
+	 */
 	protected String publishState;
 
 	public String getPublishState() {
@@ -115,6 +155,9 @@ public class Product implements Serializable
 		this.publishState = publishState;
 	}
 
+	/**
+	 * The universal product code (UPC code) of the product.
+	 */
 	protected String upc;
 
 	public String getUpc() {
@@ -125,6 +168,9 @@ public class Product implements Serializable
 		this.upc = upc;
 	}
 
+	/**
+	 * Product code that represents the product variation selected based on the option values the shopper entered.
+	 */
 	protected String variationProductCode;
 
 	public String getVariationProductCode() {
@@ -135,6 +181,9 @@ public class Product implements Serializable
 		this.variationProductCode = variationProductCode;
 	}
 
+	/**
+	 * List of shipping discounts that can be applied to the product.
+	 */
 	protected List<Discount> availableShippingDiscounts;
 	public List<Discount> getAvailableShippingDiscounts() {
 		return this.availableShippingDiscounts;
@@ -143,6 +192,17 @@ public class Product implements Serializable
 		this.availableShippingDiscounts = availableShippingDiscounts;
 	}
 
+	protected List<BundledProduct> bundledProducts;
+	public List<BundledProduct> getBundledProducts() {
+		return this.bundledProducts;
+	}
+	public void setBundledProducts(List<BundledProduct> bundledProducts) {
+		this.bundledProducts = bundledProducts;
+	}
+
+	/**
+	 * List of categories associated with the product.
+	 */
 	protected List<Category> categories;
 	public List<Category> getCategories() {
 		return this.categories;
@@ -151,6 +211,9 @@ public class Product implements Serializable
 		this.categories = categories;
 	}
 
+	/**
+	 * Complex type that contains content for a language specified by LocaleCode.
+	 */
 	protected ProductContent content;
 
 	public ProductContent getContent() {
@@ -161,6 +224,9 @@ public class Product implements Serializable
 		this.content = content;
 	}
 
+	/**
+	 * Array of active inventory level information associated with the product.
+	 */
 	protected ProductInventoryInfo inventoryInfo;
 
 	public ProductInventoryInfo getInventoryInfo() {
@@ -171,6 +237,9 @@ public class Product implements Serializable
 		this.inventoryInfo = inventoryInfo;
 	}
 
+	/**
+	 * Dimensions of the packaged product.
+	 */
 	protected PackageMeasurements measurements;
 
 	public PackageMeasurements getMeasurements() {
@@ -181,6 +250,9 @@ public class Product implements Serializable
 		this.measurements = measurements;
 	}
 
+	/**
+	 * The list of options set up in product admin.
+	 */
 	protected List<ProductOption> options;
 	public List<ProductOption> getOptions() {
 		return this.options;
@@ -189,6 +261,9 @@ public class Product implements Serializable
 		this.options = options;
 	}
 
+	/**
+	 * Price that the merchant intends to sell the product which is not necessarily the list price. This is the price the merchant intends to sell the product if no sale price is present.
+	 */
 	protected ProductPrice price;
 
 	public ProductPrice getPrice() {
@@ -199,6 +274,9 @@ public class Product implements Serializable
 		this.price = price;
 	}
 
+	/**
+	 * For products with options that vary the cost of the product, the range between lowest and highest possible price of the product based on the current selection of options.
+	 */
 	protected ProductPriceRange priceRange;
 
 	public ProductPriceRange getPriceRange() {
@@ -209,6 +287,9 @@ public class Product implements Serializable
 		this.priceRange = priceRange;
 	}
 
+	/**
+	 * The list of product properties set up in product admin.
+	 */
 	protected List<ProductProperty> properties;
 	public List<ProductProperty> getProperties() {
 		return this.properties;
@@ -217,6 +298,9 @@ public class Product implements Serializable
 		this.properties = properties;
 	}
 
+	/**
+	 * The current state of the configured product determines whether or not the product is eligible for purchase. Products with options are only purchasable if the shopper has selected all required options. If the product is not ready for purchase, a message lists missing options that are required.
+	 */
 	protected ProductPurchasableState purchasableState;
 
 	public ProductPurchasableState getPurchasableState() {

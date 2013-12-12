@@ -15,8 +15,8 @@ public class PackageUrl
 
 	/**
 	 * Get Resource Url for GetPackage
-	 * @param orderId 
-	 * @param packageId 
+	 * @param orderId Unique identifier of the order associated with the package to retrieve.
+	 * @param packageId Unique identifier of the package to retrieve.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl getPackageUrl(String orderId, String packageId)
@@ -29,8 +29,8 @@ public class PackageUrl
 
 	/**
 	 * Get Resource Url for GetAvailablePackageFulfillmentActions
-	 * @param orderId 
-	 * @param packageId 
+	 * @param orderId Unique identifier of the order associated with the package fulfillment.
+	 * @param packageId Unique identifier of the package associated with the fulfillment actions to retrieve.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl getAvailablePackageFulfillmentActionsUrl(String orderId, String packageId)
@@ -43,8 +43,8 @@ public class PackageUrl
 
 	/**
 	 * Get Resource Url for GetPackageLabel
-	 * @param orderId 
-	 * @param packageId 
+	 * @param orderId Unique identifier of the order associated with the package label to retrieve.
+	 * @param packageId Unique identifier of the package for which to retrieve the label.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl getPackageLabelUrl(String orderId, String packageId)
@@ -57,7 +57,7 @@ public class PackageUrl
 
 	/**
 	 * Get Resource Url for CreatePackage
-	 * @param orderId 
+	 * @param orderId Unique identifier of the order associated with this package.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl createPackageUrl(String orderId)
@@ -69,8 +69,8 @@ public class PackageUrl
 
 	/**
 	 * Get Resource Url for UpdatePackage
-	 * @param orderId 
-	 * @param packageId 
+	 * @param orderId Unique identifier of the order associated with the package to update.
+	 * @param packageId Unique identifier of the package of order items to update.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl updatePackageUrl(String orderId, String packageId)
@@ -83,8 +83,8 @@ public class PackageUrl
 
 	/**
 	 * Get Resource Url for DeletePackage
-	 * @param orderId 
-	 * @param packageId 
+	 * @param orderId Unique identifier of the order associated with the package to delete.
+	 * @param packageId Unique identifier of the package to delete.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl deletePackageUrl(String orderId, String packageId)

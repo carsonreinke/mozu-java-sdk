@@ -15,7 +15,7 @@ public class CardUrl
 
 	/**
 	 * Get Resource Url for GetAccountCards
-	 * @param accountId 
+	 * @param accountId Unique identifier of the customer account.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl getAccountCardsUrl(Integer accountId)
@@ -26,8 +26,22 @@ public class CardUrl
 	}
 
 	/**
-	 * Get Resource Url for AddAccountCard
+	 * Get Resource Url for GetAccountCard
 	 * @param accountId 
+	 * @param cardId 
+	 * @return   String Resource Url
+	 */
+	public static MozuUrl getAccountCardUrl(Integer accountId, String cardId)
+	{
+		UrlFormatter formatter = new UrlFormatter("/api/commerce/customer/accounts/{accountId}/cards/{cardId}");
+		formatter.formatUrl("accountId", accountId);
+		formatter.formatUrl("cardId", cardId);
+		return new MozuUrl(formatter.getResourceUrl(), MozuUrl.UrlLocation.TENANT_POD) ;
+	}
+
+	/**
+	 * Get Resource Url for AddAccountCard
+	 * @param accountId Unique identifier of the customer account.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl addAccountCardUrl(Integer accountId)
@@ -39,20 +53,22 @@ public class CardUrl
 
 	/**
 	 * Get Resource Url for UpdateAccountCard
-	 * @param accountId 
+	 * @param accountId Unique identifier of the customer account.
+	 * @param cardId 
 	 * @return   String Resource Url
 	 */
-	public static MozuUrl updateAccountCardUrl(Integer accountId)
+	public static MozuUrl updateAccountCardUrl(Integer accountId, String cardId)
 	{
-		UrlFormatter formatter = new UrlFormatter("/api/commerce/customer/accounts/{accountId}/cards");
+		UrlFormatter formatter = new UrlFormatter("/api/commerce/customer/accounts/{accountId}/cards/{cardId}");
 		formatter.formatUrl("accountId", accountId);
+		formatter.formatUrl("cardId", cardId);
 		return new MozuUrl(formatter.getResourceUrl(), MozuUrl.UrlLocation.TENANT_POD) ;
 	}
 
 	/**
 	 * Get Resource Url for DeleteAccountCard
-	 * @param accountId 
-	 * @param cardId 
+	 * @param accountId Unique identifier of the customer account.
+	 * @param cardId Unique identifier of the credit card to delete.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl deleteAccountCardUrl(Integer accountId, String cardId)

@@ -7,13 +7,21 @@
 package com.mozu.api.contracts.core;
 
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 
+/**
+ *	Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class AuditInfo implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Unique identifier of the user created the resource entity. This value is system-supplied and read-only.
+	 */
 	protected String createBy;
 
 	public String getCreateBy() {
@@ -24,6 +32,9 @@ public class AuditInfo implements Serializable
 		this.createBy = createBy;
 	}
 
+	/**
+	 * Date and time when the entity was created, represented in UTC Date/Time.
+	 */
 	protected Date createDate;
 
 	public Date getCreateDate() {
@@ -34,6 +45,9 @@ public class AuditInfo implements Serializable
 		this.createDate = createDate;
 	}
 
+	/**
+	 * Unique identifier of the user who last modified the item. This value is system-supplied and read-only.
+	 */
 	protected String updateBy;
 
 	public String getUpdateBy() {
@@ -44,6 +58,9 @@ public class AuditInfo implements Serializable
 		this.updateBy = updateBy;
 	}
 
+	/**
+	 * Date and time when the entity was last updated, represented in UTC Date/Time.
+	 */
 	protected Date updateDate;
 
 	public Date getUpdateDate() {

@@ -15,13 +15,13 @@ import com.mozu.api.Headers;
 import com.mozu.api.security.AuthTicket;
 
 /** <summary>
- * 
+ * The Reference resource retrieves collections of standards the Mozu system currently supports. This includes content locales, top-level domains, units of measure, countries, currencies, time zones, and shipping or billing address schemas.
  * </summary>
  */
 public class ReferenceDataResource {
 	
 	/**
-	 * 
+	 * Retrieves a specific address schema based on the country code provided. This operation allows the creation of custom shipping and billing address fields.
 	 * <p><pre><code>
 	 *	ReferenceData referencedata = new ReferenceData();
 	 *	AddressSchema addressSchema = referencedata.GetAddressSchema();
@@ -35,12 +35,12 @@ public class ReferenceDataResource {
 	}
 
 	/**
-	 * 
+	 * Retrieves a specific address schema based on the country code provided. This operation allows the creation of custom shipping and billing address fields.
 	 * <p><pre><code>
 	 *	ReferenceData referencedata = new ReferenceData();
 	 *	AddressSchema addressSchema = referencedata.GetAddressSchema( countryCode);
 	 * </code></pre></p>
-	 * @param countryCode 
+	 * @param countryCode The 2-letter geographic code representing the country for the physical or mailing address. Currently limited to the US.
 	 * @return com.mozu.api.contracts.reference.AddressSchema
 	 * @see com.mozu.api.contracts.reference.AddressSchema
 	 */
@@ -53,7 +53,7 @@ public class ReferenceDataResource {
 	}
 
 	/**
-	 * 
+	 * Retrieves the entire list of address schemas that the system supports.
 	 * <p><pre><code>
 	 *	ReferenceData referencedata = new ReferenceData();
 	 *	AddressSchemaCollection addressSchemaCollection = referencedata.GetAddressSchemas();
@@ -70,12 +70,12 @@ public class ReferenceDataResource {
 	}
 
 	/**
-	 * 
+	 * ***Always private and should not be published.***
 	 * <p><pre><code>
 	 *	ReferenceData referencedata = new ReferenceData();
 	 *	Behavior behavior = referencedata.GetBehavior( behaviorId);
 	 * </code></pre></p>
-	 * @param behaviorId 
+	 * @param behaviorId ***Always private and should not be published.***
 	 * @return com.mozu.api.contracts.core.Behavior
 	 * @see com.mozu.api.contracts.core.Behavior
 	 */
@@ -88,7 +88,7 @@ public class ReferenceDataResource {
 	}
 
 	/**
-	 * 
+	 * ***Always private and should not be published.***
 	 * <p><pre><code>
 	 *	ReferenceData referencedata = new ReferenceData();
 	 *	BehaviorCategoryCollection behaviorCategoryCollection = referencedata.GetBehaviorCategories();
@@ -105,12 +105,12 @@ public class ReferenceDataResource {
 	}
 
 	/**
-	 * 
+	 * ***Always private and should not be published.***
 	 * <p><pre><code>
 	 *	ReferenceData referencedata = new ReferenceData();
 	 *	BehaviorCategory behaviorCategory = referencedata.GetBehaviorCategory( categoryId);
 	 * </code></pre></p>
-	 * @param categoryId 
+	 * @param categoryId ***Always private and should not be published.***
 	 * @return com.mozu.api.contracts.core.BehaviorCategory
 	 * @see com.mozu.api.contracts.core.BehaviorCategory
 	 */
@@ -123,7 +123,7 @@ public class ReferenceDataResource {
 	}
 
 	/**
-	 * 
+	 * ***Always private and should not be published.***
 	 * <p><pre><code>
 	 *	ReferenceData referencedata = new ReferenceData();
 	 *	BehaviorCollection behaviorCollection = referencedata.GetBehaviors();
@@ -137,7 +137,7 @@ public class ReferenceDataResource {
 	}
 
 	/**
-	 * 
+	 * ***Always private and should not be published.***
 	 * <p><pre><code>
 	 *	ReferenceData referencedata = new ReferenceData();
 	 *	BehaviorCollection behaviorCollection = referencedata.GetBehaviors( userType);
@@ -155,7 +155,7 @@ public class ReferenceDataResource {
 	}
 
 	/**
-	 * 
+	 * Retrieves the list of content locales the system supports. Content locales indicate the language used and the country where the language is used.
 	 * <p><pre><code>
 	 *	ReferenceData referencedata = new ReferenceData();
 	 *	ContentLocaleCollection contentLocaleCollection = referencedata.GetContentLocales();
@@ -172,7 +172,7 @@ public class ReferenceDataResource {
 	}
 
 	/**
-	 * 
+	 * Retrieves the entire list of countries that the system supports.
 	 * <p><pre><code>
 	 *	ReferenceData referencedata = new ReferenceData();
 	 *	CountryCollection countryCollection = referencedata.GetCountries();
@@ -189,7 +189,7 @@ public class ReferenceDataResource {
 	}
 
 	/**
-	 * 
+	 * Retrieves the entire list of currencies that the system supports.
 	 * <p><pre><code>
 	 *	ReferenceData referencedata = new ReferenceData();
 	 *	CurrencyCollection currencyCollection = referencedata.GetCurrencies();
@@ -206,7 +206,7 @@ public class ReferenceDataResource {
 	}
 
 	/**
-	 * 
+	 * Retrieves the entire list of time zones that the system supports.
 	 * <p><pre><code>
 	 *	ReferenceData referencedata = new ReferenceData();
 	 *	TimeZoneCollection timeZoneCollection = referencedata.GetTimeZones();
@@ -223,7 +223,7 @@ public class ReferenceDataResource {
 	}
 
 	/**
-	 * 
+	 * Retrieves the entire list of top-level internet domains that the system supports.
 	 * <p><pre><code>
 	 *	ReferenceData referencedata = new ReferenceData();
 	 *	TopLevelDomainCollection topLevelDomainCollection = referencedata.GetTopLevelDomains();
@@ -240,7 +240,7 @@ public class ReferenceDataResource {
 	}
 
 	/**
-	 * 
+	 * Retrieves an array list of all units of measure the system supports.
 	 * <p><pre><code>
 	 *	ReferenceData referencedata = new ReferenceData();
 	 *	UnitOfMeasureCollection unitOfMeasureCollection = referencedata.GetUnitsOfMeasure();
@@ -254,12 +254,12 @@ public class ReferenceDataResource {
 	}
 
 	/**
-	 * 
+	 * Retrieves an array list of all units of measure the system supports.
 	 * <p><pre><code>
 	 *	ReferenceData referencedata = new ReferenceData();
 	 *	UnitOfMeasureCollection unitOfMeasureCollection = referencedata.GetUnitsOfMeasure( filter);
 	 * </code></pre></p>
-	 * @param filter 
+	 * @param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
 	 * @return com.mozu.api.contracts.reference.UnitOfMeasureCollection
 	 * @see com.mozu.api.contracts.reference.UnitOfMeasureCollection
 	 */

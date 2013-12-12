@@ -7,14 +7,22 @@
 package com.mozu.api.contracts.productruntime;
 
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 import com.mozu.api.contracts.productruntime.AttributeValidation;
 
+/**
+ *	The product attribute details common between all attribute types - properties, options, and extras.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class AttributeDetail implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * The data type (such as datetime or string) associated with the attribute.
+	 */
 	protected String dataType;
 
 	public String getDataType() {
@@ -25,6 +33,9 @@ public class AttributeDetail implements Serializable
 		this.dataType = dataType;
 	}
 
+	/**
+	 * Unique sequence of the attribute for its data type.
+	 */
 	protected Integer dataTypeSequence;
 
 	public Integer getDataTypeSequence() {
@@ -35,6 +46,9 @@ public class AttributeDetail implements Serializable
 		this.dataTypeSequence = dataTypeSequence;
 	}
 
+	/**
+	 * Description of the attribute in the language specified by the locale code.
+	 */
 	protected String description;
 
 	public String getDescription() {
@@ -45,6 +59,9 @@ public class AttributeDetail implements Serializable
 		this.description = description;
 	}
 
+	/**
+	 * The input type (such as date or text area) accepted for the attribute's data type.
+	 */
 	protected String inputType;
 
 	public String getInputType() {
@@ -55,6 +72,9 @@ public class AttributeDetail implements Serializable
 		this.inputType = inputType;
 	}
 
+	/**
+	 * Name of the atrribute in the language specified by the locale code.
+	 */
 	protected String name;
 
 	public String getName() {
@@ -65,6 +85,9 @@ public class AttributeDetail implements Serializable
 		this.name = name;
 	}
 
+	/**
+	 * The usage type of the product attribute, which is property, option, or extra.
+	 */
 	protected String usageType;
 
 	public String getUsageType() {
@@ -75,6 +98,9 @@ public class AttributeDetail implements Serializable
 		this.usageType = usageType;
 	}
 
+	/**
+	 * The type of value for the attribute, which is either ShopperEntered, AdminEntered, or Predefined.
+	 */
 	protected String valueType;
 
 	public String getValueType() {
@@ -85,6 +111,9 @@ public class AttributeDetail implements Serializable
 		this.valueType = valueType;
 	}
 
+	/**
+	 * Validation rules of an attribute that determine which values are valid for ShopperEntered and AdminEntered ValueTypes.
+	 */
 	protected AttributeValidation validation;
 
 	public AttributeValidation getValidation() {

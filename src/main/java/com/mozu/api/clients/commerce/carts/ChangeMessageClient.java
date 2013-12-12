@@ -14,13 +14,13 @@ import com.mozu.api.Headers;
 import com.mozu.api.security.AuthTicket;
 
 /** <summary>
- * 
+ * Use the Cart Messages resource to retrieve messages for live carts that the system logs when a product's price or inventory level changes.
  * </summary>
  */
 public class ChangeMessageClient {
 	
 	/**
-	 * 
+	 * Retrieves the messages associated with the current shopper's cart.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.commerceruntime.carts.CartChangeMessageCollection> mozuClient=GetMessagesClient(authTicket);
 	 * client.setBaseAddress(url);
@@ -46,7 +46,7 @@ public class ChangeMessageClient {
 	}
 
 	/**
-	 * 
+	 * Deletes all messages associated with the cart of the current shopper.
 	 * <p><pre><code>
 	 * MozuClient mozuClient=RemoveAllMessagesClient(authTicket);
 	 * client.setBaseAddress(url);
@@ -69,13 +69,13 @@ public class ChangeMessageClient {
 	}
 
 	/**
-	 * 
+	 * Removes a single message associated with the cart of the current shopper.
 	 * <p><pre><code>
 	 * MozuClient mozuClient=RemoveMessageClient( messageId, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * </code></pre></p>
-	 * @param messageId 
+	 * @param messageId Identifier of the message to remove from the cart.
 	 * @param authTicket User Auth Ticket
 	 * @return Mozu.Api.MozuClient 
 	 */

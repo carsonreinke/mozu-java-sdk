@@ -14,20 +14,20 @@ import com.mozu.api.Headers;
 import com.mozu.api.security.AuthTicket;
 
 /** <summary>
- * 
+ * Retrieves and modifies the products, categories, and shipping methods eligible for discounts in the form of a fixed dollar amount, percentage off a product price, or free shipping.
  * </summary>
  */
 public class DiscountTargetClient {
 	
 	/**
-	 * 
+	 * Retrieves the discount target, that is which products, categories, or shipping methods are eligible for the discount.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.productadmin.DiscountTarget> mozuClient=GetDiscountTargetClient(dataViewMode,  discountId, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * DiscountTarget discountTarget = client.Result();
 	 * </code></pre></p>
-	 * @param discountId 
+	 * @param discountId Unique identifier of the discount. System-supplied and read only.
 	 * @param authTicket User Auth Ticket
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.productadmin.DiscountTarget>
 	 * @see com.mozu.api.contracts.productadmin.DiscountTarget
@@ -48,16 +48,16 @@ public class DiscountTargetClient {
 	}
 
 	/**
-	 * 
+	 * Modifies properties of the discount target, for example, the dollar amount, or precentage off the price.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.productadmin.DiscountTarget> mozuClient=UpdateDiscountTargetClient(dataViewMode,  discountTarget,  discountId, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * DiscountTarget discountTarget = client.Result();
 	 * </code></pre></p>
-	 * @param discountId 
+	 * @param discountId Unique identifier of the discount. System-supplied and read-only.
 	 * @param authTicket User Auth Ticket
-	 * @param discountTarget 
+	 * @param discountTarget Properties of the discount target to modify. Required properties: Target.Type. Any unspecified properties are set to null and boolean variables to false.
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.productadmin.DiscountTarget>
 	 * @see com.mozu.api.contracts.productadmin.DiscountTarget
 	 * @see com.mozu.api.contracts.productadmin.DiscountTarget

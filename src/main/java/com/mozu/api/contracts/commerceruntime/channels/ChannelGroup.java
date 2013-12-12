@@ -7,14 +7,22 @@
 package com.mozu.api.contracts.commerceruntime.channels;
 
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 import com.mozu.api.contracts.core.AuditInfo;
 
+/**
+ *	Properties of a group of channels that share common information.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class ChannelGroup implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * User-defined code that identifies the channel group.
+	 */
 	protected String code;
 
 	public String getCode() {
@@ -25,6 +33,9 @@ public class ChannelGroup implements Serializable
 		this.code = code;
 	}
 
+	/**
+	 * User-defined name of the channel group.
+	 */
 	protected String name;
 
 	public String getName() {
@@ -35,6 +46,9 @@ public class ChannelGroup implements Serializable
 		this.name = name;
 	}
 
+	/**
+	 * Unique identifier of the Mozu tenant.
+	 */
 	protected Integer tenantId;
 
 	public Integer getTenantId() {
@@ -45,6 +59,9 @@ public class ChannelGroup implements Serializable
 		this.tenantId = tenantId;
 	}
 
+	/**
+	 * Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
+	 */
 	protected AuditInfo auditInfo;
 
 	public AuditInfo getAuditInfo() {

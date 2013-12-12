@@ -8,13 +8,21 @@ package com.mozu.api.contracts.core;
 
 import java.util.List;
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 
+/**
+ *	***Always private and should not be published.***
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Behavior implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Unique identifier for the storefront container used to organize products.
+	 */
 	protected Integer categoryId;
 
 	public Integer getCategoryId() {
@@ -25,6 +33,9 @@ public class Behavior implements Serializable
 		this.categoryId = categoryId;
 	}
 
+	/**
+	 * Identifier of the entity.
+	 */
 	protected Integer id;
 
 	public Integer getId() {
@@ -55,6 +66,9 @@ public class Behavior implements Serializable
 		this.name = name;
 	}
 
+	/**
+	 * For validation purposes, the integer value must be a list of behavior Id's.
+	 */
 	protected List<Integer> requiresBehaviorIds;
 	public List<Integer> getRequiresBehaviorIds() {
 		return this.requiresBehaviorIds;

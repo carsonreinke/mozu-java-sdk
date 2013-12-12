@@ -15,7 +15,7 @@ import com.mozu.api.Headers;
 import com.mozu.api.security.AuthTicket;
 
 /** <summary>
- * 
+ * Use the Product Publishing resource to publish or discard pending changes to product definitions in the master catalog.
  * </summary>
  */
 public class PublishingScopeResource {
@@ -29,14 +29,14 @@ public class PublishingScopeResource {
 	}
 	
 	/**
-	 * 
+	 * Deletes the draft version of product changes for each product code specified in the request.
 	 * <p><pre><code>
 	 *	PublishingScope publishingscope = new PublishingScope();
 	 *	publishingscope.DiscardDrafts(dataViewMode,  publishScope, authTicket);
 	 * </code></pre></p>
 	 * @param dataViewMode DataViewMode
 	 * @param authTicket User Auth Ticket
-	 * @param publishScope 
+	 * @param publishScope Properties of the pending product changes to include in this operation.
 	 * @return 
 	 * @see com.mozu.api.contracts.productadmin.PublishingScope
 	 */
@@ -49,14 +49,14 @@ public class PublishingScopeResource {
 	}
 
 	/**
-	 * 
+	 * Publishes the draft version of product changes for each product code specified in the request, and changes the product publish state to "live".
 	 * <p><pre><code>
 	 *	PublishingScope publishingscope = new PublishingScope();
 	 *	publishingscope.PublishDrafts(dataViewMode,  publishScope, authTicket);
 	 * </code></pre></p>
 	 * @param dataViewMode DataViewMode
 	 * @param authTicket User Auth Ticket
-	 * @param publishScope 
+	 * @param publishScope Properties of the pending product changes to include in this operation.
 	 * @return 
 	 * @see com.mozu.api.contracts.productadmin.PublishingScope
 	 */

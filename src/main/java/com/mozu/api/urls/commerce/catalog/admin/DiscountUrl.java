@@ -15,8 +15,8 @@ public class DiscountUrl
 
 	/**
 	 * Get Resource Url for GetDiscounts
-	 * @param filter 
-	 * @param pageSize 
+	 * @param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
+	 * @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
 	 * @param sortBy 
 	 * @param startIndex 
 	 * @return   String Resource Url
@@ -33,7 +33,7 @@ public class DiscountUrl
 
 	/**
 	 * Get Resource Url for GetDiscount
-	 * @param discountId 
+	 * @param discountId Unique identifier of the discount. System-supplied and read-only.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl getDiscountUrl(Integer discountId)
@@ -45,7 +45,7 @@ public class DiscountUrl
 
 	/**
 	 * Get Resource Url for GetDiscountContent
-	 * @param discountId 
+	 * @param discountId Unique identifier of the discount. System-supplied and read-only.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl getDiscountContentUrl(Integer discountId)
@@ -87,7 +87,7 @@ public class DiscountUrl
 
 	/**
 	 * Get Resource Url for UpdateDiscount
-	 * @param discountId 
+	 * @param discountId Unique identifier of the discount. System-supplied and read-only.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl updateDiscountUrl(Integer discountId)
@@ -99,7 +99,7 @@ public class DiscountUrl
 
 	/**
 	 * Get Resource Url for UpdateDiscountContent
-	 * @param discountId 
+	 * @param discountId Unique identifier of the discount. System-supplied and read-only.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl updateDiscountContentUrl(Integer discountId)
@@ -111,7 +111,7 @@ public class DiscountUrl
 
 	/**
 	 * Get Resource Url for DeleteDiscount
-	 * @param discountId 
+	 * @param discountId Unique identifier of the discount. System-supplied and read-only.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl deleteDiscountUrl(Integer discountId)
@@ -123,8 +123,8 @@ public class DiscountUrl
 
 	/**
 	 * Get Resource Url for UnRedeemDiscount
-	 * @param discountId 
-	 * @param orderNumber 
+	 * @param discountId Unique identifier of the previously redeemed discount. System-supplied and read only.
+	 * @param orderNumber The number of the order associated with the redeemed product discount.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl unRedeemDiscountUrl(Integer discountId, Integer orderNumber)

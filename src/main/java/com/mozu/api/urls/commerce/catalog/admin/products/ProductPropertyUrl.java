@@ -27,7 +27,7 @@ public class ProductPropertyUrl
 
 	/**
 	 * Get Resource Url for GetProperty
-	 * @param attributeFQN 
+	 * @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 	 * @param productCode 
 	 * @return   String Resource Url
 	 */
@@ -53,7 +53,7 @@ public class ProductPropertyUrl
 
 	/**
 	 * Get Resource Url for UpdateProperty
-	 * @param attributeFQN 
+	 * @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 	 * @param productCode 
 	 * @return   String Resource Url
 	 */
@@ -67,7 +67,7 @@ public class ProductPropertyUrl
 
 	/**
 	 * Get Resource Url for DeleteProperty
-	 * @param attributeFQN 
+	 * @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
 	 * @param productCode 
 	 * @return   String Resource Url
 	 */

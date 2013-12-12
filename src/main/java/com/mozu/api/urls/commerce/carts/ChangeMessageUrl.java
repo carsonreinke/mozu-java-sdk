@@ -35,7 +35,7 @@ public class ChangeMessageUrl
 
 	/**
 	 * Get Resource Url for RemoveMessage
-	 * @param messageId 
+	 * @param messageId Identifier of the message to remove from the cart.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl removeMessageUrl(String messageId)

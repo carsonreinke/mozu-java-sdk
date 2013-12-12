@@ -25,7 +25,7 @@ public class LocationUsageUrl
 
 	/**
 	 * Get Resource Url for GetLocationUsage
-	 * @param code 
+	 * @param code Code that identifies the location usage type, which is "DS" for direct ship, "SP" for in-store pickup, or "storeFinder" for store finder.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl getLocationUsageUrl(String code)
@@ -37,7 +37,7 @@ public class LocationUsageUrl
 
 	/**
 	 * Get Resource Url for UpdateLocationUsage
-	 * @param code 
+	 * @param code Code that identifies the location usage type, which is "DS" for direct ship, "SP" for in-store pickup, or "storeFinder" for store finder.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl updateLocationUsageUrl(String code)

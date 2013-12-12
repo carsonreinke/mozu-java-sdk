@@ -7,13 +7,21 @@
 package com.mozu.api.contracts.productadmin;
 
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 
+/**
+ *	The price of the product in the specified currency code (USD). This price can either be the sale price or the price for which the merchang intends to sell the product.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class ProductPrice implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * 3-letter ISO 4217 standard global currency code. Currently, only "USD" (US Dollar) is supported.
+	 */
 	protected String isoCurrencyCode;
 
 	public String getIsoCurrencyCode() {
@@ -24,6 +32,9 @@ public class ProductPrice implements Serializable
 		this.isoCurrencyCode = isoCurrencyCode;
 	}
 
+	/**
+	 * Price that the merchant intends to sell the product which is not necessarily the list price. This is the price the merchant intends to sell the product if no sale price is present.
+	 */
 	protected Double price;
 
 	public Double getPrice() {
@@ -34,6 +45,9 @@ public class ProductPrice implements Serializable
 		this.price = price;
 	}
 
+	/**
+	 * Price of the product with a discount already applied which the merchant intends to sell the product.
+	 */
 	protected Double salePrice;
 
 	public Double getSalePrice() {

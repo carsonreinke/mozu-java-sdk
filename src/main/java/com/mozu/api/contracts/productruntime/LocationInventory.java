@@ -7,13 +7,21 @@
 package com.mozu.api.contracts.productruntime;
 
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 
+/**
+ *	Properties of the active product inventory levels for a specific location.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class LocationInventory implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * User-defined code that uniquely identifies the location.
+	 */
 	protected String locationCode;
 
 	public String getLocationCode() {
@@ -24,6 +32,9 @@ public class LocationInventory implements Serializable
 		this.locationCode = locationCode;
 	}
 
+	/**
+	 * The current level of active product stock available at the specified location.
+	 */
 	protected Integer stockAvailable;
 
 	public Integer getStockAvailable() {

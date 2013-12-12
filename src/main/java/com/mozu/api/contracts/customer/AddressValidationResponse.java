@@ -8,14 +8,22 @@ package com.mozu.api.contracts.customer;
 
 import java.util.List;
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 import com.mozu.api.contracts.core.Address;
 
+/**
+ *	Array list of possible valid address matches based on the entry supplied in the request.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class AddressValidationResponse implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Array list of possible valid address matches based on the entry supplied in the request.
+	 */
 	protected List<Address> addressCandidates;
 	public List<Address> getAddressCandidates() {
 		return this.addressCandidates;

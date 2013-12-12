@@ -15,7 +15,7 @@ import com.mozu.api.Headers;
 import com.mozu.api.security.AuthTicket;
 
 /** <summary>
- * 
+ * The DocumentTypes resource is a part of the Content Service.
  * </summary>
  */
 public class DocumentTypeResource {
@@ -29,25 +29,25 @@ public class DocumentTypeResource {
 	}
 	
 	/**
-	 * 
+	 * Retrieves a paged list of DocumentTypes.
 	 * <p><pre><code>
 	 *	DocumentType documenttype = new DocumentType();
-	 *	DocumentTypeCollection documentTypeCollection = documenttype.List();
+	 *	DocumentTypeCollection documentTypeCollection = documenttype.List(dataViewMode);
 	 * </code></pre></p>
 	 * @param authTicket User Auth Ticket
 	 * @return com.mozu.api.contracts.content.DocumentTypeCollection
 	 * @see com.mozu.api.contracts.content.DocumentTypeCollection
 	 */
-	public com.mozu.api.contracts.content.DocumentTypeCollection list() throws Exception
+	public com.mozu.api.contracts.content.DocumentTypeCollection list(com.mozu.api.DataViewMode dataViewMode) throws Exception
 	{
-		return list( null,  null, null);
+		return list(dataViewMode,  null,  null, null);
 	}
 
 	/**
-	 * 
+	 * Retrieves a paged list of DocumentTypes.
 	 * <p><pre><code>
 	 *	DocumentType documenttype = new DocumentType();
-	 *	DocumentTypeCollection documentTypeCollection = documenttype.List( pageSize,  startIndex, authTicket);
+	 *	DocumentTypeCollection documentTypeCollection = documenttype.List(dataViewMode,  pageSize,  startIndex, authTicket);
 	 * </code></pre></p>
 	 * @param pageSize 
 	 * @param startIndex 
@@ -55,9 +55,9 @@ public class DocumentTypeResource {
 	 * @return com.mozu.api.contracts.content.DocumentTypeCollection
 	 * @see com.mozu.api.contracts.content.DocumentTypeCollection
 	 */
-	public com.mozu.api.contracts.content.DocumentTypeCollection list(Integer pageSize, Integer startIndex, AuthTicket authTicket) throws Exception
+	public com.mozu.api.contracts.content.DocumentTypeCollection list(com.mozu.api.DataViewMode dataViewMode, Integer pageSize, Integer startIndex, AuthTicket authTicket) throws Exception
 	{
-		MozuClient<com.mozu.api.contracts.content.DocumentTypeCollection> client = com.mozu.api.clients.content.DocumentTypeClient.listClient( pageSize,  startIndex, authTicket);
+		MozuClient<com.mozu.api.contracts.content.DocumentTypeCollection> client = com.mozu.api.clients.content.DocumentTypeClient.listClient(dataViewMode,  pageSize,  startIndex, authTicket);
 		client.setContext(_apiContext);
 		client.executeRequest();
 		return client.getResult();
@@ -65,19 +65,19 @@ public class DocumentTypeResource {
 	}
 
 	/**
-	 * 
+	 * Retrieves an existing DocumentType.
 	 * <p><pre><code>
 	 *	DocumentType documenttype = new DocumentType();
-	 *	DocumentType documentType = documenttype.Get( documentTypeName, authTicket);
+	 *	DocumentType documentType = documenttype.Get(dataViewMode,  documentTypeName, authTicket);
 	 * </code></pre></p>
-	 * @param documentTypeName 
+	 * @param documentTypeName The documentType name being retrieved.
 	 * @param authTicket User Auth Ticket
 	 * @return com.mozu.api.contracts.content.DocumentType
 	 * @see com.mozu.api.contracts.content.DocumentType
 	 */
-	public com.mozu.api.contracts.content.DocumentType get(String documentTypeName, AuthTicket authTicket) throws Exception
+	public com.mozu.api.contracts.content.DocumentType get(com.mozu.api.DataViewMode dataViewMode, String documentTypeName, AuthTicket authTicket) throws Exception
 	{
-		MozuClient<com.mozu.api.contracts.content.DocumentType> client = com.mozu.api.clients.content.DocumentTypeClient.getClient( documentTypeName, authTicket);
+		MozuClient<com.mozu.api.contracts.content.DocumentType> client = com.mozu.api.clients.content.DocumentTypeClient.getClient(dataViewMode,  documentTypeName, authTicket);
 		client.setContext(_apiContext);
 		client.executeRequest();
 		return client.getResult();

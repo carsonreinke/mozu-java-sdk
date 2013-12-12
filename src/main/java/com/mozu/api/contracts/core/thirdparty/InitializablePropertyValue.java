@@ -7,13 +7,21 @@
 package com.mozu.api.contracts.core.thirdparty;
 
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 
+/**
+ *	Properties of a value that can be initialized for a capability property.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class InitializablePropertyValue implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * If true, the property value is initialized.
+	 */
 	protected Boolean initialized;
 
 	public Boolean getInitialized() {
@@ -24,6 +32,9 @@ public class InitializablePropertyValue implements Serializable
 		this.initialized = initialized;
 	}
 
+	/**
+	 * Value of the initializable third-party capability property.
+	 */
 	protected String value;
 
 	public String getValue() {

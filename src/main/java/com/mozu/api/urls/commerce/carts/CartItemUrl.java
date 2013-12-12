@@ -25,7 +25,7 @@ public class CartItemUrl
 
 	/**
 	 * Get Resource Url for GetCartItem
-	 * @param cartItemId 
+	 * @param cartItemId Identifier of the cart item to retrieve.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl getCartItemUrl(String cartItemId)
@@ -47,7 +47,7 @@ public class CartItemUrl
 
 	/**
 	 * Get Resource Url for UpdateCartItem
-	 * @param cartItemId 
+	 * @param cartItemId Identifier of the cart item to update.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl updateCartItemUrl(String cartItemId)
@@ -59,8 +59,8 @@ public class CartItemUrl
 
 	/**
 	 * Get Resource Url for UpdateCartItemQuantity
-	 * @param cartItemId 
-	 * @param quantity 
+	 * @param cartItemId Identifier of the cart item to update quantity.
+	 * @param quantity The number of cart items in the shopper's active cart.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl updateCartItemQuantityUrl(String cartItemId, Integer quantity)
@@ -83,7 +83,7 @@ public class CartItemUrl
 
 	/**
 	 * Get Resource Url for DeleteCartItem
-	 * @param cartItemId 
+	 * @param cartItemId Identifier of the cart item to delete.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl deleteCartItemUrl(String cartItemId)

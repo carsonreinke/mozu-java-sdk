@@ -14,13 +14,13 @@ import com.mozu.api.Headers;
 import com.mozu.api.security.AuthTicket;
 
 /** <summary>
- * 
+ * Use the cart items subresource to manage a collection of items in an active shopping cart.
  * </summary>
  */
 public class CartItemClient {
 	
 	/**
-	 * 
+	 * Retrieves a list of cart items including the total number of items in the cart.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.commerceruntime.carts.CartItemCollection> mozuClient=GetCartItemsClient(authTicket);
 	 * client.setBaseAddress(url);
@@ -46,14 +46,14 @@ public class CartItemClient {
 	}
 
 	/**
-	 * 
+	 * Retrieves a particular cart item by providing the cart item ID.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.commerceruntime.carts.CartItem> mozuClient=GetCartItemClient( cartItemId, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * CartItem cartItem = client.Result();
 	 * </code></pre></p>
-	 * @param cartItemId 
+	 * @param cartItemId Identifier of the cart item to retrieve.
 	 * @param authTicket User Auth Ticket
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.commerceruntime.carts.CartItem>
 	 * @see com.mozu.api.contracts.commerceruntime.carts.CartItem
@@ -73,7 +73,7 @@ public class CartItemClient {
 	}
 
 	/**
-	 * 
+	 * Adds a product to the current shopper's cart.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.commerceruntime.carts.CartItem> mozuClient=AddItemToCartClient( cartItem, authTicket);
 	 * client.setBaseAddress(url);
@@ -81,7 +81,7 @@ public class CartItemClient {
 	 * CartItem cartItem = client.Result();
 	 * </code></pre></p>
 	 * @param authTicket User Auth Ticket
-	 * @param cartItem 
+	 * @param cartItem All properties of the new cart item. The product code is required.
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.commerceruntime.carts.CartItem>
 	 * @see com.mozu.api.contracts.commerceruntime.carts.CartItem
 	 * @see com.mozu.api.contracts.commerceruntime.carts.CartItem
@@ -102,16 +102,16 @@ public class CartItemClient {
 	}
 
 	/**
-	 * 
+	 * Update the product or product quantity of an item in the current shopper's cart.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.commerceruntime.carts.CartItem> mozuClient=UpdateCartItemClient( cartItem,  cartItemId, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * CartItem cartItem = client.Result();
 	 * </code></pre></p>
-	 * @param cartItemId 
+	 * @param cartItemId Identifier of the cart item to update.
 	 * @param authTicket User Auth Ticket
-	 * @param cartItem 
+	 * @param cartItem The properties of the cart item to update.
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.commerceruntime.carts.CartItem>
 	 * @see com.mozu.api.contracts.commerceruntime.carts.CartItem
 	 * @see com.mozu.api.contracts.commerceruntime.carts.CartItem
@@ -132,15 +132,15 @@ public class CartItemClient {
 	}
 
 	/**
-	 * 
+	 * Update the quantity of an individual cart item in the cart of the current shopper.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.commerceruntime.carts.CartItem> mozuClient=UpdateCartItemQuantityClient( cartItemId,  quantity, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * CartItem cartItem = client.Result();
 	 * </code></pre></p>
-	 * @param cartItemId 
-	 * @param quantity 
+	 * @param cartItemId Identifier of the cart item to update quantity.
+	 * @param quantity The number of cart items in the shopper's active cart.
 	 * @param authTicket User Auth Ticket
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.commerceruntime.carts.CartItem>
 	 * @see com.mozu.api.contracts.commerceruntime.carts.CartItem
@@ -160,7 +160,7 @@ public class CartItemClient {
 	}
 
 	/**
-	 * 
+	 * Removes all items in the current shopper's active cart.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.commerceruntime.carts.Cart> mozuClient=RemoveAllCartItemsClient(authTicket);
 	 * client.setBaseAddress(url);
@@ -186,13 +186,13 @@ public class CartItemClient {
 	}
 
 	/**
-	 * 
+	 * Deletes a specific cart item by providing the cart item ID.
 	 * <p><pre><code>
 	 * MozuClient mozuClient=DeleteCartItemClient( cartItemId, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * </code></pre></p>
-	 * @param cartItemId 
+	 * @param cartItemId Identifier of the cart item to delete.
 	 * @param authTicket User Auth Ticket
 	 * @return Mozu.Api.MozuClient 
 	 */

@@ -14,20 +14,20 @@ import com.mozu.api.Headers;
 import com.mozu.api.security.AuthTicket;
 
 /** <summary>
- * 
+ * Use the Extras resource to configure an extra product attribute for products associated with the product type that uses the extra attribute.
  * </summary>
  */
 public class ProductExtraClient {
 	
 	/**
-	 * 
+	 * Retrieves a list of extras configured for the product according to any defined filter and sort criteria.
 	 * <p><pre><code>
 	 * MozuClient<List<com.mozu.api.contracts.productadmin.ProductExtra>> mozuClient=GetExtrasClient(dataViewMode,  productCode, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * ProductExtra productExtra = client.Result();
 	 * </code></pre></p>
-	 * @param productCode 
+	 * @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 	 * @param authTicket User Auth Ticket
 	 * @return Mozu.Api.MozuClient <List<com.mozu.api.contracts.productadmin.ProductExtra>>
 	 * @see com.mozu.api.contracts.productadmin.ProductExtra
@@ -48,20 +48,20 @@ public class ProductExtraClient {
 	}
 
 	/**
-	 * 
+	 * Retrieves the details of an extra attribute configuration for the product specified in the request.
 	 * <p><pre><code>
-	 * MozuClient<com.mozu.api.contracts.productadmin.ProductExtra> mozuClient=GetExtraClient(dataViewMode,  attributeFQN,  productCode, authTicket);
+	 * MozuClient<com.mozu.api.contracts.productadmin.ProductExtra> mozuClient=GetExtraClient(dataViewMode,  productCode,  attributeFQN, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * ProductExtra productExtra = client.Result();
 	 * </code></pre></p>
-	 * @param attributeFQN 
-	 * @param productCode 
+	 * @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
+	 * @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 	 * @param authTicket User Auth Ticket
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.productadmin.ProductExtra>
 	 * @see com.mozu.api.contracts.productadmin.ProductExtra
 	 */
-	public static MozuClient<com.mozu.api.contracts.productadmin.ProductExtra> getExtraClient(com.mozu.api.DataViewMode dataViewMode, String attributeFQN, String productCode, AuthTicket authTicket) throws Exception
+	public static MozuClient<com.mozu.api.contracts.productadmin.ProductExtra> getExtraClient(com.mozu.api.DataViewMode dataViewMode, String productCode, String attributeFQN, AuthTicket authTicket) throws Exception
 	{
 		MozuUrl url = com.mozu.api.urls.commerce.catalog.admin.products.ProductExtraUrl.getExtraUrl(attributeFQN, productCode);
 		String verb = "GET";
@@ -77,16 +77,16 @@ public class ProductExtraClient {
 	}
 
 	/**
-	 * 
+	 * Configure an extra attribute for the product specified in the request.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.productadmin.ProductExtra> mozuClient=AddExtraClient(dataViewMode,  productExtra,  productCode, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * ProductExtra productExtra = client.Result();
 	 * </code></pre></p>
-	 * @param productCode 
+	 * @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 	 * @param authTicket User Auth Ticket
-	 * @param productExtra 
+	 * @param productExtra Properties of the product extra to configure for the specified product.
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.productadmin.ProductExtra>
 	 * @see com.mozu.api.contracts.productadmin.ProductExtra
 	 * @see com.mozu.api.contracts.productadmin.ProductExtra
@@ -108,22 +108,22 @@ public class ProductExtraClient {
 	}
 
 	/**
-	 * 
+	 * Updates the configuration of an extra attribute for the product specified in the request.
 	 * <p><pre><code>
-	 * MozuClient<com.mozu.api.contracts.productadmin.ProductExtra> mozuClient=UpdateExtraClient(dataViewMode,  productExtra,  attributeFQN,  productCode, authTicket);
+	 * MozuClient<com.mozu.api.contracts.productadmin.ProductExtra> mozuClient=UpdateExtraClient(dataViewMode,  productExtra,  productCode,  attributeFQN, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * ProductExtra productExtra = client.Result();
 	 * </code></pre></p>
-	 * @param attributeFQN 
-	 * @param productCode 
+	 * @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
+	 * @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 	 * @param authTicket User Auth Ticket
-	 * @param productExtra 
+	 * @param productExtra Properties of the extra attribute to update for the specified product.
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.productadmin.ProductExtra>
 	 * @see com.mozu.api.contracts.productadmin.ProductExtra
 	 * @see com.mozu.api.contracts.productadmin.ProductExtra
 	 */
-	public static MozuClient<com.mozu.api.contracts.productadmin.ProductExtra> updateExtraClient(com.mozu.api.DataViewMode dataViewMode, com.mozu.api.contracts.productadmin.ProductExtra productExtra, String attributeFQN, String productCode, AuthTicket authTicket) throws Exception
+	public static MozuClient<com.mozu.api.contracts.productadmin.ProductExtra> updateExtraClient(com.mozu.api.DataViewMode dataViewMode, com.mozu.api.contracts.productadmin.ProductExtra productExtra, String productCode, String attributeFQN, AuthTicket authTicket) throws Exception
 	{
 		MozuUrl url = com.mozu.api.urls.commerce.catalog.admin.products.ProductExtraUrl.updateExtraUrl(attributeFQN, productCode);
 		String verb = "PUT";
@@ -140,18 +140,18 @@ public class ProductExtraClient {
 	}
 
 	/**
-	 * 
+	 * Delete a product extra configuration for the product specified in the request.
 	 * <p><pre><code>
-	 * MozuClient mozuClient=DeleteExtraClient(dataViewMode,  attributeFQN,  productCode, authTicket);
+	 * MozuClient mozuClient=DeleteExtraClient(dataViewMode,  productCode,  attributeFQN, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * </code></pre></p>
-	 * @param attributeFQN 
-	 * @param productCode 
+	 * @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
+	 * @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 	 * @param authTicket User Auth Ticket
 	 * @return Mozu.Api.MozuClient 
 	 */
-	public static MozuClient deleteExtraClient(com.mozu.api.DataViewMode dataViewMode, String attributeFQN, String productCode, AuthTicket authTicket) throws Exception
+	public static MozuClient deleteExtraClient(com.mozu.api.DataViewMode dataViewMode, String productCode, String attributeFQN, AuthTicket authTicket) throws Exception
 	{
 		MozuUrl url = com.mozu.api.urls.commerce.catalog.admin.products.ProductExtraUrl.deleteExtraUrl(attributeFQN, productCode);
 		String verb = "DELETE";

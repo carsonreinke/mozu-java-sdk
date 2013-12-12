@@ -15,7 +15,7 @@ public class FulfillmentActionUrl
 
 	/**
 	 * Get Resource Url for PerformFulfillmentAction
-	 * @param orderId 
+	 * @param orderId Unique identifier of the order for which to perform the fulfillment action.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl performFulfillmentActionUrl(String orderId)

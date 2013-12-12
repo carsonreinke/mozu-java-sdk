@@ -7,13 +7,21 @@
 package com.mozu.api.contracts.content;
 
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 
+/**
+ *	Properties of the facet used to retrieve documents.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Facet implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * The number of facet results.
+	 */
 	protected Integer count;
 
 	public Integer getCount() {
@@ -24,6 +32,9 @@ public class Facet implements Serializable
 		this.count = count;
 	}
 
+	/**
+	 * The name of the facet.
+	 */
 	protected String name;
 
 	public String getName() {

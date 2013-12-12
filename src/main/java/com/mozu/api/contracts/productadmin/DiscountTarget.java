@@ -8,17 +8,24 @@ package com.mozu.api.contracts.productadmin;
 
 import java.util.List;
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 import com.mozu.api.contracts.productadmin.TargetedCategory;
-import com.mozu.api.contracts.productadmin.TargetedCustomerGroup;
 import com.mozu.api.contracts.productadmin.TargetedProduct;
 import com.mozu.api.contracts.productadmin.TargetedShippingMethod;
 
+/**
+ *	Specifies what to discount such as the type of discount and which products, categories, or shipping methods are eligible for the discount. Discount types can include the percentage off, specific monetary amount, or free shipping. This parameter also specifies the minimum monetary amount that the order must meet for the discount to apply.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class DiscountTarget implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * If true, the target discount applies to all products sold on the storefront.
+	 */
 	protected Boolean includeAllProducts;
 
 	public Boolean getIncludeAllProducts() {
@@ -29,26 +36,9 @@ public class DiscountTarget implements Serializable
 		this.includeAllProducts = includeAllProducts;
 	}
 
-	protected Double minimumLifetimeValueAmount;
-
-	public Double getMinimumLifetimeValueAmount() {
-		return this.minimumLifetimeValueAmount;
-	}
-
-	public void setMinimumLifetimeValueAmount(Double minimumLifetimeValueAmount) {
-		this.minimumLifetimeValueAmount = minimumLifetimeValueAmount;
-	}
-
-	protected Double minimumOrderAmount;
-
-	public Double getMinimumOrderAmount() {
-		return this.minimumOrderAmount;
-	}
-
-	public void setMinimumOrderAmount(Double minimumOrderAmount) {
-		this.minimumOrderAmount = minimumOrderAmount;
-	}
-
+	/**
+	 * The type of target to which the discount applies, such as a product or shipping.
+	 */
 	protected String type;
 
 	public String getType() {
@@ -59,6 +49,9 @@ public class DiscountTarget implements Serializable
 		this.type = type;
 	}
 
+	/**
+	 * The product categories to which the discount can apply.
+	 */
 	protected List<TargetedCategory> categories;
 	public List<TargetedCategory> getCategories() {
 		return this.categories;
@@ -67,14 +60,9 @@ public class DiscountTarget implements Serializable
 		this.categories = categories;
 	}
 
-	protected List<TargetedCustomerGroup> customerGroups;
-	public List<TargetedCustomerGroup> getCustomerGroups() {
-		return this.customerGroups;
-	}
-	public void setCustomerGroups(List<TargetedCustomerGroup> customerGroups) {
-		this.customerGroups = customerGroups;
-	}
-
+	/**
+	 * Array list of categories to exclude for this discount.
+	 */
 	protected List<TargetedCategory> excludedCategories;
 	public List<TargetedCategory> getExcludedCategories() {
 		return this.excludedCategories;
@@ -83,6 +71,9 @@ public class DiscountTarget implements Serializable
 		this.excludedCategories = excludedCategories;
 	}
 
+	/**
+	 * Array list of products to exclude for this discount.
+	 */
 	protected List<TargetedProduct> excludedProducts;
 	public List<TargetedProduct> getExcludedProducts() {
 		return this.excludedProducts;
@@ -91,6 +82,9 @@ public class DiscountTarget implements Serializable
 		this.excludedProducts = excludedProducts;
 	}
 
+	/**
+	 * The products to which the discount can apply.
+	 */
 	protected List<TargetedProduct> products;
 	public List<TargetedProduct> getProducts() {
 		return this.products;
@@ -99,6 +93,9 @@ public class DiscountTarget implements Serializable
 		this.products = products;
 	}
 
+	/**
+	 * The list of shipping method parameters that describe a method including the code, localized content, and audit information.
+	 */
 	protected List<TargetedShippingMethod> shippingMethods;
 	public List<TargetedShippingMethod> getShippingMethods() {
 		return this.shippingMethods;

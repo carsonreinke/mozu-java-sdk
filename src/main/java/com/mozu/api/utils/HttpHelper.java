@@ -10,6 +10,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mozu.api.ApiError;
 import com.mozu.api.ApiException;
+import com.mozu.api.security.AppAuthenticator;
 
 public class HttpHelper {
     public static void ensureSuccess(HttpResponse response, ObjectMapper mapper) throws ApiException {
@@ -21,11 +22,11 @@ public class HttpHelper {
                 throw new ApiException("Mozu Error: "
                         + apiError.getExceptionDetail().getMessage(), apiError);
             } catch (JsonProcessingException jpe) {
-                throw new ApiException("Mozu Error: Unable to deserialize JSON: "
-                        + jpe.getMessage());
+                throw new ApiException("Unable to process Mozu error:  Status Code: " + statusCode   
+                        + " Status Message: " + response.getStatusLine().getReasonPhrase());
             } catch (IOException ioe) {
-                throw new ApiException("Mozu Error: IO Exception deserializing JSON: "
-                        + ioe.getMessage());
+                throw new ApiException("An IO error occurred processing Mozu error. Status Code: " + statusCode   
+                        + " Status Message: " + response.getStatusLine().getReasonPhrase());
             }
         }
     }
@@ -40,6 +41,14 @@ public class HttpHelper {
          return proxyHttpHost;
      }
 
+    static public String getUrl(String domain) {
+        String url = null;
+        String protocol = AppAuthenticator.isUseSSL() ? "https" : "http";
+        if (StringUtils.isNotBlank(domain)) {
+            url = String.format("%s://%s", protocol, domain);
+        }
+        return url;
+    }
     
 
 }

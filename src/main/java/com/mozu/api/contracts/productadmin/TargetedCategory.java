@@ -7,13 +7,21 @@
 package com.mozu.api.contracts.productadmin;
 
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 
+/**
+ *	Properties of a product category targeted for a defined discount.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class TargetedCategory implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Identifier of the product category associated with the targeted discount.
+	 */
 	protected Integer id;
 
 	public Integer getId() {
@@ -22,16 +30,6 @@ public class TargetedCategory implements Serializable
 
 	public void setId(Integer id) {
 		this.id = id;
-	}
-
-	protected String name;
-
-	public String getName() {
-		return this.name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
 	}
 
 }

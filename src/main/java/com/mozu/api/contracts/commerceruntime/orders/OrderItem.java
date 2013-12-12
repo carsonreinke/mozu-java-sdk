@@ -8,6 +8,7 @@ package com.mozu.api.contracts.commerceruntime.orders;
 
 import java.util.List;
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 import com.mozu.api.contracts.core.AuditInfo;
 import com.mozu.api.contracts.commerceruntime.products.Product;
@@ -15,11 +16,18 @@ import com.mozu.api.contracts.commerceruntime.discounts.AppliedProductDiscount;
 import com.mozu.api.contracts.commerceruntime.discounts.ShippingDiscount;
 import com.mozu.api.contracts.commerceruntime.commerce.CommerceUnitPrice;
 
+/**
+ *	The details associated with a specific item in an order.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class OrderItem implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * The subtotal of the order item including any applied discount calculations.
+	 */
 	protected Double discountedTotal;
 
 	public Double getDiscountedTotal() {
@@ -30,6 +38,9 @@ public class OrderItem implements Serializable
 		this.discountedTotal = discountedTotal;
 	}
 
+	/**
+	 * Estimated amount of discounts applied to the item in the order, which is system-supplied and read-only.
+	 */
 	protected Double discountTotal;
 
 	public Double getDiscountTotal() {
@@ -40,6 +51,9 @@ public class OrderItem implements Serializable
 		this.discountTotal = discountTotal;
 	}
 
+	/**
+	 * Represents the total price of the order item extended to the shopper. This begins with the Unit Price, then uses any of the following prices if they are defined, in the following order: Override Amount, Sale Amount, List Amount.
+	 */
 	protected Double extendedTotal;
 
 	public Double getExtendedTotal() {
@@ -50,6 +64,9 @@ public class OrderItem implements Serializable
 		this.extendedTotal = extendedTotal;
 	}
 
+	/**
+	 * The total sum of all fees incurred for an item in an order.
+	 */
 	protected Double feeTotal;
 
 	public Double getFeeTotal() {
@@ -60,6 +77,9 @@ public class OrderItem implements Serializable
 		this.feeTotal = feeTotal;
 	}
 
+	/**
+	 * Code that identifies the location used to fulfill this order item, whether via in-store pickup or direct shipment.
+	 */
 	protected String fulfillmentLocationCode;
 
 	public String getFulfillmentLocationCode() {
@@ -70,6 +90,9 @@ public class OrderItem implements Serializable
 		this.fulfillmentLocationCode = fulfillmentLocationCode;
 	}
 
+	/**
+	 * The method used to fulfill the item in the order, which is "PickUp" or "Ship".
+	 */
 	protected String fulfillmentMethod;
 
 	public String getFulfillmentMethod() {
@@ -80,6 +103,9 @@ public class OrderItem implements Serializable
 		this.fulfillmentMethod = fulfillmentMethod;
 	}
 
+	/**
+	 * Unique identifier of a specific item in an order.
+	 */
 	protected String id;
 
 	public String getId() {
@@ -90,6 +116,9 @@ public class OrderItem implements Serializable
 		this.id = id;
 	}
 
+	/**
+	 * If true, the item in the order can be purchased or fulfilled at regular intervals such as a monthly billing cycle or a digital or physical subscription. This property is reserved for future functionality and is system-supplied and read only.
+	 */
 	protected Boolean isRecurring;
 
 	public Boolean getIsRecurring() {
@@ -100,6 +129,9 @@ public class OrderItem implements Serializable
 		this.isRecurring = isRecurring;
 	}
 
+	/**
+	 * If true, the entity is subject to tax based on the relevant tax rate.
+	 */
 	protected Boolean isTaxable;
 
 	public Boolean getIsTaxable() {
@@ -110,6 +142,9 @@ public class OrderItem implements Serializable
 		this.isTaxable = isTaxable;
 	}
 
+	/**
+	 * The total amount of tax that applied to an item in an order.
+	 */
 	protected Double itemTaxTotal;
 
 	public Double getItemTaxTotal() {
@@ -120,6 +155,9 @@ public class OrderItem implements Serializable
 		this.itemTaxTotal = itemTaxTotal;
 	}
 
+	/**
+	 * Language used for the entity. Currently, only "en-US" is supported.
+	 */
 	protected String localeCode;
 
 	public String getLocaleCode() {
@@ -130,6 +168,9 @@ public class OrderItem implements Serializable
 		this.localeCode = localeCode;
 	}
 
+	/**
+	 * The unique identifier of the item when it was applied to a cart, prior to checkout, when the cart became an order.
+	 */
 	protected String originalCartItemId;
 
 	public String getOriginalCartItemId() {
@@ -140,16 +181,9 @@ public class OrderItem implements Serializable
 		this.originalCartItemId = originalCartItemId;
 	}
 
-	protected Integer productReservationId;
-
-	public Integer getProductReservationId() {
-		return this.productReservationId;
-	}
-
-	public void setProductReservationId(Integer productReservationId) {
-		this.productReservationId = productReservationId;
-	}
-
+	/**
+	 * The quantity of a specific item in an order.
+	 */
 	protected Integer quantity;
 
 	public Integer getQuantity() {
@@ -160,6 +194,9 @@ public class OrderItem implements Serializable
 		this.quantity = quantity;
 	}
 
+	/**
+	 * The total amount of sales tax incurred for shipping charges associated with this item in a cart.
+	 */
 	protected Double shippingTaxTotal;
 
 	public Double getShippingTaxTotal() {
@@ -170,6 +207,9 @@ public class OrderItem implements Serializable
 		this.shippingTaxTotal = shippingTaxTotal;
 	}
 
+	/**
+	 * Total amount of shipping fees associated with the specified item in the order.
+	 */
 	protected Double shippingTotal;
 
 	public Double getShippingTotal() {
@@ -180,6 +220,9 @@ public class OrderItem implements Serializable
 		this.shippingTotal = shippingTotal;
 	}
 
+	/**
+	 * Amount of the item in the order without sales tax, shipping costs, and other fees.
+	 */
 	protected Double subtotal;
 
 	public Double getSubtotal() {
@@ -190,6 +233,9 @@ public class OrderItem implements Serializable
 		this.subtotal = subtotal;
 	}
 
+	/**
+	 * The amount of the item in the order that is subject to tax. This amount typically represents the order item subtotal before applied discounts.
+	 */
 	protected Double taxableTotal;
 
 	public Double getTaxableTotal() {
@@ -200,6 +246,9 @@ public class OrderItem implements Serializable
 		this.taxableTotal = taxableTotal;
 	}
 
+	/**
+	 * The total monetary sum of a specific item in an order.
+	 */
 	protected Double total;
 
 	public Double getTotal() {
@@ -210,6 +259,9 @@ public class OrderItem implements Serializable
 		this.total = total;
 	}
 
+	/**
+	 * Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
+	 */
 	protected AuditInfo auditInfo;
 
 	public AuditInfo getAuditInfo() {
@@ -220,6 +272,9 @@ public class OrderItem implements Serializable
 		this.auditInfo = auditInfo;
 	}
 
+	/**
+	 * The product properties of an item in an order.
+	 */
 	protected Product product;
 
 	public Product getProduct() {
@@ -230,6 +285,9 @@ public class OrderItem implements Serializable
 		this.product = product;
 	}
 
+	/**
+	 * List of product discounts that apply to the item in the order.
+	 */
 	protected List<AppliedProductDiscount> productDiscounts;
 	public List<AppliedProductDiscount> getProductDiscounts() {
 		return this.productDiscounts;
@@ -238,6 +296,9 @@ public class OrderItem implements Serializable
 		this.productDiscounts = productDiscounts;
 	}
 
+	/**
+	 * List of shipping discounts that apply to the item in the order.
+	 */
 	protected List<ShippingDiscount> shippingDiscounts;
 	public List<ShippingDiscount> getShippingDiscounts() {
 		return this.shippingDiscounts;
@@ -246,6 +307,9 @@ public class OrderItem implements Serializable
 		this.shippingDiscounts = shippingDiscounts;
 	}
 
+	/**
+	 * Properties of the unit price associated with the order item.
+	 */
 	protected CommerceUnitPrice unitPrice;
 
 	public CommerceUnitPrice getUnitPrice() {

@@ -7,13 +7,21 @@
 package com.mozu.api.contracts.sitesettings.shipping;
 
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 
+/**
+ *	Properties of the shipment signature requirements for the specified site.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class SiteShippingSignatureRequirement implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * If true, this site requires signatures on shipments for orders that exceed the minimum value threshold.
+	 */
 	protected Boolean isSignatureRequired;
 
 	public Boolean getIsSignatureRequired() {
@@ -24,6 +32,9 @@ public class SiteShippingSignatureRequirement implements Serializable
 		this.isSignatureRequired = isSignatureRequired;
 	}
 
+	/**
+	 * The minimum order amount that requires a signature on shipments. For example, if you want to require customer signatures on all orders over $5,000, the MinimumValueThreshold would be 5001.
+	 */
 	protected Double minimumValueThreshold;
 
 	public Double getMinimumValueThreshold() {

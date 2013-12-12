@@ -15,8 +15,8 @@ public class CategoryUrl
 
 	/**
 	 * Get Resource Url for GetCategories
-	 * @param filter 
-	 * @param pageSize 
+	 * @param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. You can filter product category search results by any of its properties, including its position in the category hierarchy. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
+	 * @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
 	 * @param sortBy 
 	 * @param startIndex 
 	 * @return   String Resource Url
@@ -33,7 +33,7 @@ public class CategoryUrl
 
 	/**
 	 * Get Resource Url for GetCategory
-	 * @param categoryId 
+	 * @param categoryId Unique identifier of the category to retrieve.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl getCategoryUrl(Integer categoryId)
@@ -45,7 +45,7 @@ public class CategoryUrl
 
 	/**
 	 * Get Resource Url for GetChildCategories
-	 * @param categoryId 
+	 * @param categoryId Unique identifier of the category whose subcategories are retrieved.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl getChildCategoriesUrl(Integer categoryId)
@@ -67,8 +67,8 @@ public class CategoryUrl
 
 	/**
 	 * Get Resource Url for UpdateCategory
-	 * @param cascadeVisibility 
-	 * @param categoryId 
+	 * @param cascadeVisibility If true, when changing the display option for the category, change it for all subcategories also. Default: False.
+	 * @param categoryId Unique identifier of the category to modify.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl updateCategoryUrl(Boolean cascadeVisibility, Integer categoryId)
@@ -81,8 +81,8 @@ public class CategoryUrl
 
 	/**
 	 * Get Resource Url for DeleteCategoryById
-	 * @param cascadeDelete 
-	 * @param categoryId 
+	 * @param cascadeDelete If true, any subcategories of a category are deleted when this category is deleted. Default: False.
+	 * @param categoryId Unique identifier of the category to delete.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl deleteCategoryByIdUrl(Boolean cascadeDelete, Integer categoryId)

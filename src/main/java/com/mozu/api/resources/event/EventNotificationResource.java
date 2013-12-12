@@ -15,13 +15,13 @@ import com.mozu.api.Headers;
 import com.mozu.api.security.AuthTicket;
 
 /** <summary>
- * 
+ * Use the events resource to retrieve events, which are notifications about a create, read, update, or delete operation.
  * </summary>
  */
 public class EventNotificationResource {
 	
 	/**
-	 * 
+	 * Retrieves a list of events.
 	 * <p><pre><code>
 	 *	EventNotification eventnotification = new EventNotification();
 	 *	EventCollection eventCollection = eventnotification.GetEvents();
@@ -36,34 +36,34 @@ public class EventNotificationResource {
 	}
 
 	/**
-	 * 
+	 * Retrieves a list of events.
 	 * <p><pre><code>
 	 *	EventNotification eventnotification = new EventNotification();
-	 *	EventCollection eventCollection = eventnotification.GetEvents( filter,  pageSize,  sortBy,  startIndex, authTicket);
+	 *	EventCollection eventCollection = eventnotification.GetEvents( startIndex,  pageSize,  sortBy,  filter, authTicket);
 	 * </code></pre></p>
-	 * @param filter 
-	 * @param pageSize 
+	 * @param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
+	 * @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
 	 * @param sortBy 
 	 * @param startIndex 
 	 * @param authTicket User Auth Ticket
 	 * @return com.mozu.api.contracts.event.EventCollection
 	 * @see com.mozu.api.contracts.event.EventCollection
 	 */
-	public com.mozu.api.contracts.event.EventCollection getEvents(String filter, Integer pageSize, String sortBy, Integer startIndex, AuthTicket authTicket) throws Exception
+	public com.mozu.api.contracts.event.EventCollection getEvents(Integer startIndex, Integer pageSize, String sortBy, String filter, AuthTicket authTicket) throws Exception
 	{
-		MozuClient<com.mozu.api.contracts.event.EventCollection> client = com.mozu.api.clients.event.EventNotificationClient.getEventsClient( filter,  pageSize,  sortBy,  startIndex, authTicket);
+		MozuClient<com.mozu.api.contracts.event.EventCollection> client = com.mozu.api.clients.event.EventNotificationClient.getEventsClient( startIndex,  pageSize,  sortBy,  filter, authTicket);
 		client.executeRequest();
 		return client.getResult();
 
 	}
 
 	/**
-	 * 
+	 * Retrieves an event by providing the event ID.
 	 * <p><pre><code>
 	 *	EventNotification eventnotification = new EventNotification();
 	 *	Event event = eventnotification.GetEvent( eventId, authTicket);
 	 * </code></pre></p>
-	 * @param eventId 
+	 * @param eventId The unique identifier of the event being retrieved. An event is a notification about a create, read, update, or delete on an order, product, discount or category.
 	 * @param authTicket User Auth Ticket
 	 * @return com.mozu.api.contracts.event.Event
 	 * @see com.mozu.api.contracts.event.Event

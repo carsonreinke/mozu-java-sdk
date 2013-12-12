@@ -7,13 +7,21 @@
 package com.mozu.api.contracts.core;
 
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 
+/**
+ *	Dimensions of the packaged product.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Measurement implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * The unit of measurement, such as length or weight.
+	 */
 	protected String unit;
 
 	public String getUnit() {
@@ -24,6 +32,9 @@ public class Measurement implements Serializable
 		this.unit = unit;
 	}
 
+	/**
+	 * The value of the measured unit.
+	 */
 	protected Double value;
 
 	public Double getValue() {

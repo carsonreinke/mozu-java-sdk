@@ -7,13 +7,21 @@
 package com.mozu.api.contracts.commerceruntime.orders;
 
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 
+/**
+ *	Comments and/or gift message provided by the shopper which are associated with the order.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class ShopperNotes implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Shopper-entered notes for the associated order.
+	 */
 	protected String comments;
 
 	public String getComments() {
@@ -24,6 +32,9 @@ public class ShopperNotes implements Serializable
 		this.comments = comments;
 	}
 
+	/**
+	 * Shopper-entered gift message for the associated order.
+	 */
 	protected String giftMessage;
 
 	public String getGiftMessage() {

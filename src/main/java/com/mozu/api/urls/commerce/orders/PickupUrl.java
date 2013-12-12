@@ -15,8 +15,8 @@ public class PickupUrl
 
 	/**
 	 * Get Resource Url for GetPickup
-	 * @param orderId 
-	 * @param pickupId 
+	 * @param orderId Unique identifier of the order associated with the pickup.
+	 * @param pickupId Unique identifier of the pickup to retrieve.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl getPickupUrl(String orderId, String pickupId)
@@ -29,8 +29,8 @@ public class PickupUrl
 
 	/**
 	 * Get Resource Url for GetAvailablePickupFulfillmentActions
-	 * @param orderId 
-	 * @param pickupId 
+	 * @param orderId Unique identifier of the order associated with the pickup.
+	 * @param pickupId Unique identifier of the pickup for which to retrieve available actions.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl getAvailablePickupFulfillmentActionsUrl(String orderId, String pickupId)
@@ -43,7 +43,7 @@ public class PickupUrl
 
 	/**
 	 * Get Resource Url for CreatePickup
-	 * @param orderId 
+	 * @param orderId Unique identifier of the order.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl createPickupUrl(String orderId)
@@ -55,8 +55,8 @@ public class PickupUrl
 
 	/**
 	 * Get Resource Url for UpdatePickup
-	 * @param orderId 
-	 * @param pickupId 
+	 * @param orderId Unique identifier of the order associated with the in-store pickup.
+	 * @param pickupId Unique identifier of the pickup to update.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl updatePickupUrl(String orderId, String pickupId)
@@ -69,8 +69,8 @@ public class PickupUrl
 
 	/**
 	 * Get Resource Url for DeletePickup
-	 * @param orderId 
-	 * @param pickupId 
+	 * @param orderId Unique identifier of the order associated with the pickup.
+	 * @param pickupId Unique identifier of the pickup to remove.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl deletePickupUrl(String orderId, String pickupId)

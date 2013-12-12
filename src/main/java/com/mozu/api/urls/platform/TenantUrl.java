@@ -15,7 +15,7 @@ public class TenantUrl
 
 	/**
 	 * Get Resource Url for GetTenant
-	 * @param tenantId 
+	 * @param tenantId Unique identifier of the Mozu tenant.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl getTenantUrl(Integer tenantId)

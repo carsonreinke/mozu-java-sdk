@@ -14,26 +14,26 @@ import com.mozu.api.Headers;
 import com.mozu.api.security.AuthTicket;
 
 /** <summary>
- * 
+ * Use the folders subresource to organize content into folders.
  * </summary>
  */
 public class FolderClient {
 	
 	/**
-	 * 
+	 * Retrieves the properties of an existing folder.
 	 * <p><pre><code>
-	 * MozuClient<com.mozu.api.contracts.content.Folder> mozuClient=GetFolderClient( documentListName,  folderId, authTicket);
+	 * MozuClient<com.mozu.api.contracts.content.Folder> mozuClient=GetFolderClient(dataViewMode,  documentListName,  folderId, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * Folder folder = client.Result();
 	 * </code></pre></p>
-	 * @param documentListName 
-	 * @param folderId 
+	 * @param documentListName The name of the document list associated with the folder to retrieve.
+	 * @param folderId The unique identifier of the folder to retrieve.
 	 * @param authTicket User Auth Ticket
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.content.Folder>
 	 * @see com.mozu.api.contracts.content.Folder
 	 */
-	public static MozuClient<com.mozu.api.contracts.content.Folder> getFolderClient(String documentListName, String folderId, AuthTicket authTicket) throws Exception
+	public static MozuClient<com.mozu.api.contracts.content.Folder> getFolderClient(com.mozu.api.DataViewMode dataViewMode, String documentListName, String folderId, AuthTicket authTicket) throws Exception
 	{
 		MozuUrl url = com.mozu.api.urls.content.documentlists.FolderUrl.getFolderUrl(documentListName, folderId);
 		String verb = "GET";
@@ -41,6 +41,7 @@ public class FolderClient {
 		MozuClient<com.mozu.api.contracts.content.Folder> mozuClient = new MozuClient(clz);
 		mozuClient.setVerb(verb);
 		mozuClient.setResourceUrl(url);
+		mozuClient.addHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.toString());
 		if (authTicket != null)
 			mozuClient.setUserAuth(authTicket);
 		return mozuClient;
@@ -48,42 +49,42 @@ public class FolderClient {
 	}
 
 	/**
-	 * 
+	 * Retrieve a list of content folders according to any filter and sort criteria.
 	 * <p><pre><code>
-	 * MozuClient<com.mozu.api.contracts.content.FolderCollection> mozuClient=GetFoldersClient( documentListName,  filter);
+	 * MozuClient<com.mozu.api.contracts.content.FolderCollection> mozuClient=GetFoldersClient(dataViewMode,  documentListName,  filter);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * FolderCollection folderCollection = client.Result();
 	 * </code></pre></p>
-	 * @param documentListName 
-	 * @param filter 
+	 * @param documentListName The name of the document list that contains this folder.
+	 * @param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
 	 * @param authTicket User Auth Ticket
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.content.FolderCollection>
 	 * @see com.mozu.api.contracts.content.FolderCollection
 	 */
-	public static MozuClient<com.mozu.api.contracts.content.FolderCollection> getFoldersClient(String documentListName, String filter) throws Exception
+	public static MozuClient<com.mozu.api.contracts.content.FolderCollection> getFoldersClient(com.mozu.api.DataViewMode dataViewMode, String documentListName, String filter) throws Exception
 	{
-		return getFoldersClient( documentListName,  filter,  null,  null,  null, null);
+		return getFoldersClient(dataViewMode,  documentListName,  filter,  null,  null,  null, null);
 	}
 
 	/**
-	 * 
+	 * Retrieve a list of content folders according to any filter and sort criteria.
 	 * <p><pre><code>
-	 * MozuClient<com.mozu.api.contracts.content.FolderCollection> mozuClient=GetFoldersClient( documentListName,  filter,  pageSize,  sort,  startIndex, authTicket);
+	 * MozuClient<com.mozu.api.contracts.content.FolderCollection> mozuClient=GetFoldersClient(dataViewMode,  documentListName,  filter,  pageSize,  startIndex,  sort, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * FolderCollection folderCollection = client.Result();
 	 * </code></pre></p>
-	 * @param documentListName 
-	 * @param filter 
-	 * @param pageSize 
-	 * @param sort 
-	 * @param startIndex 
+	 * @param documentListName The name of the document list that contains this folder.
+	 * @param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
+	 * @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
+	 * @param sort The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"
+	 * @param startIndex When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
 	 * @param authTicket User Auth Ticket
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.content.FolderCollection>
 	 * @see com.mozu.api.contracts.content.FolderCollection
 	 */
-	public static MozuClient<com.mozu.api.contracts.content.FolderCollection> getFoldersClient(String documentListName, String filter, Integer pageSize, String sort, Integer startIndex, AuthTicket authTicket) throws Exception
+	public static MozuClient<com.mozu.api.contracts.content.FolderCollection> getFoldersClient(com.mozu.api.DataViewMode dataViewMode, String documentListName, String filter, Integer pageSize, Integer startIndex, String sort, AuthTicket authTicket) throws Exception
 	{
 		MozuUrl url = com.mozu.api.urls.content.documentlists.FolderUrl.getFoldersUrl(documentListName, filter, pageSize, sort, startIndex);
 		String verb = "GET";
@@ -91,6 +92,7 @@ public class FolderClient {
 		MozuClient<com.mozu.api.contracts.content.FolderCollection> mozuClient = new MozuClient(clz);
 		mozuClient.setVerb(verb);
 		mozuClient.setResourceUrl(url);
+		mozuClient.addHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.toString());
 		if (authTicket != null)
 			mozuClient.setUserAuth(authTicket);
 		return mozuClient;
@@ -98,21 +100,21 @@ public class FolderClient {
 	}
 
 	/**
-	 * 
+	 * Creates a new folder.
 	 * <p><pre><code>
-	 * MozuClient<com.mozu.api.contracts.content.Folder> mozuClient=CreateFolderClient( folder,  documentListName, authTicket);
+	 * MozuClient<com.mozu.api.contracts.content.Folder> mozuClient=CreateFolderClient(dataViewMode,  folder,  documentListName, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * Folder folder = client.Result();
 	 * </code></pre></p>
-	 * @param documentListName 
+	 * @param documentListName The name of the document list for which to create a new folder.
 	 * @param authTicket User Auth Ticket
-	 * @param folder 
+	 * @param folder The name of the newly created folder.
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.content.Folder>
 	 * @see com.mozu.api.contracts.content.Folder
 	 * @see com.mozu.api.contracts.content.Folder
 	 */
-	public static MozuClient<com.mozu.api.contracts.content.Folder> createFolderClient(com.mozu.api.contracts.content.Folder folder, String documentListName, AuthTicket authTicket) throws Exception
+	public static MozuClient<com.mozu.api.contracts.content.Folder> createFolderClient(com.mozu.api.DataViewMode dataViewMode, com.mozu.api.contracts.content.Folder folder, String documentListName, AuthTicket authTicket) throws Exception
 	{
 		MozuUrl url = com.mozu.api.urls.content.documentlists.FolderUrl.createFolderUrl(documentListName);
 		String verb = "POST";
@@ -121,6 +123,7 @@ public class FolderClient {
 		mozuClient.setVerb(verb);
 		mozuClient.setResourceUrl(url);
 		mozuClient.setBody(folder);
+		mozuClient.addHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.toString());
 		if (authTicket != null)
 			mozuClient.setUserAuth(authTicket);
 		return mozuClient;
@@ -128,22 +131,22 @@ public class FolderClient {
 	}
 
 	/**
-	 * 
+	 * Updates an existing content folder in a document list.
 	 * <p><pre><code>
-	 * MozuClient<com.mozu.api.contracts.content.Folder> mozuClient=UpdateFolderClient( folder,  documentListName,  folderId, authTicket);
+	 * MozuClient<com.mozu.api.contracts.content.Folder> mozuClient=UpdateFolderClient(dataViewMode,  folder,  documentListName,  folderId, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * Folder folder = client.Result();
 	 * </code></pre></p>
-	 * @param documentListName 
-	 * @param folderId 
+	 * @param documentListName The name of the document list that contains this folder.
+	 * @param folderId Unique identifier of the folder.
 	 * @param authTicket User Auth Ticket
-	 * @param folder 
+	 * @param folder Properties of the folder to update.
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.content.Folder>
 	 * @see com.mozu.api.contracts.content.Folder
 	 * @see com.mozu.api.contracts.content.Folder
 	 */
-	public static MozuClient<com.mozu.api.contracts.content.Folder> updateFolderClient(com.mozu.api.contracts.content.Folder folder, String documentListName, String folderId, AuthTicket authTicket) throws Exception
+	public static MozuClient<com.mozu.api.contracts.content.Folder> updateFolderClient(com.mozu.api.DataViewMode dataViewMode, com.mozu.api.contracts.content.Folder folder, String documentListName, String folderId, AuthTicket authTicket) throws Exception
 	{
 		MozuUrl url = com.mozu.api.urls.content.documentlists.FolderUrl.updateFolderUrl(documentListName, folderId);
 		String verb = "PUT";
@@ -152,6 +155,7 @@ public class FolderClient {
 		mozuClient.setVerb(verb);
 		mozuClient.setResourceUrl(url);
 		mozuClient.setBody(folder);
+		mozuClient.addHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.toString());
 		if (authTicket != null)
 			mozuClient.setUserAuth(authTicket);
 		return mozuClient;
@@ -159,24 +163,25 @@ public class FolderClient {
 	}
 
 	/**
-	 * 
+	 * Deletes a folder of documents from the specified document list.
 	 * <p><pre><code>
-	 * MozuClient mozuClient=DeleteFolderClient( documentListName,  folderId, authTicket);
+	 * MozuClient mozuClient=DeleteFolderClient(dataViewMode,  documentListName,  folderId, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * </code></pre></p>
-	 * @param documentListName 
-	 * @param folderId 
+	 * @param documentListName The name of the document list associated with the folder to delete.
+	 * @param folderId The unique identifier of the folder to delete.
 	 * @param authTicket User Auth Ticket
 	 * @return Mozu.Api.MozuClient 
 	 */
-	public static MozuClient deleteFolderClient(String documentListName, String folderId, AuthTicket authTicket) throws Exception
+	public static MozuClient deleteFolderClient(com.mozu.api.DataViewMode dataViewMode, String documentListName, String folderId, AuthTicket authTicket) throws Exception
 	{
 		MozuUrl url = com.mozu.api.urls.content.documentlists.FolderUrl.deleteFolderUrl(documentListName, folderId);
 		String verb = "DELETE";
 				MozuClient mozuClient = new MozuClient();
 		mozuClient.setVerb(verb);
 		mozuClient.setResourceUrl(url);
+		mozuClient.addHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.toString());
 		if (authTicket != null)
 			mozuClient.setUserAuth(authTicket);
 		return mozuClient;

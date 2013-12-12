@@ -8,13 +8,21 @@ package com.mozu.api.contracts.reference;
 
 import java.util.List;
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 
+/**
+ *	The paged collection of all top level internet domains that the system supports including general, USA-specific, infrastructure, and country codes. The Internet Assigned Numbers Authority (IANA) maintains this list.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class TopLevelDomainCollection implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * An array list of objects in the returned collection.
+	 */
 	protected List<String> items;
 	public List<String> getItems() {
 		return this.items;
@@ -23,6 +31,9 @@ public class TopLevelDomainCollection implements Serializable
 		this.items = items;
 	}
 
+	/**
+	 * The number of results listed in the query collection, represented by a signed 64-bit (8-byte) integer. This value is system-supplied and read-only.
+	 */
 	protected Long totalCount;
 
 	public Long getTotalCount() {

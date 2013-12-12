@@ -15,18 +15,18 @@ import com.mozu.api.Headers;
 import com.mozu.api.security.AuthTicket;
 
 /** <summary>
- * 
+ * Use this resource to manage authentication tickets for your developer account.
  * </summary>
  */
 public class DeveloperAdminUserAuthTicketResource {
 	
 	/**
-	 * 
+	 * Generate an authentication ticket for a developer account.
 	 * <p><pre><code>
 	 *	DeveloperAdminUserAuthTicket developeradminuserauthticket = new DeveloperAdminUserAuthTicket();
 	 *	DeveloperAdminUserAuthTicket developerAdminUserAuthTicket = developeradminuserauthticket.CreateDeveloperUserAuthTicket( userAuthInfo);
 	 * </code></pre></p>
-	 * @param userAuthInfo 
+	 * @param userAuthInfo The user authentication information required to generate the developer account user authentication ticket, which consists of a user name and password.
 	 * @return com.mozu.api.contracts.adminuser.DeveloperAdminUserAuthTicket
 	 * @see com.mozu.api.contracts.adminuser.DeveloperAdminUserAuthTicket
 	 * @see com.mozu.api.contracts.core.UserAuthInfo
@@ -37,13 +37,13 @@ public class DeveloperAdminUserAuthTicketResource {
 	}
 
 	/**
-	 * 
+	 * Generate an authentication ticket for a developer account.
 	 * <p><pre><code>
 	 *	DeveloperAdminUserAuthTicket developeradminuserauthticket = new DeveloperAdminUserAuthTicket();
 	 *	DeveloperAdminUserAuthTicket developerAdminUserAuthTicket = developeradminuserauthticket.CreateDeveloperUserAuthTicket( userAuthInfo,  developerAccountId);
 	 * </code></pre></p>
-	 * @param developerAccountId 
-	 * @param userAuthInfo 
+	 * @param developerAccountId Unique identifier of the developer account.
+	 * @param userAuthInfo The user authentication information required to generate the developer account user authentication ticket, which consists of a user name and password.
 	 * @return com.mozu.api.contracts.adminuser.DeveloperAdminUserAuthTicket
 	 * @see com.mozu.api.contracts.adminuser.DeveloperAdminUserAuthTicket
 	 * @see com.mozu.api.contracts.core.UserAuthInfo
@@ -57,12 +57,12 @@ public class DeveloperAdminUserAuthTicketResource {
 	}
 
 	/**
-	 * 
+	 * Generates a new developer account authentication ticket for the specified tenant by supplying the defined refresh token information.
 	 * <p><pre><code>
 	 *	DeveloperAdminUserAuthTicket developeradminuserauthticket = new DeveloperAdminUserAuthTicket();
 	 *	DeveloperAdminUserAuthTicket developerAdminUserAuthTicket = developeradminuserauthticket.RefreshDeveloperAuthTicket( existingAuthTicket);
 	 * </code></pre></p>
-	 * @param existingAuthTicket 
+	 * @param existingAuthTicket Properties of the authentication ticket to refresh. The refresh token is required to complete this request.
 	 * @return com.mozu.api.contracts.adminuser.DeveloperAdminUserAuthTicket
 	 * @see com.mozu.api.contracts.adminuser.DeveloperAdminUserAuthTicket
 	 * @see com.mozu.api.contracts.adminuser.DeveloperAdminUserAuthTicket
@@ -73,13 +73,13 @@ public class DeveloperAdminUserAuthTicketResource {
 	}
 
 	/**
-	 * 
+	 * Generates a new developer account authentication ticket for the specified tenant by supplying the defined refresh token information.
 	 * <p><pre><code>
 	 *	DeveloperAdminUserAuthTicket developeradminuserauthticket = new DeveloperAdminUserAuthTicket();
 	 *	DeveloperAdminUserAuthTicket developerAdminUserAuthTicket = developeradminuserauthticket.RefreshDeveloperAuthTicket( existingAuthTicket,  developerAccountId);
 	 * </code></pre></p>
-	 * @param developerAccountId 
-	 * @param existingAuthTicket 
+	 * @param developerAccountId Unique identifier of the developer account.
+	 * @param existingAuthTicket Properties of the authentication ticket to refresh. The refresh token is required to complete this request.
 	 * @return com.mozu.api.contracts.adminuser.DeveloperAdminUserAuthTicket
 	 * @see com.mozu.api.contracts.adminuser.DeveloperAdminUserAuthTicket
 	 * @see com.mozu.api.contracts.adminuser.DeveloperAdminUserAuthTicket
@@ -93,12 +93,12 @@ public class DeveloperAdminUserAuthTicketResource {
 	}
 
 	/**
-	 * 
+	 * Deletes the authentication ticket for the developer account by supplying the refresh token.
 	 * <p><pre><code>
 	 *	DeveloperAdminUserAuthTicket developeradminuserauthticket = new DeveloperAdminUserAuthTicket();
 	 *	developeradminuserauthticket.DeleteUserAuthTicket( refreshToken);
 	 * </code></pre></p>
-	 * @param refreshToken 
+	 * @param refreshToken Refresh token string associated with the developer account authentication ticket.
 	 * @return 
 	 */
 	public void deleteUserAuthTicket(String refreshToken) throws Exception

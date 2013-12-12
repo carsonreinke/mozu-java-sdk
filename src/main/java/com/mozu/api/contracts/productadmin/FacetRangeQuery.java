@@ -7,13 +7,21 @@
 package com.mozu.api.contracts.productadmin;
 
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 
+/**
+ *	For range type facets, a single range of facet values. For example, a price facet might have a $0-$25 range query.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class FacetRangeQuery implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * The maximum value to use for the facet range query.
+	 */
 	protected Object rangeValueEnd;
 
 	public Object getRangeValueEnd() {
@@ -24,6 +32,9 @@ public class FacetRangeQuery implements Serializable
 		this.rangeValueEnd = rangeValueEnd;
 	}
 
+	/**
+	 * The minimum value to use for the facet range query.
+	 */
 	protected Object rangeValueStart;
 
 	public Object getRangeValueStart() {

@@ -7,14 +7,22 @@
 package com.mozu.api.contracts.productadmin;
 
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 import com.mozu.api.contracts.core.AuditInfo;
 
+/**
+ *	The container for the language-specific name of the discount. A container exists for each supported language (LocaleCode). This parameter enables you to display the discount name in multiple languages yet manage it as a single discount internally.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class DiscountLocalizedContent implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Language used for the entity. Currently, only "en-US" is supported.
+	 */
 	protected String localeCode;
 
 	public String getLocaleCode() {
@@ -25,6 +33,9 @@ public class DiscountLocalizedContent implements Serializable
 		this.localeCode = localeCode;
 	}
 
+	/**
+	 * Name of the localized content.
+	 */
 	protected String name;
 
 	public String getName() {
@@ -35,6 +46,9 @@ public class DiscountLocalizedContent implements Serializable
 		this.name = name;
 	}
 
+	/**
+	 * Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
+	 */
 	protected AuditInfo auditInfo;
 
 	public AuditInfo getAuditInfo() {

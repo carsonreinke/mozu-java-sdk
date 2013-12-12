@@ -14,13 +14,13 @@ import com.mozu.api.Headers;
 import com.mozu.api.security.AuthTicket;
 
 /** <summary>
- * 
+ * Settings for the checkout login. Choose whether or not shoppers must first login before a purchase can be processed. Choose the option for guests to purchase without logging in, prompt guests to login, or require them to login before a purchase can be completed.
  * </summary>
  */
 public class CustomerCheckoutSettingsClient {
 	
 	/**
-	 * 
+	 * Retrieves all checkout settings defined for the site: Payment settings, such as the payment gateway ID and credentials, supported credit cards, and more; Customer Checkout settings, such as whether login is required, and any custom attributes; and Order Processing settings, such as when payment is authorized and captured, and any custom attributes.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.sitesettings.order.CustomerCheckoutSettings> mozuClient=GetCustomerCheckoutSettingsClient(authTicket);
 	 * client.setBaseAddress(url);
@@ -46,7 +46,7 @@ public class CustomerCheckoutSettingsClient {
 	}
 
 	/**
-	 * 
+	 * Modifies existing site checkout settings. Modify Payment, Customer Checkout, and Order Processing settings in one PUT.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.sitesettings.order.CustomerCheckoutSettings> mozuClient=UpdateCustomerCheckoutSettingsClient( customerCheckoutSettings, authTicket);
 	 * client.setBaseAddress(url);
@@ -54,7 +54,7 @@ public class CustomerCheckoutSettingsClient {
 	 * CustomerCheckoutSettings customerCheckoutSettings = client.Result();
 	 * </code></pre></p>
 	 * @param authTicket User Auth Ticket
-	 * @param customerCheckoutSettings 
+	 * @param customerCheckoutSettings All the properties to update in the checkout settings.
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.sitesettings.order.CustomerCheckoutSettings>
 	 * @see com.mozu.api.contracts.sitesettings.order.CustomerCheckoutSettings
 	 * @see com.mozu.api.contracts.sitesettings.order.CustomerCheckoutSettings

@@ -15,7 +15,7 @@ public class OrderAttributeUrl
 
 	/**
 	 * Get Resource Url for GetOrderAttributes
-	 * @param orderId 
+	 * @param orderId Unique identifier of the order for which to retrieve a list of defined attributes.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl getOrderAttributesUrl(String orderId)
@@ -27,7 +27,7 @@ public class OrderAttributeUrl
 
 	/**
 	 * Get Resource Url for CreateOrderAttributes
-	 * @param orderId 
+	 * @param orderId Unique identifier of the order for which to assign the attributes.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl createOrderAttributesUrl(String orderId)
@@ -39,8 +39,8 @@ public class OrderAttributeUrl
 
 	/**
 	 * Get Resource Url for UpdateOrderAttributes
-	 * @param orderId 
-	 * @param removeMissing 
+	 * @param orderId Identifier of the order for which to update attributes.
+	 * @param removeMissing If true, the operation removes missing properties so that the updated order attributes will not show properties with a null value.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl updateOrderAttributesUrl(String orderId, Boolean removeMissing)

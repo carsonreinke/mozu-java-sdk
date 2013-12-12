@@ -8,14 +8,22 @@ package com.mozu.api.contracts.pricingruntime;
 
 import java.util.List;
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 import com.mozu.api.contracts.pricingruntime.ProductProperty;
 
+/**
+ *	Properties of a line item in an order that is subject to tax.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class TaxableLineItem implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Unique identifier of the taxable line item.
+	 */
 	protected String id;
 
 	public String getId() {
@@ -26,6 +34,9 @@ public class TaxableLineItem implements Serializable
 		this.id = id;
 	}
 
+	/**
+	 * If true, the line item in the order is subject to tax.
+	 */
 	protected Boolean isTaxable;
 
 	public Boolean getIsTaxable() {
@@ -36,6 +47,9 @@ public class TaxableLineItem implements Serializable
 		this.isTaxable = isTaxable;
 	}
 
+	/**
+	 * The sale price of the line item in the order.
+	 */
 	protected Double lineItemPrice;
 
 	public Double getLineItemPrice() {
@@ -46,6 +60,9 @@ public class TaxableLineItem implements Serializable
 		this.lineItemPrice = lineItemPrice;
 	}
 
+	/**
+	 * Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
+	 */
 	protected String productCode;
 
 	public String getProductCode() {
@@ -66,6 +83,9 @@ public class TaxableLineItem implements Serializable
 		this.productName = productName;
 	}
 
+	/**
+	 * The quantity of the line item in the order.
+	 */
 	protected Integer quantity;
 
 	public Integer getQuantity() {
@@ -86,6 +106,9 @@ public class TaxableLineItem implements Serializable
 		this.reason = reason;
 	}
 
+	/**
+	 * The amount of shipping calculated for a line item in an order.
+	 */
 	protected Double shippingAmount;
 
 	public Double getShippingAmount() {
@@ -96,6 +119,9 @@ public class TaxableLineItem implements Serializable
 		this.shippingAmount = shippingAmount;
 	}
 
+	/**
+	 * Properties of the product that represents the line item in the order.
+	 */
 	protected List<ProductProperty> productProperties;
 	public List<ProductProperty> getProductProperties() {
 		return this.productProperties;

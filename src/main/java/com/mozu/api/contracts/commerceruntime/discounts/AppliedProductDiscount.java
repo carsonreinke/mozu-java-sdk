@@ -7,14 +7,22 @@
 package com.mozu.api.contracts.commerceruntime.discounts;
 
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 import com.mozu.api.contracts.commerceruntime.discounts.Discount;
 
+/**
+ *	Properties of a discount applied to a product on a storefront.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class AppliedProductDiscount implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Alphanumeric code associated with the coupon or promotion that results in a discounted price.
+	 */
 	protected String couponCode;
 
 	public String getCouponCode() {
@@ -25,6 +33,9 @@ public class AppliedProductDiscount implements Serializable
 		this.couponCode = couponCode;
 	}
 
+	/**
+	 * If true, the system ignores this discount when pricing the order.
+	 */
 	protected Boolean excluded;
 
 	public Boolean getExcluded() {
@@ -35,6 +46,9 @@ public class AppliedProductDiscount implements Serializable
 		this.excluded = excluded;
 	}
 
+	/**
+	 * The value of the discount.
+	 */
 	protected Double impact;
 
 	public Double getImpact() {
@@ -45,6 +59,9 @@ public class AppliedProductDiscount implements Serializable
 		this.impact = impact;
 	}
 
+	/**
+	 * The value of the discount for a single product unit.
+	 */
 	protected Double impactPerUnit;
 
 	public Double getImpactPerUnit() {
@@ -55,6 +72,9 @@ public class AppliedProductDiscount implements Serializable
 		this.impactPerUnit = impactPerUnit;
 	}
 
+	/**
+	 * The number of product units priced with the associated discount.
+	 */
 	protected Integer productQuantity;
 
 	public Integer getProductQuantity() {
@@ -65,6 +85,9 @@ public class AppliedProductDiscount implements Serializable
 		this.productQuantity = productQuantity;
 	}
 
+	/**
+	 * Properties of a discount applied to a product on a storefront.
+	 */
 	protected Discount discount;
 
 	public Discount getDiscount() {

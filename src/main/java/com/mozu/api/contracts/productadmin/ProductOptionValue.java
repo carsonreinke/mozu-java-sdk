@@ -7,14 +7,22 @@
 package com.mozu.api.contracts.productadmin;
 
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 import com.mozu.api.contracts.productadmin.AttributeVocabularyValue;
 
+/**
+ *	Properties of a value associated with a product option attribute.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class ProductOptionValue implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Value of the product option attribute.
+	 */
 	protected Object value;
 
 	public Object getValue() {
@@ -25,6 +33,9 @@ public class ProductOptionValue implements Serializable
 		this.value = value;
 	}
 
+	/**
+	 * Detailed properties of the product option attribute's vocabulary value.
+	 */
 	protected AttributeVocabularyValue attributeVocabularyValueDetail;
 
 	public AttributeVocabularyValue getAttributeVocabularyValueDetail() {

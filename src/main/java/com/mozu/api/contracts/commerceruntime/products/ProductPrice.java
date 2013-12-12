@@ -7,13 +7,21 @@
 package com.mozu.api.contracts.commerceruntime.products;
 
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 
+/**
+ *	The price of a product that appears on a storefront after any applied discounts.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class ProductPrice implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * The price the merchant charges for a product on a storefront if no sales price is defined.
+	 */
 	protected Double price;
 
 	public Double getPrice() {
@@ -24,6 +32,9 @@ public class ProductPrice implements Serializable
 		this.price = price;
 	}
 
+	/**
+	 * Current sale price defined for a product on a storefront.
+	 */
 	protected Double salePrice;
 
 	public Double getSalePrice() {

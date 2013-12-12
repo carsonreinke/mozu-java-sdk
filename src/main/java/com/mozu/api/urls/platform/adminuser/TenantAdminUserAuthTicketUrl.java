@@ -15,7 +15,7 @@ public class TenantAdminUserAuthTicketUrl
 
 	/**
 	 * Get Resource Url for CreateUserAuthTicket
-	 * @param tenantId 
+	 * @param tenantId Unique identifier of the development or production tenant for which to generate the user authentication ticket.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl createUserAuthTicketUrl(Integer tenantId)
@@ -39,7 +39,7 @@ public class TenantAdminUserAuthTicketUrl
 
 	/**
 	 * Get Resource Url for DeleteUserAuthTicket
-	 * @param refreshToken 
+	 * @param refreshToken Refresh token string associated with the user authentication ticket.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl deleteUserAuthTicketUrl(String refreshToken)

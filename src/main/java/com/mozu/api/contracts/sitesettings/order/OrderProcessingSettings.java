@@ -7,14 +7,22 @@
 package com.mozu.api.contracts.sitesettings.order;
 
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 import com.mozu.api.contracts.core.AuditInfo;
 
+/**
+ *	Settings that determine how orders are processed and order payments are authorized for the site.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class OrderProcessingSettings implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Determines whether payment authorization occurs when the order is placed or when the order is shipped.
+	 */
 	protected String paymentProcessingFlowType;
 
 	public String getPaymentProcessingFlowType() {
@@ -25,6 +33,9 @@ public class OrderProcessingSettings implements Serializable
 		this.paymentProcessingFlowType = paymentProcessingFlowType;
 	}
 
+	/**
+	 * If true, use the override price defined for products in the order to calculate discounts for the order.
+	 */
 	protected Boolean useOverridePriceToCalculateDiscounts;
 
 	public Boolean getUseOverridePriceToCalculateDiscounts() {
@@ -35,6 +46,9 @@ public class OrderProcessingSettings implements Serializable
 		this.useOverridePriceToCalculateDiscounts = useOverridePriceToCalculateDiscounts;
 	}
 
+	/**
+	 * Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
+	 */
 	protected AuditInfo auditInfo;
 
 	public AuditInfo getAuditInfo() {

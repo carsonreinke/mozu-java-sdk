@@ -15,7 +15,7 @@ import com.mozu.api.Headers;
 import com.mozu.api.security.AuthTicket;
 
 /** <summary>
- * 
+ * Define global site settings such as the site name, shipping and email addresses, and logo images. Block undesirable IP addresses using this resource.
  * </summary>
  */
 public class GeneralSettingsResource {
@@ -29,7 +29,7 @@ public class GeneralSettingsResource {
 	}
 	
 	/**
-	 * 
+	 * Retrieve a site's general global settings.
 	 * <p><pre><code>
 	 *	GeneralSettings generalsettings = new GeneralSettings();
 	 *	GeneralSettings generalSettings = generalsettings.GetGeneralSettings(authTicket);
@@ -48,13 +48,13 @@ public class GeneralSettingsResource {
 	}
 
 	/**
-	 * 
+	 * Updates a site's general global settings.
 	 * <p><pre><code>
 	 *	GeneralSettings generalsettings = new GeneralSettings();
 	 *	GeneralSettings generalSettings = generalsettings.UpdateGeneralSettings( generalSettings, authTicket);
 	 * </code></pre></p>
 	 * @param authTicket User Auth Ticket
-	 * @param generalSettings 
+	 * @param generalSettings The properties of the site's general settings to update.
 	 * @return com.mozu.api.contracts.sitesettings.general.GeneralSettings
 	 * @see com.mozu.api.contracts.sitesettings.general.GeneralSettings
 	 * @see com.mozu.api.contracts.sitesettings.general.GeneralSettings

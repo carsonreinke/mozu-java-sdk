@@ -15,7 +15,7 @@ import com.mozu.api.Headers;
 import com.mozu.api.security.AuthTicket;
 
 /** <summary>
- * 
+ * Use the Groups resource to manage customer groups that enable a merchant to manage sets of customers and target discounts for these groups. After a customer group is defined, you can associate any number of customer accounts with the group.
  * </summary>
  */
 public class CustomerGroupResource {
@@ -29,7 +29,7 @@ public class CustomerGroupResource {
 	}
 	
 	/**
-	 * 
+	 * Retrieves a list of all customer groups defined for the site according to any specified filter criteria and sort options.
 	 * <p><pre><code>
 	 *	CustomerGroup customergroup = new CustomerGroup();
 	 *	CustomerGroupCollection customerGroupCollection = customergroup.GetGroups();
@@ -44,22 +44,22 @@ public class CustomerGroupResource {
 	}
 
 	/**
-	 * 
+	 * Retrieves a list of all customer groups defined for the site according to any specified filter criteria and sort options.
 	 * <p><pre><code>
 	 *	CustomerGroup customergroup = new CustomerGroup();
-	 *	CustomerGroupCollection customerGroupCollection = customergroup.GetGroups( filter,  pageSize,  sortBy,  startIndex, authTicket);
+	 *	CustomerGroupCollection customerGroupCollection = customergroup.GetGroups( startIndex,  pageSize,  sortBy,  filter, authTicket);
 	 * </code></pre></p>
-	 * @param filter 
-	 * @param pageSize 
-	 * @param sortBy 
-	 * @param startIndex 
+	 * @param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
+	 * @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
+	 * @param sortBy The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"
+	 * @param startIndex When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
 	 * @param authTicket User Auth Ticket
 	 * @return com.mozu.api.contracts.customer.CustomerGroupCollection
 	 * @see com.mozu.api.contracts.customer.CustomerGroupCollection
 	 */
-	public com.mozu.api.contracts.customer.CustomerGroupCollection getGroups(String filter, Integer pageSize, String sortBy, Integer startIndex, AuthTicket authTicket) throws Exception
+	public com.mozu.api.contracts.customer.CustomerGroupCollection getGroups(Integer startIndex, Integer pageSize, String sortBy, String filter, AuthTicket authTicket) throws Exception
 	{
-		MozuClient<com.mozu.api.contracts.customer.CustomerGroupCollection> client = com.mozu.api.clients.commerce.customer.CustomerGroupClient.getGroupsClient( filter,  pageSize,  sortBy,  startIndex, authTicket);
+		MozuClient<com.mozu.api.contracts.customer.CustomerGroupCollection> client = com.mozu.api.clients.commerce.customer.CustomerGroupClient.getGroupsClient( startIndex,  pageSize,  sortBy,  filter, authTicket);
 		client.setContext(_apiContext);
 		client.executeRequest();
 		return client.getResult();
@@ -67,12 +67,12 @@ public class CustomerGroupResource {
 	}
 
 	/**
-	 * 
+	 * Retrieves the name of a customer group specified the customer group ID.
 	 * <p><pre><code>
 	 *	CustomerGroup customergroup = new CustomerGroup();
 	 *	CustomerGroup customerGroup = customergroup.GetGroup( groupId, authTicket);
 	 * </code></pre></p>
-	 * @param groupId 
+	 * @param groupId Identifier of the customer group to retrieve.
 	 * @param authTicket User Auth Ticket
 	 * @return com.mozu.api.contracts.customer.CustomerGroup
 	 * @see com.mozu.api.contracts.customer.CustomerGroup
@@ -87,13 +87,13 @@ public class CustomerGroupResource {
 	}
 
 	/**
-	 * 
+	 * Creates a new customer group. New customer groups do not have any associated customer accounts.
 	 * <p><pre><code>
 	 *	CustomerGroup customergroup = new CustomerGroup();
 	 *	CustomerGroup customerGroup = customergroup.AddGroup( group, authTicket);
 	 * </code></pre></p>
 	 * @param authTicket User Auth Ticket
-	 * @param group 
+	 * @param group Properties of the customer group to add.
 	 * @return com.mozu.api.contracts.customer.CustomerGroup
 	 * @see com.mozu.api.contracts.customer.CustomerGroup
 	 * @see com.mozu.api.contracts.customer.CustomerGroup
@@ -108,14 +108,14 @@ public class CustomerGroupResource {
 	}
 
 	/**
-	 * 
+	 * Updates the name of a defined customer group.
 	 * <p><pre><code>
 	 *	CustomerGroup customergroup = new CustomerGroup();
 	 *	CustomerGroup customerGroup = customergroup.UpdateGroup( group,  groupId, authTicket);
 	 * </code></pre></p>
-	 * @param groupId 
+	 * @param groupId Identifier of the customer group to update.
 	 * @param authTicket User Auth Ticket
-	 * @param group 
+	 * @param group Properties of the customer group to update.
 	 * @return com.mozu.api.contracts.customer.CustomerGroup
 	 * @see com.mozu.api.contracts.customer.CustomerGroup
 	 * @see com.mozu.api.contracts.customer.CustomerGroup
@@ -130,12 +130,12 @@ public class CustomerGroupResource {
 	}
 
 	/**
-	 * 
+	 * Deletes a customer group specified by its unique identifier. Deleting a group removes any customer account associations, but does not delete the customer account itself.
 	 * <p><pre><code>
 	 *	CustomerGroup customergroup = new CustomerGroup();
 	 *	customergroup.DeleteGroup( groupId, authTicket);
 	 * </code></pre></p>
-	 * @param groupId 
+	 * @param groupId Identifier of the customer group to delete.
 	 * @param authTicket User Auth Ticket
 	 * @return 
 	 */

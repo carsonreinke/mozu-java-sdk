@@ -7,14 +7,22 @@
 package com.mozu.api.contracts.sitesettings.order;
 
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 import com.mozu.api.contracts.core.AuditInfo;
 
+/**
+ *	The properties of the customer checkout settings such as whether shoppers must be logged in.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class CustomerCheckoutSettings implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * The type of customer checking out in the order such as a guest who has not logged in or a customer who has logged in. Valid strings are either "LoginOptional," where shoppers are prompted to sign in but are not required to do so, or "LoginRequired," where shopppers must login before purchasing.
+	 */
 	protected String customerCheckoutType;
 
 	public String getCustomerCheckoutType() {
@@ -25,6 +33,9 @@ public class CustomerCheckoutSettings implements Serializable
 		this.customerCheckoutType = customerCheckoutType;
 	}
 
+	/**
+	 * Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
+	 */
 	protected AuditInfo auditInfo;
 
 	public AuditInfo getAuditInfo() {

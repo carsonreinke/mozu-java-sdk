@@ -7,13 +7,21 @@
 package com.mozu.api.contracts.sitesettings.general;
 
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 
+/**
+ *	Properties of the territory which is subject to sales tax.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class TaxableTerritory implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * The 2-letter geographic code representing the country for the physical or mailing address. Currently limited to the US.
+	 */
 	protected String countryCode;
 
 	public String getCountryCode() {
@@ -24,6 +32,9 @@ public class TaxableTerritory implements Serializable
 		this.countryCode = countryCode;
 	}
 
+	/**
+	 * If true, all shipping charges for this territory are subject to sales tax.
+	 */
 	protected Boolean isShippingTaxable;
 
 	public Boolean getIsShippingTaxable() {
@@ -34,6 +45,9 @@ public class TaxableTerritory implements Serializable
 		this.isShippingTaxable = isShippingTaxable;
 	}
 
+	/**
+	 * The two-letter geographic code representing the state for the physical or mailing address. This is currently limited to the US.
+	 */
 	protected String stateOrProvinceCode;
 
 	public String getStateOrProvinceCode() {

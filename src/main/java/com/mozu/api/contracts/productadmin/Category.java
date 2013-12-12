@@ -7,10 +7,15 @@
 package com.mozu.api.contracts.productadmin;
 
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 import com.mozu.api.contracts.core.AuditInfo;
 import com.mozu.api.contracts.productadmin.CategoryLocalizedContent;
 
+/**
+ *	A descriptive container in a storefront hierarchy to organize collections of products.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Category implements Serializable
 {
 	// Default Serial Version UID
@@ -26,6 +31,9 @@ public class Category implements Serializable
 		this.catalogId = catalogId;
 	}
 
+	/**
+	 * The number of children (subcategories, for example) that stem from a parent (top-level category).
+	 */
 	protected Integer childCount;
 
 	public Integer getChildCount() {
@@ -36,6 +44,9 @@ public class Category implements Serializable
 		this.childCount = childCount;
 	}
 
+	/**
+	 * Identifier of the entity.
+	 */
 	protected Integer id;
 
 	public Integer getId() {
@@ -46,6 +57,9 @@ public class Category implements Serializable
 		this.id = id;
 	}
 
+	/**
+	 * If true, the admin product category is displayed in the store. If true, the category is not displayed.
+	 */
 	protected Boolean isDisplayed;
 
 	public Boolean getIsDisplayed() {
@@ -56,6 +70,9 @@ public class Category implements Serializable
 		this.isDisplayed = isDisplayed;
 	}
 
+	/**
+	 * Identifier of the parent or top-level category.
+	 */
 	protected Integer parentCategoryId;
 
 	public Integer getParentCategoryId() {
@@ -66,6 +83,9 @@ public class Category implements Serializable
 		this.parentCategoryId = parentCategoryId;
 	}
 
+	/**
+	 * The number of products in a list.
+	 */
 	protected Integer productCount;
 
 	public Integer getProductCount() {
@@ -76,6 +96,9 @@ public class Category implements Serializable
 		this.productCount = productCount;
 	}
 
+	/**
+	 * The numeric value that denotes the place this entity occupies in the order of the entity list.
+	 */
 	protected Integer sequence;
 
 	public Integer getSequence() {
@@ -86,6 +109,9 @@ public class Category implements Serializable
 		this.sequence = sequence;
 	}
 
+	/**
+	 * Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
+	 */
 	protected AuditInfo auditInfo;
 
 	public AuditInfo getAuditInfo() {
@@ -96,6 +122,9 @@ public class Category implements Serializable
 		this.auditInfo = auditInfo;
 	}
 
+	/**
+	 * Complex type that contains content for a language specified by LocaleCode.
+	 */
 	protected CategoryLocalizedContent content;
 
 	public CategoryLocalizedContent getContent() {

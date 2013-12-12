@@ -14,13 +14,13 @@ import com.mozu.api.Headers;
 import com.mozu.api.security.AuthTicket;
 
 /** <summary>
- * 
+ * Use the Master Catalog resource to view details of the master catalogs associated with a tenant and to manage the product publishing mode for each master catalog.
  * </summary>
  */
 public class MasterCatalogClient {
 	
 	/**
-	 * 
+	 * Retrieve the details of all master catalog associated with a tenant.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.productadmin.MasterCatalogCollection> mozuClient=GetMasterCatalogsClient(authTicket);
 	 * client.setBaseAddress(url);
@@ -46,7 +46,7 @@ public class MasterCatalogClient {
 	}
 
 	/**
-	 * 
+	 * Retrieve the details of the master catalog specified in the request.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.productadmin.MasterCatalog> mozuClient=GetMasterCatalogClient(dataViewMode,  masterCatalogId, authTicket);
 	 * client.setBaseAddress(url);
@@ -54,7 +54,6 @@ public class MasterCatalogClient {
 	 * MasterCatalog masterCatalog = client.Result();
 	 * </code></pre></p>
 	 * @param masterCatalogId 
-	 * @param dataViewMode DataViewMode
 	 * @param authTicket User Auth Ticket
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.productadmin.MasterCatalog>
 	 * @see com.mozu.api.contracts.productadmin.MasterCatalog
@@ -75,7 +74,7 @@ public class MasterCatalogClient {
 	}
 
 	/**
-	 * 
+	 * Updates the product publishing mode for the master catalog specified in the request.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.productadmin.MasterCatalog> mozuClient=UpdateMasterCatalogClient(dataViewMode,  masterCatalog,  masterCatalogId, authTicket);
 	 * client.setBaseAddress(url);
@@ -83,9 +82,8 @@ public class MasterCatalogClient {
 	 * MasterCatalog masterCatalog = client.Result();
 	 * </code></pre></p>
 	 * @param masterCatalogId 
-	 * @param dataViewMode DataViewMode
 	 * @param authTicket User Auth Ticket
-	 * @param masterCatalog 
+	 * @param masterCatalog Properties of the master catalog to update, which consists of the product publishing mode. Possible values are "Pending" which saves product updates in draft mode until they are published, and "Live" which publishes all product changes immediately.
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.productadmin.MasterCatalog>
 	 * @see com.mozu.api.contracts.productadmin.MasterCatalog
 	 * @see com.mozu.api.contracts.productadmin.MasterCatalog

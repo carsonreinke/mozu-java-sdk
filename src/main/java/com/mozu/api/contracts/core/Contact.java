@@ -7,15 +7,23 @@
 package com.mozu.api.contracts.core;
 
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 import com.mozu.api.contracts.core.Address;
 import com.mozu.api.contracts.core.Phone;
 
+/**
+ *	Contact information for an account.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Contact implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * The legal or doing business as (DBA) or tradestyle name of the business or organization. The maximum character length is 200.
+	 */
 	protected String companyOrOrganization;
 
 	public String getCompanyOrOrganization() {
@@ -26,6 +34,9 @@ public class Contact implements Serializable
 		this.companyOrOrganization = companyOrOrganization;
 	}
 
+	/**
+	 * The email address of the specified user or the email address associated with the specified entity.
+	 */
 	protected String email;
 
 	public String getEmail() {
@@ -36,6 +47,9 @@ public class Contact implements Serializable
 		this.email = email;
 	}
 
+	/**
+	 * The first name of the contact. The maximum character length is 200.
+	 */
 	protected String firstName;
 
 	public String getFirstName() {
@@ -46,6 +60,9 @@ public class Contact implements Serializable
 		this.firstName = firstName;
 	}
 
+	/**
+	 * Identifier of the contact.
+	 */
 	protected Integer id;
 
 	public Integer getId() {
@@ -56,6 +73,9 @@ public class Contact implements Serializable
 		this.id = id;
 	}
 
+	/**
+	 * The last name or surname of the contact. The maximum character length is 200.
+	 */
 	protected String lastNameOrSurname;
 
 	public String getLastNameOrSurname() {
@@ -66,6 +86,9 @@ public class Contact implements Serializable
 		this.lastNameOrSurname = lastNameOrSurname;
 	}
 
+	/**
+	 * The middle name or the first initial of the middle name of the contact. The maximum character length is 100.
+	 */
 	protected String middleNameOrInitial;
 
 	public String getMiddleNameOrInitial() {
@@ -76,6 +99,9 @@ public class Contact implements Serializable
 		this.middleNameOrInitial = middleNameOrInitial;
 	}
 
+	/**
+	 * Address information for the contact.
+	 */
 	protected Address address;
 
 	public Address getAddress() {
@@ -86,6 +112,9 @@ public class Contact implements Serializable
 		this.address = address;
 	}
 
+	/**
+	 * List of phone numbers associated with the customer account contact.
+	 */
 	protected Phone phoneNumbers;
 
 	public Phone getPhoneNumbers() {

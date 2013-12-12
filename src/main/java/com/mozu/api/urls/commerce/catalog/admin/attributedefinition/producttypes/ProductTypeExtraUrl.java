@@ -15,7 +15,7 @@ public class ProductTypeExtraUrl
 
 	/**
 	 * Get Resource Url for GetExtras
-	 * @param productTypeId 
+	 * @param productTypeId Identifier of the product type.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl getExtrasUrl(Integer productTypeId)
@@ -27,8 +27,8 @@ public class ProductTypeExtraUrl
 
 	/**
 	 * Get Resource Url for GetExtra
-	 * @param attributeFQN 
-	 * @param productTypeId 
+	 * @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
+	 * @param productTypeId Identifier of the product type whose extra is being retrieved.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl getExtraUrl(String attributeFQN, Integer productTypeId)
@@ -41,7 +41,7 @@ public class ProductTypeExtraUrl
 
 	/**
 	 * Get Resource Url for AddExtra
-	 * @param productTypeId 
+	 * @param productTypeId Identifier of the product type.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl addExtraUrl(Integer productTypeId)
@@ -53,8 +53,8 @@ public class ProductTypeExtraUrl
 
 	/**
 	 * Get Resource Url for UpdateExtra
-	 * @param attributeFQN 
-	 * @param productTypeId 
+	 * @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
+	 * @param productTypeId Identifier of the product type.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl updateExtraUrl(String attributeFQN, Integer productTypeId)
@@ -67,8 +67,8 @@ public class ProductTypeExtraUrl
 
 	/**
 	 * Get Resource Url for DeleteExtra
-	 * @param attributeFQN 
-	 * @param productTypeId 
+	 * @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
+	 * @param productTypeId Identifier of the product type.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl deleteExtraUrl(String attributeFQN, Integer productTypeId)

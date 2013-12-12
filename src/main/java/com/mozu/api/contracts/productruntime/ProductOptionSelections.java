@@ -8,14 +8,22 @@ package com.mozu.api.contracts.productruntime;
 
 import java.util.List;
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 import com.mozu.api.contracts.productruntime.ProductOptionSelection;
 
+/**
+ *	For a product with shopper-configurable options, the properties of the product options selected by the shopper.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class ProductOptionSelections implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Product code that represents the product variation selected based on the option values the shopper entered.
+	 */
 	protected String variationProductCode;
 
 	public String getVariationProductCode() {
@@ -26,6 +34,9 @@ public class ProductOptionSelections implements Serializable
 		this.variationProductCode = variationProductCode;
 	}
 
+	/**
+	 * List of product options and values currently selected.
+	 */
 	protected List<ProductOptionSelection> options;
 	public List<ProductOptionSelection> getOptions() {
 		return this.options;

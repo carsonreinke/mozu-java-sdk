@@ -15,7 +15,7 @@ import com.mozu.api.Headers;
 import com.mozu.api.security.AuthTicket;
 
 /** <summary>
- * 
+ * Use the Options resource to configure the option attributes and vocabulary values for an individual product associated with the product type that uses the option attribute. Options are used to generate variations of a product.
  * </summary>
  */
 public class ProductOptionResource {
@@ -29,12 +29,12 @@ public class ProductOptionResource {
 	}
 	
 	/**
-	 * 
+	 * Retrieves a list of all option attributes configured for the product specified in the request.
 	 * <p><pre><code>
 	 *	ProductOption productoption = new ProductOption();
 	 *	ProductOption productOption = productoption.GetOptions(dataViewMode,  productCode, authTicket);
 	 * </code></pre></p>
-	 * @param productCode 
+	 * @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 	 * @param authTicket User Auth Ticket
 	 * @return List<com.mozu.api.contracts.productadmin.ProductOption>
 	 * @see com.mozu.api.contracts.productadmin.ProductOption
@@ -49,20 +49,20 @@ public class ProductOptionResource {
 	}
 
 	/**
-	 * 
+	 * Retrieves the details of an option attribute configuration for the specified product.
 	 * <p><pre><code>
 	 *	ProductOption productoption = new ProductOption();
-	 *	ProductOption productOption = productoption.GetOption(dataViewMode,  attributeFQN,  productCode, authTicket);
+	 *	ProductOption productOption = productoption.GetOption(dataViewMode,  productCode,  attributeFQN, authTicket);
 	 * </code></pre></p>
-	 * @param attributeFQN 
-	 * @param productCode 
+	 * @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
+	 * @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 	 * @param authTicket User Auth Ticket
 	 * @return com.mozu.api.contracts.productadmin.ProductOption
 	 * @see com.mozu.api.contracts.productadmin.ProductOption
 	 */
-	public com.mozu.api.contracts.productadmin.ProductOption getOption(com.mozu.api.DataViewMode dataViewMode, String attributeFQN, String productCode, AuthTicket authTicket) throws Exception
+	public com.mozu.api.contracts.productadmin.ProductOption getOption(com.mozu.api.DataViewMode dataViewMode, String productCode, String attributeFQN, AuthTicket authTicket) throws Exception
 	{
-		MozuClient<com.mozu.api.contracts.productadmin.ProductOption> client = com.mozu.api.clients.commerce.catalog.admin.products.ProductOptionClient.getOptionClient(dataViewMode,  attributeFQN,  productCode, authTicket);
+		MozuClient<com.mozu.api.contracts.productadmin.ProductOption> client = com.mozu.api.clients.commerce.catalog.admin.products.ProductOptionClient.getOptionClient(dataViewMode,  productCode,  attributeFQN, authTicket);
 		client.setContext(_apiContext);
 		client.executeRequest();
 		return client.getResult();
@@ -70,14 +70,14 @@ public class ProductOptionResource {
 	}
 
 	/**
-	 * 
+	 * Configures an option attribute for the product specified in the request.
 	 * <p><pre><code>
 	 *	ProductOption productoption = new ProductOption();
 	 *	ProductOption productOption = productoption.AddOption(dataViewMode,  productOption,  productCode, authTicket);
 	 * </code></pre></p>
-	 * @param productCode 
+	 * @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 	 * @param authTicket User Auth Ticket
-	 * @param productOption 
+	 * @param productOption Properties of the option attribute to define for the product.
 	 * @return com.mozu.api.contracts.productadmin.ProductOption
 	 * @see com.mozu.api.contracts.productadmin.ProductOption
 	 * @see com.mozu.api.contracts.productadmin.ProductOption
@@ -92,22 +92,22 @@ public class ProductOptionResource {
 	}
 
 	/**
-	 * 
+	 * Updates one or more properties of an option attribute configured for a product.
 	 * <p><pre><code>
 	 *	ProductOption productoption = new ProductOption();
-	 *	ProductOption productOption = productoption.UpdateOption(dataViewMode,  productOption,  attributeFQN,  productCode, authTicket);
+	 *	ProductOption productOption = productoption.UpdateOption(dataViewMode,  productOption,  productCode,  attributeFQN, authTicket);
 	 * </code></pre></p>
-	 * @param attributeFQN 
-	 * @param productCode 
+	 * @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
+	 * @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 	 * @param authTicket User Auth Ticket
-	 * @param productOption 
+	 * @param productOption Properties of the product option attribute configuration to update.
 	 * @return com.mozu.api.contracts.productadmin.ProductOption
 	 * @see com.mozu.api.contracts.productadmin.ProductOption
 	 * @see com.mozu.api.contracts.productadmin.ProductOption
 	 */
-	public com.mozu.api.contracts.productadmin.ProductOption updateOption(com.mozu.api.DataViewMode dataViewMode, com.mozu.api.contracts.productadmin.ProductOption productOption, String attributeFQN, String productCode, AuthTicket authTicket) throws Exception
+	public com.mozu.api.contracts.productadmin.ProductOption updateOption(com.mozu.api.DataViewMode dataViewMode, com.mozu.api.contracts.productadmin.ProductOption productOption, String productCode, String attributeFQN, AuthTicket authTicket) throws Exception
 	{
-		MozuClient<com.mozu.api.contracts.productadmin.ProductOption> client = com.mozu.api.clients.commerce.catalog.admin.products.ProductOptionClient.updateOptionClient(dataViewMode,  productOption,  attributeFQN,  productCode, authTicket);
+		MozuClient<com.mozu.api.contracts.productadmin.ProductOption> client = com.mozu.api.clients.commerce.catalog.admin.products.ProductOptionClient.updateOptionClient(dataViewMode,  productOption,  productCode,  attributeFQN, authTicket);
 		client.setContext(_apiContext);
 		client.executeRequest();
 		return client.getResult();
@@ -115,19 +115,19 @@ public class ProductOptionResource {
 	}
 
 	/**
-	 * 
+	 * Deletes the configuration of an option attribute for the product specified in the request.
 	 * <p><pre><code>
 	 *	ProductOption productoption = new ProductOption();
-	 *	productoption.DeleteOption(dataViewMode,  attributeFQN,  productCode, authTicket);
+	 *	productoption.DeleteOption(dataViewMode,  productCode,  attributeFQN, authTicket);
 	 * </code></pre></p>
-	 * @param attributeFQN 
-	 * @param productCode 
+	 * @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
+	 * @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 	 * @param authTicket User Auth Ticket
 	 * @return 
 	 */
-	public void deleteOption(com.mozu.api.DataViewMode dataViewMode, String attributeFQN, String productCode, AuthTicket authTicket) throws Exception
+	public void deleteOption(com.mozu.api.DataViewMode dataViewMode, String productCode, String attributeFQN, AuthTicket authTicket) throws Exception
 	{
-		MozuClient client = com.mozu.api.clients.commerce.catalog.admin.products.ProductOptionClient.deleteOptionClient(dataViewMode,  attributeFQN,  productCode, authTicket);
+		MozuClient client = com.mozu.api.clients.commerce.catalog.admin.products.ProductOptionClient.deleteOptionClient(dataViewMode,  productCode,  attributeFQN, authTicket);
 		client.setContext(_apiContext);
 		client.executeRequest();
 

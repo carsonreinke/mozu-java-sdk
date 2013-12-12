@@ -1,6 +1,12 @@
 
 java-mozu-api
 =============
+<b>Build</b><br/>
+
+To run the tests during the build you need to open src/test/resources/mozu_config.properties and fill in the properties with the values for your Mozu account.
+
+The build can be run and installed by running the command: gradlew clean build install
+
 <b>Usage</b><br/>
 
 1. Authenticating an application<br/>

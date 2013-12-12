@@ -7,13 +7,21 @@
 package com.mozu.api.contracts.appdev;
 
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 
+/**
+ *	Properties of the authentication ticket refresh requests, which includes the refresh token string.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class AuthTicketRequest implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * The refresh token string from the application authentication ticket.
+	 */
 	protected String refreshToken;
 
 	public String getRefreshToken() {

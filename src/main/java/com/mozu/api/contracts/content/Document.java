@@ -8,134 +8,22 @@ package com.mozu.api.contracts.content;
 
 import java.util.List;
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 import com.mozu.api.contracts.content.PropertyValue;
 
+/**
+ *	The document properties that define the content used by the content management system (CMS).
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Document implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
-	protected Long contentLength;
-
-	public Long getContentLength() {
-		return this.contentLength;
-	}
-
-	public void setContentLength(Long contentLength) {
-		this.contentLength = contentLength;
-	}
-
-	protected String contentMimeType;
-
-	public String getContentMimeType() {
-		return this.contentMimeType;
-	}
-
-	public void setContentMimeType(String contentMimeType) {
-		this.contentMimeType = contentMimeType;
-	}
-
-	protected Date contentUpdateDate;
-
-	public Date getContentUpdateDate() {
-		return this.contentUpdateDate;
-	}
-
-	public void setContentUpdateDate(Date contentUpdateDate) {
-		this.contentUpdateDate = contentUpdateDate;
-	}
-
-	protected String documentListName;
-
-	public String getDocumentListName() {
-		return this.documentListName;
-	}
-
-	public void setDocumentListName(String documentListName) {
-		this.documentListName = documentListName;
-	}
-
-	protected String documentType;
-
-	public String getDocumentType() {
-		return this.documentType;
-	}
-
-	public void setDocumentType(String documentType) {
-		this.documentType = documentType;
-	}
-
-	protected String extension;
-
-	public String getExtension() {
-		return this.extension;
-	}
-
-	public void setExtension(String extension) {
-		this.extension = extension;
-	}
-
-	protected String folderId;
-
-	public String getFolderId() {
-		return this.folderId;
-	}
-
-	public void setFolderId(String folderId) {
-		this.folderId = folderId;
-	}
-
-	protected String id;
-
-	public String getId() {
-		return this.id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
-	}
-
-	protected Date insertDate;
-
-	public Date getInsertDate() {
-		return this.insertDate;
-	}
-
-	public void setInsertDate(Date insertDate) {
-		this.insertDate = insertDate;
-	}
-
-	protected String name;
-
-	public String getName() {
-		return this.name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	protected String path;
-
-	public String getPath() {
-		return this.path;
-	}
-
-	public void setPath(String path) {
-		this.path = path;
-	}
-
-	protected String publishState;
-
-	public String getPublishState() {
-		return this.publishState;
-	}
-
-	public void setPublishState(String publishState) {
-		this.publishState = publishState;
-	}
-
+	/**
+	 * Date and time when the entity was last updated, represented in UTC Date/Time.
+	 */
 	protected Date updateDate;
 
 	public Date getUpdateDate() {
@@ -146,6 +34,165 @@ public class Document implements Serializable
 		this.updateDate = updateDate;
 	}
 
+	/**
+	 * The character length associated with the document content.
+	 */
+	protected Long contentLength;
+
+	public Long getContentLength() {
+		return this.contentLength;
+	}
+
+	public void setContentLength(Long contentLength) {
+		this.contentLength = contentLength;
+	}
+
+	/**
+	 * The mime type associated with the document content, if applicable.
+	 */
+	protected String contentMimeType;
+
+	public String getContentMimeType() {
+		return this.contentMimeType;
+	}
+
+	public void setContentMimeType(String contentMimeType) {
+		this.contentMimeType = contentMimeType;
+	}
+
+	/**
+	 * The date and time the most recent content update was made. UTC date/time. System-supplied and read-only.
+	 */
+	protected Date contentUpdateDate;
+
+	public Date getContentUpdateDate() {
+		return this.contentUpdateDate;
+	}
+
+	public void setContentUpdateDate(Date contentUpdateDate) {
+		this.contentUpdateDate = contentUpdateDate;
+	}
+
+	/**
+	 * The name of the document list associated with the document.
+	 */
+	protected String documentListName;
+
+	public String getDocumentListName() {
+		return this.documentListName;
+	}
+
+	public void setDocumentListName(String documentListName) {
+		this.documentListName = documentListName;
+	}
+
+	/**
+	 * The type of document used in the CMS such as "web_page" or "template" or "image_url".
+	 */
+	protected String documentType;
+
+	public String getDocumentType() {
+		return this.documentType;
+	}
+
+	public void setDocumentType(String documentType) {
+		this.documentType = documentType;
+	}
+
+	/**
+	 * If applicable, the file extension associated with the document content.
+	 */
+	protected String extension;
+
+	public String getExtension() {
+		return this.extension;
+	}
+
+	public void setExtension(String extension) {
+		this.extension = extension;
+	}
+
+	/**
+	 * Unique identifier of the folder that contains the document.
+	 */
+	protected String folderId;
+
+	public String getFolderId() {
+		return this.folderId;
+	}
+
+	public void setFolderId(String folderId) {
+		this.folderId = folderId;
+	}
+
+	/**
+	 * Unique identifier of the document.
+	 */
+	protected String id;
+
+	public String getId() {
+		return this.id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	/**
+	 * When the document was added to the document list. System-supplied and read-only.
+	 */
+	protected Date insertDate;
+
+	public Date getInsertDate() {
+		return this.insertDate;
+	}
+
+	public void setInsertDate(Date insertDate) {
+		this.insertDate = insertDate;
+	}
+
+	/**
+	 * The name of the document, which is unique within its folder.
+	 */
+	protected String name;
+
+	public String getName() {
+		return this.name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	/**
+	 * The location of the document in the document list and folder hierarchy.
+	 */
+	protected String path;
+
+	public String getPath() {
+		return this.path;
+	}
+
+	public void setPath(String path) {
+		this.path = path;
+	}
+
+	/**
+	 * The current state of the document, which is Active, Draft, or Latest. Active documents are published and cannot be deleted. Querying Latest returns the most recent version of the document, regardless of whether it is published or a draft.
+	 */
+	protected String publishState;
+
+	public String getPublishState() {
+		return this.publishState;
+	}
+
+	public void setPublishState(String publishState) {
+		this.publishState = publishState;
+	}
+
+	/**
+	 * List of properties for the given property value.
+	 */
 	protected List<PropertyValue> properties;
 	public List<PropertyValue> getProperties() {
 		return this.properties;

@@ -14,20 +14,20 @@ import com.mozu.api.Headers;
 import com.mozu.api.security.AuthTicket;
 
 /** <summary>
- * 
+ * Use the Groups subresource to associate customer accounts with groups. A customer account can have associations with any number of groups. Customer groups are useful for organizing sets of customers and targeting special customer group discounts.
  * </summary>
  */
 public class CustomerGroupClient {
 	
 	/**
-	 * 
+	 * Retrieve a list of customer groups associated with the customer account.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.customer.CustomerGroupCollection> mozuClient=GetAccountGroupsClient( accountId);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * CustomerGroupCollection customerGroupCollection = client.Result();
 	 * </code></pre></p>
-	 * @param accountId 
+	 * @param accountId Unique identifier of the customer account.
 	 * @param authTicket User Auth Ticket
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.customer.CustomerGroupCollection>
 	 * @see com.mozu.api.contracts.customer.CustomerGroupCollection
@@ -38,23 +38,23 @@ public class CustomerGroupClient {
 	}
 
 	/**
-	 * 
+	 * Retrieve a list of customer groups associated with the customer account.
 	 * <p><pre><code>
-	 * MozuClient<com.mozu.api.contracts.customer.CustomerGroupCollection> mozuClient=GetAccountGroupsClient( accountId,  filter,  pageSize,  sortBy,  startIndex, authTicket);
+	 * MozuClient<com.mozu.api.contracts.customer.CustomerGroupCollection> mozuClient=GetAccountGroupsClient( accountId,  startIndex,  pageSize,  sortBy,  filter, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * CustomerGroupCollection customerGroupCollection = client.Result();
 	 * </code></pre></p>
-	 * @param accountId 
-	 * @param filter 
-	 * @param pageSize 
+	 * @param accountId Unique identifier of the customer account.
+	 * @param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
+	 * @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
 	 * @param sortBy 
 	 * @param startIndex 
 	 * @param authTicket User Auth Ticket
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.customer.CustomerGroupCollection>
 	 * @see com.mozu.api.contracts.customer.CustomerGroupCollection
 	 */
-	public static MozuClient<com.mozu.api.contracts.customer.CustomerGroupCollection> getAccountGroupsClient(Integer accountId, String filter, Integer pageSize, String sortBy, Integer startIndex, AuthTicket authTicket) throws Exception
+	public static MozuClient<com.mozu.api.contracts.customer.CustomerGroupCollection> getAccountGroupsClient(Integer accountId, Integer startIndex, Integer pageSize, String sortBy, String filter, AuthTicket authTicket) throws Exception
 	{
 		MozuUrl url = com.mozu.api.urls.commerce.customer.accounts.CustomerGroupUrl.getAccountGroupsUrl(accountId, filter, pageSize, sortBy, startIndex);
 		String verb = "GET";
@@ -69,15 +69,15 @@ public class CustomerGroupClient {
 	}
 
 	/**
-	 * 
+	 * Retrieves details of a customer account in a group.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.customer.CustomerGroup> mozuClient=GetAccountGroupClient( accountId,  groupId, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * CustomerGroup customerGroup = client.Result();
 	 * </code></pre></p>
-	 * @param accountId 
-	 * @param groupId 
+	 * @param accountId Unique identifier of the customer account.
+	 * @param groupId Unique identifier of the customer group.
 	 * @param authTicket User Auth Ticket
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.customer.CustomerGroup>
 	 * @see com.mozu.api.contracts.customer.CustomerGroup
@@ -97,15 +97,15 @@ public class CustomerGroupClient {
 	}
 
 	/**
-	 * 
+	 * Adds a customer account to a group.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.customer.CustomerGroup> mozuClient=AddAccountGroupClient( accountId,  groupId, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * CustomerGroup customerGroup = client.Result();
 	 * </code></pre></p>
-	 * @param accountId 
-	 * @param groupId 
+	 * @param accountId Unique identifier of the customer account to add to a group.
+	 * @param groupId Unique identifier of the customer group to add the customer to.
 	 * @param authTicket User Auth Ticket
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.customer.CustomerGroup>
 	 * @see com.mozu.api.contracts.customer.CustomerGroup
@@ -125,14 +125,14 @@ public class CustomerGroupClient {
 	}
 
 	/**
-	 * 
+	 * Removes a customer account from a group.
 	 * <p><pre><code>
 	 * MozuClient mozuClient=DeleteAccountGroupClient( accountId,  groupId, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * </code></pre></p>
-	 * @param accountId 
-	 * @param groupId 
+	 * @param accountId Unique identifier of the customer account to remove from the group.
+	 * @param groupId Unique identifier of the customer group.
 	 * @param authTicket User Auth Ticket
 	 * @return Mozu.Api.MozuClient 
 	 */

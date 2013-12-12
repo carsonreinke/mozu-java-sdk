@@ -7,23 +7,31 @@
 package com.mozu.api.contracts.commerceruntime.fulfillment;
 
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 
+/**
+ *	Properties of an item in an in-store pickup.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class PickupItem implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
-	protected String orderItemId;
+	protected String productCode;
 
-	public String getOrderItemId() {
-		return this.orderItemId;
+	public String getProductCode() {
+		return this.productCode;
 	}
 
-	public void setOrderItemId(String orderItemId) {
-		this.orderItemId = orderItemId;
+	public void setProductCode(String productCode) {
+		this.productCode = productCode;
 	}
 
+	/**
+	 * The quantity of the item in the in-store pickup.
+	 */
 	protected Integer quantity;
 
 	public Integer getQuantity() {

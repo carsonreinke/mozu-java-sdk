@@ -7,15 +7,23 @@
 package com.mozu.api.contracts.productadmin;
 
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 import com.mozu.api.contracts.productadmin.AttributeVocabularyValue;
 import com.mozu.api.contracts.productadmin.ProductExtraValueDeltaPrice;
 
+/**
+ *	Properties of a defined value for a product extra attribute.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class ProductExtraValue implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * The difference between the weight associated with this product extra and the base product. For example, if a product with a monogram weighs an extra 1/4 lb, the DeltaWeight value is "0.25".
+	 */
 	protected Double deltaWeight;
 
 	public Double getDeltaWeight() {
@@ -26,6 +34,9 @@ public class ProductExtraValue implements Serializable
 		this.deltaWeight = deltaWeight;
 	}
 
+	/**
+	 * If true, the value for the product extra is selected by default. Shopper entered extras cannot be defaulted.
+	 */
 	protected Boolean isDefaulted;
 
 	public Boolean getIsDefaulted() {
@@ -36,6 +47,9 @@ public class ProductExtraValue implements Serializable
 		this.isDefaulted = isDefaulted;
 	}
 
+	/**
+	 * Properties of a defined value for a product extra attribute.
+	 */
 	protected Object value;
 
 	public Object getValue() {
@@ -46,6 +60,9 @@ public class ProductExtraValue implements Serializable
 		this.value = value;
 	}
 
+	/**
+	 * Detail of the product extra attribute vocabulary value.
+	 */
 	protected AttributeVocabularyValue attributeVocabularyValueDetail;
 
 	public AttributeVocabularyValue getAttributeVocabularyValueDetail() {
@@ -56,6 +73,9 @@ public class ProductExtraValue implements Serializable
 		this.attributeVocabularyValueDetail = attributeVocabularyValueDetail;
 	}
 
+	/**
+	 * The difference between the price associated with this product extra and the base product. For example, if a product with a defined monogram extra costs an additional $10, the DeltaPrice value is "10".
+	 */
 	protected ProductExtraValueDeltaPrice deltaPrice;
 
 	public ProductExtraValueDeltaPrice getDeltaPrice() {

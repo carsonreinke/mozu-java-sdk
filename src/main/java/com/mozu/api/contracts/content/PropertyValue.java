@@ -7,13 +7,21 @@
 package com.mozu.api.contracts.content;
 
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 
+/**
+ *	The actual value for the content property.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class PropertyValue implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * A type of content property value.
+	 */
 	protected String propertyType;
 
 	public String getPropertyType() {
@@ -24,6 +32,9 @@ public class PropertyValue implements Serializable
 		this.propertyType = propertyType;
 	}
 
+	/**
+	 * The actual value for the content property.
+	 */
 	protected Object value;
 
 	public Object getValue() {

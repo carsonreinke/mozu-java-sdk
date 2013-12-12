@@ -8,15 +8,23 @@ package com.mozu.api.contracts.productadmin;
 
 import java.util.List;
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 import com.mozu.api.contracts.productadmin.ProductVariationDeltaPrice;
 import com.mozu.api.contracts.productadmin.ProductVariationOption;
 
+/**
+ *	Properties of a specific product variation.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class ProductVariation implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * The difference between the base weight for a product and this variation of the product, which can be a positive or negative decimal value.
+	 */
 	protected Double deltaWeight;
 
 	public Double getDeltaWeight() {
@@ -27,6 +35,9 @@ public class ProductVariation implements Serializable
 		this.deltaWeight = deltaWeight;
 	}
 
+	/**
+	 * If true, this variation of this product is marked available for sale.
+	 */
 	protected Boolean isActive;
 
 	public Boolean getIsActive() {
@@ -37,6 +48,9 @@ public class ProductVariation implements Serializable
 		this.isActive = isActive;
 	}
 
+	/**
+	 * If true, the production variation is no longer available for sale. For example, if a merchant stops selling all "small" shirts, all product variations with the "small" option are set to IsOrphan. System-supplied and read-only.
+	 */
 	protected Boolean isOrphan;
 
 	public Boolean getIsOrphan() {
@@ -47,6 +61,9 @@ public class ProductVariation implements Serializable
 		this.isOrphan = isOrphan;
 	}
 
+	/**
+	 * If true, one or more product variations are configured for the specified product code.
+	 */
 	protected Boolean variationExists;
 
 	public Boolean getVariationExists() {
@@ -57,6 +74,9 @@ public class ProductVariation implements Serializable
 		this.variationExists = variationExists;
 	}
 
+	/**
+	 * System-generated key that represents the attribute values that uniquely identify a specific product variation.
+	 */
 	protected String variationkey;
 
 	public String getVariationkey() {
@@ -67,6 +87,9 @@ public class ProductVariation implements Serializable
 		this.variationkey = variationkey;
 	}
 
+	/**
+	 * Merchant-created code associated with a specific product variation. Variation product codes maintain an association with the base product code.
+	 */
 	protected String variationProductCode;
 
 	public String getVariationProductCode() {
@@ -77,6 +100,9 @@ public class ProductVariation implements Serializable
 		this.variationProductCode = variationProductCode;
 	}
 
+	/**
+	 * The difference between the base price for the product and this variation of the product, which can be a positive or negative decimal value. For example, if the base price for a t-shirt product is $10, but the XL variation should cost $12, the DeltaPrice value should be "2". However, if the XS variation should only cost $8, the DeltaPrice value should be "-2".
+	 */
 	protected ProductVariationDeltaPrice deltaPrice;
 
 	public ProductVariationDeltaPrice getDeltaPrice() {
@@ -87,6 +113,9 @@ public class ProductVariation implements Serializable
 		this.deltaPrice = deltaPrice;
 	}
 
+	/**
+	 * Wrapper for the list of option attributes configured for the product variation.
+	 */
 	protected List<ProductVariationOption> options;
 	public List<ProductVariationOption> getOptions() {
 		return this.options;

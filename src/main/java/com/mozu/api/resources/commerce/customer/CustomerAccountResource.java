@@ -15,7 +15,7 @@ import com.mozu.api.Headers;
 import com.mozu.api.security.AuthTicket;
 
 /** <summary>
- * 
+ * Use the Customer Accounts resource to manage the components of shopper accounts, including attributes, contact information, company notes, and groups associated with the customer account.
  * </summary>
  */
 public class CustomerAccountResource {
@@ -29,7 +29,7 @@ public class CustomerAccountResource {
 	}
 	
 	/**
-	 * 
+	 * Retrieves a list of customer accounts.
 	 * <p><pre><code>
 	 *	CustomerAccount customeraccount = new CustomerAccount();
 	 *	CustomerAccountCollection customerAccountCollection = customeraccount.GetAccounts();
@@ -44,25 +44,25 @@ public class CustomerAccountResource {
 	}
 
 	/**
-	 * 
+	 * Retrieves a list of customer accounts.
 	 * <p><pre><code>
 	 *	CustomerAccount customeraccount = new CustomerAccount();
-	 *	CustomerAccountCollection customerAccountCollection = customeraccount.GetAccounts( fields,  filter,  pageSize,  q,  qLimit,  sortBy,  startIndex, authTicket);
+	 *	CustomerAccountCollection customerAccountCollection = customeraccount.GetAccounts( startIndex,  pageSize,  sortBy,  filter,  fields,  q,  qLimit, authTicket);
 	 * </code></pre></p>
-	 * @param fields 
-	 * @param filter 
+	 * @param fields The fields to include in the response.
+	 * @param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
 	 * @param pageSize 
-	 * @param q 
-	 * @param qLimit 
+	 * @param q A list of customer account search terms to use in the query when searching across customer name and email. Separate multiple search terms with a space character.
+	 * @param qLimit The maximum number of search results to return in the response. You can limit any range between 1-100.
 	 * @param sortBy 
 	 * @param startIndex 
 	 * @param authTicket User Auth Ticket
 	 * @return com.mozu.api.contracts.customer.CustomerAccountCollection
 	 * @see com.mozu.api.contracts.customer.CustomerAccountCollection
 	 */
-	public com.mozu.api.contracts.customer.CustomerAccountCollection getAccounts(String fields, String filter, Integer pageSize, String q, Integer qLimit, String sortBy, Integer startIndex, AuthTicket authTicket) throws Exception
+	public com.mozu.api.contracts.customer.CustomerAccountCollection getAccounts(Integer startIndex, Integer pageSize, String sortBy, String filter, String fields, String q, Integer qLimit, AuthTicket authTicket) throws Exception
 	{
-		MozuClient<com.mozu.api.contracts.customer.CustomerAccountCollection> client = com.mozu.api.clients.commerce.customer.CustomerAccountClient.getAccountsClient( fields,  filter,  pageSize,  q,  qLimit,  sortBy,  startIndex, authTicket);
+		MozuClient<com.mozu.api.contracts.customer.CustomerAccountCollection> client = com.mozu.api.clients.commerce.customer.CustomerAccountClient.getAccountsClient( startIndex,  pageSize,  sortBy,  filter,  fields,  q,  qLimit, authTicket);
 		client.setContext(_apiContext);
 		client.executeRequest();
 		return client.getResult();
@@ -70,12 +70,12 @@ public class CustomerAccountResource {
 	}
 
 	/**
-	 * 
+	 * Retrieve details of a customer account.
 	 * <p><pre><code>
 	 *	CustomerAccount customeraccount = new CustomerAccount();
 	 *	CustomerAccount customerAccount = customeraccount.GetAccount( accountId, authTicket);
 	 * </code></pre></p>
-	 * @param accountId 
+	 * @param accountId Unique identifier of the customer account to retrieve.
 	 * @param authTicket User Auth Ticket
 	 * @return com.mozu.api.contracts.customer.CustomerAccount
 	 * @see com.mozu.api.contracts.customer.CustomerAccount
@@ -93,17 +93,16 @@ public class CustomerAccountResource {
 	 * 
 	 * <p><pre><code>
 	 *	CustomerAccount customeraccount = new CustomerAccount();
-	 *	CustomerInStockNotificationSubscription customerInStockNotificationSubscription = customeraccount.GetInStockNotification( accountId,  inStockNotificationSubscriptionId, authTicket);
+	 *	LoginState loginState = customeraccount.GetLoginState( accountId, authTicket);
 	 * </code></pre></p>
 	 * @param accountId 
-	 * @param inStockNotificationSubscriptionId 
 	 * @param authTicket User Auth Ticket
-	 * @return com.mozu.api.contracts.customer.CustomerInStockNotificationSubscription
-	 * @see com.mozu.api.contracts.customer.CustomerInStockNotificationSubscription
+	 * @return com.mozu.api.contracts.customer.LoginState
+	 * @see com.mozu.api.contracts.customer.LoginState
 	 */
-	public com.mozu.api.contracts.customer.CustomerInStockNotificationSubscription getInStockNotification(Integer accountId, Integer inStockNotificationSubscriptionId, AuthTicket authTicket) throws Exception
+	public com.mozu.api.contracts.customer.LoginState getLoginState(Integer accountId, AuthTicket authTicket) throws Exception
 	{
-		MozuClient<com.mozu.api.contracts.customer.CustomerInStockNotificationSubscription> client = com.mozu.api.clients.commerce.customer.CustomerAccountClient.getInStockNotificationClient( accountId,  inStockNotificationSubscriptionId, authTicket);
+		MozuClient<com.mozu.api.contracts.customer.LoginState> client = com.mozu.api.clients.commerce.customer.CustomerAccountClient.getLoginStateClient( accountId, authTicket);
 		client.setContext(_apiContext);
 		client.executeRequest();
 		return client.getResult();
@@ -114,36 +113,16 @@ public class CustomerAccountResource {
 	 * 
 	 * <p><pre><code>
 	 *	CustomerAccount customeraccount = new CustomerAccount();
-	 *	CustomerInStockNotificationSubscriptionCollection customerInStockNotificationSubscriptionCollection = customeraccount.GetInStockNotifications( accountId);
+	 *	LoginState loginState = customeraccount.GetLoginStateByEmailAddress( emailAddress, authTicket);
 	 * </code></pre></p>
-	 * @param accountId 
+	 * @param emailAddress 
 	 * @param authTicket User Auth Ticket
-	 * @return com.mozu.api.contracts.customer.CustomerInStockNotificationSubscriptionCollection
-	 * @see com.mozu.api.contracts.customer.CustomerInStockNotificationSubscriptionCollection
+	 * @return com.mozu.api.contracts.customer.LoginState
+	 * @see com.mozu.api.contracts.customer.LoginState
 	 */
-	public com.mozu.api.contracts.customer.CustomerInStockNotificationSubscriptionCollection getInStockNotifications(Integer accountId) throws Exception
+	public com.mozu.api.contracts.customer.LoginState getLoginStateByEmailAddress(String emailAddress, AuthTicket authTicket) throws Exception
 	{
-		return getInStockNotifications( accountId,  null,  null,  null,  null, null);
-	}
-
-	/**
-	 * 
-	 * <p><pre><code>
-	 *	CustomerAccount customeraccount = new CustomerAccount();
-	 *	CustomerInStockNotificationSubscriptionCollection customerInStockNotificationSubscriptionCollection = customeraccount.GetInStockNotifications( accountId,  filter,  pageSize,  sortBy,  startIndex, authTicket);
-	 * </code></pre></p>
-	 * @param accountId 
-	 * @param filter 
-	 * @param pageSize 
-	 * @param sortBy 
-	 * @param startIndex 
-	 * @param authTicket User Auth Ticket
-	 * @return com.mozu.api.contracts.customer.CustomerInStockNotificationSubscriptionCollection
-	 * @see com.mozu.api.contracts.customer.CustomerInStockNotificationSubscriptionCollection
-	 */
-	public com.mozu.api.contracts.customer.CustomerInStockNotificationSubscriptionCollection getInStockNotifications(Integer accountId, String filter, Integer pageSize, String sortBy, Integer startIndex, AuthTicket authTicket) throws Exception
-	{
-		MozuClient<com.mozu.api.contracts.customer.CustomerInStockNotificationSubscriptionCollection> client = com.mozu.api.clients.commerce.customer.CustomerAccountClient.getInStockNotificationsClient( accountId,  filter,  pageSize,  sortBy,  startIndex, authTicket);
+		MozuClient<com.mozu.api.contracts.customer.LoginState> client = com.mozu.api.clients.commerce.customer.CustomerAccountClient.getLoginStateByEmailAddressClient( emailAddress, authTicket);
 		client.setContext(_apiContext);
 		client.executeRequest();
 		return client.getResult();
@@ -152,12 +131,32 @@ public class CustomerAccountResource {
 
 	/**
 	 * 
+	 * <p><pre><code>
+	 *	CustomerAccount customeraccount = new CustomerAccount();
+	 *	LoginState loginState = customeraccount.GetLoginStateByUserName( userName, authTicket);
+	 * </code></pre></p>
+	 * @param userName 
+	 * @param authTicket User Auth Ticket
+	 * @return com.mozu.api.contracts.customer.LoginState
+	 * @see com.mozu.api.contracts.customer.LoginState
+	 */
+	public com.mozu.api.contracts.customer.LoginState getLoginStateByUserName(String userName, AuthTicket authTicket) throws Exception
+	{
+		MozuClient<com.mozu.api.contracts.customer.LoginState> client = com.mozu.api.clients.commerce.customer.CustomerAccountClient.getLoginStateByUserNameClient( userName, authTicket);
+		client.setContext(_apiContext);
+		client.executeRequest();
+		return client.getResult();
+
+	}
+
+	/**
+	 * Creates a new customer account based on the information specified in the request.
 	 * <p><pre><code>
 	 *	CustomerAccount customeraccount = new CustomerAccount();
 	 *	CustomerAccount customerAccount = customeraccount.AddAccount( account, authTicket);
 	 * </code></pre></p>
 	 * @param authTicket User Auth Ticket
-	 * @param account 
+	 * @param account Properties of the customer account to update.
 	 * @return com.mozu.api.contracts.customer.CustomerAccount
 	 * @see com.mozu.api.contracts.customer.CustomerAccount
 	 * @see com.mozu.api.contracts.customer.CustomerAccount
@@ -175,18 +174,18 @@ public class CustomerAccountResource {
 	 * 
 	 * <p><pre><code>
 	 *	CustomerAccount customeraccount = new CustomerAccount();
-	 *	CustomerInStockNotificationSubscription customerInStockNotificationSubscription = customeraccount.AddInStockNotification( inStockNotificationSubscription,  accountId, authTicket);
+	 *	CustomerAuthTicket customerAuthTicket = customeraccount.AddLoginToExistingCustomer( customerAuthInfo,  accountId, authTicket);
 	 * </code></pre></p>
 	 * @param accountId 
 	 * @param authTicket User Auth Ticket
-	 * @param inStockNotificationSubscription 
-	 * @return com.mozu.api.contracts.customer.CustomerInStockNotificationSubscription
-	 * @see com.mozu.api.contracts.customer.CustomerInStockNotificationSubscription
-	 * @see com.mozu.api.contracts.customer.CustomerInStockNotificationSubscription
+	 * @param customerAuthInfo 
+	 * @return com.mozu.api.contracts.customer.CustomerAuthTicket
+	 * @see com.mozu.api.contracts.customer.CustomerAuthTicket
+	 * @see com.mozu.api.contracts.customer.CustomerLoginInfo
 	 */
-	public com.mozu.api.contracts.customer.CustomerInStockNotificationSubscription addInStockNotification(com.mozu.api.contracts.customer.CustomerInStockNotificationSubscription inStockNotificationSubscription, Integer accountId, AuthTicket authTicket) throws Exception
+	public com.mozu.api.contracts.customer.CustomerAuthTicket addLoginToExistingCustomer(com.mozu.api.contracts.customer.CustomerLoginInfo customerAuthInfo, Integer accountId, AuthTicket authTicket) throws Exception
 	{
-		MozuClient<com.mozu.api.contracts.customer.CustomerInStockNotificationSubscription> client = com.mozu.api.clients.commerce.customer.CustomerAccountClient.addInStockNotificationClient( inStockNotificationSubscription,  accountId, authTicket);
+		MozuClient<com.mozu.api.contracts.customer.CustomerAuthTicket> client = com.mozu.api.clients.commerce.customer.CustomerAccountClient.addLoginToExistingCustomerClient( customerAuthInfo,  accountId, authTicket);
 		client.setContext(_apiContext);
 		client.executeRequest();
 		return client.getResult();
@@ -215,11 +214,112 @@ public class CustomerAccountResource {
 	 * 
 	 * <p><pre><code>
 	 *	CustomerAccount customeraccount = new CustomerAccount();
-	 *	CustomerAccount customerAccount = customeraccount.UpdateAccount( account,  accountId, authTicket);
+	 *	customeraccount.SetLoginLocked( isLocked,  accountId, authTicket);
 	 * </code></pre></p>
 	 * @param accountId 
 	 * @param authTicket User Auth Ticket
-	 * @param account 
+	 * @param isLocked 
+	 * @return 
+	 * @see bool
+	 */
+	public void setLoginLocked(Boolean isLocked, Integer accountId, AuthTicket authTicket) throws Exception
+	{
+		MozuClient client = com.mozu.api.clients.commerce.customer.CustomerAccountClient.setLoginLockedClient( isLocked,  accountId, authTicket);
+		client.setContext(_apiContext);
+		client.executeRequest();
+
+	}
+
+	/**
+	 * 
+	 * <p><pre><code>
+	 *	CustomerAccount customeraccount = new CustomerAccount();
+	 *	customeraccount.SetPasswordChangeRequired( isPasswordChangeRequired,  accountId, authTicket);
+	 * </code></pre></p>
+	 * @param accountId 
+	 * @param authTicket User Auth Ticket
+	 * @param isPasswordChangeRequired 
+	 * @return 
+	 * @see bool
+	 */
+	public void setPasswordChangeRequired(Boolean isPasswordChangeRequired, Integer accountId, AuthTicket authTicket) throws Exception
+	{
+		MozuClient client = com.mozu.api.clients.commerce.customer.CustomerAccountClient.setPasswordChangeRequiredClient( isPasswordChangeRequired,  accountId, authTicket);
+		client.setContext(_apiContext);
+		client.executeRequest();
+
+	}
+
+	/**
+	 * 
+	 * <p><pre><code>
+	 *	CustomerAccount customeraccount = new CustomerAccount();
+	 *	CustomerAuthTicket customerAuthTicket = customeraccount.AddAccountAndLogin( accountAndAuthInfo, authTicket);
+	 * </code></pre></p>
+	 * @param authTicket User Auth Ticket
+	 * @param accountAndAuthInfo 
+	 * @return com.mozu.api.contracts.customer.CustomerAuthTicket
+	 * @see com.mozu.api.contracts.customer.CustomerAuthTicket
+	 * @see com.mozu.api.contracts.customer.CustomerAccountAndAuthInfo
+	 */
+	public com.mozu.api.contracts.customer.CustomerAuthTicket addAccountAndLogin(com.mozu.api.contracts.customer.CustomerAccountAndAuthInfo accountAndAuthInfo, AuthTicket authTicket) throws Exception
+	{
+		MozuClient<com.mozu.api.contracts.customer.CustomerAuthTicket> client = com.mozu.api.clients.commerce.customer.CustomerAccountClient.addAccountAndLoginClient( accountAndAuthInfo, authTicket);
+		client.setContext(_apiContext);
+		client.executeRequest();
+		return client.getResult();
+
+	}
+
+	/**
+	 * 
+	 * <p><pre><code>
+	 *	CustomerAccount customeraccount = new CustomerAccount();
+	 *	CustomerAccountCollection customerAccountCollection = customeraccount.AddAccounts( customers, authTicket);
+	 * </code></pre></p>
+	 * @param authTicket User Auth Ticket
+	 * @param customers 
+	 * @return com.mozu.api.contracts.customer.CustomerAccountCollection
+	 * @see com.mozu.api.contracts.customer.CustomerAccountCollection
+	 * @see com.mozu.api.contracts.customer.CustomerAccountAndAuthInfo
+	 */
+	public com.mozu.api.contracts.customer.CustomerAccountCollection addAccounts(List<com.mozu.api.contracts.customer.CustomerAccountAndAuthInfo> customers, AuthTicket authTicket) throws Exception
+	{
+		MozuClient<com.mozu.api.contracts.customer.CustomerAccountCollection> client = com.mozu.api.clients.commerce.customer.CustomerAccountClient.addAccountsClient( customers, authTicket);
+		client.setContext(_apiContext);
+		client.executeRequest();
+		return client.getResult();
+
+	}
+
+	/**
+	 * 
+	 * <p><pre><code>
+	 *	CustomerAccount customeraccount = new CustomerAccount();
+	 *	customeraccount.ResetPassword( resetPasswordInfo, authTicket);
+	 * </code></pre></p>
+	 * @param authTicket User Auth Ticket
+	 * @param resetPasswordInfo 
+	 * @return 
+	 * @see com.mozu.api.contracts.customer.ResetPasswordInfo
+	 */
+	public void resetPassword(com.mozu.api.contracts.customer.ResetPasswordInfo resetPasswordInfo, AuthTicket authTicket) throws Exception
+	{
+		MozuClient client = com.mozu.api.clients.commerce.customer.CustomerAccountClient.resetPasswordClient( resetPasswordInfo, authTicket);
+		client.setContext(_apiContext);
+		client.executeRequest();
+
+	}
+
+	/**
+	 * Updates a customer account.
+	 * <p><pre><code>
+	 *	CustomerAccount customeraccount = new CustomerAccount();
+	 *	CustomerAccount customerAccount = customeraccount.UpdateAccount( account,  accountId, authTicket);
+	 * </code></pre></p>
+	 * @param accountId Unique identifier of the customer account.
+	 * @param authTicket User Auth Ticket
+	 * @param account Properties of the customer account to update.
 	 * @return com.mozu.api.contracts.customer.CustomerAccount
 	 * @see com.mozu.api.contracts.customer.CustomerAccount
 	 * @see com.mozu.api.contracts.customer.CustomerAccount
@@ -234,37 +334,18 @@ public class CustomerAccountResource {
 	}
 
 	/**
-	 * 
+	 * Deletes a customer account. A customer account cannot be deleted if any orders exist, past or present.
 	 * <p><pre><code>
 	 *	CustomerAccount customeraccount = new CustomerAccount();
 	 *	customeraccount.DeleteAccount( accountId, authTicket);
 	 * </code></pre></p>
-	 * @param accountId 
+	 * @param accountId Unique identifier of the customer account to delete.
 	 * @param authTicket User Auth Ticket
 	 * @return 
 	 */
 	public void deleteAccount(Integer accountId, AuthTicket authTicket) throws Exception
 	{
 		MozuClient client = com.mozu.api.clients.commerce.customer.CustomerAccountClient.deleteAccountClient( accountId, authTicket);
-		client.setContext(_apiContext);
-		client.executeRequest();
-
-	}
-
-	/**
-	 * 
-	 * <p><pre><code>
-	 *	CustomerAccount customeraccount = new CustomerAccount();
-	 *	customeraccount.DeleteInStockNotificationSubscription( accountId,  inStockNotificationSubscriptionId, authTicket);
-	 * </code></pre></p>
-	 * @param accountId 
-	 * @param inStockNotificationSubscriptionId 
-	 * @param authTicket User Auth Ticket
-	 * @return 
-	 */
-	public void deleteInStockNotificationSubscription(Integer accountId, Integer inStockNotificationSubscriptionId, AuthTicket authTicket) throws Exception
-	{
-		MozuClient client = com.mozu.api.clients.commerce.customer.CustomerAccountClient.deleteInStockNotificationSubscriptionClient( accountId,  inStockNotificationSubscriptionId, authTicket);
 		client.setContext(_apiContext);
 		client.executeRequest();
 

@@ -15,8 +15,8 @@ public class PackageUrl
 
 	/**
 	 * Get Resource Url for GetPackage
-	 * @param packageId 
-	 * @param returnId 
+	 * @param packageId Unique identifier of the return replacement package to retrieve.
+	 * @param returnId Unique identifier of the return associated with the replacement package to retrieve.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl getPackageUrl(String packageId, String returnId)
@@ -29,8 +29,8 @@ public class PackageUrl
 
 	/**
 	 * Get Resource Url for GetPackageLabel
-	 * @param packageId 
-	 * @param returnId 
+	 * @param packageId Unique identifier of the return replacement package for which to retrieve the label.
+	 * @param returnId Unique identifier of the return associated with the replacement package label to retrieve.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl getPackageLabelUrl(String packageId, String returnId)
@@ -43,7 +43,7 @@ public class PackageUrl
 
 	/**
 	 * Get Resource Url for CreatePackage
-	 * @param returnId 
+	 * @param returnId Unique identifier of the return for which to create a replacement package.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl createPackageUrl(String returnId)
@@ -55,8 +55,8 @@ public class PackageUrl
 
 	/**
 	 * Get Resource Url for UpdatePackage
-	 * @param packageId 
-	 * @param returnId 
+	 * @param packageId Unique identifier of the return replacement package to update.
+	 * @param returnId Unique identifier of the return associated with the replacement package to update.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl updatePackageUrl(String packageId, String returnId)
@@ -69,8 +69,8 @@ public class PackageUrl
 
 	/**
 	 * Get Resource Url for DeletePackage
-	 * @param packageId 
-	 * @param returnId 
+	 * @param packageId Unique identifier of the return replacement package to delete.
+	 * @param returnId Unique identifier of the return associated with the replacement package to delete.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl deletePackageUrl(String packageId, String returnId)

@@ -7,8 +7,13 @@
 package com.mozu.api.contracts.tenant;
 
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 
+/**
+ *	Properties of a site associated with a tenant.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Site implements Serializable
 {
 	// Default Serial Version UID
@@ -34,6 +39,9 @@ public class Site implements Serializable
 		this.countryCode = countryCode;
 	}
 
+	/**
+	 * Date and time when the entity was created, represented in UTC Date/Time.
+	 */
 	protected Date createDate;
 
 	public Date getCreateDate() {
@@ -44,6 +52,9 @@ public class Site implements Serializable
 		this.createDate = createDate;
 	}
 
+	/**
+	 * 3-letter ISO 4217 standard global currency code. Currently, only "USD" (US Dollar) is supported.
+	 */
 	protected String currencyCode;
 
 	public String getCurrencyCode() {
@@ -54,6 +65,9 @@ public class Site implements Serializable
 		this.currencyCode = currencyCode;
 	}
 
+	/**
+	 * The domain associated with the site.
+	 */
 	protected String domain;
 
 	public String getDomain() {
@@ -74,6 +88,9 @@ public class Site implements Serializable
 		this.id = id;
 	}
 
+	/**
+	 * Language used for the entity. Currently, only "en-US" is supported.
+	 */
 	protected String localeCode;
 
 	public String getLocaleCode() {
@@ -84,6 +101,9 @@ public class Site implements Serializable
 		this.localeCode = localeCode;
 	}
 
+	/**
+	 * The name of the site.
+	 */
 	protected String name;
 
 	public String getName() {
@@ -94,6 +114,9 @@ public class Site implements Serializable
 		this.name = name;
 	}
 
+	/**
+	 * The primary custom domain of the site.
+	 */
 	protected String primaryCustomDomain;
 
 	public String getPrimaryCustomDomain() {
@@ -104,6 +127,9 @@ public class Site implements Serializable
 		this.primaryCustomDomain = primaryCustomDomain;
 	}
 
+	/**
+	 * Unique identifier of the Mozu tenant.
+	 */
 	protected Integer tenantId;
 
 	public Integer getTenantId() {

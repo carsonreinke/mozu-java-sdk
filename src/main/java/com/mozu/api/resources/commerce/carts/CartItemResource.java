@@ -15,7 +15,7 @@ import com.mozu.api.Headers;
 import com.mozu.api.security.AuthTicket;
 
 /** <summary>
- * 
+ * Use the cart items subresource to manage a collection of items in an active shopping cart.
  * </summary>
  */
 public class CartItemResource {
@@ -29,7 +29,7 @@ public class CartItemResource {
 	}
 	
 	/**
-	 * 
+	 * Retrieves a list of cart items including the total number of items in the cart.
 	 * <p><pre><code>
 	 *	CartItem cartitem = new CartItem();
 	 *	CartItemCollection cartItemCollection = cartitem.GetCartItems(authTicket);
@@ -48,12 +48,12 @@ public class CartItemResource {
 	}
 
 	/**
-	 * 
+	 * Retrieves a particular cart item by providing the cart item ID.
 	 * <p><pre><code>
 	 *	CartItem cartitem = new CartItem();
 	 *	CartItem cartItem = cartitem.GetCartItem( cartItemId, authTicket);
 	 * </code></pre></p>
-	 * @param cartItemId 
+	 * @param cartItemId Identifier of the cart item to retrieve.
 	 * @param authTicket User Auth Ticket
 	 * @return com.mozu.api.contracts.commerceruntime.carts.CartItem
 	 * @see com.mozu.api.contracts.commerceruntime.carts.CartItem
@@ -68,13 +68,13 @@ public class CartItemResource {
 	}
 
 	/**
-	 * 
+	 * Adds a product to the current shopper's cart.
 	 * <p><pre><code>
 	 *	CartItem cartitem = new CartItem();
 	 *	CartItem cartItem = cartitem.AddItemToCart( cartItem, authTicket);
 	 * </code></pre></p>
 	 * @param authTicket User Auth Ticket
-	 * @param cartItem 
+	 * @param cartItem All properties of the new cart item. The product code is required.
 	 * @return com.mozu.api.contracts.commerceruntime.carts.CartItem
 	 * @see com.mozu.api.contracts.commerceruntime.carts.CartItem
 	 * @see com.mozu.api.contracts.commerceruntime.carts.CartItem
@@ -89,14 +89,14 @@ public class CartItemResource {
 	}
 
 	/**
-	 * 
+	 * Update the product or product quantity of an item in the current shopper's cart.
 	 * <p><pre><code>
 	 *	CartItem cartitem = new CartItem();
 	 *	CartItem cartItem = cartitem.UpdateCartItem( cartItem,  cartItemId, authTicket);
 	 * </code></pre></p>
-	 * @param cartItemId 
+	 * @param cartItemId Identifier of the cart item to update.
 	 * @param authTicket User Auth Ticket
-	 * @param cartItem 
+	 * @param cartItem The properties of the cart item to update.
 	 * @return com.mozu.api.contracts.commerceruntime.carts.CartItem
 	 * @see com.mozu.api.contracts.commerceruntime.carts.CartItem
 	 * @see com.mozu.api.contracts.commerceruntime.carts.CartItem
@@ -111,13 +111,13 @@ public class CartItemResource {
 	}
 
 	/**
-	 * 
+	 * Update the quantity of an individual cart item in the cart of the current shopper.
 	 * <p><pre><code>
 	 *	CartItem cartitem = new CartItem();
 	 *	CartItem cartItem = cartitem.UpdateCartItemQuantity( cartItemId,  quantity, authTicket);
 	 * </code></pre></p>
-	 * @param cartItemId 
-	 * @param quantity 
+	 * @param cartItemId Identifier of the cart item to update quantity.
+	 * @param quantity The number of cart items in the shopper's active cart.
 	 * @param authTicket User Auth Ticket
 	 * @return com.mozu.api.contracts.commerceruntime.carts.CartItem
 	 * @see com.mozu.api.contracts.commerceruntime.carts.CartItem
@@ -132,7 +132,7 @@ public class CartItemResource {
 	}
 
 	/**
-	 * 
+	 * Removes all items in the current shopper's active cart.
 	 * <p><pre><code>
 	 *	CartItem cartitem = new CartItem();
 	 *	Cart cart = cartitem.RemoveAllCartItems(authTicket);
@@ -151,12 +151,12 @@ public class CartItemResource {
 	}
 
 	/**
-	 * 
+	 * Deletes a specific cart item by providing the cart item ID.
 	 * <p><pre><code>
 	 *	CartItem cartitem = new CartItem();
 	 *	cartitem.DeleteCartItem( cartItemId, authTicket);
 	 * </code></pre></p>
-	 * @param cartItemId 
+	 * @param cartItemId Identifier of the cart item to delete.
 	 * @param authTicket User Auth Ticket
 	 * @return 
 	 */

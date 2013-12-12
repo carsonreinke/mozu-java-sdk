@@ -15,9 +15,9 @@ public class DocumentDraftSummaryUrl
 
 	/**
 	 * Get Resource Url for ListDocumentDraftSummaries
-	 * @param documentLists 
-	 * @param pageSize 
-	 * @param startIndex 
+	 * @param documentLists Lists that contain the document drafts.
+	 * @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
+	 * @param startIndex When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl listDocumentDraftSummariesUrl(String documentLists, Integer pageSize, Integer startIndex)
@@ -31,7 +31,7 @@ public class DocumentDraftSummaryUrl
 
 	/**
 	 * Get Resource Url for PublishDocuments
-	 * @param documentLists 
+	 * @param documentLists List of document lists that contain documents to publish.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl publishDocumentsUrl(String documentLists)
@@ -43,8 +43,8 @@ public class DocumentDraftSummaryUrl
 
 	/**
 	 * Get Resource Url for DeleteDocumentDrafts
-	 * @param documentIds 
-	 * @param documentLists 
+	 * @param documentIds Unique identifiers of the documents to delete.
+	 * @param documentLists List of document lists that contain documents to delete.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl deleteDocumentDraftsUrl(String documentIds, String documentLists)

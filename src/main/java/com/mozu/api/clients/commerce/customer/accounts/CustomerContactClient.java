@@ -14,21 +14,21 @@ import com.mozu.api.Headers;
 import com.mozu.api.security.AuthTicket;
 
 /** <summary>
- * 
+ * Merchants and customers can create, view, update, and delete a contact for a customer account. A customer account may have multiple contacts for billing and shipping addresses.
  * </summary>
  */
 public class CustomerContactClient {
 	
 	/**
-	 * 
+	 * Retrieves the specified contact for a customer account such as a billing or shipping contact.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.customer.CustomerContact> mozuClient=GetAccountContactClient( accountId,  contactId, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * CustomerContact customerContact = client.Result();
 	 * </code></pre></p>
-	 * @param accountId 
-	 * @param contactId 
+	 * @param accountId Unique identifier of the customer account whose contact information is being retrieved.
+	 * @param contactId Unique identifier of the customer account contact to retrieve.
 	 * @param authTicket User Auth Ticket
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.customer.CustomerContact>
 	 * @see com.mozu.api.contracts.customer.CustomerContact
@@ -48,14 +48,14 @@ public class CustomerContactClient {
 	}
 
 	/**
-	 * 
+	 * Retrieves a list of contacts for a customer according to any specified filter criteria and sort options.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.customer.CustomerContactCollection> mozuClient=GetAccountContactsClient( accountId);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * CustomerContactCollection customerContactCollection = client.Result();
 	 * </code></pre></p>
-	 * @param accountId 
+	 * @param accountId Unique identifier of the customer account associated with the contact information to retrieve.
 	 * @param authTicket User Auth Ticket
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.customer.CustomerContactCollection>
 	 * @see com.mozu.api.contracts.customer.CustomerContactCollection
@@ -66,23 +66,23 @@ public class CustomerContactClient {
 	}
 
 	/**
-	 * 
+	 * Retrieves a list of contacts for a customer according to any specified filter criteria and sort options.
 	 * <p><pre><code>
-	 * MozuClient<com.mozu.api.contracts.customer.CustomerContactCollection> mozuClient=GetAccountContactsClient( accountId,  filter,  pageSize,  sortBy,  startIndex, authTicket);
+	 * MozuClient<com.mozu.api.contracts.customer.CustomerContactCollection> mozuClient=GetAccountContactsClient( accountId,  startIndex,  pageSize,  sortBy,  filter, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * CustomerContactCollection customerContactCollection = client.Result();
 	 * </code></pre></p>
-	 * @param accountId 
-	 * @param filter 
-	 * @param pageSize 
+	 * @param accountId Unique identifier of the customer account associated with the contact information to retrieve.
+	 * @param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
+	 * @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
 	 * @param sortBy 
 	 * @param startIndex 
 	 * @param authTicket User Auth Ticket
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.customer.CustomerContactCollection>
 	 * @see com.mozu.api.contracts.customer.CustomerContactCollection
 	 */
-	public static MozuClient<com.mozu.api.contracts.customer.CustomerContactCollection> getAccountContactsClient(Integer accountId, String filter, Integer pageSize, String sortBy, Integer startIndex, AuthTicket authTicket) throws Exception
+	public static MozuClient<com.mozu.api.contracts.customer.CustomerContactCollection> getAccountContactsClient(Integer accountId, Integer startIndex, Integer pageSize, String sortBy, String filter, AuthTicket authTicket) throws Exception
 	{
 		MozuUrl url = com.mozu.api.urls.commerce.customer.accounts.CustomerContactUrl.getAccountContactsUrl(accountId, filter, pageSize, sortBy, startIndex);
 		String verb = "GET";
@@ -97,16 +97,16 @@ public class CustomerContactClient {
 	}
 
 	/**
-	 * 
+	 * Creates a new contact for a customer account such as a new shipping address.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.customer.CustomerContact> mozuClient=AddAccountContactClient( contact,  accountId, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * CustomerContact customerContact = client.Result();
 	 * </code></pre></p>
-	 * @param accountId 
+	 * @param accountId Unique identifier of the customer account containing the new contact.
 	 * @param authTicket User Auth Ticket
-	 * @param contact 
+	 * @param contact Properties of the new contact. Required properties: Contact.Email, ContactType.
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.customer.CustomerContact>
 	 * @see com.mozu.api.contracts.customer.CustomerContact
 	 * @see com.mozu.api.contracts.customer.CustomerContact
@@ -127,17 +127,17 @@ public class CustomerContactClient {
 	}
 
 	/**
-	 * 
+	 * Updates a contact for a specified customer account such as to update addresses or change which contact is the primary contact for billing.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.customer.CustomerContact> mozuClient=UpdateAccountContactClient( contact,  accountId,  contactId, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * CustomerContact customerContact = client.Result();
 	 * </code></pre></p>
-	 * @param accountId 
-	 * @param contactId 
+	 * @param accountId Unique identifier of the customer account whose contact information is being updated.
+	 * @param contactId Unique identifer of the customer account contact being updated.
 	 * @param authTicket User Auth Ticket
-	 * @param contact 
+	 * @param contact All properties the updated contact will have. Required properties: Name and email address.
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.customer.CustomerContact>
 	 * @see com.mozu.api.contracts.customer.CustomerContact
 	 * @see com.mozu.api.contracts.customer.CustomerContact
@@ -158,14 +158,14 @@ public class CustomerContactClient {
 	}
 
 	/**
-	 * 
+	 * Deletes a contact for the specified customer account.
 	 * <p><pre><code>
 	 * MozuClient mozuClient=DeleteAccountContactClient( accountId,  contactId, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * </code></pre></p>
-	 * @param accountId 
-	 * @param contactId 
+	 * @param accountId Unique identifier of the customer account.
+	 * @param contactId Unique identifier of the customer account contact to delete.
 	 * @param authTicket User Auth Ticket
 	 * @return Mozu.Api.MozuClient 
 	 */

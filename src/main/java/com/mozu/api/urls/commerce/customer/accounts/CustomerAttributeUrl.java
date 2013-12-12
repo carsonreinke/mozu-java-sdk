@@ -14,12 +14,12 @@ public class CustomerAttributeUrl
 {
 
 	/**
-	 * Get Resource Url for GetAccountAttributeByFqn
-	 * @param accountId 
+	 * Get Resource Url for GetAccountAttribute
+	 * @param accountId Identifier of the customer account associated with the attribute to retrieve.
 	 * @param attributeFQN 
 	 * @return   String Resource Url
 	 */
-	public static MozuUrl getAccountAttributeByFqnUrl(Integer accountId, String attributeFQN)
+	public static MozuUrl getAccountAttributeUrl(Integer accountId, String attributeFQN)
 	{
 		UrlFormatter formatter = new UrlFormatter("/api/commerce/customer/accounts/{accountId}/attributes/{attributeFQN}");
 		formatter.formatUrl("accountId", accountId);
@@ -28,22 +28,8 @@ public class CustomerAttributeUrl
 	}
 
 	/**
-	 * Get Resource Url for GetAccountAttribute
-	 * @param accountId 
-	 * @param attributeId 
-	 * @return   String Resource Url
-	 */
-	public static MozuUrl getAccountAttributeUrl(Integer accountId, Integer attributeId)
-	{
-		UrlFormatter formatter = new UrlFormatter("/api/commerce/customer/accounts/{accountId}/attributes/{attributeId}");
-		formatter.formatUrl("accountId", accountId);
-		formatter.formatUrl("attributeId", attributeId);
-		return new MozuUrl(formatter.getResourceUrl(), MozuUrl.UrlLocation.TENANT_POD) ;
-	}
-
-	/**
 	 * Get Resource Url for GetAccountAttributes
-	 * @param accountId 
+	 * @param accountId Identifier of the customer account associated with the attributes to retrieve.
 	 * @param filter 
 	 * @param pageSize 
 	 * @param sortBy 
@@ -63,7 +49,7 @@ public class CustomerAttributeUrl
 
 	/**
 	 * Get Resource Url for AddAccountAttribute
-	 * @param accountId 
+	 * @param accountId Unique identifier of the customer account.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl addAccountAttributeUrl(Integer accountId)
@@ -75,13 +61,15 @@ public class CustomerAttributeUrl
 
 	/**
 	 * Get Resource Url for UpdateAccountAttribute
-	 * @param accountId 
+	 * @param accountId Identifier of the customer account associated with the attribute.
+	 * @param removeMissing If true, remove the items missing from the collection.
 	 * @return   String Resource Url
 	 */
-	public static MozuUrl updateAccountAttributeUrl(Integer accountId)
+	public static MozuUrl updateAccountAttributeUrl(Integer accountId, Boolean removeMissing)
 	{
-		UrlFormatter formatter = new UrlFormatter("/api/commerce/customer/accounts/{accountId}/attributes");
+		UrlFormatter formatter = new UrlFormatter("/api/commerce/customer/accounts/{accountId}/attributes?removeMissing={removeMissing}");
 		formatter.formatUrl("accountId", accountId);
+		formatter.formatUrl("removeMissing", removeMissing);
 		return new MozuUrl(formatter.getResourceUrl(), MozuUrl.UrlLocation.TENANT_POD) ;
 	}
 

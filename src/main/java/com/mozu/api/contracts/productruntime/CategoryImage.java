@@ -7,13 +7,21 @@
 package com.mozu.api.contracts.productruntime;
 
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 
+/**
+ *	Properties of an image or other media file associated with a product category.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class CategoryImage implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Descriptive text associated with the image or video that appears on the web storefront.
+	 */
 	protected String altText;
 
 	public String getAltText() {
@@ -24,6 +32,19 @@ public class CategoryImage implements Serializable
 		this.altText = altText;
 	}
 
+	protected String cmsId;
+
+	public String getCmsId() {
+		return this.cmsId;
+	}
+
+	public void setCmsId(String cmsId) {
+		this.cmsId = cmsId;
+	}
+
+	/**
+	 * Image title that appears on the web storefront, set to the language specified by the site's LocaleCode.
+	 */
 	protected String imageLabel;
 
 	public String getImageLabel() {
@@ -34,16 +55,9 @@ public class CategoryImage implements Serializable
 		this.imageLabel = imageLabel;
 	}
 
-	protected String imagePath;
-
-	public String getImagePath() {
-		return this.imagePath;
-	}
-
-	public void setImagePath(String imagePath) {
-		this.imagePath = imagePath;
-	}
-
+	/**
+	 * URL of the product category image.
+	 */
 	protected String imageUrl;
 
 	public String getImageUrl() {
@@ -54,6 +68,9 @@ public class CategoryImage implements Serializable
 		this.imageUrl = imageUrl;
 	}
 
+	/**
+	 * Type of media specification required to successfully render the image, video, or other category content.
+	 */
 	protected String mediaType;
 
 	public String getMediaType() {
@@ -64,6 +81,9 @@ public class CategoryImage implements Serializable
 		this.mediaType = mediaType;
 	}
 
+	/**
+	 * Integer that represents the sequential order of the category image in the collection.
+	 */
 	protected Integer sequence;
 
 	public Integer getSequence() {
@@ -74,6 +94,9 @@ public class CategoryImage implements Serializable
 		this.sequence = sequence;
 	}
 
+	/**
+	 * The link or URL of the product category video. The file path name is set in the language specified by the LocaleCode.
+	 */
 	protected String videoUrl;
 
 	public String getVideoUrl() {

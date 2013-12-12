@@ -8,14 +8,22 @@ package com.mozu.api.contracts.productruntime;
 
 import java.util.List;
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 import com.mozu.api.contracts.productruntime.CategoryImage;
 
+/**
+ *	Localized page content for a product category.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class CategoryContent implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * The localized description of the category to display on a storefront.
+	 */
 	protected String description;
 
 	public String getDescription() {
@@ -26,6 +34,9 @@ public class CategoryContent implements Serializable
 		this.description = description;
 	}
 
+	/**
+	 * Defined description of the metadata used to manage product information internally, such as search engine optimization.
+	 */
 	protected String metaTagDescription;
 
 	public String getMetaTagDescription() {
@@ -36,6 +47,9 @@ public class CategoryContent implements Serializable
 		this.metaTagDescription = metaTagDescription;
 	}
 
+	/**
+	 * Defined keywords of the metadata used to manage product information internally, such as search engine optimization.
+	 */
 	protected String metaTagKeywords;
 
 	public String getMetaTagKeywords() {
@@ -46,6 +60,9 @@ public class CategoryContent implements Serializable
 		this.metaTagKeywords = metaTagKeywords;
 	}
 
+	/**
+	 * Defined title of the metadata used to manage product information internally, such as search engine optimization.
+	 */
 	protected String metaTagTitle;
 
 	public String getMetaTagTitle() {
@@ -56,6 +73,9 @@ public class CategoryContent implements Serializable
 		this.metaTagTitle = metaTagTitle;
 	}
 
+	/**
+	 * Name of the product category.
+	 */
 	protected String name;
 
 	public String getName() {
@@ -66,6 +86,9 @@ public class CategoryContent implements Serializable
 		this.name = name;
 	}
 
+	/**
+	 * Title that appears on the top of new pages associated with the product category on the storefront.
+	 */
 	protected String pageTitle;
 
 	public String getPageTitle() {
@@ -76,6 +99,9 @@ public class CategoryContent implements Serializable
 		this.pageTitle = pageTitle;
 	}
 
+	/**
+	 * Human-readable identifier to associated with a product category to create friendly URLs.
+	 */
 	protected String slug;
 
 	public String getSlug() {
@@ -86,6 +112,9 @@ public class CategoryContent implements Serializable
 		this.slug = slug;
 	}
 
+	/**
+	 * Array list of image media associated with the product category.
+	 */
 	protected List<CategoryImage> categoryImages;
 	public List<CategoryImage> getCategoryImages() {
 		return this.categoryImages;

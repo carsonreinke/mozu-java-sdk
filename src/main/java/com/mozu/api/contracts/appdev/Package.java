@@ -7,9 +7,11 @@
 package com.mozu.api.contracts.appdev;
 
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 import com.mozu.api.contracts.core.AuditInfo;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Package implements Serializable
 {
 	// Default Serial Version UID

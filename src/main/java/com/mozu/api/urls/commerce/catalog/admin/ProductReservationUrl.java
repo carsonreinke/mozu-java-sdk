@@ -15,8 +15,8 @@ public class ProductReservationUrl
 
 	/**
 	 * Get Resource Url for GetProductReservations
-	 * @param filter 
-	 * @param pageSize 
+	 * @param filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
+	 * @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
 	 * @param sortBy 
 	 * @param startIndex 
 	 * @return   String Resource Url
@@ -33,7 +33,7 @@ public class ProductReservationUrl
 
 	/**
 	 * Get Resource Url for GetProductReservation
-	 * @param productReservationId 
+	 * @param productReservationId Unique identifier of the product reservation.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl getProductReservationUrl(Integer productReservationId)
@@ -44,44 +44,42 @@ public class ProductReservationUrl
 	}
 
 	/**
-	 * Get Resource Url for AddProductReservation
+	 * Get Resource Url for AddProductReservations
+	 * @param skipInventoryCheck 
 	 * @return   String Resource Url
 	 */
-	public static MozuUrl addProductReservationUrl()
+	public static MozuUrl addProductReservationsUrl(Boolean skipInventoryCheck)
 	{
-		UrlFormatter formatter = new UrlFormatter("/api/commerce/catalog/admin/productreservations/");
+		UrlFormatter formatter = new UrlFormatter("/api/commerce/catalog/admin/productreservations/?skipInventoryCheck={skipInventoryCheck}");
+		formatter.formatUrl("skipInventoryCheck", skipInventoryCheck);
 		return new MozuUrl(formatter.getResourceUrl(), MozuUrl.UrlLocation.TENANT_POD) ;
 	}
 
 	/**
-	 * Get Resource Url for CommitReservation
-	 * @param productReservationId 
-	 * @param qty 
+	 * Get Resource Url for CommitReservations
 	 * @return   String Resource Url
 	 */
-	public static MozuUrl commitReservationUrl(Integer productReservationId, Integer qty)
+	public static MozuUrl commitReservationsUrl()
 	{
-		UrlFormatter formatter = new UrlFormatter("/api/commerce/catalog/admin/productreservations/{productReservationId}/commit/{qty}");
-		formatter.formatUrl("productReservationId", productReservationId);
-		formatter.formatUrl("qty", qty);
+		UrlFormatter formatter = new UrlFormatter("/api/commerce/catalog/admin/productreservations/commit");
 		return new MozuUrl(formatter.getResourceUrl(), MozuUrl.UrlLocation.TENANT_POD) ;
 	}
 
 	/**
-	 * Get Resource Url for UpdateProductReservation
-	 * @param productReservationId Unique identifier of the product reservation to update. 
+	 * Get Resource Url for UpdateProductReservations
+	 * @param skipInventoryCheck 
 	 * @return   String Resource Url
 	 */
-	public static MozuUrl updateProductReservationUrl(Integer productReservationId)
+	public static MozuUrl updateProductReservationsUrl(Boolean skipInventoryCheck)
 	{
-		UrlFormatter formatter = new UrlFormatter("/api/commerce/catalog/admin/productreservations/{productReservationId}");
-		formatter.formatUrl("productReservationId", productReservationId);
+		UrlFormatter formatter = new UrlFormatter("/api/commerce/catalog/admin/productreservations/?skipInventoryCheck={skipInventoryCheck}");
+		formatter.formatUrl("skipInventoryCheck", skipInventoryCheck);
 		return new MozuUrl(formatter.getResourceUrl(), MozuUrl.UrlLocation.TENANT_POD) ;
 	}
 
 	/**
 	 * Get Resource Url for DeleteProductReservation
-	 * @param productReservationId 
+	 * @param productReservationId Unique identifier of the reservation.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl deleteProductReservationUrl(Integer productReservationId)

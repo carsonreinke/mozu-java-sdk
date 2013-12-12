@@ -15,7 +15,7 @@ import com.mozu.api.Headers;
 import com.mozu.api.security.AuthTicket;
 
 /** <summary>
- * 
+ * Use the Facets resource to manage the facets shoppers use to filter product display results on a storefront. Facets can include categories, product attributes, or prices, and use either a range of values or discrete values.
  * </summary>
  */
 public class FacetResource {
@@ -29,12 +29,12 @@ public class FacetResource {
 	}
 	
 	/**
-	 * 
+	 * Retrieves a facet specified by its unique identifier and displays its properties.
 	 * <p><pre><code>
 	 *	Facet facet = new Facet();
 	 *	Facet facet = facet.GetFacet(dataViewMode,  facetId);
 	 * </code></pre></p>
-	 * @param facetId 
+	 * @param facetId Unique identifier of the facet to retrieve.
 	 * @param authTicket User Auth Ticket
 	 * @return com.mozu.api.contracts.productadmin.Facet
 	 * @see com.mozu.api.contracts.productadmin.Facet
@@ -45,13 +45,13 @@ public class FacetResource {
 	}
 
 	/**
-	 * 
+	 * Retrieves a facet specified by its unique identifier and displays its properties.
 	 * <p><pre><code>
 	 *	Facet facet = new Facet();
 	 *	Facet facet = facet.GetFacet(dataViewMode,  facetId,  validate, authTicket);
 	 * </code></pre></p>
-	 * @param facetId 
-	 * @param validate 
+	 * @param facetId Unique identifier of the facet to retrieve.
+	 * @param validate Validates that the product category associated with a facet is active. System-supplied and read only.
 	 * @param authTicket User Auth Ticket
 	 * @return com.mozu.api.contracts.productadmin.Facet
 	 * @see com.mozu.api.contracts.productadmin.Facet
@@ -66,12 +66,12 @@ public class FacetResource {
 	}
 
 	/**
-	 * 
+	 * Retrieves a list of the facets defined for the specified category.
 	 * <p><pre><code>
 	 *	Facet facet = new Facet();
 	 *	FacetSet facetSet = facet.GetFacetCategoryList(dataViewMode,  categoryId);
 	 * </code></pre></p>
-	 * @param categoryId 
+	 * @param categoryId Unique identifier of the category associated with the facets to retrieve.
 	 * @param authTicket User Auth Ticket
 	 * @return com.mozu.api.contracts.productadmin.FacetSet
 	 * @see com.mozu.api.contracts.productadmin.FacetSet
@@ -82,14 +82,14 @@ public class FacetResource {
 	}
 
 	/**
-	 * 
+	 * Retrieves a list of the facets defined for the specified category.
 	 * <p><pre><code>
 	 *	Facet facet = new Facet();
 	 *	FacetSet facetSet = facet.GetFacetCategoryList(dataViewMode,  categoryId,  includeAvailable,  validate, authTicket);
 	 * </code></pre></p>
-	 * @param categoryId 
-	 * @param includeAvailable 
-	 * @param validate 
+	 * @param categoryId Unique identifier of the category associated with the facets to retrieve.
+	 * @param includeAvailable If true, returns a list of the attributes and categories associated with a product type that have not been defined as a facet for the category.
+	 * @param validate Validates that the product category associated with a facet is active. System-supplied and read only.
 	 * @param authTicket User Auth Ticket
 	 * @return com.mozu.api.contracts.productadmin.FacetSet
 	 * @see com.mozu.api.contracts.productadmin.FacetSet
@@ -104,13 +104,13 @@ public class FacetResource {
 	}
 
 	/**
-	 * 
+	 * Creates a new category, price, or attribute facet. Supply the category or attribute source to use for the facet values.
 	 * <p><pre><code>
 	 *	Facet facet = new Facet();
 	 *	Facet facet = facet.AddFacet(dataViewMode,  facet, authTicket);
 	 * </code></pre></p>
 	 * @param authTicket User Auth Ticket
-	 * @param facet 
+	 * @param facet Properties of the new facet to create. Required properties: Source, FacetType, IsHidden, and CategoryId.
 	 * @return com.mozu.api.contracts.productadmin.Facet
 	 * @see com.mozu.api.contracts.productadmin.Facet
 	 * @see com.mozu.api.contracts.productadmin.Facet
@@ -125,14 +125,14 @@ public class FacetResource {
 	}
 
 	/**
-	 * 
+	 * Modifies one or more properties of a defined facet.
 	 * <p><pre><code>
 	 *	Facet facet = new Facet();
 	 *	Facet facet = facet.UpdateFacet(dataViewMode,  facet,  facetId, authTicket);
 	 * </code></pre></p>
-	 * @param facetId 
+	 * @param facetId Unique identifier of the facet to modify.
 	 * @param authTicket User Auth Ticket
-	 * @param facet 
+	 * @param facet Properties of the defined facet to modify. Required properties: Source, FacetType, IsHidden, and CategoryId.
 	 * @return com.mozu.api.contracts.productadmin.Facet
 	 * @see com.mozu.api.contracts.productadmin.Facet
 	 * @see com.mozu.api.contracts.productadmin.Facet
@@ -147,12 +147,12 @@ public class FacetResource {
 	}
 
 	/**
-	 * 
+	 * Deletes the facet specified by its unique identifier.
 	 * <p><pre><code>
 	 *	Facet facet = new Facet();
 	 *	facet.DeleteFacetById(dataViewMode,  facetId, authTicket);
 	 * </code></pre></p>
-	 * @param facetId 
+	 * @param facetId Unique identifier of the facet to delete.
 	 * @param authTicket User Auth Ticket
 	 * @return 
 	 */

@@ -7,13 +7,21 @@
 package com.mozu.api.contracts.content;
 
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 
+/**
+ *	The properties of a folder including the name of its parent document list, its name, its unique identifier, the ID of its parent folder, and the file location path where it can be found in the folder hierarchy.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Folder implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * The name of the document list that contains the folder.
+	 */
 	protected String documentListName;
 
 	public String getDocumentListName() {
@@ -24,6 +32,9 @@ public class Folder implements Serializable
 		this.documentListName = documentListName;
 	}
 
+	/**
+	 * Unique identifier of the folder.
+	 */
 	protected String id;
 
 	public String getId() {
@@ -34,6 +45,9 @@ public class Folder implements Serializable
 		this.id = id;
 	}
 
+	/**
+	 * The name of the folder.
+	 */
 	protected String name;
 
 	public String getName() {
@@ -44,6 +58,9 @@ public class Folder implements Serializable
 		this.name = name;
 	}
 
+	/**
+	 * If applicable, the parent folder that contains this folder.
+	 */
 	protected String parentId;
 
 	public String getParentId() {
@@ -54,6 +71,9 @@ public class Folder implements Serializable
 		this.parentId = parentId;
 	}
 
+	/**
+	 * The content path associated with the folder.
+	 */
 	protected String path;
 
 	public String getPath() {

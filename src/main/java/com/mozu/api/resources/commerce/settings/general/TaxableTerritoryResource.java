@@ -15,7 +15,7 @@ import com.mozu.api.Headers;
 import com.mozu.api.security.AuthTicket;
 
 /** <summary>
- * 
+ * Use the taxable territories subresource to manage the regional territories for this site that are subejct to sales tax.
  * </summary>
  */
 public class TaxableTerritoryResource {
@@ -29,7 +29,7 @@ public class TaxableTerritoryResource {
 	}
 	
 	/**
-	 * 
+	 * Retrieves a list of the taxable territories configured for the site.
 	 * <p><pre><code>
 	 *	TaxableTerritory taxableterritory = new TaxableTerritory();
 	 *	TaxableTerritory taxableTerritory = taxableterritory.GetTaxableTerritories(authTicket);
@@ -48,13 +48,13 @@ public class TaxableTerritoryResource {
 	}
 
 	/**
-	 * 
+	 * Creates a new territory for which to calculate sales tax.
 	 * <p><pre><code>
 	 *	TaxableTerritory taxableterritory = new TaxableTerritory();
 	 *	TaxableTerritory taxableTerritory = taxableterritory.AddTaxableTerritory( taxableTerritory, authTicket);
 	 * </code></pre></p>
 	 * @param authTicket User Auth Ticket
-	 * @param taxableTerritory 
+	 * @param taxableTerritory Properties of the taxable territory to create.
 	 * @return com.mozu.api.contracts.sitesettings.general.TaxableTerritory
 	 * @see com.mozu.api.contracts.sitesettings.general.TaxableTerritory
 	 * @see com.mozu.api.contracts.sitesettings.general.TaxableTerritory
@@ -69,13 +69,13 @@ public class TaxableTerritoryResource {
 	}
 
 	/**
-	 * 
+	 * Updates one or more taxable territories configured for a site.
 	 * <p><pre><code>
 	 *	TaxableTerritory taxableterritory = new TaxableTerritory();
 	 *	TaxableTerritory taxableTerritory = taxableterritory.UpdateTaxableTerritories( taxableterritories, authTicket);
 	 * </code></pre></p>
 	 * @param authTicket User Auth Ticket
-	 * @param taxableterritories 
+	 * @param taxableterritories Properties of the taxable territories to update.
 	 * @return List<com.mozu.api.contracts.sitesettings.general.TaxableTerritory>
 	 * @see com.mozu.api.contracts.sitesettings.general.TaxableTerritory
 	 * @see com.mozu.api.contracts.sitesettings.general.TaxableTerritory

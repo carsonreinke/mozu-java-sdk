@@ -7,13 +7,21 @@
 package com.mozu.api.contracts.productadmin;
 
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 
+/**
+ *	Localized content displayed in the storefront for this attribute.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class AttributeLocalizedContent implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Localized content for the description of this attribute displayed in the storefront.
+	 */
 	protected String description;
 
 	public String getDescription() {
@@ -24,6 +32,9 @@ public class AttributeLocalizedContent implements Serializable
 		this.description = description;
 	}
 
+	/**
+	 * Language used for the entity. Currently, only "en-US" is supported.
+	 */
 	protected String localeCode;
 
 	public String getLocaleCode() {
@@ -34,6 +45,9 @@ public class AttributeLocalizedContent implements Serializable
 		this.localeCode = localeCode;
 	}
 
+	/**
+	 * Localized content for the attribute name displayed in the storefront.
+	 */
 	protected String name;
 
 	public String getName() {

@@ -8,15 +8,23 @@ package com.mozu.api.contracts.appdev;
 
 import java.util.List;
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 import com.mozu.api.contracts.core.AuditInfo;
 import com.mozu.api.contracts.appdev.ApplicationVersion;
 
+/**
+ *	Properties of an application registered in Dev Center.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Application implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * The type of application, which is "Capability" or "Extension."
+	 */
 	protected String applicationType;
 
 	public String getApplicationType() {
@@ -27,6 +35,9 @@ public class Application implements Serializable
 		this.applicationType = applicationType;
 	}
 
+	/**
+	 * Unique identifier of the application. The application ID is required to generate an authentication ticket.
+	 */
 	protected Integer id;
 
 	public Integer getId() {
@@ -37,6 +48,9 @@ public class Application implements Serializable
 		this.id = id;
 	}
 
+	/**
+	 * The name of the application.
+	 */
 	protected String name;
 
 	public String getName() {
@@ -47,6 +61,9 @@ public class Application implements Serializable
 		this.name = name;
 	}
 
+	/**
+	 * Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
+	 */
 	protected AuditInfo auditInfo;
 
 	public AuditInfo getAuditInfo() {
@@ -57,6 +74,9 @@ public class Application implements Serializable
 		this.auditInfo = auditInfo;
 	}
 
+	/**
+	 * Array list of the versions defined for an application.
+	 */
 	protected List<ApplicationVersion> versions;
 	public List<ApplicationVersion> getVersions() {
 		return this.versions;

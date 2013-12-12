@@ -35,7 +35,7 @@ public class AuthTicketUrl
 
 	/**
 	 * Get Resource Url for DeleteAppAuthTicket
-	 * @param refreshToken 
+	 * @param refreshToken The refresh token string from the application's authentication ticket.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl deleteAppAuthTicketUrl(String refreshToken)

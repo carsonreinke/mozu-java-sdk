@@ -7,8 +7,10 @@
 package com.mozu.api.contracts.location;
 
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class ShippingOriginContact implements Serializable
 {
 	// Default Serial Version UID

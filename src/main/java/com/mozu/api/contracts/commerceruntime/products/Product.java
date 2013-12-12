@@ -8,18 +8,27 @@ package com.mozu.api.contracts.commerceruntime.products;
 
 import java.util.List;
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
+import com.mozu.api.contracts.commerceruntime.products.BundledProduct;
 import com.mozu.api.contracts.commerceruntime.products.Category;
 import com.mozu.api.contracts.commerceruntime.commerce.PackageMeasurements;
 import com.mozu.api.contracts.commerceruntime.products.ProductOption;
 import com.mozu.api.contracts.commerceruntime.products.ProductPrice;
 import com.mozu.api.contracts.commerceruntime.products.ProductProperty;
 
+/**
+ *	Properties of a product set up in admin and added as an item in a cart or order.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Product implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Short description of the product in the language specified in the locale code for the storefront.
+	 */
 	protected String description;
 
 	public String getDescription() {
@@ -30,6 +39,9 @@ public class Product implements Serializable
 		this.description = description;
 	}
 
+	/**
+	 * The alternate image description defined for the product, in the language specified in the locale code for the storefront.
+	 */
 	protected String imageAlternateText;
 
 	public String getImageAlternateText() {
@@ -40,16 +52,29 @@ public class Product implements Serializable
 		this.imageAlternateText = imageAlternateText;
 	}
 
-	protected String imagePath;
+	protected String imageUrl;
 
-	public String getImagePath() {
-		return this.imagePath;
+	public String getImageUrl() {
+		return this.imageUrl;
 	}
 
-	public void setImagePath(String imagePath) {
-		this.imagePath = imagePath;
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
 	}
 
+	protected Boolean isPackagedStandAlone;
+
+	public Boolean getIsPackagedStandAlone() {
+		return this.isPackagedStandAlone;
+	}
+
+	public void setIsPackagedStandAlone(Boolean isPackagedStandAlone) {
+		this.isPackagedStandAlone = isPackagedStandAlone;
+	}
+
+	/**
+	 * If true, the product can be purchased or fulfilled at regular intervals such as a monthly billing cycle or a digital or physical subscription.
+	 */
 	protected Boolean isRecurring;
 
 	public Boolean getIsRecurring() {
@@ -60,6 +85,9 @@ public class Product implements Serializable
 		this.isRecurring = isRecurring;
 	}
 
+	/**
+	 * If true, the entity is subject to sales tax based on the relevant tax rate.
+	 */
 	protected Boolean isTaxable;
 
 	public Boolean getIsTaxable() {
@@ -70,6 +98,9 @@ public class Product implements Serializable
 		this.isTaxable = isTaxable;
 	}
 
+	/**
+	 * The name of the product that appears on the storefront.
+	 */
 	protected String name;
 
 	public String getName() {
@@ -80,6 +111,9 @@ public class Product implements Serializable
 		this.name = name;
 	}
 
+	/**
+	 * Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
+	 */
 	protected String productCode;
 
 	public String getProductCode() {
@@ -90,6 +124,19 @@ public class Product implements Serializable
 		this.productCode = productCode;
 	}
 
+	protected Integer productReservationId;
+
+	public Integer getProductReservationId() {
+		return this.productReservationId;
+	}
+
+	public void setProductReservationId(Integer productReservationId) {
+		this.productReservationId = productReservationId;
+	}
+
+	/**
+	 * The product type template associated with the product on the storefront.
+	 */
 	protected String productType;
 
 	public String getProductType() {
@@ -100,16 +147,19 @@ public class Product implements Serializable
 		this.productType = productType;
 	}
 
-	protected Boolean shipsByItself;
+	protected String productUsage;
 
-	public Boolean getShipsByItself() {
-		return this.shipsByItself;
+	public String getProductUsage() {
+		return this.productUsage;
 	}
 
-	public void setShipsByItself(Boolean shipsByItself) {
-		this.shipsByItself = shipsByItself;
+	public void setProductUsage(String productUsage) {
+		this.productUsage = productUsage;
 	}
 
+	/**
+	 * Merchant-created code associated with a specific product variation. Variation product codes maintain an association with the base product code.
+	 */
 	protected String variationProductCode;
 
 	public String getVariationProductCode() {
@@ -120,6 +170,17 @@ public class Product implements Serializable
 		this.variationProductCode = variationProductCode;
 	}
 
+	protected List<BundledProduct> bundledProducts;
+	public List<BundledProduct> getBundledProducts() {
+		return this.bundledProducts;
+	}
+	public void setBundledProducts(List<BundledProduct> bundledProducts) {
+		this.bundledProducts = bundledProducts;
+	}
+
+	/**
+	 * The list of all categories associated with the product.
+	 */
 	protected List<Category> categories;
 	public List<Category> getCategories() {
 		return this.categories;
@@ -128,6 +189,9 @@ public class Product implements Serializable
 		this.categories = categories;
 	}
 
+	/**
+	 * Dimensions of the packaged product.
+	 */
 	protected PackageMeasurements measurements;
 
 	public PackageMeasurements getMeasurements() {
@@ -138,6 +202,9 @@ public class Product implements Serializable
 		this.measurements = measurements;
 	}
 
+	/**
+	 * The list of option attributes configured for the product.
+	 */
 	protected List<ProductOption> options;
 	public List<ProductOption> getOptions() {
 		return this.options;
@@ -146,6 +213,9 @@ public class Product implements Serializable
 		this.options = options;
 	}
 
+	/**
+	 * The price of the product that appears on the storefront including any applied discounts.
+	 */
 	protected ProductPrice price;
 
 	public ProductPrice getPrice() {

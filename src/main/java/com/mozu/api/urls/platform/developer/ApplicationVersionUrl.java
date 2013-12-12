@@ -25,7 +25,7 @@ public class ApplicationVersionUrl
 
 	/**
 	 * Get Resource Url for GetApplication
-	 * @param applicationId 
+	 * @param applicationId Unique identifier of the application.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl getApplicationUrl(Integer applicationId)
@@ -37,7 +37,7 @@ public class ApplicationVersionUrl
 
 	/**
 	 * Get Resource Url for GetApplicationVersion
-	 * @param applicationVersionId 
+	 * @param applicationVersionId Unique identifier of the application version. Application version IDs are unique across all applications associated with a developer account.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl getApplicationVersionUrl(Integer applicationVersionId)
@@ -49,7 +49,7 @@ public class ApplicationVersionUrl
 
 	/**
 	 * Get Resource Url for GetPackages
-	 * @param applicationVersionId 
+	 * @param applicationVersionId Unique identifier of the application version. Application version IDs are unique across all applications associated with a developer account.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl getPackagesUrl(Integer applicationVersionId)
@@ -61,8 +61,8 @@ public class ApplicationVersionUrl
 
 	/**
 	 * Get Resource Url for GetPackage
-	 * @param applicationVersionId 
-	 * @param packageId 
+	 * @param applicationVersionId Unique identifier of the application version associated with the package. Application version IDs are unique across all applications associated with the developer account.
+	 * @param packageId Unique identifier of the package to retrieve.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl getPackageUrl(Integer applicationVersionId, Integer packageId)
@@ -75,8 +75,8 @@ public class ApplicationVersionUrl
 
 	/**
 	 * Get Resource Url for GetPackageItemsMetadata
-	 * @param applicationVersionId 
-	 * @param packageId 
+	 * @param applicationVersionId Unique identifier of the application version. Application version IDs are unique across all applications associated with a developer account.
+	 * @param packageId Unique identifier of the package.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl getPackageItemsMetadataUrl(Integer applicationVersionId, Integer packageId)
@@ -89,9 +89,9 @@ public class ApplicationVersionUrl
 
 	/**
 	 * Get Resource Url for GetPackageItemMetadata
-	 * @param applicationVersionId 
-	 * @param itempath 
-	 * @param packageId 
+	 * @param applicationVersionId Unique identifier of the application version. Application version IDs are unique across all applications associated with a developer account.
+	 * @param itempath Complete file directory location and name of the item in the package to retrieve metadata.
+	 * @param packageId Unique identifier of the package.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl getPackageItemMetadataUrl(Integer applicationVersionId, String itempath, Integer packageId)
@@ -119,7 +119,7 @@ public class ApplicationVersionUrl
 
 	/**
 	 * Get Resource Url for AddPackage
-	 * @param applicationVersionId 
+	 * @param applicationVersionId Unique identifier of the application version. Application version IDs are unique across all applications associated with the developer account.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl addPackageUrl(Integer applicationVersionId)
@@ -131,9 +131,9 @@ public class ApplicationVersionUrl
 
 	/**
 	 * Get Resource Url for AddPackageFile
-	 * @param applicationVersionId 
-	 * @param filepath 
-	 * @param packageId 
+	 * @param applicationVersionId Unique identifier of the application version. Application version IDs are unique across all applications associated with a developer account.
+	 * @param filepath The file location to which to add the package file.
+	 * @param packageId Unique identifier of the package.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl addPackageFileUrl(Integer applicationVersionId, String filepath, Integer packageId)
@@ -161,9 +161,9 @@ public class ApplicationVersionUrl
 
 	/**
 	 * Get Resource Url for UpdatePackageFile
-	 * @param applicationVersionId 
-	 * @param filepath 
-	 * @param packageId 
+	 * @param applicationVersionId Unique identifier of the application version. Application version IDs are unique across all applications associated with a developer account.
+	 * @param filepath The location path and name that identifies the package file to update.
+	 * @param packageId The unique identifier of the package.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl updatePackageFileUrl(Integer applicationVersionId, String filepath, Integer packageId)
@@ -177,9 +177,9 @@ public class ApplicationVersionUrl
 
 	/**
 	 * Get Resource Url for DeletePackageFile
-	 * @param applicationVersionId 
-	 * @param filepath 
-	 * @param packageId 
+	 * @param applicationVersionId Unique identifier of the application version.
+	 * @param filepath The file path and name of the file location to delete from the package.
+	 * @param packageId Unique identifier of the package.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl deletePackageFileUrl(Integer applicationVersionId, String filepath, Integer packageId)

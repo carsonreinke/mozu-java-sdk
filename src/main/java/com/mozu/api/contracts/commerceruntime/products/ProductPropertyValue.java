@@ -7,13 +7,21 @@
 package com.mozu.api.contracts.commerceruntime.products;
 
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 
+/**
+ *	Values of a product property attribute.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class ProductPropertyValue implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Property string value in the language specified in the locale code for the product storefront.
+	 */
 	protected String stringValue;
 
 	public String getStringValue() {
@@ -24,6 +32,9 @@ public class ProductPropertyValue implements Serializable
 		this.stringValue = stringValue;
 	}
 
+	/**
+	 * Value of the product property.
+	 */
 	protected Object value;
 
 	public Object getValue() {

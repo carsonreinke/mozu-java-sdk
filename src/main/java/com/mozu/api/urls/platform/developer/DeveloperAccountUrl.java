@@ -15,7 +15,7 @@ public class DeveloperAccountUrl
 
 	/**
 	 * Get Resource Url for GetDeveloperAccount
-	 * @param accountId 
+	 * @param accountId Unique identifier of the developer account to retrieve.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl getDeveloperAccountUrl(Integer accountId)

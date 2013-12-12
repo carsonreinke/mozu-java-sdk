@@ -8,14 +8,22 @@ package com.mozu.api.contracts.commerceruntime.orders;
 
 import java.util.List;
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 import com.mozu.api.contracts.core.AuditInfo;
 
+/**
+ *	Properties of an attribute applied to an order.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class OrderAttribute implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Unique identifier of the order attribute definition.
+	 */
 	protected Integer attributeDefinitionId;
 
 	public Integer getAttributeDefinitionId() {
@@ -26,6 +34,9 @@ public class OrderAttribute implements Serializable
 		this.attributeDefinitionId = attributeDefinitionId;
 	}
 
+	/**
+	 * The fully qualified name of the attribute, which is a user defined attribute identifier.
+	 */
 	protected String fullyQualifiedName;
 
 	public String getFullyQualifiedName() {
@@ -36,6 +47,9 @@ public class OrderAttribute implements Serializable
 		this.fullyQualifiedName = fullyQualifiedName;
 	}
 
+	/**
+	 * The values defined for the order attribute.
+	 */
 	protected List<Object> values;
 	public List<Object> getValues() {
 		return this.values;
@@ -44,6 +58,9 @@ public class OrderAttribute implements Serializable
 		this.values = values;
 	}
 
+	/**
+	 * Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
+	 */
 	protected AuditInfo auditInfo;
 
 	public AuditInfo getAuditInfo() {

@@ -7,8 +7,13 @@
 package com.mozu.api.contracts.productadmin;
 
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 
+/**
+ *	Properties of a master catalog associated with a tenant.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class MasterCatalog implements Serializable
 {
 	// Default Serial Version UID
@@ -24,6 +29,9 @@ public class MasterCatalog implements Serializable
 		this.id = id;
 	}
 
+	/**
+	 * The name of the master catalog.
+	 */
 	protected String name;
 
 	public String getName() {
@@ -34,6 +42,9 @@ public class MasterCatalog implements Serializable
 		this.name = name;
 	}
 
+	/**
+	 * The mode this master catalog uses for product updates. Possible values are "Pending" which saves product updates as a draft until they are published, and "Live" which publishes all product updates immediately.
+	 */
 	protected String productPublishingMode;
 
 	public String getProductPublishingMode() {

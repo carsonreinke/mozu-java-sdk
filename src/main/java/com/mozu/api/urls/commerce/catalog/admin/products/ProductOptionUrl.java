@@ -15,7 +15,7 @@ public class ProductOptionUrl
 
 	/**
 	 * Get Resource Url for GetOptions
-	 * @param productCode 
+	 * @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl getOptionsUrl(String productCode)
@@ -27,8 +27,8 @@ public class ProductOptionUrl
 
 	/**
 	 * Get Resource Url for GetOption
-	 * @param attributeFQN 
-	 * @param productCode 
+	 * @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
+	 * @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl getOptionUrl(String attributeFQN, String productCode)
@@ -41,7 +41,7 @@ public class ProductOptionUrl
 
 	/**
 	 * Get Resource Url for AddOption
-	 * @param productCode 
+	 * @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl addOptionUrl(String productCode)
@@ -53,8 +53,8 @@ public class ProductOptionUrl
 
 	/**
 	 * Get Resource Url for UpdateOption
-	 * @param attributeFQN 
-	 * @param productCode 
+	 * @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
+	 * @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl updateOptionUrl(String attributeFQN, String productCode)
@@ -67,8 +67,8 @@ public class ProductOptionUrl
 
 	/**
 	 * Get Resource Url for DeleteOption
-	 * @param attributeFQN 
-	 * @param productCode 
+	 * @param attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
+	 * @param productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl deleteOptionUrl(String attributeFQN, String productCode)

@@ -7,13 +7,21 @@
 package com.mozu.api.contracts.reference;
 
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 
+/**
+ *	The field property that describes the type of information pertaining to how the field renders and functions.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class FieldData implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Code of the field.
+	 */
 	protected String code;
 
 	public String getCode() {
@@ -24,6 +32,9 @@ public class FieldData implements Serializable
 		this.code = code;
 	}
 
+	/**
+	 * The field value.
+	 */
 	protected String value;
 
 	public String getValue() {

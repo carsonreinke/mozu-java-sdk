@@ -7,13 +7,21 @@
 package com.mozu.api.contracts.location;
 
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 
+/**
+ *	Properties of a type of physical location, such as warehouse or kiosk. Location types enable tenants to group similar locations for filtering and location usage type definition.
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class LocationType implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * User-defined identifying code for the location type.
+	 */
 	protected String code;
 
 	public String getCode() {
@@ -24,6 +32,9 @@ public class LocationType implements Serializable
 		this.code = code;
 	}
 
+	/**
+	 * The name of the location type.
+	 */
 	protected String name;
 
 	public String getName() {
