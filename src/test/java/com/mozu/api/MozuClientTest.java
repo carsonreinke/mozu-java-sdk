@@ -1,27 +1,35 @@
 package com.mozu.api;
 
-import java.io.InputStream;
-
 import static org.junit.Assert.*;
+
+import java.io.InputStream;
 
 import org.junit.Test;
 
+import com.mozu.api.contracts.content.Document;
+import com.mozu.api.contracts.content.DocumentCollection;
 import com.mozu.api.resources.content.documentlists.DocumentResource;
-import com.mozu.api.resources.platform.developer.ApplicationVersionResource;
-import com.mozu.api.security.AuthenticationProfile;
 import com.mozu.api.security.AuthenticationScope;
 import com.mozu.api.security.SecurityTestBase;
-import com.mozu.api.utils.ConfigProperties;
 
 public class MozuClientTest extends SecurityTestBase {
     @Test
     public void MozuClientInputStreamTest () throws Exception {
-        AuthenticationProfile authenticationProfile = authenticateUser(AuthenticationScope.Tenant, USER_TENANT);
+        authenticateUser(AuthenticationScope.Tenant, USER_TENANT);
         ApiContext apiContext = new MozuApiContext(TENANT_ID, null, 1, 1);
         
         DocumentResource resource = new DocumentResource(apiContext);
+        
+        DocumentCollection docs = resource.getDocuments(DataViewMode.Live, "files");
+        Document document = null;
+        
+        if (docs.getTotalCount() > 0) {
+            document = docs.getItems().get(0);
+        } else {
+            fail("You must add files to the file manager in Site Builder to get this test to pass.");
+        }
 
-        InputStream inputStream = resource.getDocumentContent(DataViewMode.Live, "files", ConfigProperties.getStringProperty("documentTest.id"), null);
+        InputStream inputStream = resource.getDocumentContent(DataViewMode.Live, "files", document.getId(), null);
 
         assertNotNull(inputStream);
         
