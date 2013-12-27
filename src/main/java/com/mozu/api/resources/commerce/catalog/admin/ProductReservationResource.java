@@ -104,7 +104,7 @@ public class ProductReservationResource {
 	 */
 	public List<com.mozu.api.contracts.productadmin.ProductReservation> addProductReservations(com.mozu.api.DataViewMode dataViewMode, List<com.mozu.api.contracts.productadmin.ProductReservation> productReservations) throws Exception
 	{
-		return addProductReservations(dataViewMode,  productReservations,  false, null);
+		return addProductReservations(dataViewMode,  productReservations,  null, null);
 	}
 
 	/**
@@ -165,7 +165,7 @@ public class ProductReservationResource {
 	 */
 	public List<com.mozu.api.contracts.productadmin.ProductReservation> updateProductReservations(com.mozu.api.DataViewMode dataViewMode, List<com.mozu.api.contracts.productadmin.ProductReservation> productReservations) throws Exception
 	{
-		return updateProductReservations(dataViewMode,  productReservations,  false, null);
+		return updateProductReservations(dataViewMode,  productReservations,  null, null);
 	}
 
 	/**

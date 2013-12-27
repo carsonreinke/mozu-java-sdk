@@ -121,7 +121,7 @@ public class OrderResource {
 	 */
 	public com.mozu.api.contracts.commerceruntime.orders.Order getOrder(String orderId) throws Exception
 	{
-		return getOrder( orderId,  false, null);
+		return getOrder( orderId,  null, null);
 	}
 
 	/**

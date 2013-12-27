@@ -137,7 +137,7 @@ public class OrderClient {
 	 */
 	public static MozuClient<com.mozu.api.contracts.commerceruntime.orders.Order> getOrderClient(String orderId) throws Exception
 	{
-		return getOrderClient( orderId,  false, null);
+		return getOrderClient( orderId,  null, null);
 	}
 
 	/**

@@ -26,17 +26,6 @@ public class Return implements Serializable
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * The actions a user can perform for the return at this time.
-	 */
-	protected List<String> availableActions;
-	public List<String> getAvailableActions() {
-		return this.availableActions;
-	}
-	public void setAvailableActions(List<String> availableActions) {
-		this.availableActions = availableActions;
-	}
-
-	/**
 	 * The code that identifies the channel associated with the return, which is typically the same channel associated with the order.
 	 */
 	protected String channelCode;
@@ -47,6 +36,17 @@ public class Return implements Serializable
 
 	public void setChannelCode(String channelCode) {
 		this.channelCode = channelCode;
+	}
+
+	/**
+	 * The actions a user can perform for the return at this time.
+	 */
+	protected List<String> availableActions;
+	public List<String> getAvailableActions() {
+		return this.availableActions;
+	}
+	public void setAvailableActions(List<String> availableActions) {
+		this.availableActions = availableActions;
 	}
 
 	/**

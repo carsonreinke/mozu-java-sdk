@@ -42,7 +42,7 @@ public class OrderItemResource {
 	 */
 	public com.mozu.api.contracts.commerceruntime.orders.OrderItem getOrderItem(String orderId, String orderItemId) throws Exception
 	{
-		return getOrderItem( orderId,  orderItemId,  false, null);
+		return getOrderItem( orderId,  orderItemId,  null, null);
 	}
 
 	/**
@@ -80,7 +80,7 @@ public class OrderItemResource {
 	 */
 	public com.mozu.api.contracts.commerceruntime.orders.OrderItemCollection getOrderItems(String orderId) throws Exception
 	{
-		return getOrderItems( orderId,  false, null);
+		return getOrderItems( orderId,  null, null);
 	}
 
 	/**
@@ -119,7 +119,7 @@ public class OrderItemResource {
 	 */
 	public com.mozu.api.contracts.commerceruntime.orders.Order createOrderItem(com.mozu.api.contracts.commerceruntime.orders.OrderItem orderItem, String orderId) throws Exception
 	{
-		return createOrderItem( orderItem,  orderId,  null,  null,  false, null);
+		return createOrderItem( orderItem,  orderId,  null,  null,  null, null);
 	}
 
 	/**

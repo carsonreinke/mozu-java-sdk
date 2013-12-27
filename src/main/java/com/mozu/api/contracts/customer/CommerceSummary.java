@@ -46,6 +46,16 @@ public class CommerceSummary implements Serializable
 		this.orderCount = orderCount;
 	}
 
+	protected Integer visitsCount;
+
+	public Integer getVisitsCount() {
+		return this.visitsCount;
+	}
+
+	public void setVisitsCount(Integer visitsCount) {
+		this.visitsCount = visitsCount;
+	}
+
 	/**
 	 * The number of wish lists associated with a customer account. This number represents the total number of a shopper's wish lists across all sites associated with a tenant.
 	 */

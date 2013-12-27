@@ -21,19 +21,6 @@ public class PaymentInteraction implements Serializable
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * The status of this payment interaction. Possible values are New, Authorized, Captured, Declined, Failed, Voided, Credited, CheckRequested, or RolledBack.
-	 */
-	protected String status;
-
-	public String getStatus() {
-		return this.status;
-	}
-
-	public void setStatus(String status) {
-		this.status = status;
-	}
-
-	/**
 	 * If applicable, the total monetary amount associated with this payment interaction.
 	 */
 	protected Double amount;
@@ -278,6 +265,19 @@ public class PaymentInteraction implements Serializable
 
 	public void setPaymentTransactionInteractionIdReference(Integer paymentTransactionInteractionIdReference) {
 		this.paymentTransactionInteractionIdReference = paymentTransactionInteractionIdReference;
+	}
+
+	/**
+	 * The status of this payment interaction. Possible values are New, Authorized, Captured, Declined, Failed, Voided, Credited, CheckRequested, or RolledBack.
+	 */
+	protected String status;
+
+	public String getStatus() {
+		return this.status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
 	}
 
 	/**

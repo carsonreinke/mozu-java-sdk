@@ -127,7 +127,7 @@ public class ProductClient {
 	 */
 	public static MozuClient<com.mozu.api.contracts.productruntime.Product> getProductClient(String productCode) throws Exception
 	{
-		return getProductClient( productCode,  null,  false,  false, null);
+		return getProductClient( productCode,  null,  null,  null, null);
 	}
 
 	/**
@@ -177,7 +177,7 @@ public class ProductClient {
 	 */
 	public static MozuClient<com.mozu.api.contracts.productruntime.ConfiguredProduct> configuredProductClient(com.mozu.api.contracts.productruntime.ProductOptionSelections productOptionSelections, String productCode) throws Exception
 	{
-		return configuredProductClient( productOptionSelections,  productCode,  false,  false, null);
+		return configuredProductClient( productOptionSelections,  productCode,  null,  null, null);
 	}
 
 	/**
@@ -229,7 +229,7 @@ public class ProductClient {
 	 */
 	public static MozuClient<com.mozu.api.contracts.productruntime.ProductValidationSummary> validateProductClient(com.mozu.api.contracts.productruntime.ProductOptionSelections productOptionSelections, String productCode) throws Exception
 	{
-		return validateProductClient( productOptionSelections,  productCode,  false, null);
+		return validateProductClient( productOptionSelections,  productCode,  null, null);
 	}
 
 	/**

@@ -41,7 +41,7 @@ public class FulfillmentInfoResource {
 	 */
 	public com.mozu.api.contracts.commerceruntime.fulfillment.FulfillmentInfo getFulfillmentInfo(String orderId) throws Exception
 	{
-		return getFulfillmentInfo( orderId,  false, null);
+		return getFulfillmentInfo( orderId,  null, null);
 	}
 
 	/**

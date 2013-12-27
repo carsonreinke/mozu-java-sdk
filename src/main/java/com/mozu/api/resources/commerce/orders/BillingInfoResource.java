@@ -41,7 +41,7 @@ public class BillingInfoResource {
 	 */
 	public com.mozu.api.contracts.commerceruntime.payments.BillingInfo getBillingInfo(String orderId) throws Exception
 	{
-		return getBillingInfo( orderId,  false, null);
+		return getBillingInfo( orderId,  null, null);
 	}
 
 	/**

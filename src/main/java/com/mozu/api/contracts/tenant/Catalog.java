@@ -19,6 +19,19 @@ public class Catalog implements Serializable
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * If true, the catalog has been deleted.
+	 */
+	protected Boolean isDeleted;
+
+	public Boolean getIsDeleted() {
+		return this.isDeleted;
+	}
+
+	public void setIsDeleted(Boolean isDeleted) {
+		this.isDeleted = isDeleted;
+	}
+
 	protected Date createDate;
 
 	public Date getCreateDate() {
@@ -76,19 +89,6 @@ public class Catalog implements Serializable
 
 	public void setId(Integer id) {
 		this.id = id;
-	}
-
-	/**
-	 * If true, the catalog has been deleted.
-	 */
-	protected Boolean isDeleted;
-
-	public Boolean getIsDeleted() {
-		return this.isDeleted;
-	}
-
-	public void setIsDeleted(Boolean isDeleted) {
-		this.isDeleted = isDeleted;
 	}
 
 	protected Integer masterCatalogId;

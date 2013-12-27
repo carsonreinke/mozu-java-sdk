@@ -34,7 +34,7 @@ public class FulfillmentInfoClient {
 	 */
 	public static MozuClient<com.mozu.api.contracts.commerceruntime.fulfillment.FulfillmentInfo> getFulfillmentInfoClient(String orderId) throws Exception
 	{
-		return getFulfillmentInfoClient( orderId,  false, null);
+		return getFulfillmentInfoClient( orderId,  null, null);
 	}
 
 	/**

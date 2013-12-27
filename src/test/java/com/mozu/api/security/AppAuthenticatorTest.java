@@ -54,7 +54,7 @@ public class AppAuthenticatorTest extends SecurityTestBase {
 		AppAuthenticator.initialize();
 
 		TenantResource tenantsApi = new TenantResource();
-		Tenant tenant = tenantsApi.getTenant(TENANT_ID,null);
+		Tenant tenant = tenantsApi.getTenant(5812,null);
 		assertNotNull(tenant);
 
 	}

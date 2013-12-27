@@ -33,7 +33,7 @@ public class ProductClient {
 	 */
 	public static MozuClient<com.mozu.api.contracts.productadmin.ProductCollection> getProductsClient(com.mozu.api.DataViewMode dataViewMode) throws Exception
 	{
-		return getProductsClient(dataViewMode,  null,  null,  null,  null,  null,  null,  false, null);
+		return getProductsClient(dataViewMode,  null,  null,  null,  null,  null,  null,  null, null);
 	}
 
 	/**

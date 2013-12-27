@@ -115,7 +115,7 @@ public class ProductReservationClient {
 	 */
 	public static MozuClient<List<com.mozu.api.contracts.productadmin.ProductReservation>> addProductReservationsClient(com.mozu.api.DataViewMode dataViewMode, List<com.mozu.api.contracts.productadmin.ProductReservation> productReservations) throws Exception
 	{
-		return addProductReservationsClient(dataViewMode,  productReservations,  false, null);
+		return addProductReservationsClient(dataViewMode,  productReservations,  null, null);
 	}
 
 	/**
@@ -195,7 +195,7 @@ public class ProductReservationClient {
 	 */
 	public static MozuClient<List<com.mozu.api.contracts.productadmin.ProductReservation>> updateProductReservationsClient(com.mozu.api.DataViewMode dataViewMode, List<com.mozu.api.contracts.productadmin.ProductReservation> productReservations) throws Exception
 	{
-		return updateProductReservationsClient(dataViewMode,  productReservations,  false, null);
+		return updateProductReservationsClient(dataViewMode,  productReservations,  null, null);
 	}
 
 	/**

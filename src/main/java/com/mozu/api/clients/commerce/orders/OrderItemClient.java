@@ -35,7 +35,7 @@ public class OrderItemClient {
 	 */
 	public static MozuClient<com.mozu.api.contracts.commerceruntime.orders.OrderItem> getOrderItemClient(String orderId, String orderItemId) throws Exception
 	{
-		return getOrderItemClient( orderId,  orderItemId,  false, null);
+		return getOrderItemClient( orderId,  orderItemId,  null, null);
 	}
 
 	/**
@@ -82,7 +82,7 @@ public class OrderItemClient {
 	 */
 	public static MozuClient<com.mozu.api.contracts.commerceruntime.orders.OrderItemCollection> getOrderItemsClient(String orderId) throws Exception
 	{
-		return getOrderItemsClient( orderId,  false, null);
+		return getOrderItemsClient( orderId,  null, null);
 	}
 
 	/**
@@ -130,7 +130,7 @@ public class OrderItemClient {
 	 */
 	public static MozuClient<com.mozu.api.contracts.commerceruntime.orders.Order> createOrderItemClient(com.mozu.api.contracts.commerceruntime.orders.OrderItem orderItem, String orderId) throws Exception
 	{
-		return createOrderItemClient( orderItem,  orderId,  null,  null,  false, null);
+		return createOrderItemClient( orderItem,  orderId,  null,  null,  null, null);
 	}
 
 	/**

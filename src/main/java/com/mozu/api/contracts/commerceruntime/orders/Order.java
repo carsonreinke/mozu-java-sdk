@@ -46,6 +46,26 @@ public class Order implements Serializable
 		this.acceptedDate = acceptedDate;
 	}
 
+	protected Double amountAvailableForRefund;
+
+	public Double getAmountAvailableForRefund() {
+		return this.amountAvailableForRefund;
+	}
+
+	public void setAmountAvailableForRefund(Double amountAvailableForRefund) {
+		this.amountAvailableForRefund = amountAvailableForRefund;
+	}
+
+	protected Double amountRemainingForPayment;
+
+	public Double getAmountRemainingForPayment() {
+		return this.amountRemainingForPayment;
+	}
+
+	public void setAmountRemainingForPayment(Double amountRemainingForPayment) {
+		this.amountRemainingForPayment = amountRemainingForPayment;
+	}
+
 	/**
 	 * The available order, payment, and shipment actions a user can perform for the order.
 	 */
@@ -346,6 +366,16 @@ public class Order implements Serializable
 
 	public void setIsDraft(Boolean isDraft) {
 		this.isDraft = isDraft;
+	}
+
+	protected Boolean isEligibleForReturns;
+
+	public Boolean getIsEligibleForReturns() {
+		return this.isEligibleForReturns;
+	}
+
+	public void setIsEligibleForReturns(Boolean isEligibleForReturns) {
+		this.isEligibleForReturns = isEligibleForReturns;
 	}
 
 	/**

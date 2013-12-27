@@ -49,6 +49,16 @@ public class Payment implements Serializable
 		this.amountCredited = amountCredited;
 	}
 
+	protected Double amountRequested;
+
+	public Double getAmountRequested() {
+		return this.amountRequested;
+	}
+
+	public void setAmountRequested(Double amountRequested) {
+		this.amountRequested = amountRequested;
+	}
+
 	/**
 	 * The actions a user can perform for a payment at this time.
 	 */

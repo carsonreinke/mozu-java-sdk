@@ -34,7 +34,7 @@ public class FacetClient {
 	 */
 	public static MozuClient<com.mozu.api.contracts.productadmin.Facet> getFacetClient(com.mozu.api.DataViewMode dataViewMode, Integer facetId) throws Exception
 	{
-		return getFacetClient(dataViewMode,  facetId,  false, null);
+		return getFacetClient(dataViewMode,  facetId,  null, null);
 	}
 
 	/**
@@ -81,7 +81,7 @@ public class FacetClient {
 	 */
 	public static MozuClient<com.mozu.api.contracts.productadmin.FacetSet> getFacetCategoryListClient(com.mozu.api.DataViewMode dataViewMode, Integer categoryId) throws Exception
 	{
-		return getFacetCategoryListClient(dataViewMode,  categoryId,  false,  false, null);
+		return getFacetCategoryListClient(dataViewMode,  categoryId,  null,  null, null);
 	}
 
 	/**
