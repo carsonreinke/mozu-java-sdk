@@ -142,7 +142,7 @@ public class CategoryResource {
 	 */
 	public com.mozu.api.contracts.productadmin.Category updateCategory(com.mozu.api.DataViewMode dataViewMode, com.mozu.api.contracts.productadmin.Category category, Integer categoryId) throws Exception
 	{
-		return updateCategory(dataViewMode,  category,  categoryId,  false, null);
+		return updateCategory(dataViewMode,  category,  categoryId,  null, null);
 	}
 
 	/**
@@ -180,7 +180,7 @@ public class CategoryResource {
 	 */
 	public void deleteCategoryById(com.mozu.api.DataViewMode dataViewMode, Integer categoryId) throws Exception
 	{
-		deleteCategoryById(dataViewMode,  categoryId,  false, null);
+		deleteCategoryById(dataViewMode,  categoryId,  null, null);
 	}
 
 	/**

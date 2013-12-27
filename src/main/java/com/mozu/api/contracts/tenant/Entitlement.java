@@ -19,6 +19,105 @@ public class Entitlement implements Serializable
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
+	protected Date effectiveEndDate;
+
+	public Date getEffectiveEndDate() {
+		return this.effectiveEndDate;
+	}
+
+	public void setEffectiveEndDate(Date effectiveEndDate) {
+		this.effectiveEndDate = effectiveEndDate;
+	}
+
+	protected Date effectiveStartDate;
+
+	public Date getEffectiveStartDate() {
+		return this.effectiveStartDate;
+	}
+
+	public void setEffectiveStartDate(Date effectiveStartDate) {
+		this.effectiveStartDate = effectiveStartDate;
+	}
+
+	protected String heroImage;
+
+	public String getHeroImage() {
+		return this.heroImage;
+	}
+
+	public void setHeroImage(String heroImage) {
+		this.heroImage = heroImage;
+	}
+
+	/**
+	 * Identifier of the entity.
+	 */
+	protected Integer id;
+
+	public Integer getId() {
+		return this.id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	protected String licenseType;
+
+	public String getLicenseType() {
+		return this.licenseType;
+	}
+
+	public void setLicenseType(String licenseType) {
+		this.licenseType = licenseType;
+	}
+
+	/**
+	 * When the document was published. System-supplied and read-only.
+	 */
+	protected Date publishedDate;
+
+	public Date getPublishedDate() {
+		return this.publishedDate;
+	}
+
+	public void setPublishedDate(Date publishedDate) {
+		this.publishedDate = publishedDate;
+	}
+
+	protected Integer siteId;
+
+	public Integer getSiteId() {
+		return this.siteId;
+	}
+
+	public void setSiteId(Integer siteId) {
+		this.siteId = siteId;
+	}
+
+	protected String status;
+
+	public String getStatus() {
+		return this.status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	/**
+	 * Unique identifier of the Mozu tenant.
+	 */
+	protected Integer tenantId;
+
+	public Integer getTenantId() {
+		return this.tenantId;
+	}
+
+	public void setTenantId(Integer tenantId) {
+		this.tenantId = tenantId;
+	}
+
 	/**
 	 * Date and time when the entity was last updated, represented in UTC Date/Time.
 	 */
@@ -126,105 +225,6 @@ public class Entitlement implements Serializable
 
 	public void setDeveloperAccountName(String developerAccountName) {
 		this.developerAccountName = developerAccountName;
-	}
-
-	protected Date effectiveEndDate;
-
-	public Date getEffectiveEndDate() {
-		return this.effectiveEndDate;
-	}
-
-	public void setEffectiveEndDate(Date effectiveEndDate) {
-		this.effectiveEndDate = effectiveEndDate;
-	}
-
-	protected Date effectiveStartDate;
-
-	public Date getEffectiveStartDate() {
-		return this.effectiveStartDate;
-	}
-
-	public void setEffectiveStartDate(Date effectiveStartDate) {
-		this.effectiveStartDate = effectiveStartDate;
-	}
-
-	protected String heroImage;
-
-	public String getHeroImage() {
-		return this.heroImage;
-	}
-
-	public void setHeroImage(String heroImage) {
-		this.heroImage = heroImage;
-	}
-
-	/**
-	 * Identifier of the entity.
-	 */
-	protected Integer id;
-
-	public Integer getId() {
-		return this.id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	protected String licenseType;
-
-	public String getLicenseType() {
-		return this.licenseType;
-	}
-
-	public void setLicenseType(String licenseType) {
-		this.licenseType = licenseType;
-	}
-
-	/**
-	 * When the document was published. System-supplied and read-only.
-	 */
-	protected Date publishedDate;
-
-	public Date getPublishedDate() {
-		return this.publishedDate;
-	}
-
-	public void setPublishedDate(Date publishedDate) {
-		this.publishedDate = publishedDate;
-	}
-
-	protected Integer siteId;
-
-	public Integer getSiteId() {
-		return this.siteId;
-	}
-
-	public void setSiteId(Integer siteId) {
-		this.siteId = siteId;
-	}
-
-	protected String status;
-
-	public String getStatus() {
-		return this.status;
-	}
-
-	public void setStatus(String status) {
-		this.status = status;
-	}
-
-	/**
-	 * Unique identifier of the Mozu tenant.
-	 */
-	protected Integer tenantId;
-
-	public Integer getTenantId() {
-		return this.tenantId;
-	}
-
-	public void setTenantId(Integer tenantId) {
-		this.tenantId = tenantId;
 	}
 
 }

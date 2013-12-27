@@ -24,19 +24,6 @@ public class Discount implements Serializable
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * Current status of the product discount. Possible values are "Active", "Scheduled", or "Expired".
-	 */
-	protected String status;
-
-	public String getStatus() {
-		return this.status;
-	}
-
-	public void setStatus(String status) {
-		this.status = status;
-	}
-
-	/**
 	 * The integer amount of the discount. For example, an entry of "10" could represent a discount of $10.00 or a discount of 10%, depending on the type.
 	 */
 	protected Double amount;
@@ -99,6 +86,19 @@ public class Discount implements Serializable
 
 	public void setScope(String scope) {
 		this.scope = scope;
+	}
+
+	/**
+	 * Current status of the product discount. Possible values are "Active", "Scheduled", or "Expired".
+	 */
+	protected String status;
+
+	public String getStatus() {
+		return this.status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
 	}
 
 	/**

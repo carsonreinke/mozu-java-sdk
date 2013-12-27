@@ -93,7 +93,7 @@ public class OrderAttributeClient {
 	 */
 	public static MozuClient<List<com.mozu.api.contracts.commerceruntime.orders.OrderAttribute>> updateOrderAttributesClient(List<com.mozu.api.contracts.commerceruntime.orders.OrderAttribute> orderAttributes, String orderId) throws Exception
 	{
-		return updateOrderAttributesClient( orderAttributes,  orderId,  false, null);
+		return updateOrderAttributesClient( orderAttributes,  orderId,  null, null);
 	}
 
 	/**

@@ -116,7 +116,7 @@ public class ProductResource {
 	 */
 	public com.mozu.api.contracts.productruntime.Product getProduct(String productCode) throws Exception
 	{
-		return getProduct( productCode,  null,  false,  false, null);
+		return getProduct( productCode,  null,  null,  null, null);
 	}
 
 	/**
@@ -157,7 +157,7 @@ public class ProductResource {
 	 */
 	public com.mozu.api.contracts.productruntime.ConfiguredProduct configuredProduct(com.mozu.api.contracts.productruntime.ProductOptionSelections productOptionSelections, String productCode) throws Exception
 	{
-		return configuredProduct( productOptionSelections,  productCode,  false,  false, null);
+		return configuredProduct( productOptionSelections,  productCode,  null,  null, null);
 	}
 
 	/**
@@ -199,7 +199,7 @@ public class ProductResource {
 	 */
 	public com.mozu.api.contracts.productruntime.ProductValidationSummary validateProduct(com.mozu.api.contracts.productruntime.ProductOptionSelections productOptionSelections, String productCode) throws Exception
 	{
-		return validateProduct( productOptionSelections,  productCode,  false, null);
+		return validateProduct( productOptionSelections,  productCode,  null, null);
 	}
 
 	/**

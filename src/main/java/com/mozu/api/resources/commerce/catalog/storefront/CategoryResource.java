@@ -79,7 +79,7 @@ public class CategoryResource {
 	 */
 	public com.mozu.api.contracts.productruntime.Category getCategory(Integer categoryId) throws Exception
 	{
-		return getCategory( categoryId,  false, null);
+		return getCategory( categoryId,  null, null);
 	}
 
 	/**

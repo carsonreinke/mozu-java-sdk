@@ -81,7 +81,7 @@ public class CategoryClient {
 	 */
 	public static MozuClient<com.mozu.api.contracts.productruntime.Category> getCategoryClient(Integer categoryId) throws Exception
 	{
-		return getCategoryClient( categoryId,  false, null);
+		return getCategoryClient( categoryId,  null, null);
 	}
 
 	/**

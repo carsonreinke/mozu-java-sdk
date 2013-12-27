@@ -41,7 +41,7 @@ public class FacetResource {
 	 */
 	public com.mozu.api.contracts.productadmin.Facet getFacet(com.mozu.api.DataViewMode dataViewMode, Integer facetId) throws Exception
 	{
-		return getFacet(dataViewMode,  facetId,  false, null);
+		return getFacet(dataViewMode,  facetId,  null, null);
 	}
 
 	/**
@@ -78,7 +78,7 @@ public class FacetResource {
 	 */
 	public com.mozu.api.contracts.productadmin.FacetSet getFacetCategoryList(com.mozu.api.DataViewMode dataViewMode, Integer categoryId) throws Exception
 	{
-		return getFacetCategoryList(dataViewMode,  categoryId,  false,  false, null);
+		return getFacetCategoryList(dataViewMode,  categoryId,  null,  null, null);
 	}
 
 	/**

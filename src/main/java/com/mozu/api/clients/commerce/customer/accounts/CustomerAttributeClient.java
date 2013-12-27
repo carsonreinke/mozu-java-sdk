@@ -143,7 +143,7 @@ public class CustomerAttributeClient {
 	 */
 	public static MozuClient<com.mozu.api.contracts.customer.CustomerAttribute> updateAccountAttributeClient(com.mozu.api.contracts.customer.CustomerAttribute customerAccountAttribute, Integer accountId) throws Exception
 	{
-		return updateAccountAttributeClient( customerAccountAttribute,  accountId,  false, null);
+		return updateAccountAttributeClient( customerAccountAttribute,  accountId,  null, null);
 	}
 
 	/**

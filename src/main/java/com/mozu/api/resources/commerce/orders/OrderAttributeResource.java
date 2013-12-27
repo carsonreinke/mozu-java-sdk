@@ -85,7 +85,7 @@ public class OrderAttributeResource {
 	 */
 	public List<com.mozu.api.contracts.commerceruntime.orders.OrderAttribute> updateOrderAttributes(List<com.mozu.api.contracts.commerceruntime.orders.OrderAttribute> orderAttributes, String orderId) throws Exception
 	{
-		return updateOrderAttributes( orderAttributes,  orderId,  false, null);
+		return updateOrderAttributes( orderAttributes,  orderId,  null, null);
 	}
 
 	/**

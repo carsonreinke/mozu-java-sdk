@@ -34,7 +34,7 @@ public class BillingInfoClient {
 	 */
 	public static MozuClient<com.mozu.api.contracts.commerceruntime.payments.BillingInfo> getBillingInfoClient(String orderId) throws Exception
 	{
-		return getBillingInfoClient( orderId,  false, null);
+		return getBillingInfoClient( orderId,  null, null);
 	}
 
 	/**

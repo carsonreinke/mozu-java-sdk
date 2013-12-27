@@ -20,19 +20,6 @@ public class ProductAttribute implements Serializable
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * The data type of the attribute. There are four valid data types: "Bool", "DateTime", "Number", "String"
-	 */
-	protected String dataType;
-
-	public String getDataType() {
-		return this.dataType;
-	}
-
-	public void setDataType(String dataType) {
-		this.dataType = dataType;
-	}
-
-	/**
 	 * The description of this product attribute.
 	 */
 	protected String description;
@@ -43,6 +30,19 @@ public class ProductAttribute implements Serializable
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	/**
+	 * The data type of the attribute. There are four valid data types: "Bool", "DateTime", "Number", "String"
+	 */
+	protected String dataType;
+
+	public String getDataType() {
+		return this.dataType;
+	}
+
+	public void setDataType(String dataType) {
+		this.dataType = dataType;
 	}
 
 	/**

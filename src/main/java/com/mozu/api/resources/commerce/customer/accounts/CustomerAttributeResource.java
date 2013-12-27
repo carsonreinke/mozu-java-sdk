@@ -126,7 +126,7 @@ public class CustomerAttributeResource {
 	 */
 	public com.mozu.api.contracts.customer.CustomerAttribute updateAccountAttribute(com.mozu.api.contracts.customer.CustomerAttribute customerAccountAttribute, Integer accountId) throws Exception
 	{
-		return updateAccountAttribute( customerAccountAttribute,  accountId,  false, null);
+		return updateAccountAttribute( customerAccountAttribute,  accountId,  null, null);
 	}
 
 	/**

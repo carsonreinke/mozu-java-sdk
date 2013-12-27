@@ -22,16 +22,16 @@ public class Document implements Serializable
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * Date and time when the entity was last updated, represented in UTC Date/Time.
+	 * When the document was added to the document list. System-supplied and read-only.
 	 */
-	protected Date updateDate;
+	protected Date insertDate;
 
-	public Date getUpdateDate() {
-		return this.updateDate;
+	public Date getInsertDate() {
+		return this.insertDate;
 	}
 
-	public void setUpdateDate(Date updateDate) {
-		this.updateDate = updateDate;
+	public void setInsertDate(Date insertDate) {
+		this.insertDate = insertDate;
 	}
 
 	/**
@@ -139,19 +139,6 @@ public class Document implements Serializable
 	}
 
 	/**
-	 * When the document was added to the document list. System-supplied and read-only.
-	 */
-	protected Date insertDate;
-
-	public Date getInsertDate() {
-		return this.insertDate;
-	}
-
-	public void setInsertDate(Date insertDate) {
-		this.insertDate = insertDate;
-	}
-
-	/**
 	 * The name of the document, which is unique within its folder.
 	 */
 	protected String name;
@@ -188,6 +175,19 @@ public class Document implements Serializable
 
 	public void setPublishState(String publishState) {
 		this.publishState = publishState;
+	}
+
+	/**
+	 * Date and time when the entity was last updated, represented in UTC Date/Time.
+	 */
+	protected Date updateDate;
+
+	public Date getUpdateDate() {
+		return this.updateDate;
+	}
+
+	public void setUpdateDate(Date updateDate) {
+		this.updateDate = updateDate;
 	}
 
 	/**

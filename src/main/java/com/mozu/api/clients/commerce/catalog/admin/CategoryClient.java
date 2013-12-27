@@ -170,7 +170,7 @@ public class CategoryClient {
 	 */
 	public static MozuClient<com.mozu.api.contracts.productadmin.Category> updateCategoryClient(com.mozu.api.DataViewMode dataViewMode, com.mozu.api.contracts.productadmin.Category category, Integer categoryId) throws Exception
 	{
-		return updateCategoryClient(dataViewMode,  category,  categoryId,  false, null);
+		return updateCategoryClient(dataViewMode,  category,  categoryId,  null, null);
 	}
 
 	/**
@@ -218,7 +218,7 @@ public class CategoryClient {
 	 */
 	public static MozuClient deleteCategoryByIdClient(com.mozu.api.DataViewMode dataViewMode, Integer categoryId) throws Exception
 	{
-		return deleteCategoryByIdClient(dataViewMode,  categoryId,  false, null);
+		return deleteCategoryByIdClient(dataViewMode,  categoryId,  null, null);
 	}
 
 	/**

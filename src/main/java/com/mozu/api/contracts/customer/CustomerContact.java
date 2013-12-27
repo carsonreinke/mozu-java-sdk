@@ -23,6 +23,19 @@ public class CustomerContact implements Serializable
 	private static final long serialVersionUID = 1L;
 
 	/**
+	 * Unique identifier of the customer account.
+	 */
+	protected Integer accountId;
+
+	public Integer getAccountId() {
+		return this.accountId;
+	}
+
+	public void setAccountId(Integer accountId) {
+		this.accountId = accountId;
+	}
+
+	/**
 	 * The legal or doing business as (DBA) or tradestyle name of the business or organization. The maximum character length is 200.
 	 */
 	protected String companyOrOrganization;
@@ -108,19 +121,6 @@ public class CustomerContact implements Serializable
 
 	public void setMiddleNameOrInitial(String middleNameOrInitial) {
 		this.middleNameOrInitial = middleNameOrInitial;
-	}
-
-	/**
-	 * Unique identifier of the customer account.
-	 */
-	protected Integer accountId;
-
-	public Integer getAccountId() {
-		return this.accountId;
-	}
-
-	public void setAccountId(Integer accountId) {
-		this.accountId = accountId;
 	}
 
 	/**

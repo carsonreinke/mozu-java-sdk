@@ -40,7 +40,7 @@ public class ProductResource {
 	 */
 	public com.mozu.api.contracts.productadmin.ProductCollection getProducts(com.mozu.api.DataViewMode dataViewMode) throws Exception
 	{
-		return getProducts(dataViewMode,  null,  null,  null,  null,  null,  null,  false, null);
+		return getProducts(dataViewMode,  null,  null,  null,  null,  null,  null,  null, null);
 	}
 
 	/**

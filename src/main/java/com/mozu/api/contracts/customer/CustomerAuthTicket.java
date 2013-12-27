@@ -17,16 +17,6 @@ public class CustomerAuthTicket implements Serializable
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
-	protected String accessToken;
-
-	public String getAccessToken() {
-		return this.accessToken;
-	}
-
-	public void setAccessToken(String accessToken) {
-		this.accessToken = accessToken;
-	}
-
 	protected Date accessTokenExpiration;
 
 	public Date getAccessTokenExpiration() {
@@ -65,6 +55,16 @@ public class CustomerAuthTicket implements Serializable
 
 	public void setUserId(String userId) {
 		this.userId = userId;
+	}
+
+	protected String accessToken;
+
+	public String getAccessToken() {
+		return this.accessToken;
+	}
+
+	public void setAccessToken(String accessToken) {
+		this.accessToken = accessToken;
 	}
 
 	protected CustomerAccount customerAccount;
