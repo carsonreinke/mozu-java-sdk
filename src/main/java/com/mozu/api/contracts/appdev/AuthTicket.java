@@ -8,7 +8,7 @@ package com.mozu.api.contracts.appdev;
 
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import java.util.Date;
+import org.joda.time.DateTime;
 
 /**
  *	Properties of the authentication ticket used to authenticate applications.
@@ -35,13 +35,13 @@ public class AuthTicket implements Serializable
 	/**
 	 * Date and time the access token expires. After the access token expires, refresh the authentication ticket using the refresh koken.
 	 */
-	protected Date accessTokenExpiration;
+	protected DateTime accessTokenExpiration;
 
-	public Date getAccessTokenExpiration() {
+	public DateTime getAccessTokenExpiration() {
 		return this.accessTokenExpiration;
 	}
 
-	public void setAccessTokenExpiration(Date accessTokenExpiration) {
+	public void setAccessTokenExpiration(DateTime accessTokenExpiration) {
 		this.accessTokenExpiration = accessTokenExpiration;
 	}
 
@@ -61,13 +61,13 @@ public class AuthTicket implements Serializable
 	/**
 	 * Date and time the refresh token expires. After the refresh token expires, generate a new authentication ticket.
 	 */
-	protected Date refreshTokenExpiration;
+	protected DateTime refreshTokenExpiration;
 
-	public Date getRefreshTokenExpiration() {
+	public DateTime getRefreshTokenExpiration() {
 		return this.refreshTokenExpiration;
 	}
 
-	public void setRefreshTokenExpiration(Date refreshTokenExpiration) {
+	public void setRefreshTokenExpiration(DateTime refreshTokenExpiration) {
 		this.refreshTokenExpiration = refreshTokenExpiration;
 	}
 

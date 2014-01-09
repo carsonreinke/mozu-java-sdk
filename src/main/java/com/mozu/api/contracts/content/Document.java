@@ -9,7 +9,7 @@ package com.mozu.api.contracts.content;
 import java.util.List;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import java.util.Date;
+import org.joda.time.DateTime;
 import com.mozu.api.contracts.content.PropertyValue;
 
 /**
@@ -20,19 +20,6 @@ public class Document implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
-
-	/**
-	 * When the document was added to the document list. System-supplied and read-only.
-	 */
-	protected Date insertDate;
-
-	public Date getInsertDate() {
-		return this.insertDate;
-	}
-
-	public void setInsertDate(Date insertDate) {
-		this.insertDate = insertDate;
-	}
 
 	/**
 	 * The character length associated with the document content.
@@ -63,13 +50,13 @@ public class Document implements Serializable
 	/**
 	 * The date and time the most recent content update was made. UTC date/time. System-supplied and read-only.
 	 */
-	protected Date contentUpdateDate;
+	protected DateTime contentUpdateDate;
 
-	public Date getContentUpdateDate() {
+	public DateTime getContentUpdateDate() {
 		return this.contentUpdateDate;
 	}
 
-	public void setContentUpdateDate(Date contentUpdateDate) {
+	public void setContentUpdateDate(DateTime contentUpdateDate) {
 		this.contentUpdateDate = contentUpdateDate;
 	}
 
@@ -113,19 +100,6 @@ public class Document implements Serializable
 	}
 
 	/**
-	 * Unique identifier of the folder that contains the document.
-	 */
-	protected String folderId;
-
-	public String getFolderId() {
-		return this.folderId;
-	}
-
-	public void setFolderId(String folderId) {
-		this.folderId = folderId;
-	}
-
-	/**
 	 * Unique identifier of the document.
 	 */
 	protected String id;
@@ -139,6 +113,19 @@ public class Document implements Serializable
 	}
 
 	/**
+	 * When the document was added to the document list. System-supplied and read-only.
+	 */
+	protected DateTime insertDate;
+
+	public DateTime getInsertDate() {
+		return this.insertDate;
+	}
+
+	public void setInsertDate(DateTime insertDate) {
+		this.insertDate = insertDate;
+	}
+
+	/**
 	 * The name of the document, which is unique within its folder.
 	 */
 	protected String name;
@@ -149,19 +136,6 @@ public class Document implements Serializable
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	/**
-	 * The location of the document in the document list and folder hierarchy.
-	 */
-	protected String path;
-
-	public String getPath() {
-		return this.path;
-	}
-
-	public void setPath(String path) {
-		this.path = path;
 	}
 
 	/**
@@ -180,13 +154,13 @@ public class Document implements Serializable
 	/**
 	 * Date and time when the entity was last updated, represented in UTC Date/Time.
 	 */
-	protected Date updateDate;
+	protected DateTime updateDate;
 
-	public Date getUpdateDate() {
+	public DateTime getUpdateDate() {
 		return this.updateDate;
 	}
 
-	public void setUpdateDate(Date updateDate) {
+	public void setUpdateDate(DateTime updateDate) {
 		this.updateDate = updateDate;
 	}
 

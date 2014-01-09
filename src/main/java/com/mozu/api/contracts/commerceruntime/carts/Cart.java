@@ -9,7 +9,7 @@ package com.mozu.api.contracts.commerceruntime.carts;
 import java.util.List;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import java.util.Date;
+import org.joda.time.DateTime;
 import com.mozu.api.contracts.core.AuditInfo;
 import com.mozu.api.contracts.commerceruntime.commerce.ChangeMessage;
 import com.mozu.api.contracts.commerceruntime.fulfillment.FulfillmentInfo;
@@ -103,13 +103,13 @@ public class Cart implements Serializable
 	/**
 	 * Date in UTC Date/Time when the cart becomes inactive based on a system-calculated interval. For example, if an anonymous shopper has 14 days of inactivity, the cart is considered abandoned after that period of inactivity. System-supplied and read-only.
 	 */
-	protected Date expirationDate;
+	protected DateTime expirationDate;
 
-	public Date getExpirationDate() {
+	public DateTime getExpirationDate() {
 		return this.expirationDate;
 	}
 
-	public void setExpirationDate(Date expirationDate) {
+	public void setExpirationDate(DateTime expirationDate) {
 		this.expirationDate = expirationDate;
 	}
 
@@ -168,13 +168,13 @@ public class Cart implements Serializable
 	/**
 	 * The date in UTC Date/Time when the items in the cart were last validated against the site's product catalog. System-supplied and read-only.
 	 */
-	protected Date lastValidationDate;
+	protected DateTime lastValidationDate;
 
-	public Date getLastValidationDate() {
+	public DateTime getLastValidationDate() {
 		return this.lastValidationDate;
 	}
 
-	public void setLastValidationDate(Date lastValidationDate) {
+	public void setLastValidationDate(DateTime lastValidationDate) {
 		this.lastValidationDate = lastValidationDate;
 	}
 

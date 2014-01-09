@@ -9,7 +9,7 @@ package com.mozu.api.contracts.commerceruntime.orders;
 import java.util.List;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import java.util.Date;
+import org.joda.time.DateTime;
 import com.mozu.api.contracts.commerceruntime.orders.OrderValidationMessage;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -18,13 +18,13 @@ public class OrderValidationResult implements Serializable
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
-	protected Date createdDate;
+	protected DateTime createdDate;
 
-	public Date getCreatedDate() {
+	public DateTime getCreatedDate() {
 		return this.createdDate;
 	}
 
-	public void setCreatedDate(Date createdDate) {
+	public void setCreatedDate(DateTime createdDate) {
 		this.createdDate = createdDate;
 	}
 

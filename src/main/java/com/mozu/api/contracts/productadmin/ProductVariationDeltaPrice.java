@@ -8,7 +8,7 @@ package com.mozu.api.contracts.productadmin;
 
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import java.util.Date;
+import org.joda.time.DateTime;
 
 /**
  *	The difference between the base price for the product and this variation of the product, which can be a positive or negative decimal value. For example, if the base price for a t-shirt product is $10, but the XL variation should cost $12, the DeltaPrice value should be "2". However, if the XS variation should only cost $8, the DeltaPrice value should be "-2".

@@ -33,27 +33,26 @@ public class DocumentListClient {
 	 */
 	public static MozuClient<com.mozu.api.contracts.content.DocumentListCollection> getDocumentListsClient(com.mozu.api.DataViewMode dataViewMode) throws Exception
 	{
-		return getDocumentListsClient(dataViewMode,  null,  null,  null, null);
+		return getDocumentListsClient(dataViewMode,  null,  null, null);
 	}
 
 	/**
 	 * Retrieves a collection of document lists.
 	 * <p><pre><code>
-	 * MozuClient<com.mozu.api.contracts.content.DocumentListCollection> mozuClient=GetDocumentListsClient(dataViewMode,  pageSize,  startIndex,  sort, authTicket);
+	 * MozuClient<com.mozu.api.contracts.content.DocumentListCollection> mozuClient=GetDocumentListsClient(dataViewMode,  pageSize,  startIndex, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * DocumentListCollection documentListCollection = client.Result();
 	 * </code></pre></p>
 	 * @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
-	 * @param sort 
 	 * @param startIndex 
 	 * @param authTicket User Auth Ticket
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.content.DocumentListCollection>
 	 * @see com.mozu.api.contracts.content.DocumentListCollection
 	 */
-	public static MozuClient<com.mozu.api.contracts.content.DocumentListCollection> getDocumentListsClient(com.mozu.api.DataViewMode dataViewMode, Integer pageSize, Integer startIndex, String sort, AuthTicket authTicket) throws Exception
+	public static MozuClient<com.mozu.api.contracts.content.DocumentListCollection> getDocumentListsClient(com.mozu.api.DataViewMode dataViewMode, Integer pageSize, Integer startIndex, AuthTicket authTicket) throws Exception
 	{
-		MozuUrl url = com.mozu.api.urls.content.DocumentListUrl.getDocumentListsUrl(pageSize, sort, startIndex);
+		MozuUrl url = com.mozu.api.urls.content.DocumentListUrl.getDocumentListsUrl(pageSize, startIndex);
 		String verb = "GET";
 		Class<?> clz = com.mozu.api.contracts.content.DocumentListCollection.class;
 		MozuClient<com.mozu.api.contracts.content.DocumentListCollection> mozuClient = new MozuClient(clz);

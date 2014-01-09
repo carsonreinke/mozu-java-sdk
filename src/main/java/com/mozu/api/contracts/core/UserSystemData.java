@@ -8,7 +8,7 @@ package com.mozu.api.contracts.core;
 
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import java.util.Date;
+import org.joda.time.DateTime;
 
 /**
  *	System-supplied and read-only information about the user.
@@ -22,13 +22,13 @@ public class UserSystemData implements Serializable
 	/**
 	 * Date and time when the entity was created, represented in UTC Date/Time.
 	 */
-	protected Date createdOn;
+	protected DateTime createdOn;
 
-	public Date getCreatedOn() {
+	public DateTime getCreatedOn() {
 		return this.createdOn;
 	}
 
-	public void setCreatedOn(Date createdOn) {
+	public void setCreatedOn(DateTime createdOn) {
 		this.createdOn = createdOn;
 	}
 
@@ -48,13 +48,13 @@ public class UserSystemData implements Serializable
 	/**
 	 * The date and time the initial login was unsuccessful, which is system-supplied and read only. Each time user authentication fails, an update occurs on this field.
 	 */
-	protected Date firstFailedLoginAttemptOn;
+	protected DateTime firstFailedLoginAttemptOn;
 
-	public Date getFirstFailedLoginAttemptOn() {
+	public DateTime getFirstFailedLoginAttemptOn() {
 		return this.firstFailedLoginAttemptOn;
 	}
 
-	public void setFirstFailedLoginAttemptOn(Date firstFailedLoginAttemptOn) {
+	public void setFirstFailedLoginAttemptOn(DateTime firstFailedLoginAttemptOn) {
 		this.firstFailedLoginAttemptOn = firstFailedLoginAttemptOn;
 	}
 
@@ -87,39 +87,39 @@ public class UserSystemData implements Serializable
 	/**
 	 * When the user's account was last locked. System-supplied and read-only.
 	 */
-	protected Date lastLockedOn;
+	protected DateTime lastLockedOn;
 
-	public Date getLastLockedOn() {
+	public DateTime getLastLockedOn() {
 		return this.lastLockedOn;
 	}
 
-	public void setLastLockedOn(Date lastLockedOn) {
+	public void setLastLockedOn(DateTime lastLockedOn) {
 		this.lastLockedOn = lastLockedOn;
 	}
 
 	/**
 	 *  When the user last logged into the store. System-supplied and read-only.
 	 */
-	protected Date lastLoginOn;
+	protected DateTime lastLoginOn;
 
-	public Date getLastLoginOn() {
+	public DateTime getLastLoginOn() {
 		return this.lastLoginOn;
 	}
 
-	public void setLastLoginOn(Date lastLoginOn) {
+	public void setLastLoginOn(DateTime lastLoginOn) {
 		this.lastLoginOn = lastLoginOn;
 	}
 
 	/**
 	 *  When the password was last modified. System-supplied and read-only.
 	 */
-	protected Date lastPasswordChangeOn;
+	protected DateTime lastPasswordChangeOn;
 
-	public Date getLastPasswordChangeOn() {
+	public DateTime getLastPasswordChangeOn() {
 		return this.lastPasswordChangeOn;
 	}
 
-	public void setLastPasswordChangeOn(Date lastPasswordChangeOn) {
+	public void setLastPasswordChangeOn(DateTime lastPasswordChangeOn) {
 		this.lastPasswordChangeOn = lastPasswordChangeOn;
 	}
 
@@ -139,13 +139,13 @@ public class UserSystemData implements Serializable
 	/**
 	 * Date and time when the entity was last updated, represented in UTC Date/Time.
 	 */
-	protected Date updatedOn;
+	protected DateTime updatedOn;
 
-	public Date getUpdatedOn() {
+	public DateTime getUpdatedOn() {
 		return this.updatedOn;
 	}
 
-	public void setUpdatedOn(Date updatedOn) {
+	public void setUpdatedOn(DateTime updatedOn) {
 		this.updatedOn = updatedOn;
 	}
 

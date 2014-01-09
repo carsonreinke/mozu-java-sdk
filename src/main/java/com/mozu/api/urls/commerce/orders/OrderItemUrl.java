@@ -82,6 +82,24 @@ public class OrderItemUrl
 	}
 
 	/**
+	 * Get Resource Url for UpdateItemFulfillment
+	 * @param orderId 
+	 * @param orderItemId 
+	 * @param updateMode 
+	 * @param version 
+	 * @return   String Resource Url
+	 */
+	public static MozuUrl updateItemFulfillmentUrl(String orderId, String orderItemId, String updateMode, String version)
+	{
+		UrlFormatter formatter = new UrlFormatter("/api/commerce/orders/{orderId}/items/{orderItemId}/fulfillment?updatemode={updateMode}&version={version}");
+		formatter.formatUrl("orderId", orderId);
+		formatter.formatUrl("orderItemId", orderItemId);
+		formatter.formatUrl("updateMode", updateMode);
+		formatter.formatUrl("version", version);
+		return new MozuUrl(formatter.getResourceUrl(), MozuUrl.UrlLocation.TENANT_POD) ;
+	}
+
+	/**
 	 * Get Resource Url for UpdateItemProductPrice
 	 * @param orderId Unique identifier of the order containing the item to price override.
 	 * @param orderItemId Unique identifier of the item in the order to price override.

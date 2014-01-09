@@ -8,7 +8,7 @@ package com.mozu.api.contracts.reference;
 
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import java.util.Date;
+import org.joda.time.DateTime;
 
 /**
  *	The 2-letter code and corresponding country name that the system supports.

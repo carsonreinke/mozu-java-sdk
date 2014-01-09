@@ -8,7 +8,7 @@ package com.mozu.api.contracts.reference;
 
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import java.util.Date;
+import org.joda.time.DateTime;
 
 /**
  *	Properties to describe the unit of measure.

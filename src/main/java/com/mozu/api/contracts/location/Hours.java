@@ -8,7 +8,7 @@ package com.mozu.api.contracts.location;
 
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import java.util.Date;
+import org.joda.time.DateTime;
 
 /**
  *	Container for the label that describes the range of operating hours for a location.

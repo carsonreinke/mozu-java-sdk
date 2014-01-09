@@ -9,7 +9,7 @@ package com.mozu.api.contracts.customer;
 import java.util.List;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import java.util.Date;
+import org.joda.time.DateTime;
 import com.mozu.api.contracts.customer.Transaction;
 
 /**
@@ -50,13 +50,13 @@ public class Visit implements Serializable
 	/**
 	 * The date and time of the customer visit.
 	 */
-	protected Date date;
+	protected DateTime date;
 
-	public Date getDate() {
+	public DateTime getDate() {
 		return this.date;
 	}
 
-	public void setDate(Date date) {
+	public void setDate(DateTime date) {
 		this.date = date;
 	}
 

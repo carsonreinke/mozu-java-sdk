@@ -223,6 +223,60 @@ public class OrderItemClient {
 	}
 
 	/**
+	 * 
+	 * <p><pre><code>
+	 * MozuClient<com.mozu.api.contracts.commerceruntime.orders.Order> mozuClient=UpdateItemFulfillmentClient( orderItem,  orderId,  orderItemId);
+	 * client.setBaseAddress(url);
+	 * client.executeRequest();
+	 * Order order = client.Result();
+	 * </code></pre></p>
+	 * @param orderId 
+	 * @param orderItemId 
+	 * @param authTicket User Auth Ticket
+	 * @param orderItem 
+	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.commerceruntime.orders.Order>
+	 * @see com.mozu.api.contracts.commerceruntime.orders.Order
+	 * @see com.mozu.api.contracts.commerceruntime.orders.OrderItem
+	 */
+	public static MozuClient<com.mozu.api.contracts.commerceruntime.orders.Order> updateItemFulfillmentClient(com.mozu.api.contracts.commerceruntime.orders.OrderItem orderItem, String orderId, String orderItemId) throws Exception
+	{
+		return updateItemFulfillmentClient( orderItem,  orderId,  orderItemId,  null,  null, null);
+	}
+
+	/**
+	 * 
+	 * <p><pre><code>
+	 * MozuClient<com.mozu.api.contracts.commerceruntime.orders.Order> mozuClient=UpdateItemFulfillmentClient( orderItem,  orderId,  orderItemId,  updateMode,  version, authTicket);
+	 * client.setBaseAddress(url);
+	 * client.executeRequest();
+	 * Order order = client.Result();
+	 * </code></pre></p>
+	 * @param orderId 
+	 * @param orderItemId 
+	 * @param updateMode 
+	 * @param version 
+	 * @param authTicket User Auth Ticket
+	 * @param orderItem 
+	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.commerceruntime.orders.Order>
+	 * @see com.mozu.api.contracts.commerceruntime.orders.Order
+	 * @see com.mozu.api.contracts.commerceruntime.orders.OrderItem
+	 */
+	public static MozuClient<com.mozu.api.contracts.commerceruntime.orders.Order> updateItemFulfillmentClient(com.mozu.api.contracts.commerceruntime.orders.OrderItem orderItem, String orderId, String orderItemId, String updateMode, String version, AuthTicket authTicket) throws Exception
+	{
+		MozuUrl url = com.mozu.api.urls.commerce.orders.OrderItemUrl.updateItemFulfillmentUrl(orderId, orderItemId, updateMode, version);
+		String verb = "PUT";
+		Class<?> clz = com.mozu.api.contracts.commerceruntime.orders.Order.class;
+		MozuClient<com.mozu.api.contracts.commerceruntime.orders.Order> mozuClient = new MozuClient(clz);
+		mozuClient.setVerb(verb);
+		mozuClient.setResourceUrl(url);
+		mozuClient.setBody(orderItem);
+		if (authTicket != null)
+			mozuClient.setUserAuth(authTicket);
+		return mozuClient;
+
+	}
+
+	/**
 	 * Override the price of an individual product on a line item in the specified order.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.commerceruntime.orders.Order> mozuClient=UpdateItemProductPriceClient( orderId,  orderItemId,  price);

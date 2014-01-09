@@ -9,7 +9,7 @@ package com.mozu.api.contracts.commerceruntime.orders;
 import java.util.List;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import java.util.Date;
+import org.joda.time.DateTime;
 import com.mozu.api.contracts.commerceruntime.commerce.Adjustment;
 import com.mozu.api.contracts.commerceruntime.orders.OrderAttribute;
 import com.mozu.api.contracts.core.AuditInfo;
@@ -36,13 +36,13 @@ public class Order implements Serializable
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
-	protected Date acceptedDate;
+	protected DateTime acceptedDate;
 
-	public Date getAcceptedDate() {
+	public DateTime getAcceptedDate() {
 		return this.acceptedDate;
 	}
 
-	public void setAcceptedDate(Date acceptedDate) {
+	public void setAcceptedDate(DateTime acceptedDate) {
 		this.acceptedDate = acceptedDate;
 	}
 
@@ -80,13 +80,13 @@ public class Order implements Serializable
 	/**
 	 * Date when the order was cancelled. System-supplied and read-only.
 	 */
-	protected Date cancelledDate;
+	protected DateTime cancelledDate;
 
-	public Date getCancelledDate() {
+	public DateTime getCancelledDate() {
 		return this.cancelledDate;
 	}
 
-	public void setCancelledDate(Date cancelledDate) {
+	public void setCancelledDate(DateTime cancelledDate) {
 		this.cancelledDate = cancelledDate;
 	}
 
@@ -106,13 +106,13 @@ public class Order implements Serializable
 	/**
 	 * Date when the order was closed. Closed order is an order that has been processed and the items shipped. System-supplied and read-only.
 	 */
-	protected Date closedDate;
+	protected DateTime closedDate;
 
-	public Date getClosedDate() {
+	public DateTime getClosedDate() {
 		return this.closedDate;
 	}
 
-	public void setClosedDate(Date closedDate) {
+	public void setClosedDate(DateTime closedDate) {
 		this.closedDate = closedDate;
 	}
 
@@ -234,13 +234,13 @@ public class Order implements Serializable
 	/**
 	 * The date when the order will no longer be active or considered abandoned. For example, if a guest or anonymous shopper has 14 days of inactivity, the order is considered abandoned after that period of inactivity. An order never expires for shoppers who are logged into their account. Date in UTC Date/Time. System-supplied and read-only.
 	 */
-	protected Date expirationDate;
+	protected DateTime expirationDate;
 
-	public Date getExpirationDate() {
+	public DateTime getExpirationDate() {
 		return this.expirationDate;
 	}
 
-	public void setExpirationDate(Date expirationDate) {
+	public void setExpirationDate(DateTime expirationDate) {
 		this.expirationDate = expirationDate;
 	}
 
@@ -306,6 +306,16 @@ public class Order implements Serializable
 		this.handlingTaxTotal = handlingTaxTotal;
 	}
 
+	protected Double handlingTotal;
+
+	public Double getHandlingTotal() {
+		return this.handlingTotal;
+	}
+
+	public void setHandlingTotal(Double handlingTotal) {
+		this.handlingTotal = handlingTotal;
+	}
+
 	/**
 	 * If true, the order has a draft that may include one or more uncommitted changes to the order or its components.
 	 */
@@ -332,13 +342,13 @@ public class Order implements Serializable
 		this.id = id;
 	}
 
-	protected Date importDate;
+	protected DateTime importDate;
 
-	public Date getImportDate() {
+	public DateTime getImportDate() {
 		return this.importDate;
 	}
 
-	public void setImportDate(Date importDate) {
+	public void setImportDate(DateTime importDate) {
 		this.importDate = importDate;
 	}
 
@@ -420,13 +430,13 @@ public class Order implements Serializable
 	/**
 	 * The date when the order was last validated against the product catalog. Date in UTC Date/Time. System-supplied and read-only.
 	 */
-	protected Date lastValidationDate;
+	protected DateTime lastValidationDate;
 
-	public Date getLastValidationDate() {
+	public DateTime getLastValidationDate() {
 		return this.lastValidationDate;
 	}
 
-	public void setLastValidationDate(Date lastValidationDate) {
+	public void setLastValidationDate(DateTime lastValidationDate) {
 		this.lastValidationDate = lastValidationDate;
 	}
 
@@ -589,13 +599,13 @@ public class Order implements Serializable
 	/**
 	 * The date and time the order was submitted. System-supplied and read-only.
 	 */
-	protected Date submittedDate;
+	protected DateTime submittedDate;
 
-	public Date getSubmittedDate() {
+	public DateTime getSubmittedDate() {
 		return this.submittedDate;
 	}
 
-	public void setSubmittedDate(Date submittedDate) {
+	public void setSubmittedDate(DateTime submittedDate) {
 		this.submittedDate = submittedDate;
 	}
 

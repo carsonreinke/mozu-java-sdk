@@ -9,7 +9,7 @@ package com.mozu.api.contracts.commerceruntime.fulfillment;
 import java.util.List;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import java.util.Date;
+import org.joda.time.DateTime;
 import com.mozu.api.contracts.core.AuditInfo;
 import com.mozu.api.contracts.commerceruntime.fulfillment.PickupItem;
 
@@ -36,14 +36,24 @@ public class Pickup implements Serializable
 	/**
 	 * The date and time the customer picked up the order items.
 	 */
-	protected Date fulfillmentDate;
+	protected DateTime fulfillmentDate;
 
-	public Date getFulfillmentDate() {
+	public DateTime getFulfillmentDate() {
 		return this.fulfillmentDate;
 	}
 
-	public void setFulfillmentDate(Date fulfillmentDate) {
+	public void setFulfillmentDate(DateTime fulfillmentDate) {
 		this.fulfillmentDate = fulfillmentDate;
+	}
+
+	protected String fulfillmentLocationCode;
+
+	public String getFulfillmentLocationCode() {
+		return this.fulfillmentLocationCode;
+	}
+
+	public void setFulfillmentLocationCode(String fulfillmentLocationCode) {
+		this.fulfillmentLocationCode = fulfillmentLocationCode;
 	}
 
 	/**

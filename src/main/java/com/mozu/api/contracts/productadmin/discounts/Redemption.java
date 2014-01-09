@@ -8,7 +8,7 @@ package com.mozu.api.contracts.productadmin.discounts;
 
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import java.util.Date;
+import org.joda.time.DateTime;
 
 /**
  *	Properties of a discount redemption.
@@ -48,13 +48,13 @@ public class Redemption implements Serializable
 	/**
 	 * The date and time on which the discount was redeemed.
 	 */
-	protected Date redeemedOn;
+	protected DateTime redeemedOn;
 
-	public Date getRedeemedOn() {
+	public DateTime getRedeemedOn() {
 		return this.redeemedOn;
 	}
 
-	public void setRedeemedOn(Date redeemedOn) {
+	public void setRedeemedOn(DateTime redeemedOn) {
 		this.redeemedOn = redeemedOn;
 	}
 

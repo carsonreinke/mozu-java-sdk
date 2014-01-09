@@ -8,7 +8,7 @@ package com.mozu.api.contracts.customer;
 
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import java.util.Date;
+import org.joda.time.DateTime;
 
 /**
  *	Properties of a transaction performed by a customer account. The system creates a transaction each time the customer submits an order, returns an item, picks up items for an order, or manages items on a wish list.
@@ -48,13 +48,13 @@ public class Transaction implements Serializable
 	/**
 	 * The date and time the customer transaction occurred.
 	 */
-	protected Date date;
+	protected DateTime date;
 
-	public Date getDate() {
+	public DateTime getDate() {
 		return this.date;
 	}
 
-	public void setDate(Date date) {
+	public void setDate(DateTime date) {
 		this.date = date;
 	}
 

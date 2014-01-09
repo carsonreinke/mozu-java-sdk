@@ -9,7 +9,7 @@ package com.mozu.api.contracts.reference;
 import java.util.List;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import java.util.Date;
+import org.joda.time.DateTime;
 
 /**
  *	The paged collection of all top level internet domains that the system supports including general, USA-specific, infrastructure, and country codes. The Internet Assigned Numbers Authority (IANA) maintains this list.

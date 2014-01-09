@@ -130,6 +130,26 @@ public class CreditResource {
 	}
 
 	/**
+	 * 
+	 * <p><pre><code>
+	 *	Credit credit = new Credit();
+	 *	Credit credit = credit.AssociateCreditToShopper( code, authTicket);
+	 * </code></pre></p>
+	 * @param code 
+	 * @param authTicket User Auth Ticket
+	 * @return com.mozu.api.contracts.customer.credit.Credit
+	 * @see com.mozu.api.contracts.customer.credit.Credit
+	 */
+	public com.mozu.api.contracts.customer.credit.Credit associateCreditToShopper(String code, AuthTicket authTicket) throws Exception
+	{
+		MozuClient<com.mozu.api.contracts.customer.credit.Credit> client = com.mozu.api.clients.commerce.customer.CreditClient.associateCreditToShopperClient( code, authTicket);
+		client.setContext(_apiContext);
+		client.executeRequest();
+		return client.getResult();
+
+	}
+
+	/**
 	 * Deletes a store credit previously applied to a customer account.
 	 * <p><pre><code>
 	 *	Credit credit = new Credit();

@@ -9,7 +9,7 @@ package com.mozu.api.contracts.tenant;
 import java.util.List;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import java.util.Date;
+import org.joda.time.DateTime;
 import com.mozu.api.contracts.tenant.Catalog;
 
 /**
@@ -21,13 +21,13 @@ public class MasterCatalog implements Serializable
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
-	protected Date createDate;
+	protected DateTime createDate;
 
-	public Date getCreateDate() {
+	public DateTime getCreateDate() {
 		return this.createDate;
 	}
 
-	public void setCreateDate(Date createDate) {
+	public void setCreateDate(DateTime createDate) {
 		this.createDate = createDate;
 	}
 
@@ -60,13 +60,13 @@ public class MasterCatalog implements Serializable
 	/**
 	 * The date and time the master catalog was deleted.
 	 */
-	protected Date deleteDate;
+	protected DateTime deleteDate;
 
-	public Date getDeleteDate() {
+	public DateTime getDeleteDate() {
 		return this.deleteDate;
 	}
 
-	public void setDeleteDate(Date deleteDate) {
+	public void setDeleteDate(DateTime deleteDate) {
 		this.deleteDate = deleteDate;
 	}
 
@@ -106,13 +106,13 @@ public class MasterCatalog implements Serializable
 		this.name = name;
 	}
 
-	protected Date updateDate;
+	protected DateTime updateDate;
 
-	public Date getUpdateDate() {
+	public DateTime getUpdateDate() {
 		return this.updateDate;
 	}
 
-	public void setUpdateDate(Date updateDate) {
+	public void setUpdateDate(DateTime updateDate) {
 		this.updateDate = updateDate;
 	}
 

@@ -8,7 +8,7 @@ package com.mozu.api.contracts.customer;
 
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import java.util.Date;
+import org.joda.time.DateTime;
 import com.mozu.api.contracts.customer.CustomerAccount;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -17,13 +17,23 @@ public class CustomerAuthTicket implements Serializable
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
-	protected Date accessTokenExpiration;
+	protected String accessToken;
 
-	public Date getAccessTokenExpiration() {
+	public String getAccessToken() {
+		return this.accessToken;
+	}
+
+	public void setAccessToken(String accessToken) {
+		this.accessToken = accessToken;
+	}
+
+	protected DateTime accessTokenExpiration;
+
+	public DateTime getAccessTokenExpiration() {
 		return this.accessTokenExpiration;
 	}
 
-	public void setAccessTokenExpiration(Date accessTokenExpiration) {
+	public void setAccessTokenExpiration(DateTime accessTokenExpiration) {
 		this.accessTokenExpiration = accessTokenExpiration;
 	}
 
@@ -37,13 +47,13 @@ public class CustomerAuthTicket implements Serializable
 		this.refreshToken = refreshToken;
 	}
 
-	protected Date refreshTokenExpiration;
+	protected DateTime refreshTokenExpiration;
 
-	public Date getRefreshTokenExpiration() {
+	public DateTime getRefreshTokenExpiration() {
 		return this.refreshTokenExpiration;
 	}
 
-	public void setRefreshTokenExpiration(Date refreshTokenExpiration) {
+	public void setRefreshTokenExpiration(DateTime refreshTokenExpiration) {
 		this.refreshTokenExpiration = refreshTokenExpiration;
 	}
 
@@ -55,16 +65,6 @@ public class CustomerAuthTicket implements Serializable
 
 	public void setUserId(String userId) {
 		this.userId = userId;
-	}
-
-	protected String accessToken;
-
-	public String getAccessToken() {
-		return this.accessToken;
-	}
-
-	public void setAccessToken(String accessToken) {
-		this.accessToken = accessToken;
 	}
 
 	protected CustomerAccount customerAccount;

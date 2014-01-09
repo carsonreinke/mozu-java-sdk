@@ -9,7 +9,7 @@ package com.mozu.api.contracts.commerceruntime.returns;
 import java.util.List;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import java.util.Date;
+import org.joda.time.DateTime;
 import com.mozu.api.contracts.core.AuditInfo;
 import com.mozu.api.contracts.commerceruntime.returns.ReturnItem;
 import com.mozu.api.contracts.commerceruntime.orders.OrderNote;
@@ -26,6 +26,17 @@ public class Return implements Serializable
 	private static final long serialVersionUID = 1L;
 
 	/**
+	 * The actions a user can perform for the return at this time.
+	 */
+	protected List<String> availableActions;
+	public List<String> getAvailableActions() {
+		return this.availableActions;
+	}
+	public void setAvailableActions(List<String> availableActions) {
+		this.availableActions = availableActions;
+	}
+
+	/**
 	 * The code that identifies the channel associated with the return, which is typically the same channel associated with the order.
 	 */
 	protected String channelCode;
@@ -36,17 +47,6 @@ public class Return implements Serializable
 
 	public void setChannelCode(String channelCode) {
 		this.channelCode = channelCode;
-	}
-
-	/**
-	 * The actions a user can perform for the return at this time.
-	 */
-	protected List<String> availableActions;
-	public List<String> getAvailableActions() {
-		return this.availableActions;
-	}
-	public void setAvailableActions(List<String> availableActions) {
-		this.availableActions = availableActions;
 	}
 
 	/**
@@ -221,13 +221,13 @@ public class Return implements Serializable
 	/**
 	 * The date by which a shopper must ship items associated with a return in an "awaiting items" state to the merchant.
 	 */
-	protected Date rmaDeadline;
+	protected DateTime rmaDeadline;
 
-	public Date getRmaDeadline() {
+	public DateTime getRmaDeadline() {
 		return this.rmaDeadline;
 	}
 
-	public void setRmaDeadline(Date rmaDeadline) {
+	public void setRmaDeadline(DateTime rmaDeadline) {
 		this.rmaDeadline = rmaDeadline;
 	}
 

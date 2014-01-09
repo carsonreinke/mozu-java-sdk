@@ -8,7 +8,7 @@ package com.mozu.api.contracts.sitesettings.general;
 
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import java.util.Date;
+import org.joda.time.DateTime;
 
 /**
  *	Properties of the territory which is subject to sales tax.

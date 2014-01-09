@@ -30,6 +30,18 @@ public class DocumentDraftSummaryUrl
 	}
 
 	/**
+	 * Get Resource Url for DeleteDocumentDrafts
+	 * @param documentLists List of document lists that contain documents to delete.
+	 * @return   String Resource Url
+	 */
+	public static MozuUrl deleteDocumentDraftsUrl(String documentLists)
+	{
+		UrlFormatter formatter = new UrlFormatter("/api/content/documentpublishing/draft?documentLists={documentLists}");
+		formatter.formatUrl("documentLists", documentLists);
+		return new MozuUrl(formatter.getResourceUrl(), MozuUrl.UrlLocation.TENANT_POD) ;
+	}
+
+	/**
 	 * Get Resource Url for PublishDocuments
 	 * @param documentLists List of document lists that contain documents to publish.
 	 * @return   String Resource Url
@@ -37,20 +49,6 @@ public class DocumentDraftSummaryUrl
 	public static MozuUrl publishDocumentsUrl(String documentLists)
 	{
 		UrlFormatter formatter = new UrlFormatter("/api/content/documentpublishing/active?documentLists={documentLists}");
-		formatter.formatUrl("documentLists", documentLists);
-		return new MozuUrl(formatter.getResourceUrl(), MozuUrl.UrlLocation.TENANT_POD) ;
-	}
-
-	/**
-	 * Get Resource Url for DeleteDocumentDrafts
-	 * @param documentIds Unique identifiers of the documents to delete.
-	 * @param documentLists List of document lists that contain documents to delete.
-	 * @return   String Resource Url
-	 */
-	public static MozuUrl deleteDocumentDraftsUrl(String documentIds, String documentLists)
-	{
-		UrlFormatter formatter = new UrlFormatter("/api/content/documentpublishing/draft?documentLists={documentLists}");
-		formatter.formatUrl("documentIds", documentIds);
 		formatter.formatUrl("documentLists", documentLists);
 		return new MozuUrl(formatter.getResourceUrl(), MozuUrl.UrlLocation.TENANT_POD) ;
 	}

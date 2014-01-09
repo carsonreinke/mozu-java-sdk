@@ -9,8 +9,9 @@ package com.mozu.api.contracts.location;
 import java.util.List;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import java.util.Date;
+import org.joda.time.DateTime;
 import com.mozu.api.contracts.core.Address;
+import com.mozu.api.contracts.core.AuditInfo;
 import com.mozu.api.contracts.location.FulfillmentType;
 import com.mozu.api.contracts.location.Coordinates;
 import com.mozu.api.contracts.location.LocationType;
@@ -139,6 +140,16 @@ public class Location implements Serializable
 
 	public void setAddress(Address address) {
 		this.address = address;
+	}
+
+	protected AuditInfo auditInfo;
+
+	public AuditInfo getAuditInfo() {
+		return this.auditInfo;
+	}
+
+	public void setAuditInfo(AuditInfo auditInfo) {
+		this.auditInfo = auditInfo;
 	}
 
 	/**

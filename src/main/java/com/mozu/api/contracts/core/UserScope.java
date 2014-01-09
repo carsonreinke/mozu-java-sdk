@@ -8,7 +8,7 @@ package com.mozu.api.contracts.core;
 
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import java.util.Date;
+import org.joda.time.DateTime;
 
 /**
  *	Properties of the scope in which a user operates, which represents a developer account or Mozu production tenant.

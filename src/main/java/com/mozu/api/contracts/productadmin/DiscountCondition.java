@@ -9,7 +9,7 @@ package com.mozu.api.contracts.productadmin;
 import java.util.List;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import java.util.Date;
+import org.joda.time.DateTime;
 import com.mozu.api.contracts.productadmin.CustomerGroup;
 import com.mozu.api.contracts.productadmin.CategoryDiscountCondition;
 import com.mozu.api.contracts.productadmin.ProductDiscountCondition;
@@ -30,13 +30,13 @@ public class DiscountCondition implements Serializable
 		this.couponCode = couponCode;
 	}
 
-	protected Date expirationDate;
+	protected DateTime expirationDate;
 
-	public Date getExpirationDate() {
+	public DateTime getExpirationDate() {
 		return this.expirationDate;
 	}
 
-	public void setExpirationDate(Date expirationDate) {
+	public void setExpirationDate(DateTime expirationDate) {
 		this.expirationDate = expirationDate;
 	}
 
@@ -80,13 +80,13 @@ public class DiscountCondition implements Serializable
 		this.requiresCoupon = requiresCoupon;
 	}
 
-	protected Date startDate;
+	protected DateTime startDate;
 
-	public Date getStartDate() {
+	public DateTime getStartDate() {
 		return this.startDate;
 	}
 
-	public void setStartDate(Date startDate) {
+	public void setStartDate(DateTime startDate) {
 		this.startDate = startDate;
 	}
 

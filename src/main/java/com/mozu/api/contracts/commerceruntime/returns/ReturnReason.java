@@ -8,7 +8,7 @@ package com.mozu.api.contracts.commerceruntime.returns;
 
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import java.util.Date;
+import org.joda.time.DateTime;
 
 /**
  *	The reason for which the item is returned. Valid values include Damaged, Defective, MissingParts, DifferentExpectations, Late, NoLongerWanted, or Other.

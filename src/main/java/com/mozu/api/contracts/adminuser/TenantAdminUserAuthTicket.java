@@ -9,7 +9,7 @@ package com.mozu.api.contracts.adminuser;
 import java.util.List;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import java.util.Date;
+import org.joda.time.DateTime;
 import com.mozu.api.contracts.tenant.Tenant;
 import com.mozu.api.contracts.core.UserProfile;
 
@@ -38,26 +38,26 @@ public class TenantAdminUserAuthTicket implements Serializable
 	/**
 	 * The date and time the user access token expires.
 	 */
-	protected Date accessTokenExpiration;
+	protected DateTime accessTokenExpiration;
 
-	public Date getAccessTokenExpiration() {
+	public DateTime getAccessTokenExpiration() {
 		return this.accessTokenExpiration;
 	}
 
-	public void setAccessTokenExpiration(Date accessTokenExpiration) {
+	public void setAccessTokenExpiration(DateTime accessTokenExpiration) {
 		this.accessTokenExpiration = accessTokenExpiration;
 	}
 
 	/**
 	 * Date and time when the entity was created, represented in UTC Date/Time.
 	 */
-	protected Date createdOn;
+	protected DateTime createdOn;
 
-	public Date getCreatedOn() {
+	public DateTime getCreatedOn() {
 		return this.createdOn;
 	}
 
-	public void setCreatedOn(Date createdOn) {
+	public void setCreatedOn(DateTime createdOn) {
 		this.createdOn = createdOn;
 	}
 
@@ -88,13 +88,13 @@ public class TenantAdminUserAuthTicket implements Serializable
 	/**
 	 * The date and time the user refresh token expires.
 	 */
-	protected Date refreshTokenExpiration;
+	protected DateTime refreshTokenExpiration;
 
-	public Date getRefreshTokenExpiration() {
+	public DateTime getRefreshTokenExpiration() {
 		return this.refreshTokenExpiration;
 	}
 
-	public void setRefreshTokenExpiration(Date refreshTokenExpiration) {
+	public void setRefreshTokenExpiration(DateTime refreshTokenExpiration) {
 		this.refreshTokenExpiration = refreshTokenExpiration;
 	}
 

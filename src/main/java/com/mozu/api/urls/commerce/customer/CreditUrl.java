@@ -66,6 +66,18 @@ public class CreditUrl
 	}
 
 	/**
+	 * Get Resource Url for AssociateCreditToShopper
+	 * @param code 
+	 * @return   String Resource Url
+	 */
+	public static MozuUrl associateCreditToShopperUrl(String code)
+	{
+		UrlFormatter formatter = new UrlFormatter("/api/commerce/customer/credits/{code}/associate-to-shopper");
+		formatter.formatUrl("code", code);
+		return new MozuUrl(formatter.getResourceUrl(), MozuUrl.UrlLocation.TENANT_POD) ;
+	}
+
+	/**
 	 * Get Resource Url for DeleteCredit
 	 * @param code User-defined code of the store credit to delete.
 	 * @return   String Resource Url

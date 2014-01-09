@@ -9,7 +9,7 @@ package com.mozu.api.contracts.content;
 import java.util.List;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import java.util.Date;
+import org.joda.time.DateTime;
 
 /**
  *	The list of document types and related properties that define content used by the content management system (CMS).

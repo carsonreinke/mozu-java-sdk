@@ -58,5 +58,21 @@ public class AppAuthenticatorTest extends SecurityTestBase {
 		assertNotNull(tenant);
 
 	}
+	
+    @Test
+    public void testRefreshInterval() throws Exception {
+        String url = URL;
+        String appId = APP_ID;
+        String sharedSecret = SHARED_SECRET;
+
+        RefreshInterval refreshInterval = new RefreshInterval(1000, 200000);
+        AppAuthenticator.initialize(createAppAuthInfo(appId, sharedSecret), url, refreshInterval);
+        // wait so we have to refresh
+        Thread.sleep(1001);
+        TenantResource tenantsApi = new TenantResource();
+        Tenant tenant = tenantsApi.getTenant(TENANT_ID,null);
+        assertNotNull(tenant);
+
+    }
 
 }

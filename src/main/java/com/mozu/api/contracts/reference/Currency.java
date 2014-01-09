@@ -8,7 +8,7 @@ package com.mozu.api.contracts.reference;
 
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import java.util.Date;
+import org.joda.time.DateTime;
 
 /**
  *	Three-letter currency code that the system supports, which is derived from the ISO 4217 standard. For example, the code "EUR" for the name "Euro Member Countries" is an entry that returns in a list of items.

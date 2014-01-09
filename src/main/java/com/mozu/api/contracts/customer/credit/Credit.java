@@ -8,7 +8,7 @@ package com.mozu.api.contracts.customer.credit;
 
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import java.util.Date;
+import org.joda.time.DateTime;
 import com.mozu.api.contracts.core.AuditInfo;
 
 /**
@@ -23,13 +23,13 @@ public class Credit implements Serializable
 	/**
 	 * The date and time the store credit or gift card was activated by the shopper. Credits cannot be used until activated. After the credit is activated, this property value is read-only.
 	 */
-	protected Date activationDate;
+	protected DateTime activationDate;
 
-	public Date getActivationDate() {
+	public DateTime getActivationDate() {
 		return this.activationDate;
 	}
 
-	public void setActivationDate(Date activationDate) {
+	public void setActivationDate(DateTime activationDate) {
 		this.activationDate = activationDate;
 	}
 
@@ -101,13 +101,13 @@ public class Credit implements Serializable
 	/**
 	 * The date and time the credit expires and can no longer be redeemed.
 	 */
-	protected Date expirationDate;
+	protected DateTime expirationDate;
 
-	public Date getExpirationDate() {
+	public DateTime getExpirationDate() {
 		return this.expirationDate;
 	}
 
-	public void setExpirationDate(Date expirationDate) {
+	public void setExpirationDate(DateTime expirationDate) {
 		this.expirationDate = expirationDate;
 	}
 

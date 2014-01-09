@@ -9,7 +9,7 @@ package com.mozu.api.contracts.reference;
 import java.util.List;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import java.util.Date;
+import org.joda.time.DateTime;
 import com.mozu.api.contracts.reference.UnitOfMeasure;
 
 /**

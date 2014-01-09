@@ -8,7 +8,7 @@ package com.mozu.api.contracts.content;
 
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import java.util.Date;
+import org.joda.time.DateTime;
 
 /**
  *	List of content entity display names localized to the site or site group's default language.

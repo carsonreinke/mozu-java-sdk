@@ -14,38 +14,30 @@ public class DocumentTreeUrl
 {
 
 	/**
-	 * Get Resource Url for GetTreeDocumentContent
+	 * Get Resource Url for GetTreeDocument
 	 * @param documentListName The name of the document list associated with the document.
 	 * @param documentName The name of the document, which is unique within its folder.
-	 * @param folderId If applicable, the unique identifier of the folder that contains the document.
-	 * @param folderPath If applicable, the path of the folder hierarchy location associated with the document.
 	 * @return   String Resource Url
 	 */
-	public static MozuUrl getTreeDocumentContentUrl(String documentListName, String documentName, String folderId, String folderPath)
+	public static MozuUrl getTreeDocumentUrl(String documentListName, String documentName)
 	{
-		UrlFormatter formatter = new UrlFormatter("/api/content/documentlists/{documentListName}/documentTree/{documentName}/content?folderPath={folderPath}&folderId={folderId}");
+		UrlFormatter formatter = new UrlFormatter("/api/content/documentlists/{documentListName}/documentTree/{documentName}");
 		formatter.formatUrl("documentListName", documentListName);
 		formatter.formatUrl("documentName", documentName);
-		formatter.formatUrl("folderId", folderId);
-		formatter.formatUrl("folderPath", folderPath);
 		return new MozuUrl(formatter.getResourceUrl(), MozuUrl.UrlLocation.TENANT_POD) ;
 	}
 
 	/**
-	 * Get Resource Url for GetTreeDocument
+	 * Get Resource Url for GetTreeDocumentContent
 	 * @param documentListName The name of the document list associated with the document.
 	 * @param documentName The name of the document, which is unique within its folder.
-	 * @param folderId If applicable, the unique identifier of the folder that contains the document.
-	 * @param folderPath If applicable, the path of the folder hierarchy location that contains the document.
 	 * @return   String Resource Url
 	 */
-	public static MozuUrl getTreeDocumentUrl(String documentListName, String documentName, String folderId, String folderPath)
+	public static MozuUrl getTreeDocumentContentUrl(String documentListName, String documentName)
 	{
-		UrlFormatter formatter = new UrlFormatter("/api/content/documentlists/{documentListName}/documentTree/{documentName}?folderPath={folderPath}&folderId={folderId}");
+		UrlFormatter formatter = new UrlFormatter("/api/content/documentlists/{documentListName}/documentTree/{documentName}/content");
 		formatter.formatUrl("documentListName", documentListName);
 		formatter.formatUrl("documentName", documentName);
-		formatter.formatUrl("folderId", folderId);
-		formatter.formatUrl("folderPath", folderPath);
 		return new MozuUrl(formatter.getResourceUrl(), MozuUrl.UrlLocation.TENANT_POD) ;
 	}
 
@@ -53,17 +45,13 @@ public class DocumentTreeUrl
 	 * Get Resource Url for UpdateTreeDocumentContent
 	 * @param documentListName The name of the document list associated with the document.
 	 * @param documentName The name of the document, which is unique within its folder.
-	 * @param folderId If applicable, the unique identifier of the folder that contains the document.
-	 * @param folderPath If applicable, the path of the folder hierarchy location associated with the document.
 	 * @return   String Resource Url
 	 */
-	public static MozuUrl updateTreeDocumentContentUrl(String documentListName, String documentName, String folderId, String folderPath)
+	public static MozuUrl updateTreeDocumentContentUrl(String documentListName, String documentName)
 	{
 		UrlFormatter formatter = new UrlFormatter("/api/content/documentlists/{documentListName}/documentTree/{documentName}/content?folderPath={folderPath}&folderId={folderId}");
 		formatter.formatUrl("documentListName", documentListName);
 		formatter.formatUrl("documentName", documentName);
-		formatter.formatUrl("folderId", folderId);
-		formatter.formatUrl("folderPath", folderPath);
 		return new MozuUrl(formatter.getResourceUrl(), MozuUrl.UrlLocation.TENANT_POD) ;
 	}
 
@@ -71,17 +59,13 @@ public class DocumentTreeUrl
 	 * Get Resource Url for DeleteTreeDocumentContent
 	 * @param documentListName The name of the document list associated with the document.
 	 * @param documentName The name of the document, which is unique within its folder.
-	 * @param folderId If applicable, the unique identifier of the folder that contains the document.
-	 * @param folderPath If applicable, the path of the folder hierarchy location associated with the document.
 	 * @return   String Resource Url
 	 */
-	public static MozuUrl deleteTreeDocumentContentUrl(String documentListName, String documentName, String folderId, String folderPath)
+	public static MozuUrl deleteTreeDocumentContentUrl(String documentListName, String documentName)
 	{
 		UrlFormatter formatter = new UrlFormatter("/api/content/documentlists/{documentListName}/documentTree/{documentName}/content?folderPath={folderPath}&folderId={folderId}");
 		formatter.formatUrl("documentListName", documentListName);
 		formatter.formatUrl("documentName", documentName);
-		formatter.formatUrl("folderId", folderId);
-		formatter.formatUrl("folderPath", folderPath);
 		return new MozuUrl(formatter.getResourceUrl(), MozuUrl.UrlLocation.TENANT_POD) ;
 	}
 

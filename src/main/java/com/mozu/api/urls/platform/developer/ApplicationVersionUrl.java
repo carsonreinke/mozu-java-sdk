@@ -96,7 +96,7 @@ public class ApplicationVersionUrl
 	 */
 	public static MozuUrl getPackageItemMetadataUrl(Integer applicationVersionId, String itempath, Integer packageId)
 	{
-		UrlFormatter formatter = new UrlFormatter("/api/platform/developer/applications/applicationVersions/{applicationVersionId}/packages/{packageId}/files/{*itempath}");
+		UrlFormatter formatter = new UrlFormatter("/api/platform/developer/applications/applicationVersions/{applicationVersionId}/packages/{packageId}/files/?itemPath={itempath}");
 		formatter.formatUrl("applicationVersionId", applicationVersionId);
 		formatter.formatUrl("itempath", itempath);
 		formatter.formatUrl("packageId", packageId);
@@ -130,22 +130,6 @@ public class ApplicationVersionUrl
 	}
 
 	/**
-	 * Get Resource Url for AddPackageFile
-	 * @param applicationVersionId Unique identifier of the application version. Application version IDs are unique across all applications associated with a developer account.
-	 * @param filepath The file location to which to add the package file.
-	 * @param packageId Unique identifier of the package.
-	 * @return   String Resource Url
-	 */
-	public static MozuUrl addPackageFileUrl(Integer applicationVersionId, String filepath, Integer packageId)
-	{
-		UrlFormatter formatter = new UrlFormatter("/api/platform/developer/applications/applicationVersions/{applicationVersionId}/packages/{packageId}/files/{*filepath}");
-		formatter.formatUrl("applicationVersionId", applicationVersionId);
-		formatter.formatUrl("filepath", filepath);
-		formatter.formatUrl("packageId", packageId);
-		return new MozuUrl(formatter.getResourceUrl(), MozuUrl.UrlLocation.HOME_POD) ;
-	}
-
-	/**
 	 * Get Resource Url for ChangePackageFileNameOrPath
 	 * @param applicationVersionId 
 	 * @param packageId 
@@ -160,6 +144,22 @@ public class ApplicationVersionUrl
 	}
 
 	/**
+	 * Get Resource Url for AddPackageFile
+	 * @param applicationVersionId Unique identifier of the application version. Application version IDs are unique across all applications associated with a developer account.
+	 * @param filepath The file location to which to add the package file.
+	 * @param packageId Unique identifier of the package.
+	 * @return   String Resource Url
+	 */
+	public static MozuUrl addPackageFileUrl(Integer applicationVersionId, String filepath, Integer packageId)
+	{
+		UrlFormatter formatter = new UrlFormatter("/api/platform/developer/applications/applicationVersions/{applicationVersionId}/packages/{packageId}/files?filePath={filepath}");
+		formatter.formatUrl("applicationVersionId", applicationVersionId);
+		formatter.formatUrl("filepath", filepath);
+		formatter.formatUrl("packageId", packageId);
+		return new MozuUrl(formatter.getResourceUrl(), MozuUrl.UrlLocation.HOME_POD) ;
+	}
+
+	/**
 	 * Get Resource Url for UpdatePackageFile
 	 * @param applicationVersionId Unique identifier of the application version. Application version IDs are unique across all applications associated with a developer account.
 	 * @param filepath The location path and name that identifies the package file to update.
@@ -168,7 +168,7 @@ public class ApplicationVersionUrl
 	 */
 	public static MozuUrl updatePackageFileUrl(Integer applicationVersionId, String filepath, Integer packageId)
 	{
-		UrlFormatter formatter = new UrlFormatter("/api/platform/developer/applications/applicationVersions/{applicationVersionId}/packages/{packageId}/files/{*filepath}");
+		UrlFormatter formatter = new UrlFormatter("/api/platform/developer/applications/applicationVersions/{applicationVersionId}/packages/{packageId}/files?filePath={filepath}");
 		formatter.formatUrl("applicationVersionId", applicationVersionId);
 		formatter.formatUrl("filepath", filepath);
 		formatter.formatUrl("packageId", packageId);
@@ -184,7 +184,7 @@ public class ApplicationVersionUrl
 	 */
 	public static MozuUrl deletePackageFileUrl(Integer applicationVersionId, String filepath, Integer packageId)
 	{
-		UrlFormatter formatter = new UrlFormatter("/api/platform/developer/applications/applicationVersions/{applicationVersionId}/packages/{packageId}/files/{*filepath}");
+		UrlFormatter formatter = new UrlFormatter("/api/platform/developer/applications/applicationVersions/{applicationVersionId}/packages/{packageId}/files?filePath={filepath}");
 		formatter.formatUrl("applicationVersionId", applicationVersionId);
 		formatter.formatUrl("filepath", filepath);
 		formatter.formatUrl("packageId", packageId);

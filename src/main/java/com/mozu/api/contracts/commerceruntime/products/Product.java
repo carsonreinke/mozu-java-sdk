@@ -9,7 +9,7 @@ package com.mozu.api.contracts.commerceruntime.products;
 import java.util.List;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import java.util.Date;
+import org.joda.time.DateTime;
 import com.mozu.api.contracts.commerceruntime.products.BundledProduct;
 import com.mozu.api.contracts.commerceruntime.products.Category;
 import com.mozu.api.contracts.commerceruntime.commerce.PackageMeasurements;
@@ -25,6 +25,19 @@ public class Product implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
+
+	/**
+	 * Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
+	 */
+	protected String productCode;
+
+	public String getProductCode() {
+		return this.productCode;
+	}
+
+	public void setProductCode(String productCode) {
+		this.productCode = productCode;
+	}
 
 	/**
 	 * Short description of the product in the language specified in the locale code for the storefront.
@@ -109,19 +122,6 @@ public class Product implements Serializable
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	/**
-	 * Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
-	 */
-	protected String productCode;
-
-	public String getProductCode() {
-		return this.productCode;
-	}
-
-	public void setProductCode(String productCode) {
-		this.productCode = productCode;
 	}
 
 	protected Integer productReservationId;

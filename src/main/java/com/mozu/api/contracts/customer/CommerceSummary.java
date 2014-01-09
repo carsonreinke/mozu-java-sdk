@@ -8,7 +8,7 @@ package com.mozu.api.contracts.customer;
 
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import java.util.Date;
+import org.joda.time.DateTime;
 import com.mozu.api.contracts.customer.CurrencyAmount;
 
 /**
@@ -23,13 +23,13 @@ public class CommerceSummary implements Serializable
 	/**
 	 * The date and time the shopper last submitted an order for any site associated with the tenant.
 	 */
-	protected Date lastOrderDate;
+	protected DateTime lastOrderDate;
 
-	public Date getLastOrderDate() {
+	public DateTime getLastOrderDate() {
 		return this.lastOrderDate;
 	}
 
-	public void setLastOrderDate(Date lastOrderDate) {
+	public void setLastOrderDate(DateTime lastOrderDate) {
 		this.lastOrderDate = lastOrderDate;
 	}
 

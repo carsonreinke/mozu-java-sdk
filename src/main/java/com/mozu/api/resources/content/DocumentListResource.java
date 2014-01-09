@@ -40,25 +40,24 @@ public class DocumentListResource {
 	 */
 	public com.mozu.api.contracts.content.DocumentListCollection getDocumentLists(com.mozu.api.DataViewMode dataViewMode) throws Exception
 	{
-		return getDocumentLists(dataViewMode,  null,  null,  null, null);
+		return getDocumentLists(dataViewMode,  null,  null, null);
 	}
 
 	/**
 	 * Retrieves a collection of document lists.
 	 * <p><pre><code>
 	 *	DocumentList documentlist = new DocumentList();
-	 *	DocumentListCollection documentListCollection = documentlist.GetDocumentLists(dataViewMode,  pageSize,  startIndex,  sort, authTicket);
+	 *	DocumentListCollection documentListCollection = documentlist.GetDocumentLists(dataViewMode,  pageSize,  startIndex, authTicket);
 	 * </code></pre></p>
 	 * @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
-	 * @param sort 
 	 * @param startIndex 
 	 * @param authTicket User Auth Ticket
 	 * @return com.mozu.api.contracts.content.DocumentListCollection
 	 * @see com.mozu.api.contracts.content.DocumentListCollection
 	 */
-	public com.mozu.api.contracts.content.DocumentListCollection getDocumentLists(com.mozu.api.DataViewMode dataViewMode, Integer pageSize, Integer startIndex, String sort, AuthTicket authTicket) throws Exception
+	public com.mozu.api.contracts.content.DocumentListCollection getDocumentLists(com.mozu.api.DataViewMode dataViewMode, Integer pageSize, Integer startIndex, AuthTicket authTicket) throws Exception
 	{
-		MozuClient<com.mozu.api.contracts.content.DocumentListCollection> client = com.mozu.api.clients.content.DocumentListClient.getDocumentListsClient(dataViewMode,  pageSize,  startIndex,  sort, authTicket);
+		MozuClient<com.mozu.api.contracts.content.DocumentListCollection> client = com.mozu.api.clients.content.DocumentListClient.getDocumentListsClient(dataViewMode,  pageSize,  startIndex, authTicket);
 		client.setContext(_apiContext);
 		client.executeRequest();
 		return client.getResult();

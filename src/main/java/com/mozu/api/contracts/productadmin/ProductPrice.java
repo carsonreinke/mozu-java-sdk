@@ -8,7 +8,7 @@ package com.mozu.api.contracts.productadmin;
 
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import java.util.Date;
+import org.joda.time.DateTime;
 
 /**
  *	The price of the product in the specified currency code (USD). This price can either be the sale price or the price for which the merchang intends to sell the product.

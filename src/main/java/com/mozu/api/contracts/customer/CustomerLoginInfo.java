@@ -8,7 +8,7 @@ package com.mozu.api.contracts.customer;
 
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import java.util.Date;
+import org.joda.time.DateTime;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class CustomerLoginInfo implements Serializable
@@ -24,6 +24,16 @@ public class CustomerLoginInfo implements Serializable
 
 	public void setEmailAddress(String emailAddress) {
 		this.emailAddress = emailAddress;
+	}
+
+	protected Boolean isImport;
+
+	public Boolean getIsImport() {
+		return this.isImport;
+	}
+
+	public void setIsImport(Boolean isImport) {
+		this.isImport = isImport;
 	}
 
 	protected String password;

@@ -8,7 +8,7 @@ package com.mozu.api.contracts.adminuser;
 
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import java.util.Date;
+import org.joda.time.DateTime;
 
 /**
  *	Properties of a developer account used to build a company's applications and themes.

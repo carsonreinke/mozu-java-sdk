@@ -8,7 +8,7 @@ package com.mozu.api.contracts.productadmin;
 
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import java.util.Date;
+import org.joda.time.DateTime;
 
 /**
  *	System-supplied and read only parameter that validates a facet for its associated category.

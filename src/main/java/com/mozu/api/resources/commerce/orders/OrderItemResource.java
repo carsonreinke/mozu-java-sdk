@@ -194,6 +194,50 @@ public class OrderItemResource {
 	}
 
 	/**
+	 * 
+	 * <p><pre><code>
+	 *	OrderItem orderitem = new OrderItem();
+	 *	Order order = orderitem.UpdateItemFulfillment( orderItem,  orderId,  orderItemId);
+	 * </code></pre></p>
+	 * @param orderId 
+	 * @param orderItemId 
+	 * @param authTicket User Auth Ticket
+	 * @param orderItem 
+	 * @return com.mozu.api.contracts.commerceruntime.orders.Order
+	 * @see com.mozu.api.contracts.commerceruntime.orders.Order
+	 * @see com.mozu.api.contracts.commerceruntime.orders.OrderItem
+	 */
+	public com.mozu.api.contracts.commerceruntime.orders.Order updateItemFulfillment(com.mozu.api.contracts.commerceruntime.orders.OrderItem orderItem, String orderId, String orderItemId) throws Exception
+	{
+		return updateItemFulfillment( orderItem,  orderId,  orderItemId,  null,  null, null);
+	}
+
+	/**
+	 * 
+	 * <p><pre><code>
+	 *	OrderItem orderitem = new OrderItem();
+	 *	Order order = orderitem.UpdateItemFulfillment( orderItem,  orderId,  orderItemId,  updateMode,  version, authTicket);
+	 * </code></pre></p>
+	 * @param orderId 
+	 * @param orderItemId 
+	 * @param updateMode 
+	 * @param version 
+	 * @param authTicket User Auth Ticket
+	 * @param orderItem 
+	 * @return com.mozu.api.contracts.commerceruntime.orders.Order
+	 * @see com.mozu.api.contracts.commerceruntime.orders.Order
+	 * @see com.mozu.api.contracts.commerceruntime.orders.OrderItem
+	 */
+	public com.mozu.api.contracts.commerceruntime.orders.Order updateItemFulfillment(com.mozu.api.contracts.commerceruntime.orders.OrderItem orderItem, String orderId, String orderItemId, String updateMode, String version, AuthTicket authTicket) throws Exception
+	{
+		MozuClient<com.mozu.api.contracts.commerceruntime.orders.Order> client = com.mozu.api.clients.commerce.orders.OrderItemClient.updateItemFulfillmentClient( orderItem,  orderId,  orderItemId,  updateMode,  version, authTicket);
+		client.setContext(_apiContext);
+		client.executeRequest();
+		return client.getResult();
+
+	}
+
+	/**
 	 * Override the price of an individual product on a line item in the specified order.
 	 * <p><pre><code>
 	 *	OrderItem orderitem = new OrderItem();

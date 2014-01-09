@@ -8,7 +8,7 @@ package com.mozu.api.contracts.commerceruntime.commerce;
 
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import java.util.Date;
+import org.joda.time.DateTime;
 
 /**
  *	Pricing details for a product in a cart or an order, including the original price, discount amount, and final price.

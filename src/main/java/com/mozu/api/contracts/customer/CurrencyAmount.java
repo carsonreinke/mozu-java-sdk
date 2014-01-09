@@ -8,7 +8,7 @@ package com.mozu.api.contracts.customer;
 
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import java.util.Date;
+import org.joda.time.DateTime;
 
 /**
  *	The currency code and the total monetary sum of the order. Currently, only USD is supported.

@@ -8,7 +8,7 @@ package com.mozu.api.contracts.productruntime;
 
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import java.util.Date;
+import org.joda.time.DateTime;
 
 /**
  *	Represents the values that are the product option selections for a shopper to choose when ordering a product.

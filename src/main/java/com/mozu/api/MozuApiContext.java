@@ -44,10 +44,14 @@ public class MozuApiContext implements ApiContext {
         this(tenantId, null, null, null);
     }
 
+    public MozuApiContext(Tenant tenant)
+            throws ApiException {
+        this(tenant, null, null, null);
+    }
+
     public MozuApiContext(Tenant tenant, Site site, Integer masterCatalogId, Integer catalogId)
             throws ApiException {
-        this(tenant.getId(), site.getId(), masterCatalogId, catalogId);
-        this.tenantUrl = HttpHelper.getUrl(tenant.getDomain());
+        this(tenant == null ? null : tenant.getId(), site == null ? null : site.getId(), masterCatalogId, catalogId);        this.tenantUrl = HttpHelper.getUrl(tenant.getDomain());
 
         if (site != null && site.getId() >= 0) {
             this.siteUrl = HttpHelper.getUrl(site.getDomain());
