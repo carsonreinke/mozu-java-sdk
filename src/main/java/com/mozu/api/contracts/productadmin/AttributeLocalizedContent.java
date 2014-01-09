@@ -8,7 +8,7 @@ package com.mozu.api.contracts.productadmin;
 
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import java.util.Date;
+import org.joda.time.DateTime;
 
 /**
  *	Localized content displayed in the storefront for this attribute.

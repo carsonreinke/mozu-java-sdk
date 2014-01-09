@@ -8,7 +8,7 @@ package com.mozu.api.contracts.core.thirdparty;
 
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import java.util.Date;
+import org.joda.time.DateTime;
 
 /**
  *	Properties of a value that can be initialized for a capability property.

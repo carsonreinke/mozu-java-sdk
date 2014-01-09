@@ -9,7 +9,7 @@ package com.mozu.api.contracts.commerceruntime.discounts;
 import java.util.List;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import java.util.Date;
+import org.joda.time.DateTime;
 
 /**
  *	Properties of a discount defined for a product or order in a storefront.
@@ -23,13 +23,13 @@ public class Discount implements Serializable
 	/**
 	 * The date and time at which the discount can no longer be applied to a product or order.
 	 */
-	protected Date expirationDate;
+	protected DateTime expirationDate;
 
-	public Date getExpirationDate() {
+	public DateTime getExpirationDate() {
 		return this.expirationDate;
 	}
 
-	public void setExpirationDate(Date expirationDate) {
+	public void setExpirationDate(DateTime expirationDate) {
 		this.expirationDate = expirationDate;
 	}
 

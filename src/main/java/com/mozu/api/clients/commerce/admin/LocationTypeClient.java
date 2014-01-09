@@ -4,7 +4,7 @@
  *     Changes to this file may cause incorrect behavior and will be lost if
  *     the code is regenerated.
  */
-package com.mozu.api.clients.commerce.location.admin;
+package com.mozu.api.clients.commerce.admin;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -14,13 +14,13 @@ import com.mozu.api.Headers;
 import com.mozu.api.security.AuthTicket;
 
 /** <summary>
- * Use the Location Types resource to manage the types of locations your tenant maintains, such as warehouses, physical storefronts, and kiosks.
+ * 
  * </summary>
  */
 public class LocationTypeClient {
 	
 	/**
-	 * Retrieve a list of all location types defined for the tenant.
+	 * 
 	 * <p><pre><code>
 	 * MozuClient<List<com.mozu.api.contracts.location.LocationType>> mozuClient=GetLocationTypesClient(authTicket);
 	 * client.setBaseAddress(url);
@@ -33,7 +33,7 @@ public class LocationTypeClient {
 	 */
 	public static MozuClient<List<com.mozu.api.contracts.location.LocationType>> getLocationTypesClient(AuthTicket authTicket) throws Exception
 	{
-		MozuUrl url = com.mozu.api.urls.commerce.location.admin.LocationTypeUrl.getLocationTypesUrl();
+		MozuUrl url = com.mozu.api.urls.commerce.admin.LocationTypeUrl.getLocationTypesUrl();
 		String verb = "GET";
 		Class<?> clz = new ArrayList<com.mozu.api.contracts.location.LocationType>(){}.getClass();
 		MozuClient<List<com.mozu.api.contracts.location.LocationType>> mozuClient = new MozuClient(clz);
@@ -46,21 +46,21 @@ public class LocationTypeClient {
 	}
 
 	/**
-	 * Retrieves the details of the location type specified in the request.
+	 * 
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.location.LocationType> mozuClient=GetLocationTypeClient( locationTypeCode, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * LocationType locationType = client.Result();
 	 * </code></pre></p>
-	 * @param locationTypeCode The user-defined code that identifies the location type.
+	 * @param locationTypeCode 
 	 * @param authTicket User Auth Ticket
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.location.LocationType>
 	 * @see com.mozu.api.contracts.location.LocationType
 	 */
 	public static MozuClient<com.mozu.api.contracts.location.LocationType> getLocationTypeClient(String locationTypeCode, AuthTicket authTicket) throws Exception
 	{
-		MozuUrl url = com.mozu.api.urls.commerce.location.admin.LocationTypeUrl.getLocationTypeUrl(locationTypeCode);
+		MozuUrl url = com.mozu.api.urls.commerce.admin.LocationTypeUrl.getLocationTypeUrl(locationTypeCode);
 		String verb = "GET";
 		Class<?> clz = com.mozu.api.contracts.location.LocationType.class;
 		MozuClient<com.mozu.api.contracts.location.LocationType> mozuClient = new MozuClient(clz);
@@ -73,7 +73,7 @@ public class LocationTypeClient {
 	}
 
 	/**
-	 * Creates a new location type based on the information specified in the request.
+	 * 
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.location.LocationType> mozuClient=AddLocationTypeClient( locationType, authTicket);
 	 * client.setBaseAddress(url);
@@ -81,14 +81,14 @@ public class LocationTypeClient {
 	 * LocationType locationType = client.Result();
 	 * </code></pre></p>
 	 * @param authTicket User Auth Ticket
-	 * @param locationType Properties of the location type to create.
+	 * @param locationType 
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.location.LocationType>
 	 * @see com.mozu.api.contracts.location.LocationType
 	 * @see com.mozu.api.contracts.location.LocationType
 	 */
 	public static MozuClient<com.mozu.api.contracts.location.LocationType> addLocationTypeClient(com.mozu.api.contracts.location.LocationType locationType, AuthTicket authTicket) throws Exception
 	{
-		MozuUrl url = com.mozu.api.urls.commerce.location.admin.LocationTypeUrl.addLocationTypeUrl();
+		MozuUrl url = com.mozu.api.urls.commerce.admin.LocationTypeUrl.addLocationTypeUrl();
 		String verb = "POST";
 		Class<?> clz = com.mozu.api.contracts.location.LocationType.class;
 		MozuClient<com.mozu.api.contracts.location.LocationType> mozuClient = new MozuClient(clz);
@@ -102,23 +102,23 @@ public class LocationTypeClient {
 	}
 
 	/**
-	 * Updates the name of a defined location type.
+	 * 
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.location.LocationType> mozuClient=UpdateLocationTypeClient( locationType,  locationTypeCode, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * LocationType locationType = client.Result();
 	 * </code></pre></p>
-	 * @param locationTypeCode The user-defined code that identifies the location type.
+	 * @param locationTypeCode 
 	 * @param authTicket User Auth Ticket
-	 * @param locationType Properties of the location type to update.
+	 * @param locationType 
 	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.location.LocationType>
 	 * @see com.mozu.api.contracts.location.LocationType
 	 * @see com.mozu.api.contracts.location.LocationType
 	 */
 	public static MozuClient<com.mozu.api.contracts.location.LocationType> updateLocationTypeClient(com.mozu.api.contracts.location.LocationType locationType, String locationTypeCode, AuthTicket authTicket) throws Exception
 	{
-		MozuUrl url = com.mozu.api.urls.commerce.location.admin.LocationTypeUrl.updateLocationTypeUrl(locationTypeCode);
+		MozuUrl url = com.mozu.api.urls.commerce.admin.LocationTypeUrl.updateLocationTypeUrl(locationTypeCode);
 		String verb = "PUT";
 		Class<?> clz = com.mozu.api.contracts.location.LocationType.class;
 		MozuClient<com.mozu.api.contracts.location.LocationType> mozuClient = new MozuClient(clz);
@@ -132,19 +132,19 @@ public class LocationTypeClient {
 	}
 
 	/**
-	 * Deletes the location type specified in the request.
+	 * 
 	 * <p><pre><code>
 	 * MozuClient mozuClient=DeleteLocationTypeClient( locationTypeCode, authTicket);
 	 * client.setBaseAddress(url);
 	 * client.executeRequest();
 	 * </code></pre></p>
-	 * @param locationTypeCode User-defined code used to identify the location type.
+	 * @param locationTypeCode 
 	 * @param authTicket User Auth Ticket
 	 * @return Mozu.Api.MozuClient 
 	 */
 	public static MozuClient deleteLocationTypeClient(String locationTypeCode, AuthTicket authTicket) throws Exception
 	{
-		MozuUrl url = com.mozu.api.urls.commerce.location.admin.LocationTypeUrl.deleteLocationTypeUrl(locationTypeCode);
+		MozuUrl url = com.mozu.api.urls.commerce.admin.LocationTypeUrl.deleteLocationTypeUrl(locationTypeCode);
 		String verb = "DELETE";
 				MozuClient mozuClient = new MozuClient();
 		mozuClient.setVerb(verb);

@@ -16,15 +16,13 @@ public class DocumentListUrl
 	/**
 	 * Get Resource Url for GetDocumentLists
 	 * @param pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
-	 * @param sort 
 	 * @param startIndex 
 	 * @return   String Resource Url
 	 */
-	public static MozuUrl getDocumentListsUrl(Integer pageSize, String sort, Integer startIndex)
+	public static MozuUrl getDocumentListsUrl(Integer pageSize, Integer startIndex)
 	{
-		UrlFormatter formatter = new UrlFormatter("/api/content/documentlists/?pageSize={pageSize}&startIndex={startIndex}&sortBy={sort}");
+		UrlFormatter formatter = new UrlFormatter("/api/content/documentlists/?pageSize={pageSize}&startIndex={startIndex}");
 		formatter.formatUrl("pageSize", pageSize);
-		formatter.formatUrl("sort", sort);
 		formatter.formatUrl("startIndex", startIndex);
 		return new MozuUrl(formatter.getResourceUrl(), MozuUrl.UrlLocation.TENANT_POD) ;
 	}

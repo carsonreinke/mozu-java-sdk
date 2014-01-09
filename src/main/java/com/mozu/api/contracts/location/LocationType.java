@@ -8,7 +8,8 @@ package com.mozu.api.contracts.location;
 
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import java.util.Date;
+import org.joda.time.DateTime;
+import com.mozu.api.contracts.core.AuditInfo;
 
 /**
  *	Properties of a type of physical location, such as warehouse or kiosk. Location types enable tenants to group similar locations for filtering and location usage type definition.
@@ -43,6 +44,16 @@ public class LocationType implements Serializable
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	protected AuditInfo auditInfo;
+
+	public AuditInfo getAuditInfo() {
+		return this.auditInfo;
+	}
+
+	public void setAuditInfo(AuditInfo auditInfo) {
+		this.auditInfo = auditInfo;
 	}
 
 }

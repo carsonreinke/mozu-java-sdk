@@ -8,7 +8,7 @@ package com.mozu.api.contracts.commerceruntime.orders;
 
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import java.util.Date;
+import org.joda.time.DateTime;
 
 /**
  *	The action to perform for the order.

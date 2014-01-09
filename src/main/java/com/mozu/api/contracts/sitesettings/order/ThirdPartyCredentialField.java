@@ -8,7 +8,7 @@ package com.mozu.api.contracts.sitesettings.order;
 
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import java.util.Date;
+import org.joda.time.DateTime;
 
 /**
  *	The properties of the credentials required to communicate with the external payment processor.

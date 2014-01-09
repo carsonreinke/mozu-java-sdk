@@ -9,7 +9,7 @@ package com.mozu.api.contracts.commerceruntime.fulfillment;
 import java.util.List;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import java.util.Date;
+import org.joda.time.DateTime;
 
 /**
  *	Properties of an action to perform when fulfilling an item in an order, whether through in-store pickup or direct shipping.

@@ -8,7 +8,7 @@ package com.mozu.api.contracts.appdev;
 
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import java.util.Date;
+import org.joda.time.DateTime;
 
 /**
  *	Information required to update the name of a file in a package, which consists of the original name and the new name.

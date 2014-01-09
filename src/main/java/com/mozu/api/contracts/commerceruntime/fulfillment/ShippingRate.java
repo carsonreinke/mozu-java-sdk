@@ -9,7 +9,7 @@ package com.mozu.api.contracts.commerceruntime.fulfillment;
 import java.util.List;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import java.util.Date;
+import org.joda.time.DateTime;
 
 /**
  *	Properties of an estimated shipping rate for a shipment.

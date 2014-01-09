@@ -8,7 +8,7 @@ package com.mozu.api.contracts.pricingruntime;
 
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import java.util.Date;
+import org.joda.time.DateTime;
 
 /**
  *	Details of the product attribute, such its name and description.
@@ -18,19 +18,6 @@ public class ProductAttribute implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
-
-	/**
-	 * The description of this product attribute.
-	 */
-	protected String description;
-
-	public String getDescription() {
-		return this.description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
 
 	/**
 	 * The data type of the attribute. There are four valid data types: "Bool", "DateTime", "Number", "String"
@@ -43,6 +30,19 @@ public class ProductAttribute implements Serializable
 
 	public void setDataType(String dataType) {
 		this.dataType = dataType;
+	}
+
+	/**
+	 * The description of this product attribute.
+	 */
+	protected String description;
+
+	public String getDescription() {
+		return this.description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	/**

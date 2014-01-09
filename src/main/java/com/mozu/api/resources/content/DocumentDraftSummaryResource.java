@@ -66,6 +66,42 @@ public class DocumentDraftSummaryResource {
 	}
 
 	/**
+	 * Deletes the drafts of the specified documents. Published documents cannot be deleted.
+	 * <p><pre><code>
+	 *	DocumentDraftSummary documentdraftsummary = new DocumentDraftSummary();
+	 *	documentdraftsummary.DeleteDocumentDrafts(dataViewMode,  documentIds);
+	 * </code></pre></p>
+	 * @param authTicket User Auth Ticket
+	 * @param documentIds Unique identifiers of the documents to delete.
+	 * @return 
+	 * @see string
+	 */
+	public void deleteDocumentDrafts(com.mozu.api.DataViewMode dataViewMode, List<String> documentIds) throws Exception
+	{
+		deleteDocumentDrafts(dataViewMode,  documentIds,  null, null);
+	}
+
+	/**
+	 * Deletes the drafts of the specified documents. Published documents cannot be deleted.
+	 * <p><pre><code>
+	 *	DocumentDraftSummary documentdraftsummary = new DocumentDraftSummary();
+	 *	documentdraftsummary.DeleteDocumentDrafts(dataViewMode,  documentIds,  documentLists, authTicket);
+	 * </code></pre></p>
+	 * @param documentLists List of document lists that contain documents to delete.
+	 * @param authTicket User Auth Ticket
+	 * @param documentIds Unique identifiers of the documents to delete.
+	 * @return 
+	 * @see string
+	 */
+	public void deleteDocumentDrafts(com.mozu.api.DataViewMode dataViewMode, List<String> documentIds, String documentLists, AuthTicket authTicket) throws Exception
+	{
+		MozuClient client = com.mozu.api.clients.content.DocumentDraftSummaryClient.deleteDocumentDraftsClient(dataViewMode,  documentIds,  documentLists, authTicket);
+		client.setContext(_apiContext);
+		client.executeRequest();
+
+	}
+
+	/**
 	 * Publish one or more document drafts to live content on the site.
 	 * <p><pre><code>
 	 *	DocumentDraftSummary documentdraftsummary = new DocumentDraftSummary();
@@ -96,40 +132,6 @@ public class DocumentDraftSummaryResource {
 	public void publishDocuments(com.mozu.api.DataViewMode dataViewMode, List<String> documentIds, String documentLists, AuthTicket authTicket) throws Exception
 	{
 		MozuClient client = com.mozu.api.clients.content.DocumentDraftSummaryClient.publishDocumentsClient(dataViewMode,  documentIds,  documentLists, authTicket);
-		client.setContext(_apiContext);
-		client.executeRequest();
-
-	}
-
-	/**
-	 * Deletes the drafts of the specified documents. Published documents cannot be deleted.
-	 * <p><pre><code>
-	 *	DocumentDraftSummary documentdraftsummary = new DocumentDraftSummary();
-	 *	documentdraftsummary.DeleteDocumentDrafts(dataViewMode,  documentIds);
-	 * </code></pre></p>
-	 * @param documentIds Unique identifiers of the documents to delete.
-	 * @param authTicket User Auth Ticket
-	 * @return 
-	 */
-	public void deleteDocumentDrafts(com.mozu.api.DataViewMode dataViewMode, String documentIds) throws Exception
-	{
-		deleteDocumentDrafts(dataViewMode,  documentIds,  null, null);
-	}
-
-	/**
-	 * Deletes the drafts of the specified documents. Published documents cannot be deleted.
-	 * <p><pre><code>
-	 *	DocumentDraftSummary documentdraftsummary = new DocumentDraftSummary();
-	 *	documentdraftsummary.DeleteDocumentDrafts(dataViewMode,  documentIds,  documentLists, authTicket);
-	 * </code></pre></p>
-	 * @param documentIds Unique identifiers of the documents to delete.
-	 * @param documentLists List of document lists that contain documents to delete.
-	 * @param authTicket User Auth Ticket
-	 * @return 
-	 */
-	public void deleteDocumentDrafts(com.mozu.api.DataViewMode dataViewMode, String documentIds, String documentLists, AuthTicket authTicket) throws Exception
-	{
-		MozuClient client = com.mozu.api.clients.content.DocumentDraftSummaryClient.deleteDocumentDraftsClient(dataViewMode,  documentIds,  documentLists, authTicket);
 		client.setContext(_apiContext);
 		client.executeRequest();
 

@@ -8,7 +8,7 @@ package com.mozu.api.contracts.productadmin;
 
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import java.util.Date;
+import org.joda.time.DateTime;
 
 /**
  *	Validates the attribute configured for the product in the storefront against the attribute configured in product admin.
@@ -22,13 +22,13 @@ public class AttributeValidation implements Serializable
 	/**
 	 *  System-supplied and read-only.
 	 */
-	protected Date maxDateValue;
+	protected DateTime maxDateValue;
 
-	public Date getMaxDateValue() {
+	public DateTime getMaxDateValue() {
 		return this.maxDateValue;
 	}
 
-	public void setMaxDateValue(Date maxDateValue) {
+	public void setMaxDateValue(DateTime maxDateValue) {
 		this.maxDateValue = maxDateValue;
 	}
 
@@ -61,13 +61,13 @@ public class AttributeValidation implements Serializable
 	/**
 	 *  System-supplied and read-only.
 	 */
-	protected Date minDateValue;
+	protected DateTime minDateValue;
 
-	public Date getMinDateValue() {
+	public DateTime getMinDateValue() {
 		return this.minDateValue;
 	}
 
-	public void setMinDateValue(Date minDateValue) {
+	public void setMinDateValue(DateTime minDateValue) {
 		this.minDateValue = minDateValue;
 	}
 

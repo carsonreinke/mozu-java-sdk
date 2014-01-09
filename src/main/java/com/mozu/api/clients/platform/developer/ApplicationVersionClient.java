@@ -287,6 +287,37 @@ public class ApplicationVersionClient {
 	}
 
 	/**
+	 * 
+	 * <p><pre><code>
+	 * MozuClient<com.mozu.api.contracts.appdev.FileMetadata> mozuClient=ChangePackageFileNameOrPathClient( renameInfo,  applicationVersionId,  packageId, authTicket);
+	 * client.setBaseAddress(url);
+	 * client.executeRequest();
+	 * FileMetadata fileMetadata = client.Result();
+	 * </code></pre></p>
+	 * @param applicationVersionId 
+	 * @param packageId 
+	 * @param authTicket User Auth Ticket
+	 * @param renameInfo 
+	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.appdev.FileMetadata>
+	 * @see com.mozu.api.contracts.appdev.FileMetadata
+	 * @see com.mozu.api.contracts.appdev.RenameInfo
+	 */
+	public static MozuClient<com.mozu.api.contracts.appdev.FileMetadata> changePackageFileNameOrPathClient(com.mozu.api.contracts.appdev.RenameInfo renameInfo, Integer applicationVersionId, Integer packageId, AuthTicket authTicket) throws Exception
+	{
+		MozuUrl url = com.mozu.api.urls.platform.developer.ApplicationVersionUrl.changePackageFileNameOrPathUrl(applicationVersionId, packageId);
+		String verb = "POST";
+		Class<?> clz = com.mozu.api.contracts.appdev.FileMetadata.class;
+		MozuClient<com.mozu.api.contracts.appdev.FileMetadata> mozuClient = new MozuClient(clz);
+		mozuClient.setVerb(verb);
+		mozuClient.setResourceUrl(url);
+		mozuClient.setBody(renameInfo);
+		if (authTicket != null)
+			mozuClient.setUserAuth(authTicket);
+		return mozuClient;
+
+	}
+
+	/**
 	 * Uploads a file to a defined package for an application version in the file location specified in the request.
 	 * <p><pre><code>
 	 * MozuClient<com.mozu.api.contracts.appdev.FileMetadata> mozuClient=AddPackageFileClient( stream,  applicationVersionId,  packageId,  filepath, authTicket);
@@ -312,37 +343,6 @@ public class ApplicationVersionClient {
 		mozuClient.setVerb(verb);
 		mozuClient.setResourceUrl(url);
 		mozuClient.setBody(stream);
-		if (authTicket != null)
-			mozuClient.setUserAuth(authTicket);
-		return mozuClient;
-
-	}
-
-	/**
-	 * 
-	 * <p><pre><code>
-	 * MozuClient<com.mozu.api.contracts.appdev.FileMetadata> mozuClient=ChangePackageFileNameOrPathClient( renameInfo,  applicationVersionId,  packageId, authTicket);
-	 * client.setBaseAddress(url);
-	 * client.executeRequest();
-	 * FileMetadata fileMetadata = client.Result();
-	 * </code></pre></p>
-	 * @param applicationVersionId 
-	 * @param packageId 
-	 * @param authTicket User Auth Ticket
-	 * @param renameInfo 
-	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.appdev.FileMetadata>
-	 * @see com.mozu.api.contracts.appdev.FileMetadata
-	 * @see com.mozu.api.contracts.appdev.RenameInfo
-	 */
-	public static MozuClient<com.mozu.api.contracts.appdev.FileMetadata> changePackageFileNameOrPathClient(com.mozu.api.contracts.appdev.RenameInfo renameInfo, Integer applicationVersionId, Integer packageId, AuthTicket authTicket) throws Exception
-	{
-		MozuUrl url = com.mozu.api.urls.platform.developer.ApplicationVersionUrl.changePackageFileNameOrPathUrl(applicationVersionId, packageId);
-		String verb = "POST";
-		Class<?> clz = com.mozu.api.contracts.appdev.FileMetadata.class;
-		MozuClient<com.mozu.api.contracts.appdev.FileMetadata> mozuClient = new MozuClient(clz);
-		mozuClient.setVerb(verb);
-		mozuClient.setResourceUrl(url);
-		mozuClient.setBody(renameInfo);
 		if (authTicket != null)
 			mozuClient.setUserAuth(authTicket);
 		return mozuClient;

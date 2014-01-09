@@ -9,7 +9,7 @@ package com.mozu.api.contracts.pricingruntime.thirdparty;
 import java.util.List;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import java.util.Date;
+import org.joda.time.DateTime;
 import com.mozu.api.contracts.pricingruntime.TaxableLineItem;
 import com.mozu.api.contracts.pricingruntime.thirdparty.TaxContext;
 
@@ -39,13 +39,13 @@ public class TaxableOrder implements Serializable
 		this.handlingFee = handlingFee;
 	}
 
-	protected Date orderDate;
+	protected DateTime orderDate;
 
-	public Date getOrderDate() {
+	public DateTime getOrderDate() {
 		return this.orderDate;
 	}
 
-	public void setOrderDate(Date orderDate) {
+	public void setOrderDate(DateTime orderDate) {
 		this.orderDate = orderDate;
 	}
 
@@ -59,13 +59,13 @@ public class TaxableOrder implements Serializable
 		this.originalDocumentCode = originalDocumentCode;
 	}
 
-	protected Date originalOrderDate;
+	protected DateTime originalOrderDate;
 
-	public Date getOriginalOrderDate() {
+	public DateTime getOriginalOrderDate() {
 		return this.originalOrderDate;
 	}
 
-	public void setOriginalOrderDate(Date originalOrderDate) {
+	public void setOriginalOrderDate(DateTime originalOrderDate) {
 		this.originalOrderDate = originalOrderDate;
 	}
 

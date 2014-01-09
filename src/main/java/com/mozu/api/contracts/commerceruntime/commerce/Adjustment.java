@@ -8,7 +8,7 @@ package com.mozu.api.contracts.commerceruntime.commerce;
 
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import java.util.Date;
+import org.joda.time.DateTime;
 
 /**
  *	Properties of an ad-hoc price adjustment for an order.

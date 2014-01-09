@@ -8,7 +8,7 @@ package com.mozu.api.contracts.commerceruntime.commerce;
 
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import java.util.Date;
+import org.joda.time.DateTime;
 
 /**
  *	Properties of a system message displayed when a change, such as a change in product price, occurs for a cart or order.
@@ -22,13 +22,13 @@ public class ChangeMessage implements Serializable
 	/**
 	 * Date and time when the entity was created, represented in UTC Date/Time.
 	 */
-	protected Date createDate;
+	protected DateTime createDate;
 
-	public Date getCreateDate() {
+	public DateTime getCreateDate() {
 		return this.createDate;
 	}
 
-	public void setCreateDate(Date createDate) {
+	public void setCreateDate(DateTime createDate) {
 		this.createDate = createDate;
 	}
 

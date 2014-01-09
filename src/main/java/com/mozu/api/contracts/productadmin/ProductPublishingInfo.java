@@ -8,7 +8,7 @@ package com.mozu.api.contracts.productadmin;
 
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import java.util.Date;
+import org.joda.time.DateTime;
 
 /**
  *	Properties of the publishing status of the product, including its current state and the details of the last product change published to the catalog.
@@ -35,13 +35,13 @@ public class ProductPublishingInfo implements Serializable
 	/**
 	 * The date and time a draft change for this product was published to the catalog.
 	 */
-	protected Date lastPublishedDate;
+	protected DateTime lastPublishedDate;
 
-	public Date getLastPublishedDate() {
+	public DateTime getLastPublishedDate() {
 		return this.lastPublishedDate;
 	}
 
-	public void setLastPublishedDate(Date lastPublishedDate) {
+	public void setLastPublishedDate(DateTime lastPublishedDate) {
 		this.lastPublishedDate = lastPublishedDate;
 	}
 

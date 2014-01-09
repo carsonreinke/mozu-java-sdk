@@ -4,7 +4,7 @@
  *     Changes to this file may cause incorrect behavior and will be lost if
  *     the code is regenerated.
  */
-package com.mozu.api.urls.commerce.location.admin;
+package com.mozu.api.urls.commerce.admin;
 
 import com.mozu.api.MozuUrl;
 import com.mozu.api.utils.UrlFormatter;
@@ -19,18 +19,18 @@ public class LocationTypeUrl
 	 */
 	public static MozuUrl getLocationTypesUrl()
 	{
-		UrlFormatter formatter = new UrlFormatter("/api/commerce/location/admin/locationtypes/");
+		UrlFormatter formatter = new UrlFormatter("/api/commerce/admin/locationtypes/");
 		return new MozuUrl(formatter.getResourceUrl(), MozuUrl.UrlLocation.TENANT_POD) ;
 	}
 
 	/**
 	 * Get Resource Url for GetLocationType
-	 * @param locationTypeCode The user-defined code that identifies the location type.
+	 * @param locationTypeCode 
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl getLocationTypeUrl(String locationTypeCode)
 	{
-		UrlFormatter formatter = new UrlFormatter("/api/commerce/location/admin/locationtypes/{locationTypeCode}");
+		UrlFormatter formatter = new UrlFormatter("/api/commerce/admin/locationtypes/{locationTypeCode}");
 		formatter.formatUrl("locationTypeCode", locationTypeCode);
 		return new MozuUrl(formatter.getResourceUrl(), MozuUrl.UrlLocation.TENANT_POD) ;
 	}
@@ -41,30 +41,30 @@ public class LocationTypeUrl
 	 */
 	public static MozuUrl addLocationTypeUrl()
 	{
-		UrlFormatter formatter = new UrlFormatter("/api/commerce/location/admin/locationtypes/");
+		UrlFormatter formatter = new UrlFormatter("/api/commerce/admin/locationtypes/");
 		return new MozuUrl(formatter.getResourceUrl(), MozuUrl.UrlLocation.TENANT_POD) ;
 	}
 
 	/**
 	 * Get Resource Url for UpdateLocationType
-	 * @param locationTypeCode The user-defined code that identifies the location type.
+	 * @param locationTypeCode 
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl updateLocationTypeUrl(String locationTypeCode)
 	{
-		UrlFormatter formatter = new UrlFormatter("/api/commerce/location/admin/locationtypes/{locationTypeCode}");
+		UrlFormatter formatter = new UrlFormatter("/api/commerce/admin/locationtypes/{locationTypeCode}");
 		formatter.formatUrl("locationTypeCode", locationTypeCode);
 		return new MozuUrl(formatter.getResourceUrl(), MozuUrl.UrlLocation.TENANT_POD) ;
 	}
 
 	/**
 	 * Get Resource Url for DeleteLocationType
-	 * @param locationTypeCode User-defined code used to identify the location type.
+	 * @param locationTypeCode 
 	 * @return   String Resource Url
 	 */
 	public static MozuUrl deleteLocationTypeUrl(String locationTypeCode)
 	{
-		UrlFormatter formatter = new UrlFormatter("/api/commerce/location/admin/locationtypes/{locationTypeCode}");
+		UrlFormatter formatter = new UrlFormatter("/api/commerce/admin/locationtypes/{locationTypeCode}");
 		formatter.formatUrl("locationTypeCode", locationTypeCode);
 		return new MozuUrl(formatter.getResourceUrl(), MozuUrl.UrlLocation.TENANT_POD) ;
 	}

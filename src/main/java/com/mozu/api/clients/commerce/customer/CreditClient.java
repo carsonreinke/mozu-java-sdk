@@ -153,6 +153,33 @@ public class CreditClient {
 	}
 
 	/**
+	 * 
+	 * <p><pre><code>
+	 * MozuClient<com.mozu.api.contracts.customer.credit.Credit> mozuClient=AssociateCreditToShopperClient( code, authTicket);
+	 * client.setBaseAddress(url);
+	 * client.executeRequest();
+	 * Credit credit = client.Result();
+	 * </code></pre></p>
+	 * @param code 
+	 * @param authTicket User Auth Ticket
+	 * @return Mozu.Api.MozuClient <com.mozu.api.contracts.customer.credit.Credit>
+	 * @see com.mozu.api.contracts.customer.credit.Credit
+	 */
+	public static MozuClient<com.mozu.api.contracts.customer.credit.Credit> associateCreditToShopperClient(String code, AuthTicket authTicket) throws Exception
+	{
+		MozuUrl url = com.mozu.api.urls.commerce.customer.CreditUrl.associateCreditToShopperUrl(code);
+		String verb = "PUT";
+		Class<?> clz = com.mozu.api.contracts.customer.credit.Credit.class;
+		MozuClient<com.mozu.api.contracts.customer.credit.Credit> mozuClient = new MozuClient(clz);
+		mozuClient.setVerb(verb);
+		mozuClient.setResourceUrl(url);
+		if (authTicket != null)
+			mozuClient.setUserAuth(authTicket);
+		return mozuClient;
+
+	}
+
+	/**
 	 * Deletes a store credit previously applied to a customer account.
 	 * <p><pre><code>
 	 * MozuClient mozuClient=DeleteCreditClient( code, authTicket);

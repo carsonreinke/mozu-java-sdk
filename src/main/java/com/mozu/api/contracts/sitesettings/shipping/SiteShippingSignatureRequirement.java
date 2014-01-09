@@ -8,7 +8,7 @@ package com.mozu.api.contracts.sitesettings.shipping;
 
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import java.util.Date;
+import org.joda.time.DateTime;
 
 /**
  *	Properties of the shipment signature requirements for the specified site.

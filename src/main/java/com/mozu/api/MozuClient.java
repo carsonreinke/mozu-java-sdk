@@ -22,9 +22,10 @@ import com.mozu.api.security.AuthenticationProfile;
 import com.mozu.api.security.UserAuthenticator;
 import com.mozu.api.utils.ConfigProperties;
 import com.mozu.api.utils.HttpHelper;
+import com.mozu.api.utils.JsonUtils;
 
 public class MozuClient<TResult> {
-    private static final ObjectMapper mapper = new ObjectMapper();
+    private static final ObjectMapper mapper = JsonUtils.initObjectMapper();
 
     static private HttpHost proxyHttpHost = HttpHelper.getProxyHost();
 

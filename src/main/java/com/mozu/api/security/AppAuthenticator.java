@@ -16,7 +16,6 @@ import org.slf4j.LoggerFactory;
 
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mozu.api.ApiException;
 import com.mozu.api.Headers;
@@ -27,12 +26,13 @@ import com.mozu.api.resources.platform.applications.AuthTicketResource;
 import com.mozu.api.urls.platform.applications.AuthTicketUrl;
 import com.mozu.api.utils.ConfigProperties;
 import com.mozu.api.utils.HttpHelper;
+import com.mozu.api.utils.JsonUtils;
 
 public class AppAuthenticator {
     private static final Logger logger = LoggerFactory.getLogger(AppAuthenticator.class);
 
     private static volatile AppAuthenticator auth;
-    private static ObjectMapper mapper = new ObjectMapper();
+    private static ObjectMapper mapper = JsonUtils.initObjectMapper();
 
     protected static Object lockObj = new Object();
 
@@ -263,12 +263,12 @@ public class AppAuthenticator {
         return useSSL;
     }
 
-    private long getExpirationInterval (Date expirationDateTime) {
+    private long getExpirationInterval (DateTime expirationDateTime) {
         long interval = 0;
                 
-        Date nowDate = new Date();
+        DateTime nowDate = new DateTime();
         
-        interval = expirationDateTime.getTime() - nowDate.getTime() - 180000;
+        interval = expirationDateTime.getMillis() - nowDate.getMillis() - 180000;
                 
         return interval;
     }

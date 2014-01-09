@@ -8,7 +8,7 @@ package com.mozu.api.contracts.content;
 
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import java.util.Date;
+import org.joda.time.DateTime;
 
 /**
  *	A high level description of the document draft.
@@ -19,13 +19,13 @@ public class DocumentDraftSummary implements Serializable
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
-	protected Date activeUpdateDate;
+	protected DateTime activeUpdateDate;
 
-	public Date getActiveUpdateDate() {
+	public DateTime getActiveUpdateDate() {
 		return this.activeUpdateDate;
 	}
 
-	public void setActiveUpdateDate(Date activeUpdateDate) {
+	public void setActiveUpdateDate(DateTime activeUpdateDate) {
 		this.activeUpdateDate = activeUpdateDate;
 	}
 
@@ -42,13 +42,13 @@ public class DocumentDraftSummary implements Serializable
 		this.documentListName = documentListName;
 	}
 
-	protected Date draftUpdateDate;
+	protected DateTime draftUpdateDate;
 
-	public Date getDraftUpdateDate() {
+	public DateTime getDraftUpdateDate() {
 		return this.draftUpdateDate;
 	}
 
-	public void setDraftUpdateDate(Date draftUpdateDate) {
+	public void setDraftUpdateDate(DateTime draftUpdateDate) {
 		this.draftUpdateDate = draftUpdateDate;
 	}
 

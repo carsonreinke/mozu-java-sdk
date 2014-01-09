@@ -213,6 +213,28 @@ public class ApplicationVersionResource {
 	}
 
 	/**
+	 * 
+	 * <p><pre><code>
+	 *	ApplicationVersion applicationversion = new ApplicationVersion();
+	 *	FileMetadata fileMetadata = applicationversion.ChangePackageFileNameOrPath( renameInfo,  applicationVersionId,  packageId, authTicket);
+	 * </code></pre></p>
+	 * @param applicationVersionId 
+	 * @param packageId 
+	 * @param authTicket User Auth Ticket
+	 * @param renameInfo 
+	 * @return com.mozu.api.contracts.appdev.FileMetadata
+	 * @see com.mozu.api.contracts.appdev.FileMetadata
+	 * @see com.mozu.api.contracts.appdev.RenameInfo
+	 */
+	public com.mozu.api.contracts.appdev.FileMetadata changePackageFileNameOrPath(com.mozu.api.contracts.appdev.RenameInfo renameInfo, Integer applicationVersionId, Integer packageId, AuthTicket authTicket) throws Exception
+	{
+		MozuClient<com.mozu.api.contracts.appdev.FileMetadata> client = com.mozu.api.clients.platform.developer.ApplicationVersionClient.changePackageFileNameOrPathClient( renameInfo,  applicationVersionId,  packageId, authTicket);
+		client.executeRequest();
+		return client.getResult();
+
+	}
+
+	/**
 	 * Uploads a file to a defined package for an application version in the file location specified in the request.
 	 * <p><pre><code>
 	 *	ApplicationVersion applicationversion = new ApplicationVersion();
@@ -230,28 +252,6 @@ public class ApplicationVersionResource {
 	public com.mozu.api.contracts.appdev.FileMetadata addPackageFile(java.io.InputStream stream, Integer applicationVersionId, Integer packageId, String filepath, AuthTicket authTicket) throws Exception
 	{
 		MozuClient<com.mozu.api.contracts.appdev.FileMetadata> client = com.mozu.api.clients.platform.developer.ApplicationVersionClient.addPackageFileClient( stream,  applicationVersionId,  packageId,  filepath, authTicket);
-		client.executeRequest();
-		return client.getResult();
-
-	}
-
-	/**
-	 * 
-	 * <p><pre><code>
-	 *	ApplicationVersion applicationversion = new ApplicationVersion();
-	 *	FileMetadata fileMetadata = applicationversion.ChangePackageFileNameOrPath( renameInfo,  applicationVersionId,  packageId, authTicket);
-	 * </code></pre></p>
-	 * @param applicationVersionId 
-	 * @param packageId 
-	 * @param authTicket User Auth Ticket
-	 * @param renameInfo 
-	 * @return com.mozu.api.contracts.appdev.FileMetadata
-	 * @see com.mozu.api.contracts.appdev.FileMetadata
-	 * @see com.mozu.api.contracts.appdev.RenameInfo
-	 */
-	public com.mozu.api.contracts.appdev.FileMetadata changePackageFileNameOrPath(com.mozu.api.contracts.appdev.RenameInfo renameInfo, Integer applicationVersionId, Integer packageId, AuthTicket authTicket) throws Exception
-	{
-		MozuClient<com.mozu.api.contracts.appdev.FileMetadata> client = com.mozu.api.clients.platform.developer.ApplicationVersionClient.changePackageFileNameOrPathClient( renameInfo,  applicationVersionId,  packageId, authTicket);
 		client.executeRequest();
 		return client.getResult();
 

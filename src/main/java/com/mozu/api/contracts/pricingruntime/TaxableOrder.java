@@ -9,7 +9,7 @@ package com.mozu.api.contracts.pricingruntime;
 import java.util.List;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import java.util.Date;
+import org.joda.time.DateTime;
 import com.mozu.api.contracts.pricingruntime.TaxableLineItem;
 import com.mozu.api.contracts.pricingruntime.TaxContext;
 
@@ -21,6 +21,29 @@ public class TaxableOrder implements Serializable
 {
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
+
+	/**
+	 * The total shipping amount calculated for the order.
+	 */
+	protected Double shippingAmount;
+
+	public Double getShippingAmount() {
+		return this.shippingAmount;
+	}
+
+	public void setShippingAmount(Double shippingAmount) {
+		this.shippingAmount = shippingAmount;
+	}
+
+	protected String taxRequestType;
+
+	public String getTaxRequestType() {
+		return this.taxRequestType;
+	}
+
+	public void setTaxRequestType(String taxRequestType) {
+		this.taxRequestType = taxRequestType;
+	}
 
 	/**
 	 * 3-letter ISO 4217 standard global currency code. Currently, only "USD" (US Dollar) is supported.
@@ -51,13 +74,13 @@ public class TaxableOrder implements Serializable
 	/**
 	 * The date and time the order was submitted.
 	 */
-	protected Date orderDate;
+	protected DateTime orderDate;
 
-	public Date getOrderDate() {
+	public DateTime getOrderDate() {
 		return this.orderDate;
 	}
 
-	public void setOrderDate(Date orderDate) {
+	public void setOrderDate(DateTime orderDate) {
 		this.orderDate = orderDate;
 	}
 
@@ -71,37 +94,14 @@ public class TaxableOrder implements Serializable
 		this.originalDocumentCode = originalDocumentCode;
 	}
 
-	protected Date originalOrderDate;
+	protected DateTime originalOrderDate;
 
-	public Date getOriginalOrderDate() {
+	public DateTime getOriginalOrderDate() {
 		return this.originalOrderDate;
 	}
 
-	public void setOriginalOrderDate(Date originalOrderDate) {
+	public void setOriginalOrderDate(DateTime originalOrderDate) {
 		this.originalOrderDate = originalOrderDate;
-	}
-
-	/**
-	 * The total shipping amount calculated for the order.
-	 */
-	protected Double shippingAmount;
-
-	public Double getShippingAmount() {
-		return this.shippingAmount;
-	}
-
-	public void setShippingAmount(Double shippingAmount) {
-		this.shippingAmount = shippingAmount;
-	}
-
-	protected String taxRequestType;
-
-	public String getTaxRequestType() {
-		return this.taxRequestType;
-	}
-
-	public void setTaxRequestType(String taxRequestType) {
-		this.taxRequestType = taxRequestType;
 	}
 
 	/**

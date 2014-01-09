@@ -9,7 +9,7 @@ package com.mozu.api.contracts.commerceruntime.wishlists;
 import java.util.List;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import java.util.Date;
+import org.joda.time.DateTime;
 import com.mozu.api.contracts.core.AuditInfo;
 import com.mozu.api.contracts.commerceruntime.commerce.ChangeMessage;
 import com.mozu.api.contracts.commerceruntime.fulfillment.FulfillmentInfo;
@@ -119,13 +119,13 @@ public class Wishlist implements Serializable
 	/**
 	 * The date and time this wish list expires. This property value is not calculated at this time and is reserved for future functionality.
 	 */
-	protected Date expirationDate;
+	protected DateTime expirationDate;
 
-	public Date getExpirationDate() {
+	public DateTime getExpirationDate() {
 		return this.expirationDate;
 	}
 
-	public void setExpirationDate(Date expirationDate) {
+	public void setExpirationDate(DateTime expirationDate) {
 		this.expirationDate = expirationDate;
 	}
 
@@ -178,13 +178,13 @@ public class Wishlist implements Serializable
 		this.id = id;
 	}
 
-	protected Date importDate;
+	protected DateTime importDate;
 
-	public Date getImportDate() {
+	public DateTime getImportDate() {
 		return this.importDate;
 	}
 
-	public void setImportDate(Date importDate) {
+	public void setImportDate(DateTime importDate) {
 		this.importDate = importDate;
 	}
 
@@ -214,13 +214,13 @@ public class Wishlist implements Serializable
 	/**
 	 * The date and time the wish list was last validated against the product catalog.
 	 */
-	protected Date lastValidationDate;
+	protected DateTime lastValidationDate;
 
-	public Date getLastValidationDate() {
+	public DateTime getLastValidationDate() {
 		return this.lastValidationDate;
 	}
 
-	public void setLastValidationDate(Date lastValidationDate) {
+	public void setLastValidationDate(DateTime lastValidationDate) {
 		this.lastValidationDate = lastValidationDate;
 	}
 

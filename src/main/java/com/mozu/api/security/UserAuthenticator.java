@@ -13,7 +13,6 @@ import org.joda.time.DateTime;
 
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mozu.api.ApiException;
 import com.mozu.api.Headers;
@@ -25,9 +24,10 @@ import com.mozu.api.contracts.tenant.Tenant;
 import com.mozu.api.urls.platform.adminuser.TenantAdminUserAuthTicketUrl;
 import com.mozu.api.urls.platform.developer.DeveloperAdminUserAuthTicketUrl;
 import com.mozu.api.utils.HttpHelper;
+import com.mozu.api.utils.JsonUtils;
 
 public class UserAuthenticator {
-    private static ObjectMapper mapper = new ObjectMapper();
+    private static ObjectMapper mapper = JsonUtils.initObjectMapper();
 
     private static HttpHost proxyHttpHost = HttpHelper.getProxyHost();
 

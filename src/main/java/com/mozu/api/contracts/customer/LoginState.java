@@ -8,7 +8,7 @@ package com.mozu.api.contracts.customer;
 
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import java.util.Date;
+import org.joda.time.DateTime;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class LoginState implements Serializable
@@ -16,13 +16,13 @@ public class LoginState implements Serializable
 	// Default Serial Version UID
 	private static final long serialVersionUID = 1L;
 
-	protected Date createdOn;
+	protected DateTime createdOn;
 
-	public Date getCreatedOn() {
+	public DateTime getCreatedOn() {
 		return this.createdOn;
 	}
 
-	public void setCreatedOn(Date createdOn) {
+	public void setCreatedOn(DateTime createdOn) {
 		this.createdOn = createdOn;
 	}
 
@@ -36,13 +36,13 @@ public class LoginState implements Serializable
 		this.failedLoginAttemptCount = failedLoginAttemptCount;
 	}
 
-	protected Date firstFailedLoginAttemptOn;
+	protected DateTime firstFailedLoginAttemptOn;
 
-	public Date getFirstFailedLoginAttemptOn() {
+	public DateTime getFirstFailedLoginAttemptOn() {
 		return this.firstFailedLoginAttemptOn;
 	}
 
-	public void setFirstFailedLoginAttemptOn(Date firstFailedLoginAttemptOn) {
+	public void setFirstFailedLoginAttemptOn(DateTime firstFailedLoginAttemptOn) {
 		this.firstFailedLoginAttemptOn = firstFailedLoginAttemptOn;
 	}
 
@@ -66,33 +66,33 @@ public class LoginState implements Serializable
 		this.isPasswordChangeRequired = isPasswordChangeRequired;
 	}
 
-	protected Date lastLockedOn;
+	protected DateTime lastLockedOn;
 
-	public Date getLastLockedOn() {
+	public DateTime getLastLockedOn() {
 		return this.lastLockedOn;
 	}
 
-	public void setLastLockedOn(Date lastLockedOn) {
+	public void setLastLockedOn(DateTime lastLockedOn) {
 		this.lastLockedOn = lastLockedOn;
 	}
 
-	protected Date lastLoginOn;
+	protected DateTime lastLoginOn;
 
-	public Date getLastLoginOn() {
+	public DateTime getLastLoginOn() {
 		return this.lastLoginOn;
 	}
 
-	public void setLastLoginOn(Date lastLoginOn) {
+	public void setLastLoginOn(DateTime lastLoginOn) {
 		this.lastLoginOn = lastLoginOn;
 	}
 
-	protected Date lastPasswordChangeOn;
+	protected DateTime lastPasswordChangeOn;
 
-	public Date getLastPasswordChangeOn() {
+	public DateTime getLastPasswordChangeOn() {
 		return this.lastPasswordChangeOn;
 	}
 
-	public void setLastPasswordChangeOn(Date lastPasswordChangeOn) {
+	public void setLastPasswordChangeOn(DateTime lastPasswordChangeOn) {
 		this.lastPasswordChangeOn = lastPasswordChangeOn;
 	}
 
@@ -106,13 +106,13 @@ public class LoginState implements Serializable
 		this.remainingLoginAttempts = remainingLoginAttempts;
 	}
 
-	protected Date updatedOn;
+	protected DateTime updatedOn;
 
-	public Date getUpdatedOn() {
+	public DateTime getUpdatedOn() {
 		return this.updatedOn;
 	}
 
-	public void setUpdatedOn(Date updatedOn) {
+	public void setUpdatedOn(DateTime updatedOn) {
 		this.updatedOn = updatedOn;
 	}
 

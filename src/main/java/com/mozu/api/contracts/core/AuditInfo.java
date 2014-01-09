@@ -8,7 +8,7 @@ package com.mozu.api.contracts.core;
 
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import java.util.Date;
+import org.joda.time.DateTime;
 
 /**
  *	Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
@@ -35,13 +35,13 @@ public class AuditInfo implements Serializable
 	/**
 	 * Date and time when the entity was created, represented in UTC Date/Time.
 	 */
-	protected Date createDate;
+	protected DateTime createDate;
 
-	public Date getCreateDate() {
+	public DateTime getCreateDate() {
 		return this.createDate;
 	}
 
-	public void setCreateDate(Date createDate) {
+	public void setCreateDate(DateTime createDate) {
 		this.createDate = createDate;
 	}
 
@@ -61,13 +61,13 @@ public class AuditInfo implements Serializable
 	/**
 	 * Date and time when the entity was last updated, represented in UTC Date/Time.
 	 */
-	protected Date updateDate;
+	protected DateTime updateDate;
 
-	public Date getUpdateDate() {
+	public DateTime getUpdateDate() {
 		return this.updateDate;
 	}
 
-	public void setUpdateDate(Date updateDate) {
+	public void setUpdateDate(DateTime updateDate) {
 		this.updateDate = updateDate;
 	}
 

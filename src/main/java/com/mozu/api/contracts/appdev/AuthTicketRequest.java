@@ -8,7 +8,7 @@ package com.mozu.api.contracts.appdev;
 
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import java.util.Date;
+import org.joda.time.DateTime;
 
 /**
  *	Properties of the authentication ticket refresh requests, which includes the refresh token string.

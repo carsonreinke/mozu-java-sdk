@@ -8,7 +8,7 @@ package com.mozu.api.contracts.commerceruntime.payments;
 
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import java.util.Date;
+import org.joda.time.DateTime;
 
 /**
  *	Properties of an interaction with the payment gateway.

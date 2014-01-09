@@ -8,7 +8,7 @@ package com.mozu.api.contracts.productruntime;
 
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import java.util.Date;
+import org.joda.time.DateTime;
 
 /**
  *	The selection the shopper made from a list of options set up in product admin.

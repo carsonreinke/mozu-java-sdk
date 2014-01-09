@@ -8,7 +8,7 @@ package com.mozu.api.contracts.commerceruntime.products;
 
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import java.util.Date;
+import org.joda.time.DateTime;
 
 /**
  *	An option attribute configured for a product on a storefront.
